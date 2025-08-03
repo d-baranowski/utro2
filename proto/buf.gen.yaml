@@ -1,6 +1,6 @@
 version: v1
 plugins:
-  - plugin: buf.build/protocolbuffers/java
+  - plugin: buf.build/protocolbuffers/java:v31.1
     out: ../api/app/src/main/java
   - plugin: buf.build/bufbuild/es
     out: ../web/generated

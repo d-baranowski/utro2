@@ -10,4 +10,8 @@
     <modules>
         <module>app</module>
     </modules>
+
+    <dependencies>
+
+    </dependencies>
 </project>
