@@ -1,8 +1,8 @@
 version: v1
 plugins:
   - plugin: buf.build/protocolbuffers/java
-    out: ../api/app/src/main/java
+    out: api/app/src/main/java
   - plugin: buf.build/bufbuild/es
-    out: ../web/generated
+    out: web/generated
   - plugin: buf.build/connectrpc/es
-    out: ../web/generated
+    out: web/generated
