@@ -19,8 +19,8 @@ buf generate
 Run backend:
 
 ```bash
-cd api
-gradle bootRun
+cd api/app
+mvn spring-boot:run
 ```
 
 Run frontend:
