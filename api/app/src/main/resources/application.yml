@@ -10,6 +10,8 @@ spring:
               - openid
               - profile
               - email
+jwt:
+  secret: change-me
 server:
   port: 8080
 management:
