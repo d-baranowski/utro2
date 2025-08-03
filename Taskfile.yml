@@ -1,0 +1,41 @@
+version: '3'
+
+vars:
+  BACKEND_DIR: api/app
+  FRONTEND_DIR: web
+
+tasks:
+  default:
+    desc: List available tasks
+    cmds:
+      - task -l
+    silent: true
+
+  proto:
+    desc: Generate protobuf code
+    cmds:
+      - buf generate
+
+  api:
+    desc: Run Spring Boot backend
+    dir: "{{.BACKEND_DIR}}"
+    cmds:
+      - mvn spring-boot:run
+
+  web:
+    desc: Run Next.js frontend
+    dir: "{{.FRONTEND_DIR}}"
+    cmds:
+      - npm install
+      - npm run dev
+
+  docker:
+    desc: Build images and run with Docker Compose
+    cmds:
+      - docker compose up --build
+
+  k8s:
+    desc: Apply Kubernetes manifests
+    cmds:
+      - kubectl apply -f k8s/api-deployment.yaml
+      - kubectl apply -f k8s/web-deployment.yaml

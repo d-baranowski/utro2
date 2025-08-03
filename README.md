@@ -10,6 +10,17 @@ This repository contains the **Utro** full stack application for [inspirationpar
 
 ## Usage
 
+This repository includes a [Taskfile](https://taskfile.dev) to streamline common
+development tasks. After installing Task, you can run:
+
+```bash
+task proto   # Generate protobuf code
+task api     # Run the Spring Boot backend
+task web     # Run the Next.js frontend
+task docker  # Build images and run Docker Compose
+task k8s     # Apply Kubernetes manifests
+```
+
 Generate protobuf code:
 
 ```bash
