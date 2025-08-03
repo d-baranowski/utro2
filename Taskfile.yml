@@ -26,8 +26,8 @@ tasks:
     desc: Run Next.js frontend
     dir: "{{.FRONTEND_DIR}}"
     cmds:
-      - npm install
-      - npm run dev
+      - pnpm install
+      - pnpm run dev
 
   docker:
     desc: Build images and run with Docker Compose
