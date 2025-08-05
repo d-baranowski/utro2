@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { z } from 'zod';
-import { createPromiseClient } from '@connectrpc/connect';
+import { createClient } from '@connectrpc/connect';
 import { createConnectTransport } from '@connectrpc/connect-web';
 import { TextField, Button, Box, Typography } from '@mui/material';
 import { GetServerSideProps } from 'next';
-import { AuthService } from '../generated/auth/v1/auth_connect';
+import { AuthService } from '../generated/auth/v1/auth_pb';
 
 type Props = { publicMsg: string };
 
@@ -16,7 +16,7 @@ export default function Home({ publicMsg }: Props) {
   const transport = createConnectTransport({
     baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8080',
   });
-  const client = createPromiseClient(AuthService, transport);
+  const client = createClient(AuthService as any, transport) as any;
 
   const loginSchema = z.object({
     username: z.string().min(1, 'Username is required'),
@@ -38,7 +38,7 @@ export default function Home({ publicMsg }: Props) {
       return;
     }
     setErrors({});
-    const res = await client.login(result.data);
+    const res = await client.login(result.data as any);
     setToken(res.token);
   }
 
