@@ -11,7 +11,7 @@ spring:
               - profile
               - email
 jwt:
-  secret: change-me
+  secret: your-256-bit-secret-key-for-development-only-change-in-production
 server:
   port: 8080
 management:

@@ -27,7 +27,7 @@ public final class Auth {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   public interface LoginRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:inspirationparticle.auth.v1.LoginRequest)
+      // @@protoc_insertion_point(interface_extends:com.inspirationparticle.auth.v1.LoginRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -55,11 +55,11 @@ public final class Auth {
         getPasswordBytes();
   }
   /**
-   * Protobuf type {@code inspirationparticle.auth.v1.LoginRequest}
+   * Protobuf type {@code com.inspirationparticle.auth.v1.LoginRequest}
    */
   public static final class LoginRequest extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:inspirationparticle.auth.v1.LoginRequest)
+      // @@protoc_insertion_point(message_implements:com.inspirationparticle.auth.v1.LoginRequest)
       LoginRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     static {
@@ -82,13 +82,13 @@ public final class Auth {
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.inspirationparticle.auth.v1.Auth.internal_static_inspirationparticle_auth_v1_LoginRequest_descriptor;
+      return com.inspirationparticle.auth.v1.Auth.internal_static_com_inspirationparticle_auth_v1_LoginRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.inspirationparticle.auth.v1.Auth.internal_static_inspirationparticle_auth_v1_LoginRequest_fieldAccessorTable
+      return com.inspirationparticle.auth.v1.Auth.internal_static_com_inspirationparticle_auth_v1_LoginRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.inspirationparticle.auth.v1.Auth.LoginRequest.class, com.inspirationparticle.auth.v1.Auth.LoginRequest.Builder.class);
     }
@@ -338,21 +338,21 @@ public final class Auth {
       return builder;
     }
     /**
-     * Protobuf type {@code inspirationparticle.auth.v1.LoginRequest}
+     * Protobuf type {@code com.inspirationparticle.auth.v1.LoginRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:inspirationparticle.auth.v1.LoginRequest)
+        // @@protoc_insertion_point(builder_implements:com.inspirationparticle.auth.v1.LoginRequest)
         com.inspirationparticle.auth.v1.Auth.LoginRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.inspirationparticle.auth.v1.Auth.internal_static_inspirationparticle_auth_v1_LoginRequest_descriptor;
+        return com.inspirationparticle.auth.v1.Auth.internal_static_com_inspirationparticle_auth_v1_LoginRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.inspirationparticle.auth.v1.Auth.internal_static_inspirationparticle_auth_v1_LoginRequest_fieldAccessorTable
+        return com.inspirationparticle.auth.v1.Auth.internal_static_com_inspirationparticle_auth_v1_LoginRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.inspirationparticle.auth.v1.Auth.LoginRequest.class, com.inspirationparticle.auth.v1.Auth.LoginRequest.Builder.class);
       }
@@ -379,7 +379,7 @@ public final class Auth {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.inspirationparticle.auth.v1.Auth.internal_static_inspirationparticle_auth_v1_LoginRequest_descriptor;
+        return com.inspirationparticle.auth.v1.Auth.internal_static_com_inspirationparticle_auth_v1_LoginRequest_descriptor;
       }
 
       @java.lang.Override
@@ -633,10 +633,10 @@ public final class Auth {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:inspirationparticle.auth.v1.LoginRequest)
+      // @@protoc_insertion_point(builder_scope:com.inspirationparticle.auth.v1.LoginRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:inspirationparticle.auth.v1.LoginRequest)
+    // @@protoc_insertion_point(class_scope:com.inspirationparticle.auth.v1.LoginRequest)
     private static final com.inspirationparticle.auth.v1.Auth.LoginRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.inspirationparticle.auth.v1.Auth.LoginRequest();
@@ -685,7 +685,7 @@ public final class Auth {
   }
 
   public interface LoginResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:inspirationparticle.auth.v1.LoginResponse)
+      // @@protoc_insertion_point(interface_extends:com.inspirationparticle.auth.v1.LoginResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -701,11 +701,11 @@ public final class Auth {
         getTokenBytes();
   }
   /**
-   * Protobuf type {@code inspirationparticle.auth.v1.LoginResponse}
+   * Protobuf type {@code com.inspirationparticle.auth.v1.LoginResponse}
    */
   public static final class LoginResponse extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:inspirationparticle.auth.v1.LoginResponse)
+      // @@protoc_insertion_point(message_implements:com.inspirationparticle.auth.v1.LoginResponse)
       LoginResponseOrBuilder {
   private static final long serialVersionUID = 0L;
     static {
@@ -727,13 +727,13 @@ public final class Auth {
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.inspirationparticle.auth.v1.Auth.internal_static_inspirationparticle_auth_v1_LoginResponse_descriptor;
+      return com.inspirationparticle.auth.v1.Auth.internal_static_com_inspirationparticle_auth_v1_LoginResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.inspirationparticle.auth.v1.Auth.internal_static_inspirationparticle_auth_v1_LoginResponse_fieldAccessorTable
+      return com.inspirationparticle.auth.v1.Auth.internal_static_com_inspirationparticle_auth_v1_LoginResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.inspirationparticle.auth.v1.Auth.LoginResponse.class, com.inspirationparticle.auth.v1.Auth.LoginResponse.Builder.class);
     }
@@ -934,21 +934,21 @@ public final class Auth {
       return builder;
     }
     /**
-     * Protobuf type {@code inspirationparticle.auth.v1.LoginResponse}
+     * Protobuf type {@code com.inspirationparticle.auth.v1.LoginResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:inspirationparticle.auth.v1.LoginResponse)
+        // @@protoc_insertion_point(builder_implements:com.inspirationparticle.auth.v1.LoginResponse)
         com.inspirationparticle.auth.v1.Auth.LoginResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.inspirationparticle.auth.v1.Auth.internal_static_inspirationparticle_auth_v1_LoginResponse_descriptor;
+        return com.inspirationparticle.auth.v1.Auth.internal_static_com_inspirationparticle_auth_v1_LoginResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.inspirationparticle.auth.v1.Auth.internal_static_inspirationparticle_auth_v1_LoginResponse_fieldAccessorTable
+        return com.inspirationparticle.auth.v1.Auth.internal_static_com_inspirationparticle_auth_v1_LoginResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.inspirationparticle.auth.v1.Auth.LoginResponse.class, com.inspirationparticle.auth.v1.Auth.LoginResponse.Builder.class);
       }
@@ -974,7 +974,7 @@ public final class Auth {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.inspirationparticle.auth.v1.Auth.internal_static_inspirationparticle_auth_v1_LoginResponse_descriptor;
+        return com.inspirationparticle.auth.v1.Auth.internal_static_com_inspirationparticle_auth_v1_LoginResponse_descriptor;
       }
 
       @java.lang.Override
@@ -1143,10 +1143,10 @@ public final class Auth {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:inspirationparticle.auth.v1.LoginResponse)
+      // @@protoc_insertion_point(builder_scope:com.inspirationparticle.auth.v1.LoginResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:inspirationparticle.auth.v1.LoginResponse)
+    // @@protoc_insertion_point(class_scope:com.inspirationparticle.auth.v1.LoginResponse)
     private static final com.inspirationparticle.auth.v1.Auth.LoginResponse DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.inspirationparticle.auth.v1.Auth.LoginResponse();
@@ -1195,15 +1195,15 @@ public final class Auth {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_inspirationparticle_auth_v1_LoginRequest_descriptor;
+    internal_static_com_inspirationparticle_auth_v1_LoginRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_inspirationparticle_auth_v1_LoginRequest_fieldAccessorTable;
+      internal_static_com_inspirationparticle_auth_v1_LoginRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_inspirationparticle_auth_v1_LoginResponse_descriptor;
+    internal_static_com_inspirationparticle_auth_v1_LoginResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_inspirationparticle_auth_v1_LoginResponse_fieldAccessorTable;
+      internal_static_com_inspirationparticle_auth_v1_LoginResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1213,30 +1213,31 @@ public final class Auth {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\022auth/v1/auth.proto\022\033inspirationparticl" +
-      "e.auth.v1\"F\n\014LoginRequest\022\032\n\010username\030\001 " +
-      "\001(\tR\010username\022\032\n\010password\030\002 \001(\tR\010passwor" +
-      "d\"%\n\rLoginResponse\022\024\n\005token\030\001 \001(\tR\005token" +
-      "2m\n\013AuthService\022^\n\005Login\022).inspirationpa" +
-      "rticle.auth.v1.LoginRequest\032*.inspiratio" +
-      "nparticle.auth.v1.LoginResponseB!\n\037com.i" +
-      "nspirationparticle.auth.v1b\006proto3"
+      "\n\022auth/v1/auth.proto\022\037com.inspirationpar" +
+      "ticle.auth.v1\"F\n\014LoginRequest\022\032\n\010usernam" +
+      "e\030\001 \001(\tR\010username\022\032\n\010password\030\002 \001(\tR\010pas" +
+      "sword\"%\n\rLoginResponse\022\024\n\005token\030\001 \001(\tR\005t" +
+      "oken2u\n\013AuthService\022f\n\005Login\022-.com.inspi" +
+      "rationparticle.auth.v1.LoginRequest\032..co" +
+      "m.inspirationparticle.auth.v1.LoginRespo" +
+      "nseB!\n\037com.inspirationparticle.auth.v1b\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_inspirationparticle_auth_v1_LoginRequest_descriptor =
+    internal_static_com_inspirationparticle_auth_v1_LoginRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_inspirationparticle_auth_v1_LoginRequest_fieldAccessorTable = new
+    internal_static_com_inspirationparticle_auth_v1_LoginRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_inspirationparticle_auth_v1_LoginRequest_descriptor,
+        internal_static_com_inspirationparticle_auth_v1_LoginRequest_descriptor,
         new java.lang.String[] { "Username", "Password", });
-    internal_static_inspirationparticle_auth_v1_LoginResponse_descriptor =
+    internal_static_com_inspirationparticle_auth_v1_LoginResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_inspirationparticle_auth_v1_LoginResponse_fieldAccessorTable = new
+    internal_static_com_inspirationparticle_auth_v1_LoginResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_inspirationparticle_auth_v1_LoginResponse_descriptor,
+        internal_static_com_inspirationparticle_auth_v1_LoginResponse_descriptor,
         new java.lang.String[] { "Token", });
     descriptor.resolveAllFeaturesImmutable();
   }
