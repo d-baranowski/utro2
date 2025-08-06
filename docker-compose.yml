@@ -1,15 +1,75 @@
 version: '3.8'
 services:
+  # Jaeger for distributed tracing
+  jaeger:
+    image: jaegertracing/all-in-one:1.50
+    ports:
+      - "16686:16686"  # Jaeger UI
+      - "14250:14250"  # gRPC
+    environment:
+      - COLLECTOR_OTLP_ENABLED=true
+
+  # OpenTelemetry Collector
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.88.0
+    command: ["--config=/etc/otel-collector-config.yaml"]
+    volumes:
+      - ./observability/otel-collector-config.yaml:/etc/otel-collector-config.yaml
+    ports:
+      - "4317:4317"   # OTLP gRPC receiver
+      - "4318:4318"   # OTLP HTTP receiver
+      - "8888:8888"   # Prometheus metrics
+    depends_on:
+      - jaeger
+
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: utro
+      POSTGRES_USER: utro
+      POSTGRES_PASSWORD: utro_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U utro"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
   api:
     build: ./api
     ports:
       - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:otel:postgresql://postgres:5432/utro
+      SPRING_DATASOURCE_USERNAME: utro
+      SPRING_DATASOURCE_PASSWORD: utro_password
+      MANAGEMENT_OTLP_TRACING_ENDPOINT: http://otel-collector:4318/v1/traces
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4318
+      OTEL_EXPORTER_OTLP_PROTOCOL: http/protobuf
+      OTEL_SERVICE_NAME: utro-api
+      OTEL_SERVICE_NAMESPACE: utro
+      OTEL_SERVICE_VERSION: 0.1.0
+      OTEL_RESOURCE_ATTRIBUTES: service.name=utro-api,service.namespace=utro,service.version=0.1.0,deployment.environment=docker
+    depends_on:
+      postgres:
+        condition: service_healthy
+      otel-collector:
+        condition: service_started
+
   web:
     build: ./web
     environment:
       - NEXT_PUBLIC_API_BASE_URL=http://api:8080
       - API_BASE_URL=http://api:8080
+      - NEXT_PUBLIC_OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=http://localhost:4318/v1/traces
     ports:
       - "3000:3000"
     depends_on:
       - api
+      - otel-collector
+
+volumes:
+  postgres_data:

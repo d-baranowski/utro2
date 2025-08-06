@@ -40,3 +40,93 @@ tasks:
     cmds:
       - kubectl apply -f k8s/api-deployment.yaml
       - kubectl apply -f k8s/web-deployment.yaml
+
+  db:start:
+    desc: Start PostgreSQL database container
+    cmds:
+      - ./scripts/start-db.sh
+
+  db:stop:
+    desc: Stop PostgreSQL database container
+    cmds:
+      - ./scripts/stop-db.sh
+
+  db:migrate:
+    desc: Run database migrations
+    cmds:
+      - ./scripts/run-migrations.sh
+
+  db:clean:
+    desc: Stop database and remove volume
+    cmds:
+      - docker stop utro-postgres || true
+      - docker rm utro-postgres || true
+      - docker volume rm utro_postgres_data || true
+
+  lint:
+    desc: Run linting for both backend and frontend
+    cmds:
+      - task: lint:api
+      - task: lint:web
+
+  lint:api:
+    desc: Run Java linting with Checkstyle and SpotBugs
+    dir: "{{.BACKEND_DIR}}"
+    cmds:
+      - mvn checkstyle:check
+      - mvn spotbugs:check
+
+  lint:web:
+    desc: Run ESLint and Prettier for frontend
+    dir: "{{.FRONTEND_DIR}}"
+    cmds:
+      - pnpm run lint
+      - pnpm run format:check
+      - pnpm run typecheck
+
+  format:
+    desc: Auto-fix formatting for frontend
+    dir: "{{.FRONTEND_DIR}}"
+    cmds:
+      - pnpm run lint:fix
+      - pnpm run format
+
+  test:
+    desc: Run tests for both backend and frontend
+    cmds:
+      - task: test:api
+      - task: test:web
+
+  test:api:
+    desc: Run backend tests
+    dir: "{{.BACKEND_DIR}}"
+    cmds:
+      - mvn test
+
+  test:web:
+    desc: Run frontend tests
+    dir: "{{.FRONTEND_DIR}}"
+    cmds:
+      - pnpm test
+
+  observability:start:
+    desc: Start observability stack (Jaeger, OTel Collector)
+    cmds:
+      - docker compose up jaeger otel-collector -d
+
+  observability:stop:
+    desc: Stop observability stack
+    cmds:
+      - docker compose stop jaeger otel-collector
+      - docker compose rm -f jaeger otel-collector
+
+  traces:
+    desc: Open Jaeger UI for trace visualization
+    cmds:
+      - echo "Opening Jaeger UI at http://localhost:16686"
+      - open http://localhost:16686 || xdg-open http://localhost:16686 || echo "Please open http://localhost:16686 in your browser"
+
+  docker:observability:
+    desc: Build and run full stack with observability
+    cmds:
+      - docker compose up --build

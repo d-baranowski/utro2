@@ -1,4 +1,17 @@
 spring:
+  datasource:
+    url: jdbc:otel:postgresql://localhost:5432/utro
+    username: utro
+    password: utro_password
+    driver-class-name: io.opentelemetry.instrumentation.jdbc.OpenTelemetryDriver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
   security:
     oauth2:
       client:
@@ -19,3 +32,25 @@ management:
     web:
       exposure:
         include: '*'
+  tracing:
+    sampling:
+      probability: 1.0
+  otlp:
+    tracing:
+      endpoint: http://localhost:4318/v1/traces
+
+# OpenTelemetry Configuration
+otel:
+  service:
+    name: utro-api
+    version: 0.1.0
+  exporter:
+    otlp:
+      endpoint: http://localhost:4318
+      protocol: http/protobuf
+  resource:
+    attributes:
+      service.name: utro-api
+      service.namespace: utro
+      service.version: 0.1.0
+      deployment.environment: development

@@ -19,18 +19,30 @@ task api     # Run Spring Boot backend on port 8080
 task web     # Run Next.js frontend on port 3000
 task docker  # Build and run full stack with Docker Compose
 task k8s     # Deploy to Kubernetes
+task lint    # Run linting for both backend and frontend
+task format  # Auto-fix frontend formatting
+task test    # Run tests for both backend and frontend
 ```
 
 ### Individual Commands
 ```bash
-# Backend (from /api/app)
+# Backend (from /api/app) - Requires Maven installation
 mvn spring-boot:run      # Run development server
 mvn clean package        # Build JAR
+mvn test                 # Run unit tests
+mvn checkstyle:check     # Run Java code style checking
+mvn spotbugs:check       # Run security and bug analysis
 
 # Frontend (from /web)
 pnpm dev                 # Development server
 pnpm build              # Production build
 pnpm start              # Production server
+pnpm run lint            # Run ESLint
+pnpm run format          # Run Prettier formatting
+pnpm run typecheck       # Run TypeScript checking
+pnpm test                # Run Jest tests
+pnpm run test:watch      # Run tests in watch mode
+pnpm run test:coverage   # Run tests with coverage report
 ```
 
 ## Architecture
@@ -59,6 +71,7 @@ pnpm start              # Production server
 - Returns JWT token (HMAC SHA256 signed)
 - Frontend includes token in Authorization header
 - Protected endpoints check JWT validity
+- 
 - Google OAuth2 integration available
 
 ### Development Workflow
@@ -74,5 +87,52 @@ pnpm start              # Production server
 - `/web/next.config.js` - Next.js config with API URL env variables
 - `/Taskfile.yml` - Task automation definitions
 
-## Testing
-Currently no test suites implemented. Spring Boot includes test starter dependencies. Frontend has no testing framework configured yet.
+## Testing and Code Quality
+
+### Testing Framework
+- **Backend**: JUnit 5 with Spring Boot Test for unit and integration tests
+- **Frontend**: Jest with React Testing Library for component and unit tests
+
+### Code Quality Tools
+- **Backend**: Checkstyle for code style, SpotBugs for security analysis
+- **Frontend**: ESLint for linting, Prettier for formatting, TypeScript for type checking
+
+### Test Commands
+```bash
+# Run all tests
+task test
+
+# Backend tests only
+mvn test                 # Run all backend tests
+mvn test -Dtest=AuthControllerTest  # Run specific test class
+
+# Frontend tests only  
+pnpm test                # Run all frontend tests
+pnpm run test:watch      # Run tests in watch mode
+pnpm run test:coverage   # Generate coverage report
+```
+
+### Quality Check Commands
+```bash
+# Run all quality checks
+task lint
+
+# Backend quality checks
+mvn checkstyle:check     # Code style validation
+mvn spotbugs:check       # Security and bug analysis
+
+# Frontend quality checks
+pnpm run lint            # ESLint validation
+pnpm run format          # Auto-fix formatting
+pnpm run typecheck       # TypeScript validation
+```
+
+### Important Notes
+- Always run tests before commits: `task test && task lint`
+- Fix any linting or formatting issues before code reviews
+- Maintain test coverage for new features and bug fixes
+
+## Code Style 
+1. Always use singular instead of plural when naming database tables. For example, use `user` instead of `users`.
+2. Make use of typescript and avoid using `any` types.
+3. Avoid using non-exact version numbers in dependencies in `package.json` files. For example, use `3.2.0` instead of `^3.2.0` I want to see the actual version number not approximations.
