@@ -3,6 +3,8 @@ package com.inspirationparticle.utro.entity;
 import com.github.ksuid.Ksuid;
 import jakarta.persistence.*;
 import java.time.Instant;
+import java.util.Set;
+import java.util.HashSet;
 
 @Entity
 @Table(name = "organisation")
@@ -22,6 +24,9 @@ public class Organisation {
 
     @Column(name = "updated_at", nullable = false)
     private Instant updatedAt;
+
+    @OneToMany(mappedBy = "organisation", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<OrganisationMember> members = new HashSet<>();
 
     @PrePersist
     protected void onCreate() {
@@ -75,5 +80,13 @@ public class Organisation {
 
     public void setUpdatedAt(Instant updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public Set<OrganisationMember> getMembers() {
+        return members;
+    }
+
+    public void setMembers(Set<OrganisationMember> members) {
+        this.members = members;
     }
 }

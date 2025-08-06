@@ -24,10 +24,10 @@ describe('Home', () => {
   it('renders login form when not authenticated', () => {
     render(<Home publicMsg="Welcome to Utro" />);
 
-    expect(screen.getByText('Welcome Back')).toBeInTheDocument();
-    expect(screen.getByLabelText('Username')).toBeInTheDocument();
-    expect(screen.getByLabelText('Password')).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /sign in/i })).toBeInTheDocument();
+    expect(screen.getByText('auth.welcomeBack')).toBeInTheDocument();
+    expect(screen.getByLabelText('auth.username')).toBeInTheDocument();
+    expect(screen.getByLabelText('auth.password')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /auth.signIn/i })).toBeInTheDocument();
   });
 
   it('displays public message when provided', () => {
@@ -40,12 +40,12 @@ describe('Home', () => {
   it('shows validation errors for empty fields', async () => {
     render(<Home publicMsg="" />);
 
-    const submitButton = screen.getByRole('button', { name: /sign in/i });
+    const submitButton = screen.getByRole('button', { name: /auth.signIn/i });
     fireEvent.click(submitButton);
 
     await waitFor(() => {
-      expect(screen.getByText('Username is required')).toBeInTheDocument();
-      expect(screen.getByText('Password is required')).toBeInTheDocument();
+      expect(screen.getByText('auth.usernameRequired')).toBeInTheDocument();
+      expect(screen.getByText('auth.passwordRequired')).toBeInTheDocument();
     });
   });
 

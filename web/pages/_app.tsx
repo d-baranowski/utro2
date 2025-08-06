@@ -7,6 +7,9 @@ import theme from '../src/theme/theme';
 import Head from 'next/head';
 import { useEffect } from 'react';
 import { initializeTelemetry } from '../lib/telemetry';
+import { appWithTranslation } from 'next-i18next';
+import { AuthProvider } from '../src/contexts/AuthContext';
+import { OrganisationProvider } from '../src/contexts/OrganisationContext';
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -14,7 +17,7 @@ interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }
 
-export default function MyApp(props: MyAppProps) {
+function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
   useEffect(() => {
@@ -29,8 +32,14 @@ export default function MyApp(props: MyAppProps) {
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Component {...pageProps} />
+        <AuthProvider>
+          <OrganisationProvider>
+            <Component {...pageProps} />
+          </OrganisationProvider>
+        </AuthProvider>
       </ThemeProvider>
     </CacheProvider>
   );
 }
+
+export default appWithTranslation(MyApp);

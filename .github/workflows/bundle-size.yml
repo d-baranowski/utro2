@@ -1,0 +1,108 @@
+name: Bundle Size Analysis
+
+on:
+  pull_request:
+    paths:
+      - 'web/**'
+      - '.github/workflows/bundle-size.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'web/**'
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            web/node_modules
+            ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('web/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: Install dependencies
+        working-directory: ./web
+        run: pnpm install --frozen-lockfile
+
+      - name: Build application
+        working-directory: ./web
+        run: pnpm build
+
+      - name: Analyze bundle size
+        working-directory: ./web
+        run: |
+          # Run custom analysis
+          node scripts/bundle-analysis.js --detailed
+
+      - name: Upload bundle report
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: bundle-report
+          path: web/bundle-report.json
+
+      - name: Comment PR with bundle size
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = JSON.parse(fs.readFileSync('web/bundle-report.json', 'utf8'));
+            
+            const formatBytes = (bytes) => {
+              if (bytes === 0) return '0 Bytes';
+              const k = 1024;
+              const sizes = ['Bytes', 'KB', 'MB'];
+              const i = Math.floor(Math.log(bytes) / Math.log(k));
+              return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+            };
+            
+            const comment = `## 📦 Bundle Size Report
+            
+            | Metric | Size |
+            |--------|------|
+            | **Total Size** | ${formatBytes(report.totalSize)} |
+            | **Main Bundle** | ${formatBytes(report.chunks.main || 0)} |
+            | **Framework** | ${formatBytes(report.chunks.framework || 0)} |
+            | **Pages** | ${formatBytes(report.chunks.pages || 0)} |
+            
+            <details>
+            <summary>View detailed report</summary>
+            
+            \`\`\`json
+            ${JSON.stringify(report, null, 2)}
+            \`\`\`
+            
+            </details>`;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+
+      - name: Check size limits
+        working-directory: ./web
+        run: pnpm size
+        continue-on-error: true

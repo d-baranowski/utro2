@@ -1,0 +1,82 @@
+{
+  "empty": {
+    "organisations": []
+  },
+  "withOrganizations": {
+    "organisations": [
+      {
+        "id": "2WbfKjEhVn8WwjGT0b9ZsLN",
+        "name": "Acme Corp",
+        "description": "Leading technology company",
+        "member_type": "MEMBER_TYPE_ADMINISTRATOR",
+        "joined_at": {
+          "seconds": "1703846400",
+          "nanos": 0
+        },
+        "created_at": {
+          "seconds": "1703846400", 
+          "nanos": 0
+        },
+        "updated_at": {
+          "seconds": "1703846400",
+          "nanos": 0
+        }
+      },
+      {
+        "id": "2WbfKjEhVn8WwjGT0b9ZsLO",
+        "name": "Tech Solutions Ltd",
+        "description": "Software development company",
+        "member_type": "MEMBER_TYPE_MEMBER",
+        "joined_at": {
+          "seconds": "1703846400",
+          "nanos": 0
+        },
+        "created_at": {
+          "seconds": "1703846400",
+          "nanos": 0
+        },
+        "updated_at": {
+          "seconds": "1703846400",
+          "nanos": 0
+        }
+      }
+    ]
+  },
+  "newOrganization": {
+    "organisation": {
+      "id": "2WbfKjEhVn8WwjGT0b9ZsLP",
+      "name": "New Test Org",
+      "description": "Test organization description",
+      "member_type": "MEMBER_TYPE_ADMINISTRATOR",
+      "joined_at": {
+        "seconds": "1703846400",
+        "nanos": 0
+      },
+      "created_at": {
+        "seconds": "1703846400",
+        "nanos": 0
+      },
+      "updated_at": {
+        "seconds": "1703846400",
+        "nanos": 0
+      }
+    }
+  },
+  "searchResults": {
+    "organisations": [
+      {
+        "id": "2WbfKjEhVn8WwjGT0b9ZsLQ",
+        "name": "Search Result Org",
+        "description": "Found organization",
+        "created_at": {
+          "seconds": "1703846400",
+          "nanos": 0
+        },
+        "updated_at": {
+          "seconds": "1703846400",
+          "nanos": 0
+        }
+      }
+    ]
+  }
+}

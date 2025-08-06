@@ -1,0 +1,51 @@
+syntax = "proto3";
+package inspirationparticle.organisation.v1;
+
+import "google/protobuf/timestamp.proto";
+
+option java_package = "com.inspirationparticle.organisation.v1";
+
+service OrganisationService {
+  rpc GetMyOrganisations(GetMyOrganisationsRequest) returns (GetMyOrganisationsResponse);
+  rpc CreateOrganisation(CreateOrganisationRequest) returns (CreateOrganisationResponse);
+  rpc SearchOrganisations(SearchOrganisationsRequest) returns (SearchOrganisationsResponse);
+}
+
+message GetMyOrganisationsRequest {}
+
+message GetMyOrganisationsResponse {
+  repeated Organisation organisations = 1;
+}
+
+message CreateOrganisationRequest {
+  string name = 1;
+  string description = 2;
+}
+
+message CreateOrganisationResponse {
+  Organisation organisation = 1;
+}
+
+message SearchOrganisationsRequest {
+  string query = 1;
+}
+
+message SearchOrganisationsResponse {
+  repeated Organisation organisations = 1;
+}
+
+message Organisation {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  MemberType member_type = 4;
+  google.protobuf.Timestamp joined_at = 5;
+  google.protobuf.Timestamp created_at = 6;
+  google.protobuf.Timestamp updated_at = 7;
+}
+
+enum MemberType {
+  MEMBER_TYPE_UNSPECIFIED = 0;
+  MEMBER_TYPE_MEMBER = 1;
+  MEMBER_TYPE_ADMINISTRATOR = 2;
+}

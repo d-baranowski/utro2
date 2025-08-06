@@ -1,0 +1,35 @@
+[
+  {
+    "name": "Main Bundle (JS)",
+    "path": ".next/static/chunks/main-*.js",
+    "limit": "100 KB",
+    "gzip": true
+  },
+  {
+    "name": "Framework Bundle",
+    "path": ".next/static/chunks/framework-*.js",
+    "limit": "50 KB",
+    "gzip": true
+  },
+  {
+    "name": "Pages Bundle",
+    "path": ".next/static/chunks/pages/*.js",
+    "limit": "150 KB",
+    "gzip": true
+  },
+  {
+    "name": "Total App Size",
+    "path": [
+      ".next/static/chunks/**/*.js",
+      ".next/static/css/**/*.css"
+    ],
+    "limit": "500 KB",
+    "gzip": true
+  },
+  {
+    "name": "First Load JS (Homepage)",
+    "path": ".next/static/chunks/pages/index-*.js",
+    "limit": "90 KB",
+    "gzip": true
+  }
+]

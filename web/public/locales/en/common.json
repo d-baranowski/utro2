@@ -1,0 +1,75 @@
+{
+  "appName": "Utro",
+  "navigation": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "settings": "Settings",
+    "logout": "Logout",
+    "login": "Sign In"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "welcomeBack": "Welcome Back",
+    "username": "Username",
+    "password": "Password",
+    "email": "Email",
+    "forgotPassword": "Forgot Password?",
+    "rememberMe": "Remember me",
+    "loginError": "Invalid username or password",
+    "loginSuccess": "Successfully signed in",
+    "logoutSuccess": "Successfully signed out",
+    "required": "This field is required",
+    "usernameRequired": "Username is required",
+    "passwordRequired": "Password is required"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "update": "Update",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "network": "Network error. Please check your connection.",
+    "unauthorized": "You are not authorized to perform this action.",
+    "notFound": "The requested resource was not found.",
+    "serverError": "Internal server error. Please try again later.",
+    "validationError": "Please check your input and try again."
+  },
+  "pages": {
+    "home": {
+      "title": "Welcome to Utro",
+      "subtitle": "Your comprehensive business management platform",
+      "description": "Streamline your operations with our powerful tools and intuitive interface."
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "overview": "Overview",
+      "recentActivity": "Recent Activity",
+      "quickActions": "Quick Actions"
+    }
+  },
+  "organisation": {
+    "switchOrganisation": "Switch Organisation",
+    "noOrganisation": "No Organisation Selected",
+    "selectOrganisation": "Please select an organisation to continue",
+    "createOrganisation": "Create New Organisation",
+    "joinOrganisation": "Join Organisation"
+  }
+}

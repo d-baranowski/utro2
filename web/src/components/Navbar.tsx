@@ -17,6 +17,11 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import OrganisationSwitcher from './OrganisationSwitcher';
+import NoOrganisationDialog from './NoOrganisationDialog';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useOrganisation } from '../contexts/OrganisationContext';
+import { useTranslation } from 'next-i18next';
 
 interface NavbarProps {
   isAuthenticated?: boolean;
@@ -24,16 +29,28 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ isAuthenticated = false, onLogout }) => {
+  const { t } = useTranslation('common');
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [showNoOrgDialog, setShowNoOrgDialog] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const { organisations, loading } = useOrganisation();
+
+  // Show no organisation dialog if user is authenticated but has no organisations
+  React.useEffect(() => {
+    if (isAuthenticated && !loading && organisations.length === 0) {
+      setShowNoOrgDialog(true);
+    } else if (organisations.length > 0) {
+      setShowNoOrgDialog(false);
+    }
+  }, [isAuthenticated, loading, organisations]);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
   const menuItems = [
-    { label: 'Home', href: '/' },
+    { label: t('navigation.home'), href: '/' },
     { label: 'About', href: '/about' },
     { label: 'Services', href: '/services' },
     { label: 'Contact', href: '/contact' },
@@ -54,6 +71,14 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated = false, onLogout }) =>
             </ListItemButton>
           </ListItem>
         ))}
+        <ListItem disablePadding>
+          <ListItemButton>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, width: '100%' }}>
+              <ListItemText primary="Language" />
+              <LanguageSwitcher variant="icon" />
+            </Box>
+          </ListItemButton>
+        </ListItem>
         {isAuthenticated && (
           <ListItem disablePadding>
             <ListItemButton
@@ -61,8 +86,9 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated = false, onLogout }) =>
                 handleDrawerToggle();
                 onLogout?.();
               }}
+              data-testid="mobile-logout-button"
             >
-              <ListItemText primary="Logout" />
+              <ListItemText primary={t('navigation.logout')} />
             </ListItemButton>
           </ListItem>
         )}
@@ -123,7 +149,7 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated = false, onLogout }) =>
                 <MenuIcon />
               </IconButton>
             ) : (
-              <Box sx={{ display: 'flex', gap: 1 }}>
+              <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
                 {menuItems.map((item) => (
                   <Button
                     key={item.label}
@@ -137,9 +163,18 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated = false, onLogout }) =>
                     {item.label}
                   </Button>
                 ))}
+                <LanguageSwitcher />
+                {isAuthenticated && organisations.length > 0 && (
+                  <OrganisationSwitcher onCreateOrganisation={() => setShowNoOrgDialog(true)} />
+                )}
                 {isAuthenticated && (
-                  <Button variant="contained" onClick={onLogout} sx={{ ml: 1 }}>
-                    Logout
+                  <Button
+                    variant="contained"
+                    onClick={onLogout}
+                    sx={{ ml: 1 }}
+                    data-testid="logout-button"
+                  >
+                    {t('navigation.logout')}
                   </Button>
                 )}
               </Box>
@@ -162,6 +197,12 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated = false, onLogout }) =>
       >
         {drawer}
       </Drawer>
+
+      <NoOrganisationDialog
+        open={showNoOrgDialog}
+        onClose={() => setShowNoOrgDialog(false)}
+        data-testid="no-organisation-dialog"
+      />
     </>
   );
 };

@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useAuth } from '../src/contexts/AuthContext';
+import { useOrganisation } from '../src/contexts/OrganisationContext';
 import { z } from 'zod';
 import { createClient } from '@connectrpc/connect';
 import { createConnectTransport } from '@connectrpc/connect-web';
@@ -18,11 +20,15 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { GetServerSideProps } from 'next';
 import { AuthService } from '../generated/auth/v1/auth_pb';
 import Layout from '../src/components/Layout';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 type Props = { publicMsg: string };
 
 export default function Home({ publicMsg }: Props) {
-  const [token, setToken] = useState('');
+  const { t } = useTranslation('common');
+  const { isAuthenticated, login, logout, token } = useAuth();
+  const { currentOrganisation } = useOrganisation();
   const [secret, setSecret] = useState('');
   const [errors, setErrors] = useState<{ username?: string; password?: string }>({});
   const [loading, setLoading] = useState(false);
@@ -34,8 +40,8 @@ export default function Home({ publicMsg }: Props) {
   const client = createClient(AuthService as any, transport) as any;
 
   const loginSchema = z.object({
-    username: z.string().min(1, 'Username is required'),
-    password: z.string().min(1, 'Password is required'),
+    username: z.string().min(1, t('auth.usernameRequired')),
+    password: z.string().min(1, t('auth.passwordRequired')),
   });
 
   async function handleLogin(e: React.FormEvent) {
@@ -62,16 +68,16 @@ export default function Home({ publicMsg }: Props) {
 
     try {
       const res = await client.login(result.data as any);
-      setToken(res.token);
+      login(res.token);
     } catch (error) {
-      setAuthError('Invalid username or password');
+      setAuthError(t('auth.loginError'));
     } finally {
       setLoading(false);
     }
   }
 
   async function handleLogout() {
-    setToken('');
+    logout();
     setSecret('');
     setAuthError('');
   }
@@ -89,7 +95,7 @@ export default function Home({ publicMsg }: Props) {
   }
 
   return (
-    <Layout isAuthenticated={!!token} onLogout={handleLogout}>
+    <Layout isAuthenticated={isAuthenticated} onLogout={handleLogout}>
       <Container maxWidth="sm">
         <Box
           sx={{
@@ -105,7 +111,7 @@ export default function Home({ publicMsg }: Props) {
             </Alert>
           )}
 
-          {!token ? (
+          {!isAuthenticated ? (
             <Paper
               elevation={0}
               sx={{
@@ -131,11 +137,11 @@ export default function Home({ publicMsg }: Props) {
                 </Box>
 
                 <Typography component="h1" variant="h4" fontWeight={600}>
-                  Welcome Back
+                  {t('auth.welcomeBack')}
                 </Typography>
 
                 <Typography variant="body2" color="text.secondary" textAlign="center">
-                  Sign in to your account to continue
+                  {t('pages.home.description')}
                 </Typography>
               </Stack>
 
@@ -149,21 +155,23 @@ export default function Home({ publicMsg }: Props) {
                 <Stack spacing={2}>
                   <TextField
                     name="username"
-                    label="Username"
+                    label={t('auth.username')}
                     autoComplete="username"
                     autoFocus
                     error={!!errors.username}
                     helperText={errors.username}
                     disabled={loading}
+                    data-testid="login-username"
                   />
                   <TextField
                     name="password"
                     type="password"
-                    label="Password"
+                    label={t('auth.password')}
                     autoComplete="current-password"
                     error={!!errors.password}
                     helperText={errors.password}
                     disabled={loading}
+                    data-testid="login-password"
                   />
                   <Button
                     type="submit"
@@ -172,8 +180,9 @@ export default function Home({ publicMsg }: Props) {
                     size="large"
                     disabled={loading}
                     sx={{ mt: 1 }}
+                    data-testid="login-submit"
                   >
-                    {loading ? <CircularProgress size={24} /> : 'Sign In'}
+                    {loading ? <CircularProgress size={24} /> : t('auth.signIn')}
                   </Button>
                 </Stack>
               </Box>
@@ -190,10 +199,20 @@ export default function Home({ publicMsg }: Props) {
             >
               <Stack spacing={3}>
                 <Typography variant="h5" fontWeight={600}>
-                  Dashboard
+                  {currentOrganisation
+                    ? `${currentOrganisation.name} - Dashboard`
+                    : t('pages.dashboard.title')}
                 </Typography>
 
-                <Alert severity="success">You are successfully logged in!</Alert>
+                <Alert severity="success" data-testid="login-success-alert">
+                  {t('auth.loginSuccess')}
+                </Alert>
+
+                {currentOrganisation && (
+                  <Alert severity="info">
+                    Currently viewing: <strong>{currentOrganisation.name}</strong>
+                  </Alert>
+                )}
 
                 <Divider />
 
@@ -205,12 +224,17 @@ export default function Home({ publicMsg }: Props) {
                     Click the button below to test your authentication token
                   </Typography>
 
-                  <Button onClick={callSecret} variant="outlined" sx={{ mt: 2 }}>
+                  <Button
+                    onClick={callSecret}
+                    variant="outlined"
+                    sx={{ mt: 2 }}
+                    data-testid="call-secret-button"
+                  >
                     Call Authenticated Endpoint
                   </Button>
 
                   {secret && (
-                    <Alert severity="info" sx={{ mt: 2 }}>
+                    <Alert severity="info" sx={{ mt: 2 }} data-testid="secret-response">
                       Response: {secret}
                     </Alert>
                   )}

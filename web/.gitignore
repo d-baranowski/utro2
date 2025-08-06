@@ -1,2 +1,6 @@
 node_modules
 .next
+.bundle-baseline.json
+bundle-report.json
+analyze/
+.size-limit-cache/

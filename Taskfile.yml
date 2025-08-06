@@ -84,6 +84,12 @@ tasks:
       - pnpm run format:check
       - pnpm run typecheck
 
+  typecheck:
+    desc: Run TypeScript type checking
+    dir: "{{.FRONTEND_DIR}}"
+    cmds:
+      - pnpm run typecheck
+
   format:
     desc: Auto-fix formatting for frontend
     dir: "{{.FRONTEND_DIR}}"

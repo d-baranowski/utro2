@@ -3,6 +3,8 @@ package com.inspirationparticle.utro.entity;
 import com.github.ksuid.Ksuid;
 import jakarta.persistence.*;
 import java.time.Instant;
+import java.util.Set;
+import java.util.HashSet;
 
 @Entity
 @Table(name = "\"user\"")
@@ -26,9 +28,8 @@ public class User {
     @Column(name = "provider_id")
     private String providerId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "organisation_id")
-    private Organisation organisation;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<OrganisationMember> organisationMemberships = new HashSet<>();
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private Instant createdAt;
@@ -101,12 +102,12 @@ public class User {
         this.providerId = providerId;
     }
 
-    public Organisation getOrganisation() {
-        return organisation;
+    public Set<OrganisationMember> getOrganisationMemberships() {
+        return organisationMemberships;
     }
 
-    public void setOrganisation(Organisation organisation) {
-        this.organisation = organisation;
+    public void setOrganisationMemberships(Set<OrganisationMember> organisationMemberships) {
+        this.organisationMemberships = organisationMemberships;
     }
 
     public Instant getCreatedAt() {

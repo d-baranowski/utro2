@@ -1,0 +1,75 @@
+{
+  "appName": "Utro",
+  "navigation": {
+    "home": "Strona główna",
+    "dashboard": "Panel",
+    "profile": "Profil",
+    "settings": "Ustawienia",
+    "logout": "Wyloguj",
+    "login": "Zaloguj się"
+  },
+  "auth": {
+    "signIn": "Zaloguj się",
+    "signOut": "Wyloguj się",
+    "welcomeBack": "Witaj ponownie",
+    "username": "Nazwa użytkownika",
+    "password": "Hasło",
+    "email": "E-mail",
+    "forgotPassword": "Zapomniałeś hasła?",
+    "rememberMe": "Zapamiętaj mnie",
+    "loginError": "Nieprawidłowa nazwa użytkownika lub hasło",
+    "loginSuccess": "Pomyślnie zalogowano",
+    "logoutSuccess": "Pomyślnie wylogowano",
+    "required": "To pole jest wymagane",
+    "usernameRequired": "Nazwa użytkownika jest wymagana",
+    "passwordRequired": "Hasło jest wymagane"
+  },
+  "common": {
+    "loading": "Ładowanie...",
+    "error": "Wystąpił błąd",
+    "success": "Sukces",
+    "cancel": "Anuluj",
+    "save": "Zapisz",
+    "delete": "Usuń",
+    "edit": "Edytuj",
+    "create": "Utwórz",
+    "update": "Aktualizuj",
+    "close": "Zamknij",
+    "back": "Wstecz",
+    "next": "Dalej",
+    "previous": "Poprzedni",
+    "search": "Szukaj",
+    "filter": "Filtruj",
+    "sort": "Sortuj",
+    "yes": "Tak",
+    "no": "Nie"
+  },
+  "errors": {
+    "generic": "Coś poszło nie tak. Spróbuj ponownie.",
+    "network": "Błąd sieci. Sprawdź połączenie internetowe.",
+    "unauthorized": "Nie masz uprawnień do wykonania tej akcji.",
+    "notFound": "Żądany zasób nie został znaleziony.",
+    "serverError": "Błąd wewnętrzny serwera. Spróbuj ponownie później.",
+    "validationError": "Sprawdź wprowadzone dane i spróbuj ponownie."
+  },
+  "pages": {
+    "home": {
+      "title": "Witaj w Utro",
+      "subtitle": "Twoja kompleksowa platforma zarządzania biznesem",
+      "description": "Usprawnij swoje operacje dzięki naszym potężnym narzędziom i intuicyjnemu interfejsowi."
+    },
+    "dashboard": {
+      "title": "Panel",
+      "overview": "Przegląd",
+      "recentActivity": "Ostatnia aktywność",
+      "quickActions": "Szybkie akcje"
+    }
+  },
+  "organisation": {
+    "switchOrganisation": "Zmień organizację",
+    "noOrganisation": "Nie wybrano organizacji",
+    "selectOrganisation": "Wybierz organizację aby kontynuować",
+    "createOrganisation": "Utwórz nową organizację",
+    "joinOrganisation": "Dołącz do organizacji"
+  }
+}
