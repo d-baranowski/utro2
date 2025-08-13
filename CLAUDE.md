@@ -26,6 +26,13 @@ echo '. "$HOME/.asdf/completions/asdf.bash"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
+**Other Dependencies**
+```bash
+brew install libpq
+echo 'export PATH="/opt/homebrew/opt/libpq/bin:$PATH"' >> ~/.zshrc
+
+```
+
 #### Setting Up Project Dependencies
 
 1. **Install required asdf plugins:**

@@ -35,26 +35,31 @@ processors:
         action: delete
 
 exporters:
-  jaeger:
-    endpoint: jaeger:14250
+  # Send to Jaeger using OTLP protocol
+  otlp/jaeger:
+    endpoint: jaeger:4317
     tls:
       insecure: true
 
   logging:
     loglevel: debug
 
-  # Optional: Export to OTLP endpoint (useful for other backends)
-  otlp:
-    endpoint: jaeger:4317
-    tls:
-      insecure: true
-
 service:
   pipelines:
     traces:
       receivers: [otlp]
       processors: [resource, attributes, batch]
-      exporters: [jaeger, logging]
+      exporters: [otlp/jaeger, logging]
+    
+    logs:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [logging]
+    
+    metrics:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [logging]
 
   extensions: []
 

@@ -20,9 +20,5 @@ public interface OrganisationMemberRepository extends JpaRepository<Organisation
     
     List<OrganisationMember> findByOrganisationId(String organisationId);
 
-    @Query("SELECT om FROM OrganisationMember om " +
-            "WHERE om.user_id = :userId AND om.organisation_id = :organisationId LIMIT 1")
-    OrganisationMember findByUserIdAndOrganisationId(
-            @Param("userId") String userId,
-            @Param("organisationId)") String organisationId);
+    OrganisationMember findByUserIdAndOrganisationId(String userId, String organisationId);
 }

@@ -2,9 +2,11 @@ package com.inspirationparticle.utro.organisation;
 
 import com.inspirationparticle.utro.user.User;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
+@Service
 @AllArgsConstructor
 public class OrganisationService {
     private final OrganisationRepository organisationRepository;

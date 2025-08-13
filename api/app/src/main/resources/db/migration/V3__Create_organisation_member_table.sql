@@ -13,6 +13,6 @@ CREATE INDEX idx_organisation_member_organisation ON organisation_member(organis
 CREATE INDEX idx_organisation_member_user ON organisation_member(user_id);
 CREATE INDEX idx_organisation_member_type ON organisation_member(member_type);
 
-ALTER TABLE "user" DROP CONSTRAINT fk_user_organisation;
-ALTER TABLE "user" DROP COLUMN organisation_id;
-DROP INDEX idx_user_organisation;
+ALTER TABLE "user" DROP CONSTRAINT IF EXISTS fk_user_organisation;
+ALTER TABLE "user" DROP COLUMN IF EXISTS organisation_id;
+DROP INDEX IF EXISTS idx_user_organisation;

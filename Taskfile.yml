@@ -31,9 +31,40 @@ tasks:
       - pnpm run dev
 
   docker:
-    desc: Build images and run with Docker Compose
+    desc: Build images and run with Docker Compose (full stack)
     cmds:
-      - docker compose up --build
+      - docker compose --profile full up --build -d
+      - tmux kill-session -t docker-logs || echo "No tmux session to kill"
+      - tmux new-session -d -s docker-logs 'docker compose logs -f' \; split-window -h \; select-pane -t 1 \; attach
+  
+  docker-dev:
+    desc: Run only infrastructure services (postgres, jaeger, otel-collector)
+    cmds:
+      - docker compose --profile dev up -d
+      - tmux kill-session -t docker-logs || echo "No tmux session to kill"
+      - tmux new-session -d -s docker-logs 'docker compose logs -f' \; split-window -h \; select-pane -t 1 \; attach
+  
+  docker-full:
+    desc: Build and run full stack including api and web
+    cmds:
+      - docker compose --profile full up --build -d
+      - tmux kill-session -t docker-logs || echo "No tmux session to kill"
+      - tmux new-session -d -s docker-logs 'docker compose logs -f' \; split-window -h \; select-pane -t 1 \; attach
+  
+  docker-logs:
+    desc: View Docker Compose logs (live)
+    cmds:
+      - docker compose logs -f
+  
+  docker-stop:
+    desc: Stop all Docker Compose services
+    cmds:
+      - docker compose down -v
+  
+  tmux-exit:
+    desc: Exit tmux session and return to terminal
+    cmds:
+      - tmux kill-session -t docker-logs || echo "No tmux session to kill"
 
   k8s:
     desc: Apply Kubernetes manifests
@@ -41,22 +72,22 @@ tasks:
       - kubectl apply -f k8s/api-deployment.yaml
       - kubectl apply -f k8s/web-deployment.yaml
 
-  db:start:
+  db-start:
     desc: Start PostgreSQL database container
     cmds:
       - ./scripts/start-db.sh
 
-  db:stop:
+  db-stop:
     desc: Stop PostgreSQL database container
     cmds:
       - ./scripts/stop-db.sh
 
-  db:migrate:
+  db-migrate:
     desc: Run database migrations
     cmds:
       - ./scripts/run-migrations.sh
 
-  db:clean:
+  db-clean:
     desc: Stop database and remove volume
     cmds:
       - docker stop utro-postgres || true
@@ -69,14 +100,14 @@ tasks:
       - task: lint:api
       - task: lint:web
 
-  lint:api:
+  lint-api:
     desc: Run Java linting with Checkstyle and SpotBugs
     dir: "{{.BACKEND_DIR}}"
     cmds:
       - mvn checkstyle:check
       - mvn spotbugs:check
 
-  lint:web:
+  lint-web:
     desc: Run ESLint and Prettier for frontend
     dir: "{{.FRONTEND_DIR}}"
     cmds:
@@ -103,24 +134,24 @@ tasks:
       - task: test:api
       - task: test:web
 
-  test:api:
+  test-api:
     desc: Run backend tests
     dir: "{{.BACKEND_DIR}}"
     cmds:
       - mvn test
 
-  test:web:
+  test-web:
     desc: Run frontend tests
     dir: "{{.FRONTEND_DIR}}"
     cmds:
       - pnpm test
 
-  observability:start:
+  observability-start:
     desc: Start observability stack (Jaeger, OTel Collector)
     cmds:
       - docker compose up jaeger otel-collector -d
 
-  observability:stop:
+  observability-stop:
     desc: Stop observability stack
     cmds:
       - docker compose stop jaeger otel-collector
@@ -132,7 +163,7 @@ tasks:
       - echo "Opening Jaeger UI at http://localhost:16686"
       - open http://localhost:16686 || xdg-open http://localhost:16686 || echo "Please open http://localhost:16686 in your browser"
 
-  docker:observability:
+  docker-observability:
     desc: Build and run full stack with observability
     cmds:
       - docker compose up --build
