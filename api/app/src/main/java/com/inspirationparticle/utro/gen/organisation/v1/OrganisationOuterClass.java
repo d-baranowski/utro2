@@ -89,7 +89,7 @@ public final class OrganisationOuterClass {
 
     /**
      * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value
+     * @return The enum associated with the given numeric wire value.
      */
     public static MemberType forNumber(int value) {
       switch (value) {

@@ -2,7 +2,7 @@ version: v1
 plugins:
   - plugin: buf.build/protocolbuffers/java:v31.1
     out: ../api/app/src/main/java
-  - plugin: buf.build/bufbuild/es
+  - plugin: buf.build/bufbuild/es:v2.2.2
     out: ../web/generated
-  - plugin: buf.build/connectrpc/es
-    out: ../web/generated
+    opt:
+      - target=ts

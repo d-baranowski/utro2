@@ -1,7 +1,7 @@
 import { createClient } from '@connectrpc/connect';
 import { createConnectTransport } from '@connectrpc/connect-web';
-import { OrganisationService } from '@/generated/organisation/v1/organisation_connect';
 import {
+  OrganisationService,
   GetMyOrganisationsRequest,
   CreateOrganisationRequest,
   SearchOrganisationsRequest,

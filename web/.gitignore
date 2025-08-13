@@ -4,3 +4,4 @@ node_modules
 bundle-report.json
 analyze/
 .size-limit-cache/
+generated
