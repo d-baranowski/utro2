@@ -8,6 +8,7 @@ import Head from 'next/head';
 import { useEffect } from 'react';
 import { initializeTelemetry } from '../lib/telemetry';
 import { appWithTranslation } from 'next-i18next';
+import nextI18NextConfig from '../next-i18next.config.js';
 import { AuthProvider } from '../src/contexts/AuthContext';
 import { OrganisationProvider } from '../src/contexts/OrganisationContext';
 
@@ -42,4 +43,4 @@ function MyApp(props: MyAppProps) {
   );
 }
 
-export default appWithTranslation(MyApp);
+export default appWithTranslation(MyApp, nextI18NextConfig);

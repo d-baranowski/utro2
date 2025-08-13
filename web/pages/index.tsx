@@ -248,9 +248,15 @@ export default function Home({ publicMsg }: Props) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
+export const getServerSideProps: GetServerSideProps<Props> = async ({ locale }) => {
   const base = process.env.API_BASE_URL || 'http://localhost:8080';
   const resp = await fetch(`${base}/public`);
   const publicMsg = await resp.text();
-  return { props: { publicMsg } };
+  
+  return {
+    props: {
+      publicMsg,
+      ...(await serverSideTranslations(locale ?? 'en', ['common'])),
+    },
+  };
 };
