@@ -1,8 +1,7 @@
-package com.inspirationparticle.utro.controller;
+package com.inspirationparticle.utro.auth;
 
-import com.inspirationparticle.utro.security.JwtUtil;
-import com.inspirationparticle.utro.service.UserService;
-import com.inspirationparticle.utro.entity.User;
+import com.inspirationparticle.utro.user.UserService;
+import com.inspirationparticle.utro.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

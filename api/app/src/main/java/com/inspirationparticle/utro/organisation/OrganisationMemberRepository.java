@@ -1,7 +1,5 @@
-package com.inspirationparticle.utro.repository;
+package com.inspirationparticle.utro.organisation;
 
-import com.inspirationparticle.utro.entity.OrganisationMember;
-import com.inspirationparticle.utro.entity.OrganisationMemberId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -21,4 +19,10 @@ public interface OrganisationMemberRepository extends JpaRepository<Organisation
     List<OrganisationMember> findByUserId(String userId);
     
     List<OrganisationMember> findByOrganisationId(String organisationId);
+
+    @Query("SELECT om FROM OrganisationMember om " +
+            "WHERE om.user_id = :userId AND om.organisation_id = :organisationId LIMIT 1")
+    OrganisationMember findByUserIdAndOrganisationId(
+            @Param("userId") String userId,
+            @Param("organisationId)") String organisationId);
 }

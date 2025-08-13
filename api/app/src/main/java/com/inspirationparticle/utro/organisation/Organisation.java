@@ -1,19 +1,28 @@
-package com.inspirationparticle.utro.entity;
+package com.inspirationparticle.utro.organisation;
 
 import com.github.ksuid.Ksuid;
 import jakarta.persistence.*;
+import lombok.*;
+import jakarta.validation.constraints.NotBlank;
+
 import java.time.Instant;
 import java.util.Set;
 import java.util.HashSet;
 
+@Setter
+@Getter
 @Entity
 @Table(name = "organisation")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Organisation {
     @Id
     @Column(length = 27)
     private String id;
 
     @Column(nullable = false)
+    @NotBlank
     private String name;
 
     @Column(columnDefinition = "TEXT")
@@ -42,51 +51,4 @@ public class Organisation {
         updatedAt = Instant.now();
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Instant getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Instant createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Instant getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Instant updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public Set<OrganisationMember> getMembers() {
-        return members;
-    }
-
-    public void setMembers(Set<OrganisationMember> members) {
-        this.members = members;
-    }
 }

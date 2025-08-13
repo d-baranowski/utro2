@@ -1,4 +1,4 @@
-package com.inspirationparticle.utro.security;
+package com.inspirationparticle.utro.auth;
 
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.FilterChain;

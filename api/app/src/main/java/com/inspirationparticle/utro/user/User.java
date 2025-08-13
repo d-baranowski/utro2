@@ -1,6 +1,7 @@
-package com.inspirationparticle.utro.entity;
+package com.inspirationparticle.utro.user;
 
 import com.github.ksuid.Ksuid;
+import com.inspirationparticle.utro.organisation.OrganisationMember;
 import jakarta.persistence.*;
 import java.time.Instant;
 import java.util.Set;

@@ -1,0 +1,1 @@
+1. Add a db level check to ensure that a user can only have one membership in one organisation. They can be members of multiple organisations but only one membership per org. No point being a member of the same org twice.

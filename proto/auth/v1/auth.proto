@@ -1,7 +1,7 @@
 syntax = "proto3";
-package com.inspirationparticle.auth.v1;
+package com.inspirationparticle.utro.gen.auth.v1;
 
-option java_package = "com.inspirationparticle.auth.v1";
+option java_package = "com.inspirationparticle.utro.gen.auth.v1";
 
 service AuthService {
   rpc Login(LoginRequest) returns (LoginResponse);

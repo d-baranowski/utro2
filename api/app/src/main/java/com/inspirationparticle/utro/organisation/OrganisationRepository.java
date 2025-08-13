@@ -1,6 +1,5 @@
-package com.inspirationparticle.utro.repository;
+package com.inspirationparticle.utro.organisation;
 
-import com.inspirationparticle.utro.entity.Organisation;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

@@ -1,7 +1,5 @@
-package com.inspirationparticle.utro.service;
+package com.inspirationparticle.utro.user;
 
-import com.inspirationparticle.utro.entity.User;
-import com.inspirationparticle.utro.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

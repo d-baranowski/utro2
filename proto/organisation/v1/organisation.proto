@@ -1,9 +1,9 @@
 syntax = "proto3";
-package inspirationparticle.organisation.v1;
+package com.inspirationparticle.utro.gen.organisation.v1;
 
 import "google/protobuf/timestamp.proto";
 
-option java_package = "com.inspirationparticle.organisation.v1";
+option java_package = "com.inspirationparticle.utro.gen.organisation.v1";
 
 service OrganisationService {
   rpc GetMyOrganisations(GetMyOrganisationsRequest) returns (GetMyOrganisationsResponse);

@@ -1,6 +1,5 @@
-package com.inspirationparticle.utro.repository;
+package com.inspirationparticle.utro.user;
 
-import com.inspirationparticle.utro.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
