@@ -40,7 +40,9 @@ public class CorsConfig {
             "Connect-Accept-Encoding",
             "Connect-Content-Encoding",
             "X-Grpc-Web",
-            "X-User-Agent"
+            "X-User-Agent",
+            "traceparent", // OpenTelemetry trace header
+            "tracestate"   // OpenTelemetry trace state header
         ));
         
         // Expose headers that the client might need
