@@ -15,7 +15,6 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
-@CrossOrigin
 public class OrganisationController {
 
     @Autowired
@@ -31,7 +30,9 @@ public class OrganisationController {
     private OrganisationService organisationService;
 
     @PreAuthorize("hasAuthority('ROLE_USER')")
-    @PostMapping("/com.inspirationparticle.organisation.v1.OrganisationService/GetMyOrganisations")
+    @PostMapping(value = "/com.inspirationparticle.utro.gen.organisation.v1.OrganisationService/GetMyOrganisations",
+                 consumes = "application/json",
+                 produces = "application/json")
     public ResponseEntity<OrganisationOuterClass.GetMyOrganisationsResponse> getMyOrganisations(@RequestBody OrganisationOuterClass.GetMyOrganisationsRequest request) {
         // Get the authenticated user's username from security context
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -54,7 +55,9 @@ public class OrganisationController {
     }
 
     @PreAuthorize("hasAuthority('ROLE_USER')")
-    @PostMapping("/com.inspirationparticle.organisation.v1.OrganisationService/CreateOrganisation")
+    @PostMapping(value = "/com.inspirationparticle.utro.gen.organisation.v1.OrganisationService/CreateOrganisation",
+                 consumes = "application/json",
+                 produces = "application/json")
     public ResponseEntity<OrganisationOuterClass.CreateOrganisationResponse> createOrganisation(@RequestBody OrganisationOuterClass.CreateOrganisationRequest request) {
         // Get the authenticated user's username from security context
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -80,7 +83,9 @@ public class OrganisationController {
     }
 
     @PreAuthorize("hasAuthority('ROLE_USER')")
-    @PostMapping("/com.inspirationparticle.organisation.v1.OrganisationService/SearchOrganisations")
+    @PostMapping(value = "/com.inspirationparticle.utro.gen.organisation.v1.OrganisationService/SearchOrganisations",
+                 consumes = "application/json",
+                 produces = "application/json")
     public ResponseEntity<OrganisationOuterClass.SearchOrganisationsResponse> searchOrganisations(@RequestBody OrganisationOuterClass.SearchOrganisationsRequest request) {
         List<Organisation> entities = organisationRepository.searchByNameOrDescription(request.getQuery());
 

@@ -39,6 +39,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                     );
                     
                     SecurityContextHolder.getContext().setAuthentication(authToken);
+                    logger.info("JWT authentication successful for user: " + username + " with authorities: " + authToken.getAuthorities());
                 }
             } catch (Exception e) {
                 // Invalid token, continue without authentication
