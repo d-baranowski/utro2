@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import configEnv from 'src/config/env';
 
 // Supported locales
 const locales = ['en', 'pl'];
@@ -92,7 +93,7 @@ export function middleware(request: NextRequest) {
       response.cookies.set('NEXT_LOCALE', detectedLocale, {
         maxAge: 365 * 24 * 60 * 60, // 1 year
         httpOnly: false,
-        secure: process.env.NODE_ENV === 'production',
+        secure: configEnv.isProduction,
         sameSite: 'lax',
       });
 

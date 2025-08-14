@@ -7,7 +7,9 @@ import {
   SearchOrganisationsRequest,
 } from '@/generated/organisation/v1/organisation_pb';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+import config from '@/config/env';
+
+const API_URL = config.apiBaseUrl;
 
 const transport = createConnectTransport({
   baseUrl: API_URL,

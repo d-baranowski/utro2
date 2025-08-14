@@ -87,6 +87,12 @@ tasks:
     cmds:
       - ./scripts/run-migrations.sh
 
+  test-setup:
+    desc: Setup test data for Cypress tests
+    cmds:
+      - chmod +x scripts/setup-test-data.sh
+      - ./scripts/setup-test-data.sh
+
   db-clean:
     desc: Stop database and remove volume
     cmds:

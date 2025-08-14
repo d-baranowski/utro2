@@ -29,6 +29,9 @@ public class User {
     @Column(name = "provider_id")
     private String providerId;
 
+    @Column
+    private String password;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<OrganisationMember> organisationMemberships = new HashSet<>();
 
@@ -133,5 +136,13 @@ public class User {
 
     public void setLastLoginAt(Instant lastLoginAt) {
         this.lastLoginAt = lastLoginAt;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

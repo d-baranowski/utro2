@@ -19,9 +19,12 @@ public class AuthController {
     // Form data login endpoint
     @PostMapping(value = "/login", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public ResponseEntity<Map<String, String>> loginForm(@RequestParam String username, @RequestParam String password) {
-        // TODO validate username/password
+        // Validate username/password
+        if (!userService.validateCredentials(username, password)) {
+            return ResponseEntity.status(401).body(Map.of("error", "Invalid username or password"));
+        }
         
-        // Create or update user on first login
+        // Create or update user on first login (this handles both existing and new users)
         User user = userService.findOrCreateUser(username, null, null, "local", null);
         
         String token = JwtUtil.generateToken(username);
@@ -33,9 +36,13 @@ public class AuthController {
     public ResponseEntity<Map<String, String>> loginJson(@RequestBody Map<String, String> credentials) {
         String username = credentials.get("username");
         String password = credentials.get("password");
-        // TODO validate username/password
         
-        // Create or update user on first login
+        // Validate username/password
+        if (!userService.validateCredentials(username, password)) {
+            return ResponseEntity.status(401).body(Map.of("error", "Invalid username or password"));
+        }
+        
+        // Create or update user on first login (this handles both existing and new users)
         User user = userService.findOrCreateUser(username, null, null, "local", null);
         
         String token = JwtUtil.generateToken(username);
@@ -47,9 +54,13 @@ public class AuthController {
     public ResponseEntity<Map<String, String>> connectLogin(@RequestBody Map<String, String> request) {
         String username = request.get("username");
         String password = request.get("password");
-        // TODO validate username/password
         
-        // Create or update user on first login
+        // Validate username/password
+        if (!userService.validateCredentials(username, password)) {
+            return ResponseEntity.status(401).body(Map.of("error", "Invalid username or password"));
+        }
+        
+        // Create or update user on first login (this handles both existing and new users)
         User user = userService.findOrCreateUser(username, null, null, "local", null);
         
         String token = JwtUtil.generateToken(username);

@@ -6,6 +6,7 @@ import { Resource } from '@opentelemetry/resources';
 import { SemanticResourceAttributes } from '@opentelemetry/semantic-conventions';
 import { registerInstrumentations } from '@opentelemetry/instrumentation';
 import { trace } from '@opentelemetry/api';
+import config from '../src/config/env';
 
 let isInitialized = false;
 
@@ -18,13 +19,11 @@ export function initializeTelemetry() {
     [SemanticResourceAttributes.SERVICE_NAME]: 'utro-web',
     [SemanticResourceAttributes.SERVICE_NAMESPACE]: 'utro',
     [SemanticResourceAttributes.SERVICE_VERSION]: '0.1.0',
-    [SemanticResourceAttributes.DEPLOYMENT_ENVIRONMENT]: process.env.NODE_ENV || 'development',
+    [SemanticResourceAttributes.DEPLOYMENT_ENVIRONMENT]: config.nodeEnv,
   });
 
   const traceExporter = new OTLPTraceExporter({
-    url:
-      process.env.NEXT_PUBLIC_OTEL_EXPORTER_OTLP_TRACES_ENDPOINT ||
-      'http://localhost:4318/v1/traces',
+    url: config.otelTracesEndpoint,
     headers: {},
   });
 

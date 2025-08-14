@@ -22,6 +22,7 @@ import { AuthService } from '../generated/auth/v1/auth_pb';
 import Layout from '../src/components/Layout';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import config from '../src/config/env';
 
 type Props = { publicMsg: string };
 
@@ -35,7 +36,7 @@ export default function Home({ publicMsg }: Props) {
   const [authError, setAuthError] = useState('');
 
   const transport = createConnectTransport({
-    baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8080',
+    baseUrl: config.apiBaseUrl,
   });
   const client = createClient(AuthService as any, transport) as any;
 
@@ -83,9 +84,8 @@ export default function Home({ publicMsg }: Props) {
   }
 
   async function callSecret() {
-    const base = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8080';
     try {
-      const resp = await fetch(`${base}/secret`, {
+      const resp = await fetch(`${config.apiBaseUrl}/secret`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setSecret(await resp.text());
@@ -249,8 +249,7 @@ export default function Home({ publicMsg }: Props) {
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async ({ locale }) => {
-  const base = process.env.API_BASE_URL || 'http://localhost:8080';
-  const resp = await fetch(`${base}/public`);
+  const resp = await fetch(`${config.apiBaseUrlServer}/public`);
   const publicMsg = await resp.text();
   
   return {

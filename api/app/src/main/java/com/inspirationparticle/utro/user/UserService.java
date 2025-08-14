@@ -2,6 +2,7 @@ package com.inspirationparticle.utro.user;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +16,7 @@ import java.util.Optional;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     public User findOrCreateUser(String username, String email, String fullName, String provider, String providerId) {
         log.debug("Finding or creating user: username={}, email={}, provider={}", username, email, provider);
@@ -61,5 +63,42 @@ public class UserService {
         log.debug("Updating last login for user: id={}", user.getId());
         user.setLastLoginAt(Instant.now());
         userRepository.save(user);
+    }
+
+    public boolean validateCredentials(String username, String password) {
+        log.debug("Validating credentials for username: {}", username);
+        
+        if (username == null || password == null) {
+            log.warn("Username or password is null");
+            return false;
+        }
+        
+        Optional<User> userOpt = userRepository.findByUsername(username);
+        if (userOpt.isEmpty()) {
+            log.warn("User not found: {}", username);
+            return false;
+        }
+        
+        User user = userOpt.get();
+        
+        if (user.getPassword() == null) {
+            log.warn("User has no password set: {}", username);
+            return false;
+        }
+        
+        // Use BCrypt to validate password
+        boolean isValid = passwordEncoder.matches(password, user.getPassword());
+        
+        if (isValid) {
+            log.info("Credentials validated successfully for user: {}", username);
+        } else {
+            log.warn("Invalid password for user: {}", username);
+        }
+        
+        return isValid;
+    }
+
+    public String hashPassword(String plainPassword) {
+        return passwordEncoder.encode(plainPassword);
     }
 }
