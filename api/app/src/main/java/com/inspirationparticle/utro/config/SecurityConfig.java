@@ -47,6 +47,7 @@ public class SecurityConfig {
                         "/login",
                         "/public",
                         "/actuator/**",
+                        "/api/test/**",
                         "/com.inspirationparticle.utro.gen.auth.v1.AuthService/**"
                 ).permitAll()
                 .anyRequest().authenticated()

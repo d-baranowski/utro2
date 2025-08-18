@@ -12,6 +12,8 @@ export default defineConfig({
     defaultCommandTimeout: 10000,
     requestTimeout: 10000,
     responseTimeout: 10000,
+    experimentalMemoryManagement: true,
+    numTestsKeptInMemory: 1,
     env: {
       apiUrl: 'http://localhost:8080',
     },

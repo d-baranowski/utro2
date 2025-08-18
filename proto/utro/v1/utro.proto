@@ -2,13 +2,3 @@ syntax = "proto3";
 package com.inspirationparticle.utro.gen.v1;
 
 option java_package = "com.inspirationparticle.utro.gen.v1";
-
-service UtroService {
-  rpc GetSecret(SecretRequest) returns (SecretResponse);
-}
-
-message SecretRequest {}
-
-message SecretResponse {
-  string message = 1;
-}

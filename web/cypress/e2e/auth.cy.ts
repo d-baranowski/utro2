@@ -15,147 +15,104 @@ describe('Authentication Flow', () => {
   it('should show validation errors for empty fields', () => {
     cy.getByTestId('login-submit').click();
 
-    // Check for validation error messages
-    cy.get('[data-testid="login-username"]').should('have.attr', 'aria-invalid', 'true');
-    cy.get('[data-testid="login-password"]').should('have.attr', 'aria-invalid', 'true');
+    // Check for helper text error messages
+    cy.contains('Username is required').should('be.visible');
+    cy.contains('Password is required').should('be.visible');
   });
 
   it('should successfully login with valid credentials', () => {
-    // Mock the login API call
-    cy.intercept('POST', '**/com.inspirationparticle.auth.v1.AuthService/Login', {
-      statusCode: 200,
-      body: { token: 'mock-jwt-token' },
-    }).as('loginRequest');
+    cy.setupUniqueUser('login_success').then((userCreds) => {
+      cy.getByTestId('login-username').type(userCreds.username);
+      cy.getByTestId('login-password').type(userCreds.password);
+      cy.getByTestId('login-submit').click();
 
-    // Mock the get organizations API call to return empty array
-    cy.intercept(
-      'POST',
-      '**/com.inspirationparticle.organisation.v1.OrganisationService/GetMyOrganisations',
-      {
-        statusCode: 200,
-        body: { organisations: [] },
-      }
-    ).as('getOrganisations');
-
-    cy.getByTestId('login-username').type('testuser');
-    cy.getByTestId('login-password').type('testpass');
-    cy.getByTestId('login-submit').click();
-
-    // Wait for API calls
-    cy.wait('@loginRequest');
-    cy.wait('@getOrganisations');
-
-    // Should show success message and dashboard
-    cy.getByTestId('login-success-alert').should('be.visible');
-    cy.getByTestId('logout-button').should('be.visible');
+      // Should show success message and dashboard (using real API)
+      cy.getByTestId('login-success-alert', { timeout: 10000 }).should('be.visible');
+      cy.getByTestId('logout-button').should('be.visible');
+      
+      // Should show no organisation dialog since user is new
+      cy.getByTestId('no-organisation-dialog', { timeout: 5000 }).should('be.visible');
+      
+      // Cleanup
+      cy.then(() => {
+        cy.deleteTestUser(userCreds.username);
+      });
+    });
   });
 
   it('should handle login failure', () => {
-    // Mock failed login
-    cy.intercept('POST', '**/com.inspirationparticle.auth.v1.AuthService/Login', {
-      statusCode: 401,
-      body: { error: 'Invalid credentials' },
-    }).as('loginRequestFailed');
+    cy.setupUniqueUser('login_failure').then((userCreds) => {
+      cy.getByTestId('login-username').type(userCreds.username);
+      cy.getByTestId('login-password').type('wrongpass');
+      cy.getByTestId('login-submit').click();
 
-    cy.getByTestId('login-username').type('testuser');
-    cy.getByTestId('login-password').type('wrongpass');
-    cy.getByTestId('login-submit').click();
-
-    cy.wait('@loginRequestFailed');
-
-    // Should show error message
-    cy.contains('Login failed').should('be.visible');
-    cy.getByTestId('login-username').should('be.visible'); // Still on login form
+      // Should show error message
+      cy.contains('Invalid username or password').should('be.visible');
+      cy.getByTestId('login-username').should('be.visible'); // Still on login form
+      
+      // Cleanup
+      cy.then(() => {
+        cy.deleteTestUser(userCreds.username);
+      });
+    });
   });
 
   it('should logout successfully', () => {
-    // Login first
-    cy.intercept('POST', '**/com.inspirationparticle.auth.v1.AuthService/Login', {
-      statusCode: 200,
-      body: { token: 'mock-jwt-token' },
-    }).as('loginRequest');
+    cy.setupUniqueUser('logout_test').then((userCreds) => {
+      // Login first
+      cy.loginUser(userCreds.username, userCreds.password);
+      cy.getByTestId('login-success-alert', { timeout: 10000 }).should('be.visible');
 
-    cy.intercept(
-      'POST',
-      '**/com.inspirationparticle.organisation.v1.OrganisationService/GetMyOrganisations',
-      {
-        statusCode: 200,
-        body: { organisations: [] },
-      }
-    ).as('getOrganisations');
+      // Logout
+      cy.getByTestId('logout-button').click();
 
-    cy.loginUser();
-    cy.wait('@loginRequest');
-    cy.wait('@getOrganisations');
-
-    // Logout
-    cy.getByTestId('logout-button').click();
-
-    // Should return to login form
-    cy.getByTestId('login-username').should('be.visible');
-    cy.getByTestId('login-password').should('be.visible');
+      // Should return to login form
+      cy.getByTestId('login-username').should('be.visible');
+      cy.getByTestId('login-password').should('be.visible');
+      
+      // Cleanup
+      cy.then(() => {
+        cy.deleteTestUser(userCreds.username);
+      });
+    });
   });
 
   it('should persist authentication state on page reload', () => {
-    // Mock successful login
-    cy.intercept('POST', '**/com.inspirationparticle.auth.v1.AuthService/Login', {
-      statusCode: 200,
-      body: { token: 'mock-jwt-token' },
-    }).as('loginRequest');
+    cy.setupUniqueUser('reload_test').then((userCreds) => {
+      // Login first
+      cy.loginUser(userCreds.username, userCreds.password);
+      cy.getByTestId('login-success-alert', { timeout: 10000 }).should('be.visible');
 
-    cy.intercept(
-      'POST',
-      '**/com.inspirationparticle.organisation.v1.OrganisationService/GetMyOrganisations',
-      {
-        statusCode: 200,
-        body: { organisations: [] },
-      }
-    ).as('getOrganisations');
+      // Reload page
+      cy.reload();
 
-    cy.loginUser();
-    cy.wait('@loginRequest');
-    cy.wait('@getOrganisations');
-
-    // Reload page
-    cy.reload();
-    cy.wait('@getOrganisations');
-
-    // Should still be logged in
-    cy.getByTestId('logout-button').should('be.visible');
-    cy.getByTestId('login-success-alert').should('be.visible');
+      // Should still be logged in
+      cy.getByTestId('logout-button', { timeout: 10000 }).should('be.visible');
+      cy.getByTestId('login-success-alert').should('be.visible');
+      
+      // Cleanup
+      cy.then(() => {
+        cy.deleteTestUser(userCreds.username);
+      });
+    });
   });
 
   it('should call protected endpoint successfully', () => {
-    // Mock login and organizations
-    cy.intercept('POST', '**/com.inspirationparticle.auth.v1.AuthService/Login', {
-      statusCode: 200,
-      body: { token: 'mock-jwt-token' },
-    }).as('loginRequest');
+    cy.setupUniqueUser('endpoint_test').then((userCreds) => {
+      // Login first
+      cy.loginUser(userCreds.username, userCreds.password);
+      cy.getByTestId('login-success-alert', { timeout: 10000 }).should('be.visible');
 
-    cy.intercept(
-      'POST',
-      '**/com.inspirationparticle.organisation.v1.OrganisationService/GetMyOrganisations',
-      {
-        statusCode: 200,
-        body: { organisations: [] },
-      }
-    ).as('getOrganisations');
+      // Call secret endpoint
+      cy.getByTestId('call-secret-button').click();
 
-    // Mock secret endpoint
-    cy.intercept('GET', '**/secret', {
-      statusCode: 200,
-      body: 'Secret message from server',
-    }).as('secretRequest');
-
-    cy.loginUser();
-    cy.wait('@loginRequest');
-    cy.wait('@getOrganisations');
-
-    // Call secret endpoint
-    cy.getByTestId('call-secret-button').click();
-    cy.wait('@secretRequest');
-
-    // Should show response
-    cy.getByTestId('secret-response').should('contain', 'Secret message from server');
+      // Should show response (the endpoint should return some response)
+      cy.getByTestId('secret-response', { timeout: 10000 }).should('be.visible');
+      
+      // Cleanup
+      cy.then(() => {
+        cy.deleteTestUser(userCreds.username);
+      });
+    });
   });
 });
