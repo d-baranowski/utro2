@@ -6,9 +6,10 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.UUID;
 
 @Repository
-public interface OrganisationRepository extends JpaRepository<Organisation, String> {
+public interface OrganisationRepository extends JpaRepository<Organisation, UUID> {
     
     @Query("SELECT o FROM Organisation o WHERE " +
            "LOWER(o.name) LIKE LOWER(CONCAT('%', :query, '%')) OR " +

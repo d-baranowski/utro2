@@ -1,0 +1,96 @@
+{
+  "info": {
+    "name": "Utro Public API",
+    "description": "Public endpoints that don't require authentication",
+    "version": "1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "{{baseUrl}}",
+      "type": "string"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "event": [
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Common test assertions",
+          "pm.test('Response time is less than 2000ms', function () {",
+          "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+          "});",
+          "",
+          "pm.test('Response should not contain internal error details', function () {",
+          "    const responseText = pm.response.text();",
+          "    pm.expect(responseText).to.not.include('java.lang');",
+          "    pm.expect(responseText).to.not.include('SQLException');",
+          "    pm.expect(responseText).to.not.include('stackTrace');",
+          "});"
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "name": "Public Endpoint",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('Response contains expected message', function () {",
+              "    const responseText = pm.response.text();",
+              "    pm.expect(responseText).to.include('public');",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/public",
+          "host": ["{{baseUrl}}"],
+          "path": ["public"]
+        }
+      }
+    },
+    {
+      "name": "Secret Endpoint (Should Fail Without Auth)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 401 or 403 for unauthorized access', function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([401, 403]);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/secret",
+          "host": ["{{baseUrl}}"],
+          "path": ["secret"]
+        }
+      }
+    }
+  ]
+}

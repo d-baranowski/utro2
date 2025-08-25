@@ -1,0 +1,207 @@
+syntax = "proto3";
+
+package utro.v1;
+
+import "google/protobuf/timestamp.proto";
+
+option java_package = "com.inspirationparticle.utro.gen.v1";
+option java_outer_classname = "TherapistProto";
+
+// Therapist profile information
+message Therapist {
+  string id = 1;
+  string user_id = 2;
+  string user_name = 3;
+  string user_full_name = 4;
+  string organisation_id = 5;
+  string organisation_name = 6;
+  string professional_title = 7;
+  string description_eng = 8;
+  string description_pl = 9;
+  string work_experience_eng = 10;
+  string work_experience_pl = 11;
+  repeated string languages = 12;
+  bool in_person_therapy_format = 13;
+  bool online_therapy_format = 14;
+  string profile_image_mime_type = 15;
+  string contact_email = 16;
+  string contact_phone = 17;
+  string website_url = 18;
+  bool is_active = 19;
+  bool is_accepting_new_clients = 20;
+  TherapistVisibility visibility = 21;
+  string slug = 22;
+  string meta_description = 23;
+  repeated string search_tags = 24;
+  repeated TherapistSpecialization specializations = 25;
+  repeated TherapistEducation education = 26;
+  repeated TherapistCertification certifications = 27;
+  google.protobuf.Timestamp created_at = 28;
+  google.protobuf.Timestamp updated_at = 29;
+  optional google.protobuf.Timestamp published_at = 30;
+}
+
+enum TherapistVisibility {
+  THERAPIST_VISIBILITY_UNSPECIFIED = 0;
+  THERAPIST_VISIBILITY_PUBLIC = 1;
+  THERAPIST_VISIBILITY_ORGANISATION_ONLY = 2;
+  THERAPIST_VISIBILITY_PRIVATE = 3;
+}
+
+// Specialization information
+message Specialization {
+  string id = 1;
+  string name_eng = 2;
+  string name_pl = 3;
+  string description_eng = 4;
+  string description_pl = 5;
+  string category = 6;
+  bool is_active = 7;
+  google.protobuf.Timestamp created_at = 8;
+  google.protobuf.Timestamp updated_at = 9;
+}
+
+// Therapist-Specialization relationship
+message TherapistSpecialization {
+  string specialization_id = 1;
+  string name_eng = 2;
+  string name_pl = 3;
+  string description_eng = 4;
+  string description_pl = 5;
+  string category = 6;
+  bool is_primary = 7;
+  optional int32 years_of_practice = 8;
+  google.protobuf.Timestamp created_at = 9;
+}
+
+// Education information
+message TherapistEducation {
+  string id = 1;
+  string degree = 2;
+  string field_of_study = 3;
+  string institution = 4;
+  string country = 5;
+  optional int32 start_year = 6;
+  optional int32 graduation_year = 7;
+  bool is_completed = 8;
+  string thesis_title = 9;
+  string honors = 10;
+  int32 display_order = 11;
+  google.protobuf.Timestamp created_at = 12;
+  google.protobuf.Timestamp updated_at = 13;
+}
+
+// Certification information
+message TherapistCertification {
+  string id = 1;
+  string name = 2;
+  string issuing_organization = 3;
+  string credential_id = 4;
+  string issue_date = 5; // YYYY-MM-DD format
+  optional string expiry_date = 6; // YYYY-MM-DD format
+  bool is_active = 7;
+  string verification_url = 8;
+  string certification_level = 9;
+  optional int32 hours_completed = 10;
+  int32 display_order = 11;
+  google.protobuf.Timestamp created_at = 12;
+  google.protobuf.Timestamp updated_at = 13;
+}
+
+// Request/Response messages for Therapist service
+message GetTherapistRequest {
+  string id = 1;
+}
+
+message GetTherapistBySlugRequest {
+  string slug = 1;
+}
+
+message GetTherapistByUserRequest {
+  string user_id = 1;
+}
+
+message ListTherapistsRequest {
+  optional TherapistVisibility visibility = 1;
+  optional string organisation_id = 2;
+  optional string specialization_id = 3;
+  optional string language = 4;
+  optional bool in_person = 5;
+  optional bool online = 6;
+  optional bool accepting_clients = 7;
+  int32 page_size = 8;
+  int32 page_number = 9;
+}
+
+message ListTherapistsResponse {
+  repeated Therapist therapists = 1;
+  int32 total_count = 2;
+  int32 page_size = 3;
+  int32 page_number = 4;
+}
+
+message SearchTherapistsRequest {
+  string query = 1;
+  int32 page_size = 2;
+  int32 page_number = 3;
+}
+
+message SearchTherapistsResponse {
+  repeated Therapist therapists = 1;
+  int32 total_count = 2;
+  int32 page_size = 3;
+  int32 page_number = 4;
+}
+
+message GetTherapistProfileImageRequest {
+  string id = 1;
+}
+
+message GetTherapistProfileImageResponse {
+  bytes image_data = 1;
+  string mime_type = 2;
+}
+
+// Request/Response messages for Specialization service
+message GetSpecializationRequest {
+  string id = 1;
+}
+
+message ListSpecializationsRequest {
+  optional string category = 1;
+}
+
+message ListSpecializationsResponse {
+  repeated Specialization specializations = 1;
+}
+
+message SearchSpecializationsRequest {
+  string query = 1;
+}
+
+message SearchSpecializationsResponse {
+  repeated Specialization specializations = 1;
+}
+
+message GetSpecializationCategoriesRequest {}
+
+message GetSpecializationCategoriesResponse {
+  repeated string categories = 1;
+}
+
+// Service definitions
+service TherapistService {
+  rpc GetTherapist(GetTherapistRequest) returns (Therapist);
+  rpc GetTherapistBySlug(GetTherapistBySlugRequest) returns (Therapist);
+  rpc GetTherapistByUser(GetTherapistByUserRequest) returns (Therapist);
+  rpc ListTherapists(ListTherapistsRequest) returns (ListTherapistsResponse);
+  rpc SearchTherapists(SearchTherapistsRequest) returns (SearchTherapistsResponse);
+  rpc GetTherapistProfileImage(GetTherapistProfileImageRequest) returns (GetTherapistProfileImageResponse);
+}
+
+service SpecializationService {
+  rpc GetSpecialization(GetSpecializationRequest) returns (Specialization);
+  rpc ListSpecializations(ListSpecializationsRequest) returns (ListSpecializationsResponse);
+  rpc SearchSpecializations(SearchSpecializationsRequest) returns (SearchSpecializationsResponse);
+  rpc GetSpecializationCategories(GetSpecializationCategoriesRequest) returns (GetSpecializationCategoriesResponse);
+}

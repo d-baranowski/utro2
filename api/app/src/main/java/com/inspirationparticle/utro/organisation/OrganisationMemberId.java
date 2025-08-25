@@ -3,6 +3,7 @@ package com.inspirationparticle.utro.organisation;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 @Setter
 @Getter
@@ -10,6 +11,6 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrganisationMemberId implements Serializable {
-    private String user;
-    private String organisation;
+    private UUID user;
+    private UUID organisation;
 }

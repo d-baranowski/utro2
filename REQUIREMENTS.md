@@ -37,4 +37,4 @@ MVP
 - Linki prosto do rezerwacji sesji z danym terapeuta
 - Notyfikacja email 
 - Notyfikacja sms
-- 
+-

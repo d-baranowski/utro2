@@ -1,0 +1,417 @@
+{
+  "info": {
+    "name": "Utro Organisation API",
+    "description": "Organisation management endpoints with authentication",
+    "version": "1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "{{baseUrl}}",
+      "type": "string"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{authToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Set test timestamp for unique data",
+          "pm.globals.set('timestamp', Date.now());",
+          "",
+          "// Check if we have an auth token, if not, get one",
+          "if (!pm.environment.get('authToken')) {",
+          "    const testUser = {",
+          "        username: 'orgtest_' + pm.globals.get('timestamp'),",
+          "        password: 'testpassword123',",
+          "        email: 'orgtest@example.com'",
+          "    };",
+          "    ",
+          "    // Create test user",
+          "    pm.sendRequest({",
+          "        url: pm.environment.get('baseUrl') + '/api/test/users',",
+          "        method: 'POST',",
+          "        header: {",
+          "            'Content-Type': 'application/json'",
+          "        },",
+          "        body: {",
+          "            mode: 'raw',",
+          "            raw: JSON.stringify(testUser)",
+          "        }",
+          "    }, function (err, response) {",
+          "        if (!err && response.code === 200) {",
+          "            // Login to get token",
+          "            pm.sendRequest({",
+          "                url: pm.environment.get('baseUrl') + '/login',",
+          "                method: 'POST',",
+          "                header: {",
+          "                    'Content-Type': 'application/json'",
+          "                },",
+          "                body: {",
+          "                    mode: 'raw',",
+          "                    raw: JSON.stringify({",
+          "                        username: testUser.username,",
+          "                        password: testUser.password",
+          "                    })",
+          "                }",
+          "            }, function (err, response) {",
+          "                if (!err && response.code === 200) {",
+          "                    const data = response.json();",
+          "                    pm.environment.set('authToken', data.token);",
+          "                    pm.environment.set('orgTestUsername', testUser.username);",
+          "                }",
+          "            });",
+          "        }",
+          "    });",
+          "}"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Common test assertions",
+          "pm.test('Response time is less than 3000ms', function () {",
+          "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+          "});",
+          "",
+          "pm.test('Response should not contain internal error details', function () {",
+          "    const responseText = pm.response.text();",
+          "    pm.expect(responseText).to.not.include('java.lang');",
+          "    pm.expect(responseText).to.not.include('SQLException');",
+          "    pm.expect(responseText).to.not.include('stackTrace');",
+          "});"
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "name": "Get My Organisations (Empty)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('Response has organisations array', function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property('organisations');",
+              "    pm.expect(jsonData.organisations).to.be.an('array');",
+              "});",
+              "",
+              "pm.test('Initially no organisations', function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData.organisations).to.have.length(0);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/com.inspirationparticle.utro.gen.organisation.v1.OrganisationService/GetMyOrganisations",
+          "host": ["{{baseUrl}}"],
+          "path": ["com.inspirationparticle.utro.gen.organisation.v1.OrganisationService", "GetMyOrganisations"]
+        }
+      }
+    },
+    {
+      "name": "Create Organisation",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('Response contains organisation details', function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property('organisation');",
+              "    pm.expect(jsonData.organisation).to.have.property('name');",
+              "    pm.expect(jsonData.organisation).to.have.property('description');",
+              "    pm.expect(jsonData.organisation).to.have.property('id');",
+              "    ",
+              "    // Store organisation ID for subsequent tests",
+              "    pm.environment.set('createdOrgId', jsonData.organisation.id);",
+              "    pm.environment.set('createdOrgName', jsonData.organisation.name);",
+              "});",
+              "",
+              "pm.test('User is administrator of created organisation', function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData.organisation).to.have.property('memberType');",
+              "    pm.expect(jsonData.organisation.memberType).to.equal('ADMINISTRATOR');",
+              "});"
+            ]
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// Generate unique organisation name",
+              "const timestamp = pm.globals.get('timestamp');",
+              "const orgName = 'Test Organisation ' + timestamp;",
+              "pm.environment.set('uniqueOrgName', orgName);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"{{uniqueOrgName}}\",\n  \"description\": \"A test organisation created via API\",\n  \"website\": \"https://test.example.com\",\n  \"phoneNumber\": \"+1234567890\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/com.inspirationparticle.utro.gen.organisation.v1.OrganisationService/CreateOrganisation",
+          "host": ["{{baseUrl}}"],
+          "path": ["com.inspirationparticle.utro.gen.organisation.v1.OrganisationService", "CreateOrganisation"]
+        }
+      }
+    },
+    {
+      "name": "Create Organisation with Missing Name",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 400 or 500 for missing required field', function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([400, 500]);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"description\": \"Organisation without a name\",\n  \"website\": \"https://test.example.com\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/com.inspirationparticle.utro.gen.organisation.v1.OrganisationService/CreateOrganisation",
+          "host": ["{{baseUrl}}"],
+          "path": ["com.inspirationparticle.utro.gen.organisation.v1.OrganisationService", "CreateOrganisation"]
+        }
+      }
+    },
+    {
+      "name": "Get My Organisations (After Creation)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('Response contains created organisation', function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property('organisations');",
+              "    pm.expect(jsonData.organisations).to.be.an('array');",
+              "    pm.expect(jsonData.organisations).to.have.length.greaterThan(0);",
+              "    ",
+              "    const createdOrgId = pm.environment.get('createdOrgId');",
+              "    const foundOrg = jsonData.organisations.find(org => org.id === createdOrgId);",
+              "    pm.expect(foundOrg).to.not.be.undefined;",
+              "    pm.expect(foundOrg.memberType).to.equal('ADMINISTRATOR');",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/com.inspirationparticle.utro.gen.organisation.v1.OrganisationService/GetMyOrganisations",
+          "host": ["{{baseUrl}}"],
+          "path": ["com.inspirationparticle.utro.gen.organisation.v1.OrganisationService", "GetMyOrganisations"]
+        }
+      }
+    },
+    {
+      "name": "Search Organisations",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('Response contains organisations array', function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property('organisations');",
+              "    pm.expect(jsonData.organisations).to.be.an('array');",
+              "});",
+              "",
+              "pm.test('Search results contain created organisation', function () {",
+              "    const jsonData = pm.response.json();",
+              "    const createdOrgName = pm.environment.get('createdOrgName');",
+              "    const foundOrg = jsonData.organisations.find(org => org.name === createdOrgName);",
+              "    pm.expect(foundOrg).to.not.be.undefined;",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"Test\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/com.inspirationparticle.utro.gen.organisation.v1.OrganisationService/SearchOrganisations",
+          "host": ["{{baseUrl}}"],
+          "path": ["com.inspirationparticle.utro.gen.organisation.v1.OrganisationService", "SearchOrganisations"]
+        }
+      }
+    },
+    {
+      "name": "Search Organisations with Empty Query",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('Response contains organisations array', function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property('organisations');",
+              "    pm.expect(jsonData.organisations).to.be.an('array');",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/com.inspirationparticle.utro.gen.organisation.v1.OrganisationService/SearchOrganisations",
+          "host": ["{{baseUrl}}"],
+          "path": ["com.inspirationparticle.utro.gen.organisation.v1.OrganisationService", "SearchOrganisations"]
+        }
+      }
+    },
+    {
+      "name": "Unauthorized Request (No Token)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 401 or 403 for unauthorized request', function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([401, 403]);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/com.inspirationparticle.utro.gen.organisation.v1.OrganisationService/GetMyOrganisations",
+          "host": ["{{baseUrl}}"],
+          "path": ["com.inspirationparticle.utro.gen.organisation.v1.OrganisationService", "GetMyOrganisations"]
+        }
+      }
+    }
+  ]
+}

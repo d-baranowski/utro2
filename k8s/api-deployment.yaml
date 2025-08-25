@@ -15,6 +15,13 @@ spec:
       containers:
         - name: api
           image: api:latest
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://postgres:5432/utro
+            - name: SPRING_DATASOURCE_USERNAME
+              value: utro
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: utro_password
           ports:
             - containerPort: 8080
 ---

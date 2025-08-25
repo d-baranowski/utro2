@@ -1,6 +1,6 @@
 package com.inspirationparticle.utro.organisation;
 
-import com.github.ksuid.Ksuid;
+import com.inspirationparticle.utro.util.UUIDv7Generator;
 import jakarta.persistence.*;
 import lombok.*;
 import jakarta.validation.constraints.NotBlank;
@@ -8,6 +8,7 @@ import jakarta.validation.constraints.NotBlank;
 import java.time.Instant;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.UUID;
 
 @Setter
 @Getter
@@ -18,8 +19,8 @@ import java.util.HashSet;
 @AllArgsConstructor
 public class Organisation {
     @Id
-    @Column(length = 27)
-    private String id;
+    @Column(columnDefinition = "uuid")
+    private UUID id;
 
     @Column(nullable = false)
     @NotBlank
@@ -40,7 +41,7 @@ public class Organisation {
     @PrePersist
     protected void onCreate() {
         if (id == null) {
-            id = Ksuid.newKsuid().toString();
+            id = UUIDv7Generator.generateUUIDv7();
         }
         createdAt = Instant.now();
         updatedAt = Instant.now();

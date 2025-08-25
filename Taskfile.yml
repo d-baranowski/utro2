@@ -173,3 +173,83 @@ tasks:
     desc: Build and run full stack with observability
     cmds:
       - docker compose up --build
+
+  # API Testing with Newman
+  test:api-newman:
+    desc: Run all API tests with Newman using local environment
+    cmds:
+      - task: test:api-newman-local
+
+  test:api-newman-local:
+    desc: Run API tests against local environment
+    dir: postman
+    cmds:
+      - echo "Running API tests against local environment..."
+      - newman run collections/public-api.postman_collection.json -e environments/local.postman_environment.json --reporters cli,json --reporter-json-export results/public-api-local.json
+      - newman run collections/user-api.postman_collection.json -e environments/local.postman_environment.json --reporters cli,json --reporter-json-export results/user-api-local.json
+      - newman run collections/auth-api.postman_collection.json -e environments/local.postman_environment.json --reporters cli,json --reporter-json-export results/auth-api-local.json
+      - newman run collections/organisation-api.postman_collection.json -e environments/local.postman_environment.json --reporters cli,json --reporter-json-export results/organisation-api-local.json
+      - newman run collections/therapist-api.postman_collection.json -e environments/local.postman_environment.json --reporters cli,json --reporter-json-export results/therapist-api-local.json
+
+  test:api-newman-docker:
+    desc: Run API tests against Docker environment
+    dir: postman
+    cmds:
+      - echo "Running API tests against Docker environment..."
+      - newman run collections/public-api.postman_collection.json -e environments/docker.postman_environment.json --reporters cli,json --reporter-json-export results/public-api-docker.json
+      - newman run collections/user-api.postman_collection.json -e environments/docker.postman_environment.json --reporters cli,json --reporter-json-export results/user-api-docker.json
+      - newman run collections/auth-api.postman_collection.json -e environments/docker.postman_environment.json --reporters cli,json --reporter-json-export results/auth-api-docker.json
+      - newman run collections/organisation-api.postman_collection.json -e environments/docker.postman_environment.json --reporters cli,json --reporter-json-export results/organisation-api-docker.json
+      - newman run collections/therapist-api.postman_collection.json -e environments/docker.postman_environment.json --reporters cli,json --reporter-json-export results/therapist-api-docker.json
+
+  test:api-newman-ci:
+    desc: Run API tests in CI environment
+    dir: postman
+    cmds:
+      - echo "Running API tests in CI environment..."
+      - newman run collections/public-api.postman_collection.json -e environments/ci.postman_environment.json --reporters cli,junit,json --reporter-junit-export results/public-api-ci.xml --reporter-json-export results/public-api-ci.json
+      - newman run collections/user-api.postman_collection.json -e environments/ci.postman_environment.json --reporters cli,junit,json --reporter-junit-export results/user-api-ci.xml --reporter-json-export results/user-api-ci.json
+      - newman run collections/auth-api.postman_collection.json -e environments/ci.postman_environment.json --reporters cli,junit,json --reporter-junit-export results/auth-api-ci.xml --reporter-json-export results/auth-api-ci.json
+      - newman run collections/organisation-api.postman_collection.json -e environments/ci.postman_environment.json --reporters cli,junit,json --reporter-junit-export results/organisation-api-ci.xml --reporter-json-export results/organisation-api-ci.json
+      - newman run collections/therapist-api.postman_collection.json -e environments/ci.postman_environment.json --reporters cli,junit,json --reporter-junit-export results/therapist-api-ci.xml --reporter-json-export results/therapist-api-ci.json
+
+  test:api-newman-individual:
+    desc: Run individual API collection tests (specify COLLECTION and ENV)
+    dir: postman
+    cmds:
+      - |
+        if [ -z "{{.COLLECTION}}" ] || [ -z "{{.ENV}}" ]; then
+          echo "Usage: task test:api-newman-individual COLLECTION=<collection-name> ENV=<environment>"
+          echo "Available collections: public-api, user-api, auth-api, organisation-api, therapist-api"
+          echo "Available environments: local, docker, ci"
+          exit 1
+        fi
+        newman run collections/{{.COLLECTION}}.postman_collection.json -e environments/{{.ENV}}.postman_environment.json --reporters cli,json --reporter-json-export results/{{.COLLECTION}}-{{.ENV}}.json
+
+  test:api-newman-setup:
+    desc: Setup Newman test results directory
+    dir: postman
+    cmds:
+      - mkdir -p results
+      - echo "Newman test results directory created"
+
+  test:api-newman-clean:
+    desc: Clean Newman test results
+    dir: postman
+    cmds:
+      - rm -rf results
+      - echo "Newman test results cleaned"
+
+  test:api-newman-report:
+    desc: Generate HTML report from Newman results
+    dir: postman
+    cmds:
+      - |
+        echo "Generating HTML reports from Newman JSON results..."
+        for file in results/*.json; do
+          if [ -f "$file" ]; then
+            base=$(basename "$file" .json)
+            echo "Generating report for $base"
+            newman-reporter-html --source "$file" --folder results --filename "${base}-report.html" || echo "HTML reporter not available"
+          fi
+        done

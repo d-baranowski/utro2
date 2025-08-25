@@ -2,6 +2,8 @@ version: v1
 plugins:
   - plugin: buf.build/protocolbuffers/java:v31.1
     out: ../api/app/src/main/java
+  - plugin: buf.build/connectrpc/kotlin:v0.6.1
+    out: ../api/app/src/main/java
   - plugin: buf.build/bufbuild/es:v2.2.2
     out: ../web/generated
     opt:

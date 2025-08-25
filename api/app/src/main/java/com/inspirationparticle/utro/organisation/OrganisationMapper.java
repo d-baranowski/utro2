@@ -6,7 +6,7 @@ import com.inspirationparticle.utro.time.TimeMapper;
 public class OrganisationMapper {
     public static OrganisationOuterClass.Organisation protoFromEntity(Organisation e, MemberType mt) {
         return OrganisationOuterClass.Organisation.newBuilder()
-                .setId(e.getId())
+                .setId(e.getId().toString())
                 .setName(e.getName())
                 .setDescription(e.getDescription())
                 .setCreatedAt(TimeMapper.timestampFromInstant(e.getCreatedAt()))

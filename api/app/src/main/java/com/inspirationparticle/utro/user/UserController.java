@@ -48,7 +48,7 @@ public class UserController {
         
         return ResponseEntity.ok(Map.of(
             "message", "User created successfully",
-            "userId", user.getId(),
+            "userId", user.getId().toString(),
             "username", user.getUsername()
         ));
     }

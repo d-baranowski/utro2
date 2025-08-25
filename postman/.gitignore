@@ -1,0 +1,19 @@
+# Newman test results
+results/
+*.log
+
+# Temporary files
+temp/
+tmp/
+
+# Environment specific secrets (if any)
+.env.local
+.env.secret
+
+# IDE files
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db

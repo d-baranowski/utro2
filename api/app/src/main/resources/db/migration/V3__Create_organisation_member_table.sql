@@ -1,6 +1,6 @@
 CREATE TABLE organisation_member (
-    user_id VARCHAR(27) NOT NULL,
-    organisation_id VARCHAR(27) NOT NULL,
+    user_id UUID NOT NULL,
+    organisation_id UUID NOT NULL,
     member_type VARCHAR(20) NOT NULL,
     joined_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (user_id, organisation_id),

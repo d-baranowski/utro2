@@ -1,0 +1,344 @@
+{
+  "info": {
+    "name": "Utro User API",
+    "description": "User management endpoints for testing (dev/test profiles only)",
+    "version": "1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "{{baseUrl}}",
+      "type": "string"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Set test timestamp for unique usernames",
+          "pm.globals.set('timestamp', Date.now());"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Common test assertions",
+          "pm.test('Response time is less than 2000ms', function () {",
+          "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+          "});",
+          "",
+          "pm.test('Response should not contain internal error details', function () {",
+          "    const responseText = pm.response.text();",
+          "    pm.expect(responseText).to.not.include('java.lang');",
+          "    pm.expect(responseText).to.not.include('SQLException');",
+          "    pm.expect(responseText).to.not.include('stackTrace');",
+          "});"
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "name": "Create Test User",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200 for successful user creation', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('Response contains user details', function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property('message');",
+              "    pm.expect(jsonData).to.have.property('userId');",
+              "    pm.expect(jsonData).to.have.property('username');",
+              "    ",
+              "    // Store created user info for subsequent tests",
+              "    pm.environment.set('createdUserId', jsonData.userId);",
+              "    pm.environment.set('createdUsername', jsonData.username);",
+              "});",
+              "",
+              "pm.test('User ID is a valid format', function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData.userId).to.be.a('string');",
+              "    pm.expect(jsonData.userId.length).to.be.greaterThan(0);",
+              "});"
+            ]
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// Generate unique username",
+              "const timestamp = pm.globals.get('timestamp');",
+              "const username = 'testuser_' + timestamp;",
+              "pm.environment.set('uniqueUsername', username);",
+              "pm.environment.set('testEmail', username + '@test.com');"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"{{uniqueUsername}}\",\n  \"password\": \"testpassword123\",\n  \"email\": \"{{testEmail}}\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/test/users",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "test", "users"]
+        }
+      }
+    },
+    {
+      "name": "Create User with Duplicate Username",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 400 for duplicate username', function () {",
+              "    pm.response.to.have.status(400);",
+              "});",
+              "",
+              "pm.test('Response contains error message', function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property('error');",
+              "    pm.expect(jsonData.error).to.include('already exists');",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"{{uniqueUsername}}\",\n  \"password\": \"anotherpassword\",\n  \"email\": \"another@test.com\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/test/users",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "test", "users"]
+        }
+      }
+    },
+    {
+      "name": "Create User with Missing Fields",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 400 for missing required fields', function () {",
+              "    pm.response.to.have.status(400);",
+              "});",
+              "",
+              "pm.test('Response contains validation error', function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property('error');",
+              "    pm.expect(jsonData.error).to.include('required');",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"incompleteuser\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/test/users",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "test", "users"]
+        }
+      }
+    },
+    {
+      "name": "Check User Exists",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('Response indicates user exists', function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property('exists');",
+              "    pm.expect(jsonData.exists).to.be.true;",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/test/users/{{uniqueUsername}}/exists",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "test", "users", "{{uniqueUsername}}", "exists"]
+        }
+      }
+    },
+    {
+      "name": "Check Non-Existent User",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('Response indicates user does not exist', function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property('exists');",
+              "    pm.expect(jsonData.exists).to.be.false;",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/test/users/nonexistentuser/exists",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "test", "users", "nonexistentuser", "exists"]
+        }
+      }
+    },
+    {
+      "name": "Delete Test User",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200 for successful deletion', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('Response contains success message', function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property('message');",
+              "    pm.expect(jsonData.message).to.include('deleted successfully');",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/test/users/{{uniqueUsername}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "test", "users", "{{uniqueUsername}}"]
+        }
+      }
+    },
+    {
+      "name": "Delete Non-Existent User",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 404 for non-existent user', function () {",
+              "    pm.response.to.have.status(404);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/test/users/nonexistentuser",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "test", "users", "nonexistentuser"]
+        }
+      }
+    },
+    {
+      "name": "Verify User Deleted",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('Response indicates user no longer exists', function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property('exists');",
+              "    pm.expect(jsonData.exists).to.be.false;",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/test/users/{{uniqueUsername}}/exists",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "test", "users", "{{uniqueUsername}}", "exists"]
+        }
+      }
+    }
+  ]
+}

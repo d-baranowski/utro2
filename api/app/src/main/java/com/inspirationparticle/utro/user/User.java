@@ -1,18 +1,19 @@
 package com.inspirationparticle.utro.user;
 
-import com.github.ksuid.Ksuid;
 import com.inspirationparticle.utro.organisation.OrganisationMember;
+import com.inspirationparticle.utro.util.UUIDv7Generator;
 import jakarta.persistence.*;
 import java.time.Instant;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.UUID;
 
 @Entity
 @Table(name = "\"user\"")
 public class User {
     @Id
-    @Column(length = 27)
-    private String id;
+    @Column(columnDefinition = "uuid")
+    private UUID id;
 
     @Column(nullable = false, unique = true)
     private String username;
@@ -32,6 +33,15 @@ public class User {
     @Column
     private String password;
 
+    @Column
+    private String phone;
+
+    @Column(name = "email_verified")
+    private Boolean emailVerified = false;
+
+    @Column(name = "phone_verified")
+    private Boolean phoneVerified = false;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<OrganisationMember> organisationMemberships = new HashSet<>();
 
@@ -47,7 +57,7 @@ public class User {
     @PrePersist
     protected void onCreate() {
         if (id == null) {
-            id = Ksuid.newKsuid().toString();
+            id = UUIDv7Generator.generateUUIDv7();
         }
         createdAt = Instant.now();
         updatedAt = Instant.now();
@@ -58,11 +68,11 @@ public class User {
         updatedAt = Instant.now();
     }
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -144,5 +154,29 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Boolean getEmailVerified() {
+        return emailVerified;
+    }
+
+    public void setEmailVerified(Boolean emailVerified) {
+        this.emailVerified = emailVerified;
+    }
+
+    public Boolean getPhoneVerified() {
+        return phoneVerified;
+    }
+
+    public void setPhoneVerified(Boolean phoneVerified) {
+        this.phoneVerified = phoneVerified;
     }
 }

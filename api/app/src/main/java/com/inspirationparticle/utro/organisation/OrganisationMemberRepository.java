@@ -6,6 +6,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.UUID;
 
 @Repository
 public interface OrganisationMemberRepository extends JpaRepository<OrganisationMember, OrganisationMemberId> {
@@ -14,11 +15,11 @@ public interface OrganisationMemberRepository extends JpaRepository<Organisation
            "JOIN FETCH om.organisation o " +
            "WHERE om.user.id = :userId " +
            "ORDER BY om.joinedAt DESC")
-    List<OrganisationMember> findByUserIdWithOrganisation(@Param("userId") String userId);
+    List<OrganisationMember> findByUserIdWithOrganisation(@Param("userId") UUID userId);
     
-    List<OrganisationMember> findByUserId(String userId);
+    List<OrganisationMember> findByUserId(UUID userId);
     
-    List<OrganisationMember> findByOrganisationId(String organisationId);
+    List<OrganisationMember> findByOrganisationId(UUID organisationId);
 
-    OrganisationMember findByUserIdAndOrganisationId(String userId, String organisationId);
+    OrganisationMember findByUserIdAndOrganisationId(UUID userId, UUID organisationId);
 }

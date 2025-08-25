@@ -1,11 +1,11 @@
 CREATE TABLE "user" (
-    id VARCHAR(27) PRIMARY KEY,
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     username VARCHAR(255) NOT NULL UNIQUE,
     email VARCHAR(255) UNIQUE,
     full_name VARCHAR(255),
     provider VARCHAR(50) NOT NULL DEFAULT 'local',
     provider_id VARCHAR(255),
-    organisation_id VARCHAR(27),
+    organisation_id UUID,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     last_login_at TIMESTAMP WITH TIME ZONE,

@@ -1,0 +1,535 @@
+{
+  "info": {
+    "name": "Utro Therapist API",
+    "description": "Therapist and specialization endpoints",
+    "version": "1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "{{baseUrl}}",
+      "type": "string"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Set test timestamp for unique data",
+          "pm.globals.set('timestamp', Date.now());"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Common test assertions",
+          "pm.test('Response time is less than 3000ms', function () {",
+          "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+          "});",
+          "",
+          "pm.test('Response should not contain internal error details', function () {",
+          "    const responseText = pm.response.text();",
+          "    pm.expect(responseText).to.not.include('java.lang');",
+          "    pm.expect(responseText).to.not.include('SQLException');",
+          "    pm.expect(responseText).to.not.include('stackTrace');",
+          "});"
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "name": "Therapist Service",
+      "item": [
+        {
+          "name": "Get Therapist by ID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or 404', function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200, 404]);",
+                  "});",
+                  "",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response contains therapist data', function () {",
+                  "        const jsonData = pm.response.json();",
+                  "        pm.expect(jsonData).to.have.property('therapist');",
+                  "        pm.expect(jsonData.therapist).to.have.property('id');",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"1\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/utro.v1.TherapistService/GetTherapist",
+              "host": ["{{baseUrl}}"],
+              "path": ["utro.v1.TherapistService", "GetTherapist"]
+            }
+          }
+        },
+        {
+          "name": "Get Therapist by Slug",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or 404', function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200, 404]);",
+                  "});",
+                  "",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response contains therapist data', function () {",
+                  "        const jsonData = pm.response.json();",
+                  "        pm.expect(jsonData).to.have.property('therapist');",
+                  "        pm.expect(jsonData.therapist).to.have.property('slug');",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"slug\": \"test-therapist\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/utro.v1.TherapistService/GetTherapistBySlug",
+              "host": ["{{baseUrl}}"],
+              "path": ["utro.v1.TherapistService", "GetTherapistBySlug"]
+            }
+          }
+        },
+        {
+          "name": "Get Therapist by User ID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or 404', function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200, 404]);",
+                  "});",
+                  "",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response contains therapist data', function () {",
+                  "        const jsonData = pm.response.json();",
+                  "        pm.expect(jsonData).to.have.property('therapist');",
+                  "        pm.expect(jsonData.therapist).to.have.property('userId');",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"1\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/utro.v1.TherapistService/GetTherapistByUser",
+              "host": ["{{baseUrl}}"],
+              "path": ["utro.v1.TherapistService", "GetTherapistByUser"]
+            }
+          }
+        },
+        {
+          "name": "List Therapists",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Response contains therapists array', function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('therapists');",
+                  "    pm.expect(jsonData.therapists).to.be.an('array');",
+                  "});",
+                  "",
+                  "pm.test('Pagination info is present', function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('hasMore');",
+                  "    pm.expect(jsonData.hasMore).to.be.a('boolean');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"limit\": 10,\n  \"offset\": 0\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/utro.v1.TherapistService/ListTherapists",
+              "host": ["{{baseUrl}}"],
+              "path": ["utro.v1.TherapistService", "ListTherapists"]
+            }
+          }
+        },
+        {
+          "name": "List Therapists with Filters",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Response contains therapists array', function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('therapists');",
+                  "    pm.expect(jsonData.therapists).to.be.an('array');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"limit\": 5,\n  \"offset\": 0,\n  \"specializations\": [\"anxiety\", \"depression\"],\n  \"location\": \"Warsaw\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/utro.v1.TherapistService/ListTherapists",
+              "host": ["{{baseUrl}}"],
+              "path": ["utro.v1.TherapistService", "ListTherapists"]
+            }
+          }
+        },
+        {
+          "name": "Search Therapists",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Response contains therapists array', function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('therapists');",
+                  "    pm.expect(jsonData.therapists).to.be.an('array');",
+                  "});",
+                  "",
+                  "pm.test('Pagination info is present', function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('hasMore');",
+                  "    pm.expect(jsonData.hasMore).to.be.a('boolean');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"therapy\",\n  \"limit\": 10,\n  \"offset\": 0\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/utro.v1.TherapistService/SearchTherapists",
+              "host": ["{{baseUrl}}"],
+              "path": ["utro.v1.TherapistService", "SearchTherapists"]
+            }
+          }
+        },
+        {
+          "name": "Get Therapist Profile Image",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or 404', function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200, 404]);",
+                  "});",
+                  "",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response contains image URL', function () {",
+                  "        const jsonData = pm.response.json();",
+                  "        pm.expect(jsonData).to.have.property('imageUrl');",
+                  "        pm.expect(jsonData.imageUrl).to.be.a('string');",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"therapistId\": \"1\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/utro.v1.TherapistService/GetTherapistProfileImage",
+              "host": ["{{baseUrl}}"],
+              "path": ["utro.v1.TherapistService", "GetTherapistProfileImage"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Specialization Service",
+      "item": [
+        {
+          "name": "Get Specialization",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or 404', function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200, 404]);",
+                  "});",
+                  "",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response contains specialization data', function () {",
+                  "        const jsonData = pm.response.json();",
+                  "        pm.expect(jsonData).to.have.property('specialization');",
+                  "        pm.expect(jsonData.specialization).to.have.property('id');",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"1\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/utro.v1.SpecializationService/GetSpecialization",
+              "host": ["{{baseUrl}}"],
+              "path": ["utro.v1.SpecializationService", "GetSpecialization"]
+            }
+          }
+        },
+        {
+          "name": "List Specializations",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Response contains specializations array', function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('specializations');",
+                  "    pm.expect(jsonData.specializations).to.be.an('array');",
+                  "});",
+                  "",
+                  "pm.test('Pagination info is present', function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('hasMore');",
+                  "    pm.expect(jsonData.hasMore).to.be.a('boolean');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"limit\": 10,\n  \"offset\": 0\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/utro.v1.SpecializationService/ListSpecializations",
+              "host": ["{{baseUrl}}"],
+              "path": ["utro.v1.SpecializationService", "ListSpecializations"]
+            }
+          }
+        },
+        {
+          "name": "Search Specializations",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Response contains specializations array', function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('specializations');",
+                  "    pm.expect(jsonData.specializations).to.be.an('array');",
+                  "});",
+                  "",
+                  "pm.test('Pagination info is present', function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('hasMore');",
+                  "    pm.expect(jsonData.hasMore).to.be.a('boolean');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"anxiety\",\n  \"limit\": 10,\n  \"offset\": 0\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/utro.v1.SpecializationService/SearchSpecializations",
+              "host": ["{{baseUrl}}"],
+              "path": ["utro.v1.SpecializationService", "SearchSpecializations"]
+            }
+          }
+        },
+        {
+          "name": "Get Specialization Categories",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Response contains categories array', function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('categories');",
+                  "    pm.expect(jsonData.categories).to.be.an('array');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/utro.v1.SpecializationService/GetSpecializationCategories",
+              "host": ["{{baseUrl}}"],
+              "path": ["utro.v1.SpecializationService", "GetSpecializationCategories"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
