@@ -1,13 +1,20 @@
 package com.inspirationparticle.utro.therapist;
 
 import com.inspirationparticle.utro.gen.v1.TherapistProto.*;
+import com.inspirationparticle.utro.organisation.MemberType;
+import com.inspirationparticle.utro.organisation.OrganisationMemberRepository;
+import com.inspirationparticle.utro.user.User;
+import com.inspirationparticle.utro.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -22,7 +29,13 @@ public class TherapistServiceImpl {
     private TherapistRepository therapistRepository;
 
     @Autowired
-    private TherapistProtoMapper therapistProtoMapper;
+    private TherapistService therapistService;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private OrganisationMemberRepository organisationMemberRepository;
 
     @PostMapping("/GetTherapist")
     public ResponseEntity<com.inspirationparticle.utro.gen.v1.TherapistProto.Therapist> getTherapist(@RequestBody com.inspirationparticle.utro.gen.v1.TherapistProto.GetTherapistRequest request) {
@@ -34,7 +47,7 @@ public class TherapistServiceImpl {
                 return ResponseEntity.notFound().build();
             }
 
-            return ResponseEntity.ok(therapistProtoMapper.toProto(therapist.get()));
+            return ResponseEntity.ok(TherapistProtoMapper.toProto(therapist.get()));
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().build();
         }
@@ -49,7 +62,7 @@ public class TherapistServiceImpl {
             return ResponseEntity.notFound().build();
         }
         
-        return ResponseEntity.ok(therapistProtoMapper.toProto(therapist.get()));
+        return ResponseEntity.ok(TherapistProtoMapper.toProto(therapist.get()));
     }
 
     @PostMapping("/GetTherapistByUser")
@@ -63,7 +76,7 @@ public class TherapistServiceImpl {
                 return ResponseEntity.notFound().build();
             }
             
-            return ResponseEntity.ok(therapistProtoMapper.toProto(therapist.get()));
+            return ResponseEntity.ok(TherapistProtoMapper.toProto(therapist.get()));
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().build();
         }
@@ -74,6 +87,13 @@ public class TherapistServiceImpl {
         try {
             List<com.inspirationparticle.utro.therapist.Therapist> therapists;
             int totalCount = 0;
+
+            // Get current user if authenticated
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            User currentUser = null;
+            if (auth != null && auth.isAuthenticated() && !auth.getName().equals("anonymousUser")) {
+                currentUser = userRepository.findByUsername(auth.getName()).orElse(null);
+            }
 
             // Apply filters based on request
             if (request.hasOrganisationId()) {
@@ -99,6 +119,34 @@ public class TherapistServiceImpl {
                     com.inspirationparticle.utro.therapist.Therapist.TherapistVisibility.PUBLIC);
             }
 
+            // Filter out unpublished therapists unless user is authorized
+            List<com.inspirationparticle.utro.therapist.Therapist> filteredTherapists = new ArrayList<>();
+            for (com.inspirationparticle.utro.therapist.Therapist therapist : therapists) {
+                boolean canView = false;
+                
+                // Always show published therapists
+                if (therapist.getPublishedAt() != null) {
+                    canView = true;
+                } else if (currentUser != null) {
+                    // Show unpublished if user is the therapist
+                    if (therapist.getUser().getId().equals(currentUser.getId())) {
+                        canView = true;
+                    } else {
+                        // Show unpublished if user is org admin
+                        var membership = organisationMemberRepository
+                            .findByUserIdAndOrganisationId(currentUser.getId(), therapist.getOrganisation().getId());
+                        if (membership.isPresent() && membership.get().getMemberType() == MemberType.ADMINISTRATOR) {
+                            canView = true;
+                        }
+                    }
+                }
+                
+                if (canView) {
+                    filteredTherapists.add(therapist);
+                }
+            }
+            therapists = filteredTherapists;
+
             totalCount = therapists.size();
 
             // Apply pagination
@@ -114,7 +162,7 @@ public class TherapistServiceImpl {
             }
 
             List<com.inspirationparticle.utro.gen.v1.TherapistProto.Therapist> protoTherapists = therapists.stream()
-                .map(therapistProtoMapper::toProto)
+                .map(TherapistProtoMapper::toProto)
                 .collect(Collectors.toList());
 
             return ResponseEntity.ok(com.inspirationparticle.utro.gen.v1.TherapistProto.ListTherapistsResponse.newBuilder()
@@ -142,7 +190,7 @@ public class TherapistServiceImpl {
             therapistRepository.searchTherapists(request.getQuery(), pageable);
 
         List<com.inspirationparticle.utro.gen.v1.TherapistProto.Therapist> protoTherapists = therapistsPage.getContent().stream()
-            .map(therapistProtoMapper::toProto)
+            .map(TherapistProtoMapper::toProto)
             .collect(Collectors.toList());
 
         return ResponseEntity.ok(com.inspirationparticle.utro.gen.v1.TherapistProto.SearchTherapistsResponse.newBuilder()
@@ -175,5 +223,30 @@ public class TherapistServiceImpl {
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().build();
         }
+    }
+
+    public ResponseEntity<com.inspirationparticle.utro.gen.v1.TherapistProto.Therapist> createTherapist(
+            com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest request, String username) {
+        return therapistService.createTherapist(request, username);
+    }
+
+    public ResponseEntity<com.inspirationparticle.utro.gen.v1.TherapistProto.Therapist> updateTherapist(
+            com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest request, String username) {
+        return therapistService.updateTherapist(request, username);
+    }
+
+    public ResponseEntity<com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse> deleteTherapist(
+            com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest request, String username) {
+        return therapistService.deleteTherapist(request, username);
+    }
+
+    public ResponseEntity<com.inspirationparticle.utro.gen.v1.TherapistProto.Therapist> publishTherapist(
+            com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest request, String username) {
+        return therapistService.publishTherapist(request, username);
+    }
+
+    public ResponseEntity<com.inspirationparticle.utro.gen.v1.TherapistProto.Therapist> unpublishTherapist(
+            com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest request, String username) {
+        return therapistService.unpublishTherapist(request, username);
     }
 }

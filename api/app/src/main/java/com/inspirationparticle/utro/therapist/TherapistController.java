@@ -71,4 +71,54 @@ public class TherapistController {
     public ResponseEntity<TherapistProto.GetTherapistProfileImageResponse> getTherapistProfileImage(@RequestBody TherapistProto.GetTherapistProfileImageRequest request) {
         return therapistService.getTherapistProfileImage(request);
     }
+
+    @PreAuthorize("hasAuthority('ROLE_USER')")
+    @PostMapping(value = "/com.inspirationparticle.utro.gen.v1.TherapistService/CreateTherapist",
+                 consumes = "application/json",
+                 produces = "application/json")
+    public ResponseEntity<TherapistProto.Therapist> createTherapist(@RequestBody TherapistProto.CreateTherapistRequest request) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String username = auth.getName();
+        return therapistService.createTherapist(request, username);
+    }
+
+    @PreAuthorize("hasAuthority('ROLE_USER')")
+    @PostMapping(value = "/com.inspirationparticle.utro.gen.v1.TherapistService/UpdateTherapist",
+                 consumes = "application/json",
+                 produces = "application/json")
+    public ResponseEntity<TherapistProto.Therapist> updateTherapist(@RequestBody TherapistProto.UpdateTherapistRequest request) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String username = auth.getName();
+        return therapistService.updateTherapist(request, username);
+    }
+
+    @PreAuthorize("hasAuthority('ROLE_USER')")
+    @PostMapping(value = "/com.inspirationparticle.utro.gen.v1.TherapistService/DeleteTherapist",
+                 consumes = "application/json",
+                 produces = "application/json")
+    public ResponseEntity<TherapistProto.DeleteTherapistResponse> deleteTherapist(@RequestBody TherapistProto.DeleteTherapistRequest request) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String username = auth.getName();
+        return therapistService.deleteTherapist(request, username);
+    }
+
+    @PreAuthorize("hasAuthority('ROLE_USER')")
+    @PostMapping(value = "/com.inspirationparticle.utro.gen.v1.TherapistService/PublishTherapist",
+                 consumes = "application/json",
+                 produces = "application/json")
+    public ResponseEntity<TherapistProto.Therapist> publishTherapist(@RequestBody TherapistProto.PublishTherapistRequest request) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String username = auth.getName();
+        return therapistService.publishTherapist(request, username);
+    }
+
+    @PreAuthorize("hasAuthority('ROLE_USER')")
+    @PostMapping(value = "/com.inspirationparticle.utro.gen.v1.TherapistService/UnpublishTherapist",
+                 consumes = "application/json",
+                 produces = "application/json")
+    public ResponseEntity<TherapistProto.Therapist> unpublishTherapist(@RequestBody TherapistProto.UnpublishTherapistRequest request) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String username = auth.getName();
+        return therapistService.unpublishTherapist(request, username);
+    }
 }

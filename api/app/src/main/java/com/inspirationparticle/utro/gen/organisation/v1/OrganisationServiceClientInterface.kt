@@ -19,4 +19,9 @@ public interface OrganisationServiceClientInterface {
   public suspend fun searchOrganisations(request: OrganisationOuterClass.SearchOrganisationsRequest,
       headers: Headers = emptyMap()):
       ResponseMessage<OrganisationOuterClass.SearchOrganisationsResponse>
+
+  public suspend
+      fun getOrganisationUsers(request: OrganisationOuterClass.GetOrganisationUsersRequest,
+      headers: Headers = emptyMap()):
+      ResponseMessage<OrganisationOuterClass.GetOrganisationUsersResponse>
 }

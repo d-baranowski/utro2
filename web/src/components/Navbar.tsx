@@ -21,20 +21,18 @@ import OrganisationSwitcher from './OrganisationSwitcher';
 import NoOrganisationDialog from './NoOrganisationDialog';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useOrganisation } from '../contexts/OrganisationContext';
+import { useAuth } from '../contexts/AuthContext';
 import { useTranslation } from 'next-i18next';
+import Link from 'next/link';
 
-interface NavbarProps {
-  isAuthenticated?: boolean;
-  onLogout?: () => void;
-}
-
-const Navbar: React.FC<NavbarProps> = ({ isAuthenticated = false, onLogout }) => {
+const Navbar: React.FC = () => {
+  const { isAuthenticated, logout } = useAuth();
   const { t } = useTranslation('common');
   const [mobileOpen, setMobileOpen] = useState(false);
   const [showNoOrgDialog, setShowNoOrgDialog] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  const { organisations, loading } = useOrganisation();
+  const { organisations, loading, isCurrentUserAdmin } = useOrganisation();
 
   // Show no organisation dialog if user is authenticated but has no organisations
   React.useEffect(() => {
@@ -56,6 +54,18 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated = false, onLogout }) =>
     { label: 'Contact', href: '/contact' },
   ];
 
+  // Add therapist-related menu items for authenticated users with organisations
+  const therapistMenuItems = [];
+  if (isAuthenticated && organisations.length > 0) {
+    therapistMenuItems.push({ label: t('navigation.findTherapists', 'Find Therapists'), href: '/therapists' });
+    
+    if (isCurrentUserAdmin()) {
+      therapistMenuItems.push({ label: t('navigation.manageTherapists', 'Manage Therapists'), href: '/therapist-management' });
+    }
+  }
+
+  const allMenuItems = [...menuItems, ...therapistMenuItems];
+
   const drawer = (
     <Box sx={{ width: 250, height: '100%', bgcolor: 'background.paper' }}>
       <Box sx={{ display: 'flex', justifyContent: 'flex-end', p: 2 }}>
@@ -64,11 +74,13 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated = false, onLogout }) =>
         </IconButton>
       </Box>
       <List>
-        {menuItems.map((item) => (
+        {allMenuItems.map((item) => (
           <ListItem key={item.label} disablePadding>
-            <ListItemButton onClick={handleDrawerToggle}>
-              <ListItemText primary={item.label} />
-            </ListItemButton>
+            <Link href={item.href} passHref>
+              <ListItemButton onClick={handleDrawerToggle}>
+                <ListItemText primary={item.label} />
+              </ListItemButton>
+            </Link>
           </ListItem>
         ))}
         <ListItem disablePadding>
@@ -84,7 +96,7 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated = false, onLogout }) =>
             <ListItemButton
               onClick={() => {
                 handleDrawerToggle();
-                onLogout?.();
+                logout();
               }}
               data-testid="mobile-logout-button"
             >
@@ -150,18 +162,19 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated = false, onLogout }) =>
               </IconButton>
             ) : (
               <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
-                {menuItems.map((item) => (
-                  <Button
-                    key={item.label}
-                    sx={{
-                      color: 'text.primary',
-                      '&:hover': {
-                        bgcolor: 'rgba(25, 118, 210, 0.08)',
-                      },
-                    }}
-                  >
-                    {item.label}
-                  </Button>
+                {allMenuItems.map((item) => (
+                  <Link key={item.label} href={item.href} passHref>
+                    <Button
+                      sx={{
+                        color: 'text.primary',
+                        '&:hover': {
+                          bgcolor: 'rgba(25, 118, 210, 0.08)',
+                        },
+                      }}
+                    >
+                      {item.label}
+                    </Button>
+                  </Link>
                 ))}
                 <LanguageSwitcher />
                 {isAuthenticated && organisations.length > 0 && (
@@ -170,7 +183,7 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated = false, onLogout }) =>
                 {isAuthenticated && (
                   <Button
                     variant="contained"
-                    onClick={onLogout}
+                    onClick={logout}
                     sx={{ ml: 1 }}
                     data-testid="logout-button"
                   >

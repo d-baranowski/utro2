@@ -189,6 +189,71 @@ message GetSpecializationCategoriesResponse {
   repeated string categories = 1;
 }
 
+// CRUD Request/Response messages for Therapist management
+message CreateTherapistRequest {
+  string user_id = 1;
+  string organisation_id = 2;
+  string professional_title = 3;
+  string description_eng = 4;
+  string description_pl = 5;
+  string work_experience_eng = 6;
+  string work_experience_pl = 7;
+  repeated string languages = 8;
+  bool in_person_therapy_format = 9;
+  bool online_therapy_format = 10;
+  string contact_email = 11;
+  string contact_phone = 12;
+  string website_url = 13;
+  bool is_accepting_new_clients = 14;
+  TherapistVisibility visibility = 15;
+  string slug = 16;
+  string meta_description = 17;
+  repeated string search_tags = 18;
+  repeated string specialization_ids = 19;
+  bytes profile_image_data = 20;
+  string profile_image_mime_type = 21;
+}
+
+message UpdateTherapistRequest {
+  string id = 1;
+  optional string professional_title = 2;
+  optional string description_eng = 3;
+  optional string description_pl = 4;
+  optional string work_experience_eng = 5;
+  optional string work_experience_pl = 6;
+  repeated string languages = 7;
+  optional bool in_person_therapy_format = 8;
+  optional bool online_therapy_format = 9;
+  optional string contact_email = 10;
+  optional string contact_phone = 11;
+  optional string website_url = 12;
+  optional bool is_accepting_new_clients = 13;
+  optional TherapistVisibility visibility = 14;
+  optional string slug = 15;
+  optional string meta_description = 16;
+  repeated string search_tags = 17;
+  repeated string specialization_ids = 18;
+  optional bytes profile_image_data = 19;
+  optional string profile_image_mime_type = 20;
+}
+
+message DeleteTherapistRequest {
+  string id = 1;
+}
+
+message DeleteTherapistResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message PublishTherapistRequest {
+  string id = 1;
+}
+
+message UnpublishTherapistRequest {
+  string id = 1;
+}
+
 // Service definitions
 service TherapistService {
   rpc GetTherapist(GetTherapistRequest) returns (Therapist);
@@ -197,6 +262,13 @@ service TherapistService {
   rpc ListTherapists(ListTherapistsRequest) returns (ListTherapistsResponse);
   rpc SearchTherapists(SearchTherapistsRequest) returns (SearchTherapistsResponse);
   rpc GetTherapistProfileImage(GetTherapistProfileImageRequest) returns (GetTherapistProfileImageResponse);
+  
+  // CRUD operations for therapist management
+  rpc CreateTherapist(CreateTherapistRequest) returns (Therapist);
+  rpc UpdateTherapist(UpdateTherapistRequest) returns (Therapist);
+  rpc DeleteTherapist(DeleteTherapistRequest) returns (DeleteTherapistResponse);
+  rpc PublishTherapist(PublishTherapistRequest) returns (Therapist);
+  rpc UnpublishTherapist(UnpublishTherapistRequest) returns (Therapist);
 }
 
 service SpecializationService {

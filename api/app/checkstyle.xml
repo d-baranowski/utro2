@@ -7,6 +7,11 @@
     <property name="charset" value="UTF-8"/>
     <property name="severity" value="warning"/>
     <property name="fileExtensions" value="java, properties, xml"/>
+    
+    <!-- Exclude generated protobuf files from checkstyle validation -->
+    <module name="BeforeExecutionExclusionFileFilter">
+        <property name="fileNamePattern" value=".*[/\\]gen[/\\].*\.java$"/>
+    </module>
     <module name="LineLength">
         <property name="max" value="120"/>
         <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>

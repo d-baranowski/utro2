@@ -529,7 +529,43 @@ pnpm run typecheck       # TypeScript validation
 - Fix any linting or formatting issues before code reviews
 - Maintain test coverage for new features and bug fixes
 
-## Code Style 
+## Code Style and Architecture Guidelines
+
+### Database
 1. Always use singular instead of plural when naming database tables. For example, use `user` instead of `users`.
-2. Make use of typescript and avoid using `any` types.
-3. Avoid using non-exact version numbers in dependencies in `package.json` files. For example, use `3.2.0` instead of `^3.2.0` I want to see the actual version number not approximations.
+2. Use `@Transactional` annotation for methods that modify database state
+3. Ensure proper cascade and fetch strategies in JPA relationships
+
+### Frontend (TypeScript/React)
+1. Make use of typescript and avoid using `any` types.
+2. **MANDATORY**: Run `pnpm run typecheck` regularly when working on the UI - do not proceed with testing until all TypeScript errors are resolved
+3. **MANDATORY**: Always use generated TypeScript types from protobuf code - never create duplicate interfaces or make up types that already exist in generated `.pb.ts` files
+4. Always use proper TypeScript types generated from protobuf - use `create()` from `@bufbuild/protobuf` to create protobuf messages
+5. **MANDATORY**: Every React component MUST have proper TypeScript interfaces defined for their props - never use untyped props
+6. **MANDATORY**: Use React hooks consistently throughout the application - prefer hooks-based APIs over manual implementations where available (e.g., use Connect Query hooks instead of manual API clients)
+7. **CRITICAL**: No task is ever considered complete if any tests are failing or if there are TypeScript errors
+8. Avoid using non-exact version numbers in dependencies in `package.json` files. For example, use `3.2.0` instead of `^3.2.0` I want to see the actual version number not approximations.
+9. **MANDATORY**: Create reusable components wherever possible to avoid code duplication - always check if a similar component already exists before creating a new one
+10. **MANDATORY**: Use the existing Layout component for page structure and the reusable Navbar component for navigation - never create custom navigation bars
+
+### Backend (Java/Spring Boot)
+1. **Separation of Concerns**: Keep controllers thin - they should only handle HTTP concerns
+2. **Service Layer**: Business logic goes in `@Service` classes with `@Transactional` for DB operations
+3. **Mappers Must Be Static**: All mapper classes should contain only static methods, never use `@Component` or `@Autowired` for mappers
+4. **Use Existing Utilities**: Always check for and use existing mapper utilities (e.g., TimeMapper for timestamps) instead of duplicating code
+5. **Request/Response Mapping**: Create dedicated mapper classes for converting between Proto requests/responses and domain entities
+6. **No Business Logic in Controllers**: Controllers should only:
+   - Extract authentication context
+   - Call service methods
+   - Return responses
+7. **Proper Authorization**: Check user permissions in service layer, not controllers
+8. **Consistent Error Handling**: Use proper exception types and HTTP status codes
+
+### Proto/API Design
+1. **MANDATORY**: Use Protocol Buffers for all API contracts - NEVER create REST endpoints
+2. **Frontend**: Always use Connect RPC client with generated protobuf services - no fetch() calls to custom endpoints
+3. **Backend**: All API endpoints must be protobuf-based with Connect annotations
+4. Generate code with `task proto` after modifying .proto files
+5. Keep proto definitions aligned with database schema
+6. Use optional fields for update requests
+7. If you need new API functionality, define it in `.proto` files first, never create ad-hoc REST endpoints

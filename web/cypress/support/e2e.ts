@@ -1,4 +1,5 @@
 import './commands';
+import './database-commands';
 
 // Hide fetch/XHR requests from command log
 Cypress.on('window:before:load', (win) => {

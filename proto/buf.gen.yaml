@@ -8,3 +8,7 @@ plugins:
     out: ../web/generated
     opt:
       - target=ts
+  - plugin: buf.build/connectrpc/query-es:v2.0.0
+    out: ../web/generated
+    opt:
+      - target=ts

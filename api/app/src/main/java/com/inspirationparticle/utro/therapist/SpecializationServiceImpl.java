@@ -18,8 +18,6 @@ public class SpecializationServiceImpl {
     @Autowired
     private SpecializationRepository specializationRepository;
 
-    @Autowired
-    private TherapistProtoMapper therapistProtoMapper;
 
     @PostMapping("/GetSpecialization")
     public ResponseEntity<com.inspirationparticle.utro.gen.v1.TherapistProto.Specialization> getSpecialization(@RequestBody com.inspirationparticle.utro.gen.v1.TherapistProto.GetSpecializationRequest request) {
@@ -32,7 +30,7 @@ public class SpecializationServiceImpl {
                 return ResponseEntity.notFound().build();
             }
             
-            return ResponseEntity.ok(therapistProtoMapper.toProto(specialization.get()));
+            return ResponseEntity.ok(TherapistProtoMapper.toProto(specialization.get()));
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().build();
         }
@@ -49,7 +47,7 @@ public class SpecializationServiceImpl {
         }
 
         List<com.inspirationparticle.utro.gen.v1.TherapistProto.Specialization> protoSpecializations = specializations.stream()
-            .map(therapistProtoMapper::toProto)
+            .map(TherapistProtoMapper::toProto)
             .collect(Collectors.toList());
 
         return ResponseEntity.ok(com.inspirationparticle.utro.gen.v1.TherapistProto.ListSpecializationsResponse.newBuilder()
@@ -67,7 +65,7 @@ public class SpecializationServiceImpl {
             specializationRepository.searchSpecializations(request.getQuery());
 
         List<com.inspirationparticle.utro.gen.v1.TherapistProto.Specialization> protoSpecializations = specializations.stream()
-            .map(therapistProtoMapper::toProto)
+            .map(TherapistProtoMapper::toProto)
             .collect(Collectors.toList());
 
         return ResponseEntity.ok(com.inspirationparticle.utro.gen.v1.TherapistProto.SearchSpecializationsResponse.newBuilder()

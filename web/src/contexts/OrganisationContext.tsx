@@ -1,7 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { Organisation } from '@/generated/organisation/v1/organisation_pb';
+import { Organisation, MemberType } from '@/generated/organisation/v1/organisation_pb';
 import { organisationApi } from '@/lib/api/organisation';
 import { useAuth } from './AuthContext';
 
@@ -13,6 +13,7 @@ interface OrganisationContextType {
   fetchOrganisations: () => Promise<void>;
   selectOrganisation: (org: Organisation) => void;
   createOrganisation: (name: string, description?: string) => Promise<Organisation>;
+  isCurrentUserAdmin: () => boolean;
 }
 
 const OrganisationContext = createContext<OrganisationContextType | undefined>(undefined);
@@ -67,6 +68,10 @@ export function OrganisationProvider({ children }: { children: ReactNode }) {
     }
   };
 
+  const isCurrentUserAdmin = () => {
+    return currentOrganisation?.memberType === MemberType.ADMINISTRATOR;
+  };
+
   useEffect(() => {
     if (isAuthenticated) {
       fetchOrganisations();
@@ -86,6 +91,7 @@ export function OrganisationProvider({ children }: { children: ReactNode }) {
         fetchOrganisations,
         selectOrganisation,
         createOrganisation,
+        isCurrentUserAdmin,
       }}
     >
       {children}

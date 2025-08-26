@@ -55,4 +55,19 @@ public class OrganisationServiceClient(
     ),
   )
 
+
+  override suspend
+      fun getOrganisationUsers(request: OrganisationOuterClass.GetOrganisationUsersRequest,
+      headers: Headers): ResponseMessage<OrganisationOuterClass.GetOrganisationUsersResponse> =
+      client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "com.inspirationparticle.utro.gen.organisation.v1.OrganisationService/GetOrganisationUsers",
+      com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest::class,
+      com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse::class,
+      StreamType.UNARY,
+    ),
+  )
+
 }

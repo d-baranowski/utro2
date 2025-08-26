@@ -1,18 +1,15 @@
 package com.inspirationparticle.utro.therapist;
 
-import com.google.protobuf.Timestamp;
 import com.inspirationparticle.utro.gen.v1.TherapistProto.*;
-import org.springframework.stereotype.Component;
+import com.inspirationparticle.utro.time.TimeMapper;
 
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.stream.Collectors;
 
-@Component
 public class TherapistProtoMapper {
 
-    public com.inspirationparticle.utro.gen.v1.TherapistProto.Therapist toProto(com.inspirationparticle.utro.therapist.Therapist therapist) {
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.Therapist toProto(com.inspirationparticle.utro.therapist.Therapist therapist) {
         if (therapist == null) {
             return null;
         }
@@ -28,8 +25,8 @@ public class TherapistProtoMapper {
             .setIsActive(therapist.getIsActive() != null ? therapist.getIsActive() : false)
             .setIsAcceptingNewClients(therapist.getIsAcceptingNewClients() != null ? therapist.getIsAcceptingNewClients() : false)
             .setVisibility(mapVisibilityToProto(therapist.getVisibility()))
-            .setCreatedAt(toTimestamp(therapist.getCreatedAt()))
-            .setUpdatedAt(toTimestamp(therapist.getUpdatedAt()));
+            .setCreatedAt(TimeMapper.timestampFromInstant(therapist.getCreatedAt()))
+            .setUpdatedAt(TimeMapper.timestampFromInstant(therapist.getUpdatedAt()));
 
         // Optional string fields
         if (therapist.getUser().getFullName() != null) {
@@ -69,7 +66,7 @@ public class TherapistProtoMapper {
             builder.setMetaDescription(therapist.getMetaDescription());
         }
         if (therapist.getPublishedAt() != null) {
-            builder.setPublishedAt(toTimestamp(therapist.getPublishedAt()));
+            builder.setPublishedAt(TimeMapper.timestampFromInstant(therapist.getPublishedAt()));
         }
 
         // Collections
@@ -84,7 +81,7 @@ public class TherapistProtoMapper {
         if (therapist.getSpecializations() != null) {
             builder.addAllSpecializations(
                 therapist.getSpecializations().stream()
-                    .map(this::toProto)
+                    .map(TherapistSpecializationMapper::toProto)
                     .collect(Collectors.toList())
             );
         }
@@ -92,7 +89,7 @@ public class TherapistProtoMapper {
         if (therapist.getEducation() != null) {
             builder.addAllEducation(
                 therapist.getEducation().stream()
-                    .map(this::toProto)
+                    .map(TherapistEducationMapper::toProto)
                     .collect(Collectors.toList())
             );
         }
@@ -100,7 +97,7 @@ public class TherapistProtoMapper {
         if (therapist.getCertifications() != null) {
             builder.addAllCertifications(
                 therapist.getCertifications().stream()
-                    .map(this::toProto)
+                    .map(TherapistCertificationMapper::toProto)
                     .collect(Collectors.toList())
             );
         }
@@ -108,7 +105,7 @@ public class TherapistProtoMapper {
         return builder.build();
     }
 
-    public com.inspirationparticle.utro.gen.v1.TherapistProto.Specialization toProto(com.inspirationparticle.utro.therapist.Specialization specialization) {
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.Specialization toProto(com.inspirationparticle.utro.therapist.Specialization specialization) {
         if (specialization == null) {
             return null;
         }
@@ -118,8 +115,8 @@ public class TherapistProtoMapper {
             .setNameEng(specialization.getNameEng())
             .setNamePl(specialization.getNamePl())
             .setIsActive(specialization.getIsActive() != null ? specialization.getIsActive() : false)
-            .setCreatedAt(toTimestamp(specialization.getCreatedAt()))
-            .setUpdatedAt(toTimestamp(specialization.getUpdatedAt()));
+            .setCreatedAt(TimeMapper.timestampFromInstant(specialization.getCreatedAt()))
+            .setUpdatedAt(TimeMapper.timestampFromInstant(specialization.getUpdatedAt()));
 
         if (specialization.getDescriptionEng() != null) {
             builder.setDescriptionEng(specialization.getDescriptionEng());
@@ -134,7 +131,7 @@ public class TherapistProtoMapper {
         return builder.build();
     }
 
-    public com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistSpecialization toProto(com.inspirationparticle.utro.therapist.TherapistSpecialization ts) {
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistSpecialization toTherapistSpecializationProto(com.inspirationparticle.utro.therapist.TherapistSpecialization ts) {
         if (ts == null) {
             return null;
         }
@@ -144,7 +141,7 @@ public class TherapistProtoMapper {
             .setNameEng(ts.getSpecialization().getNameEng())
             .setNamePl(ts.getSpecialization().getNamePl())
             .setIsPrimary(ts.getIsPrimary() != null ? ts.getIsPrimary() : false)
-            .setCreatedAt(toTimestamp(ts.getCreatedAt()));
+            .setCreatedAt(TimeMapper.timestampFromInstant(ts.getCreatedAt()));
 
         if (ts.getSpecialization().getDescriptionEng() != null) {
             builder.setDescriptionEng(ts.getSpecialization().getDescriptionEng());
@@ -162,7 +159,7 @@ public class TherapistProtoMapper {
         return builder.build();
     }
 
-    public com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistEducation toProto(com.inspirationparticle.utro.therapist.TherapistEducation education) {
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistEducation toEducationProto(com.inspirationparticle.utro.therapist.TherapistEducation education) {
         if (education == null) {
             return null;
         }
@@ -173,8 +170,8 @@ public class TherapistProtoMapper {
             .setInstitution(education.getInstitution())
             .setIsCompleted(education.getIsCompleted() != null ? education.getIsCompleted() : false)
             .setDisplayOrder(education.getDisplayOrder() != null ? education.getDisplayOrder() : 0)
-            .setCreatedAt(toTimestamp(education.getCreatedAt()))
-            .setUpdatedAt(toTimestamp(education.getUpdatedAt()));
+            .setCreatedAt(TimeMapper.timestampFromInstant(education.getCreatedAt()))
+            .setUpdatedAt(TimeMapper.timestampFromInstant(education.getUpdatedAt()));
 
         if (education.getFieldOfStudy() != null) {
             builder.setFieldOfStudy(education.getFieldOfStudy());
@@ -198,7 +195,7 @@ public class TherapistProtoMapper {
         return builder.build();
     }
 
-    public com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistCertification toProto(com.inspirationparticle.utro.therapist.TherapistCertification certification) {
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistCertification toCertificationProto(com.inspirationparticle.utro.therapist.TherapistCertification certification) {
         if (certification == null) {
             return null;
         }
@@ -209,8 +206,8 @@ public class TherapistProtoMapper {
             .setIssuingOrganization(certification.getIssuingOrganization())
             .setIsActive(certification.getIsActive() != null ? certification.getIsActive() : false)
             .setDisplayOrder(certification.getDisplayOrder() != null ? certification.getDisplayOrder() : 0)
-            .setCreatedAt(toTimestamp(certification.getCreatedAt()))
-            .setUpdatedAt(toTimestamp(certification.getUpdatedAt()));
+            .setCreatedAt(TimeMapper.timestampFromInstant(certification.getCreatedAt()))
+            .setUpdatedAt(TimeMapper.timestampFromInstant(certification.getUpdatedAt()));
 
         if (certification.getCredentialId() != null) {
             builder.setCredentialId(certification.getCredentialId());
@@ -234,7 +231,7 @@ public class TherapistProtoMapper {
         return builder.build();
     }
 
-    private com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility mapVisibilityToProto(com.inspirationparticle.utro.therapist.Therapist.TherapistVisibility visibility) {
+    private static com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility mapVisibilityToProto(com.inspirationparticle.utro.therapist.Therapist.TherapistVisibility visibility) {
         if (visibility == null) {
             return com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility.THERAPIST_VISIBILITY_PUBLIC;
         }
@@ -246,13 +243,4 @@ public class TherapistProtoMapper {
         };
     }
 
-    private Timestamp toTimestamp(Instant instant) {
-        if (instant == null) {
-            return null;
-        }
-        return Timestamp.newBuilder()
-            .setSeconds(instant.getEpochSecond())
-            .setNanos(instant.getNano())
-            .build();
-    }
 }

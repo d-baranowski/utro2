@@ -5242,6 +5242,2921 @@ public final class OrganisationOuterClass {
 
   }
 
+  public interface GetOrganisationUsersRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.inspirationparticle.utro.gen.organisation.v1.GetOrganisationUsersRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string organisation_id = 1 [json_name = "organisationId"];</code>
+     * @return The organisationId.
+     */
+    java.lang.String getOrganisationId();
+    /**
+     * <code>string organisation_id = 1 [json_name = "organisationId"];</code>
+     * @return The bytes for organisationId.
+     */
+    com.google.protobuf.ByteString
+        getOrganisationIdBytes();
+  }
+  /**
+   * Protobuf type {@code com.inspirationparticle.utro.gen.organisation.v1.GetOrganisationUsersRequest}
+   */
+  public static final class GetOrganisationUsersRequest extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:com.inspirationparticle.utro.gen.organisation.v1.GetOrganisationUsersRequest)
+      GetOrganisationUsersRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    static {
+      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+        /* major= */ 4,
+        /* minor= */ 31,
+        /* patch= */ 1,
+        /* suffix= */ "",
+        GetOrganisationUsersRequest.class.getName());
+    }
+    // Use GetOrganisationUsersRequest.newBuilder() to construct.
+    private GetOrganisationUsersRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private GetOrganisationUsersRequest() {
+      organisationId_ = "";
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.internal_static_com_inspirationparticle_utro_gen_organisation_v1_GetOrganisationUsersRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.internal_static_com_inspirationparticle_utro_gen_organisation_v1_GetOrganisationUsersRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest.class, com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest.Builder.class);
+    }
+
+    public static final int ORGANISATION_ID_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object organisationId_ = "";
+    /**
+     * <code>string organisation_id = 1 [json_name = "organisationId"];</code>
+     * @return The organisationId.
+     */
+    @java.lang.Override
+    public java.lang.String getOrganisationId() {
+      java.lang.Object ref = organisationId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        organisationId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string organisation_id = 1 [json_name = "organisationId"];</code>
+     * @return The bytes for organisationId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getOrganisationIdBytes() {
+      java.lang.Object ref = organisationId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        organisationId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(organisationId_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, organisationId_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(organisationId_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, organisationId_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest)) {
+        return super.equals(obj);
+      }
+      com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest other = (com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest) obj;
+
+      if (!getOrganisationId()
+          .equals(other.getOrganisationId())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ORGANISATION_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getOrganisationId().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.inspirationparticle.utro.gen.organisation.v1.GetOrganisationUsersRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.inspirationparticle.utro.gen.organisation.v1.GetOrganisationUsersRequest)
+        com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.internal_static_com_inspirationparticle_utro_gen_organisation_v1_GetOrganisationUsersRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.internal_static_com_inspirationparticle_utro_gen_organisation_v1_GetOrganisationUsersRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest.class, com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest.Builder.class);
+      }
+
+      // Construct using com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        organisationId_ = "";
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.internal_static_com_inspirationparticle_utro_gen_organisation_v1_GetOrganisationUsersRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest getDefaultInstanceForType() {
+        return com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest build() {
+        com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest buildPartial() {
+        com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest result = new com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.organisationId_ = organisationId_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest) {
+          return mergeFrom((com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest other) {
+        if (other == com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest.getDefaultInstance()) return this;
+        if (!other.getOrganisationId().isEmpty()) {
+          organisationId_ = other.organisationId_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                organisationId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object organisationId_ = "";
+      /**
+       * <code>string organisation_id = 1 [json_name = "organisationId"];</code>
+       * @return The organisationId.
+       */
+      public java.lang.String getOrganisationId() {
+        java.lang.Object ref = organisationId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          organisationId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string organisation_id = 1 [json_name = "organisationId"];</code>
+       * @return The bytes for organisationId.
+       */
+      public com.google.protobuf.ByteString
+          getOrganisationIdBytes() {
+        java.lang.Object ref = organisationId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          organisationId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string organisation_id = 1 [json_name = "organisationId"];</code>
+       * @param value The organisationId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrganisationId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        organisationId_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string organisation_id = 1 [json_name = "organisationId"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOrganisationId() {
+        organisationId_ = getDefaultInstance().getOrganisationId();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string organisation_id = 1 [json_name = "organisationId"];</code>
+       * @param value The bytes for organisationId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrganisationIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        organisationId_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.inspirationparticle.utro.gen.organisation.v1.GetOrganisationUsersRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.inspirationparticle.utro.gen.organisation.v1.GetOrganisationUsersRequest)
+    private static final com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest();
+    }
+
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetOrganisationUsersRequest>
+        PARSER = new com.google.protobuf.AbstractParser<GetOrganisationUsersRequest>() {
+      @java.lang.Override
+      public GetOrganisationUsersRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetOrganisationUsersRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetOrganisationUsersRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GetOrganisationUsersResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.inspirationparticle.utro.gen.organisation.v1.GetOrganisationUsersResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+     */
+    java.util.List<com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User> 
+        getUsersList();
+    /**
+     * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+     */
+    com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User getUsers(int index);
+    /**
+     * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+     */
+    int getUsersCount();
+    /**
+     * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+     */
+    java.util.List<? extends com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.UserOrBuilder> 
+        getUsersOrBuilderList();
+    /**
+     * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+     */
+    com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.UserOrBuilder getUsersOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code com.inspirationparticle.utro.gen.organisation.v1.GetOrganisationUsersResponse}
+   */
+  public static final class GetOrganisationUsersResponse extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:com.inspirationparticle.utro.gen.organisation.v1.GetOrganisationUsersResponse)
+      GetOrganisationUsersResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    static {
+      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+        /* major= */ 4,
+        /* minor= */ 31,
+        /* patch= */ 1,
+        /* suffix= */ "",
+        GetOrganisationUsersResponse.class.getName());
+    }
+    // Use GetOrganisationUsersResponse.newBuilder() to construct.
+    private GetOrganisationUsersResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private GetOrganisationUsersResponse() {
+      users_ = java.util.Collections.emptyList();
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.internal_static_com_inspirationparticle_utro_gen_organisation_v1_GetOrganisationUsersResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.internal_static_com_inspirationparticle_utro_gen_organisation_v1_GetOrganisationUsersResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse.class, com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse.Builder.class);
+    }
+
+    public static final int USERS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private java.util.List<com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User> users_;
+    /**
+     * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User> getUsersList() {
+      return users_;
+    }
+    /**
+     * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.UserOrBuilder> 
+        getUsersOrBuilderList() {
+      return users_;
+    }
+    /**
+     * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+     */
+    @java.lang.Override
+    public int getUsersCount() {
+      return users_.size();
+    }
+    /**
+     * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+     */
+    @java.lang.Override
+    public com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User getUsers(int index) {
+      return users_.get(index);
+    }
+    /**
+     * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+     */
+    @java.lang.Override
+    public com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.UserOrBuilder getUsersOrBuilder(
+        int index) {
+      return users_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < users_.size(); i++) {
+        output.writeMessage(1, users_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < users_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, users_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse)) {
+        return super.equals(obj);
+      }
+      com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse other = (com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse) obj;
+
+      if (!getUsersList()
+          .equals(other.getUsersList())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getUsersCount() > 0) {
+        hash = (37 * hash) + USERS_FIELD_NUMBER;
+        hash = (53 * hash) + getUsersList().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.inspirationparticle.utro.gen.organisation.v1.GetOrganisationUsersResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.inspirationparticle.utro.gen.organisation.v1.GetOrganisationUsersResponse)
+        com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.internal_static_com_inspirationparticle_utro_gen_organisation_v1_GetOrganisationUsersResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.internal_static_com_inspirationparticle_utro_gen_organisation_v1_GetOrganisationUsersResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse.class, com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse.Builder.class);
+      }
+
+      // Construct using com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        if (usersBuilder_ == null) {
+          users_ = java.util.Collections.emptyList();
+        } else {
+          users_ = null;
+          usersBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.internal_static_com_inspirationparticle_utro_gen_organisation_v1_GetOrganisationUsersResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse getDefaultInstanceForType() {
+        return com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse build() {
+        com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse buildPartial() {
+        com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse result = new com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse(this);
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse result) {
+        if (usersBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            users_ = java.util.Collections.unmodifiableList(users_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.users_ = users_;
+        } else {
+          result.users_ = usersBuilder_.build();
+        }
+      }
+
+      private void buildPartial0(com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse result) {
+        int from_bitField0_ = bitField0_;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse) {
+          return mergeFrom((com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse other) {
+        if (other == com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse.getDefaultInstance()) return this;
+        if (usersBuilder_ == null) {
+          if (!other.users_.isEmpty()) {
+            if (users_.isEmpty()) {
+              users_ = other.users_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureUsersIsMutable();
+              users_.addAll(other.users_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.users_.isEmpty()) {
+            if (usersBuilder_.isEmpty()) {
+              usersBuilder_.dispose();
+              usersBuilder_ = null;
+              users_ = other.users_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              usersBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   internalGetUsersFieldBuilder() : null;
+            } else {
+              usersBuilder_.addAllMessages(other.users_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User m =
+                    input.readMessage(
+                        com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User.parser(),
+                        extensionRegistry);
+                if (usersBuilder_ == null) {
+                  ensureUsersIsMutable();
+                  users_.add(m);
+                } else {
+                  usersBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User> users_ =
+        java.util.Collections.emptyList();
+      private void ensureUsersIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          users_ = new java.util.ArrayList<com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User>(users_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User, com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User.Builder, com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.UserOrBuilder> usersBuilder_;
+
+      /**
+       * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+       */
+      public java.util.List<com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User> getUsersList() {
+        if (usersBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(users_);
+        } else {
+          return usersBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+       */
+      public int getUsersCount() {
+        if (usersBuilder_ == null) {
+          return users_.size();
+        } else {
+          return usersBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+       */
+      public com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User getUsers(int index) {
+        if (usersBuilder_ == null) {
+          return users_.get(index);
+        } else {
+          return usersBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+       */
+      public Builder setUsers(
+          int index, com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User value) {
+        if (usersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUsersIsMutable();
+          users_.set(index, value);
+          onChanged();
+        } else {
+          usersBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+       */
+      public Builder setUsers(
+          int index, com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User.Builder builderForValue) {
+        if (usersBuilder_ == null) {
+          ensureUsersIsMutable();
+          users_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          usersBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+       */
+      public Builder addUsers(com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User value) {
+        if (usersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUsersIsMutable();
+          users_.add(value);
+          onChanged();
+        } else {
+          usersBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+       */
+      public Builder addUsers(
+          int index, com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User value) {
+        if (usersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUsersIsMutable();
+          users_.add(index, value);
+          onChanged();
+        } else {
+          usersBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+       */
+      public Builder addUsers(
+          com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User.Builder builderForValue) {
+        if (usersBuilder_ == null) {
+          ensureUsersIsMutable();
+          users_.add(builderForValue.build());
+          onChanged();
+        } else {
+          usersBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+       */
+      public Builder addUsers(
+          int index, com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User.Builder builderForValue) {
+        if (usersBuilder_ == null) {
+          ensureUsersIsMutable();
+          users_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          usersBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+       */
+      public Builder addAllUsers(
+          java.lang.Iterable<? extends com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User> values) {
+        if (usersBuilder_ == null) {
+          ensureUsersIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, users_);
+          onChanged();
+        } else {
+          usersBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+       */
+      public Builder clearUsers() {
+        if (usersBuilder_ == null) {
+          users_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          usersBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+       */
+      public Builder removeUsers(int index) {
+        if (usersBuilder_ == null) {
+          ensureUsersIsMutable();
+          users_.remove(index);
+          onChanged();
+        } else {
+          usersBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+       */
+      public com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User.Builder getUsersBuilder(
+          int index) {
+        return internalGetUsersFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+       */
+      public com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.UserOrBuilder getUsersOrBuilder(
+          int index) {
+        if (usersBuilder_ == null) {
+          return users_.get(index);  } else {
+          return usersBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+       */
+      public java.util.List<? extends com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.UserOrBuilder> 
+           getUsersOrBuilderList() {
+        if (usersBuilder_ != null) {
+          return usersBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(users_);
+        }
+      }
+      /**
+       * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+       */
+      public com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User.Builder addUsersBuilder() {
+        return internalGetUsersFieldBuilder().addBuilder(
+            com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+       */
+      public com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User.Builder addUsersBuilder(
+          int index) {
+        return internalGetUsersFieldBuilder().addBuilder(
+            index, com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.inspirationparticle.utro.gen.organisation.v1.User users = 1 [json_name = "users"];</code>
+       */
+      public java.util.List<com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User.Builder> 
+           getUsersBuilderList() {
+        return internalGetUsersFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User, com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User.Builder, com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.UserOrBuilder> 
+          internalGetUsersFieldBuilder() {
+        if (usersBuilder_ == null) {
+          usersBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User, com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User.Builder, com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.UserOrBuilder>(
+                  users_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          users_ = null;
+        }
+        return usersBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.inspirationparticle.utro.gen.organisation.v1.GetOrganisationUsersResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.inspirationparticle.utro.gen.organisation.v1.GetOrganisationUsersResponse)
+    private static final com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse();
+    }
+
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetOrganisationUsersResponse>
+        PARSER = new com.google.protobuf.AbstractParser<GetOrganisationUsersResponse>() {
+      @java.lang.Override
+      public GetOrganisationUsersResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetOrganisationUsersResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetOrganisationUsersResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.GetOrganisationUsersResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface UserOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.inspirationparticle.utro.gen.organisation.v1.User)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The id.
+     */
+    java.lang.String getId();
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+
+    /**
+     * <code>string username = 2 [json_name = "username"];</code>
+     * @return The username.
+     */
+    java.lang.String getUsername();
+    /**
+     * <code>string username = 2 [json_name = "username"];</code>
+     * @return The bytes for username.
+     */
+    com.google.protobuf.ByteString
+        getUsernameBytes();
+
+    /**
+     * <code>string full_name = 3 [json_name = "fullName"];</code>
+     * @return The fullName.
+     */
+    java.lang.String getFullName();
+    /**
+     * <code>string full_name = 3 [json_name = "fullName"];</code>
+     * @return The bytes for fullName.
+     */
+    com.google.protobuf.ByteString
+        getFullNameBytes();
+
+    /**
+     * <code>string email = 4 [json_name = "email"];</code>
+     * @return The email.
+     */
+    java.lang.String getEmail();
+    /**
+     * <code>string email = 4 [json_name = "email"];</code>
+     * @return The bytes for email.
+     */
+    com.google.protobuf.ByteString
+        getEmailBytes();
+
+    /**
+     * <code>.com.inspirationparticle.utro.gen.organisation.v1.MemberType member_type = 5 [json_name = "memberType"];</code>
+     * @return The enum numeric value on the wire for memberType.
+     */
+    int getMemberTypeValue();
+    /**
+     * <code>.com.inspirationparticle.utro.gen.organisation.v1.MemberType member_type = 5 [json_name = "memberType"];</code>
+     * @return The memberType.
+     */
+    com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.MemberType getMemberType();
+
+    /**
+     * <code>.google.protobuf.Timestamp joined_at = 6 [json_name = "joinedAt"];</code>
+     * @return Whether the joinedAt field is set.
+     */
+    boolean hasJoinedAt();
+    /**
+     * <code>.google.protobuf.Timestamp joined_at = 6 [json_name = "joinedAt"];</code>
+     * @return The joinedAt.
+     */
+    com.google.protobuf.Timestamp getJoinedAt();
+    /**
+     * <code>.google.protobuf.Timestamp joined_at = 6 [json_name = "joinedAt"];</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getJoinedAtOrBuilder();
+
+    /**
+     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+     * @return Whether the createdAt field is set.
+     */
+    boolean hasCreatedAt();
+    /**
+     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+     * @return The createdAt.
+     */
+    com.google.protobuf.Timestamp getCreatedAt();
+    /**
+     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
+
+    /**
+     * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
+     * @return Whether the updatedAt field is set.
+     */
+    boolean hasUpdatedAt();
+    /**
+     * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
+     * @return The updatedAt.
+     */
+    com.google.protobuf.Timestamp getUpdatedAt();
+    /**
+     * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
+  }
+  /**
+   * Protobuf type {@code com.inspirationparticle.utro.gen.organisation.v1.User}
+   */
+  public static final class User extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:com.inspirationparticle.utro.gen.organisation.v1.User)
+      UserOrBuilder {
+  private static final long serialVersionUID = 0L;
+    static {
+      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+        /* major= */ 4,
+        /* minor= */ 31,
+        /* patch= */ 1,
+        /* suffix= */ "",
+        User.class.getName());
+    }
+    // Use User.newBuilder() to construct.
+    private User(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private User() {
+      id_ = "";
+      username_ = "";
+      fullName_ = "";
+      email_ = "";
+      memberType_ = 0;
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.internal_static_com_inspirationparticle_utro_gen_organisation_v1_User_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.internal_static_com_inspirationparticle_utro_gen_organisation_v1_User_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User.class, com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int ID_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object id_ = "";
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The bytes for id.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int USERNAME_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object username_ = "";
+    /**
+     * <code>string username = 2 [json_name = "username"];</code>
+     * @return The username.
+     */
+    @java.lang.Override
+    public java.lang.String getUsername() {
+      java.lang.Object ref = username_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        username_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string username = 2 [json_name = "username"];</code>
+     * @return The bytes for username.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getUsernameBytes() {
+      java.lang.Object ref = username_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        username_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FULL_NAME_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object fullName_ = "";
+    /**
+     * <code>string full_name = 3 [json_name = "fullName"];</code>
+     * @return The fullName.
+     */
+    @java.lang.Override
+    public java.lang.String getFullName() {
+      java.lang.Object ref = fullName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        fullName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string full_name = 3 [json_name = "fullName"];</code>
+     * @return The bytes for fullName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getFullNameBytes() {
+      java.lang.Object ref = fullName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fullName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int EMAIL_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object email_ = "";
+    /**
+     * <code>string email = 4 [json_name = "email"];</code>
+     * @return The email.
+     */
+    @java.lang.Override
+    public java.lang.String getEmail() {
+      java.lang.Object ref = email_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        email_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string email = 4 [json_name = "email"];</code>
+     * @return The bytes for email.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getEmailBytes() {
+      java.lang.Object ref = email_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        email_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int MEMBER_TYPE_FIELD_NUMBER = 5;
+    private int memberType_ = 0;
+    /**
+     * <code>.com.inspirationparticle.utro.gen.organisation.v1.MemberType member_type = 5 [json_name = "memberType"];</code>
+     * @return The enum numeric value on the wire for memberType.
+     */
+    @java.lang.Override public int getMemberTypeValue() {
+      return memberType_;
+    }
+    /**
+     * <code>.com.inspirationparticle.utro.gen.organisation.v1.MemberType member_type = 5 [json_name = "memberType"];</code>
+     * @return The memberType.
+     */
+    @java.lang.Override public com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.MemberType getMemberType() {
+      com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.MemberType result = com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.MemberType.forNumber(memberType_);
+      return result == null ? com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.MemberType.UNRECOGNIZED : result;
+    }
+
+    public static final int JOINED_AT_FIELD_NUMBER = 6;
+    private com.google.protobuf.Timestamp joinedAt_;
+    /**
+     * <code>.google.protobuf.Timestamp joined_at = 6 [json_name = "joinedAt"];</code>
+     * @return Whether the joinedAt field is set.
+     */
+    @java.lang.Override
+    public boolean hasJoinedAt() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>.google.protobuf.Timestamp joined_at = 6 [json_name = "joinedAt"];</code>
+     * @return The joinedAt.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getJoinedAt() {
+      return joinedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : joinedAt_;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp joined_at = 6 [json_name = "joinedAt"];</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getJoinedAtOrBuilder() {
+      return joinedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : joinedAt_;
+    }
+
+    public static final int CREATED_AT_FIELD_NUMBER = 7;
+    private com.google.protobuf.Timestamp createdAt_;
+    /**
+     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+     * @return Whether the createdAt field is set.
+     */
+    @java.lang.Override
+    public boolean hasCreatedAt() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+     * @return The createdAt.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getCreatedAt() {
+      return createdAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
+      return createdAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
+    }
+
+    public static final int UPDATED_AT_FIELD_NUMBER = 8;
+    private com.google.protobuf.Timestamp updatedAt_;
+    /**
+     * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
+     * @return Whether the updatedAt field is set.
+     */
+    @java.lang.Override
+    public boolean hasUpdatedAt() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
+     * @return The updatedAt.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getUpdatedAt() {
+      return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
+      return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(id_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, id_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(username_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 2, username_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(fullName_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 3, fullName_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(email_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 4, email_);
+      }
+      if (memberType_ != com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.MemberType.MEMBER_TYPE_UNSPECIFIED.getNumber()) {
+        output.writeEnum(5, memberType_);
+      }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeMessage(6, getJoinedAt());
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeMessage(7, getCreatedAt());
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeMessage(8, getUpdatedAt());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(id_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, id_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(username_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(2, username_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(fullName_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(3, fullName_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(email_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(4, email_);
+      }
+      if (memberType_ != com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.MemberType.MEMBER_TYPE_UNSPECIFIED.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(5, memberType_);
+      }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, getJoinedAt());
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getCreatedAt());
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, getUpdatedAt());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User)) {
+        return super.equals(obj);
+      }
+      com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User other = (com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User) obj;
+
+      if (!getId()
+          .equals(other.getId())) return false;
+      if (!getUsername()
+          .equals(other.getUsername())) return false;
+      if (!getFullName()
+          .equals(other.getFullName())) return false;
+      if (!getEmail()
+          .equals(other.getEmail())) return false;
+      if (memberType_ != other.memberType_) return false;
+      if (hasJoinedAt() != other.hasJoinedAt()) return false;
+      if (hasJoinedAt()) {
+        if (!getJoinedAt()
+            .equals(other.getJoinedAt())) return false;
+      }
+      if (hasCreatedAt() != other.hasCreatedAt()) return false;
+      if (hasCreatedAt()) {
+        if (!getCreatedAt()
+            .equals(other.getCreatedAt())) return false;
+      }
+      if (hasUpdatedAt() != other.hasUpdatedAt()) return false;
+      if (hasUpdatedAt()) {
+        if (!getUpdatedAt()
+            .equals(other.getUpdatedAt())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      hash = (37 * hash) + USERNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getUsername().hashCode();
+      hash = (37 * hash) + FULL_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getFullName().hashCode();
+      hash = (37 * hash) + EMAIL_FIELD_NUMBER;
+      hash = (53 * hash) + getEmail().hashCode();
+      hash = (37 * hash) + MEMBER_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + memberType_;
+      if (hasJoinedAt()) {
+        hash = (37 * hash) + JOINED_AT_FIELD_NUMBER;
+        hash = (53 * hash) + getJoinedAt().hashCode();
+      }
+      if (hasCreatedAt()) {
+        hash = (37 * hash) + CREATED_AT_FIELD_NUMBER;
+        hash = (53 * hash) + getCreatedAt().hashCode();
+      }
+      if (hasUpdatedAt()) {
+        hash = (37 * hash) + UPDATED_AT_FIELD_NUMBER;
+        hash = (53 * hash) + getUpdatedAt().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.inspirationparticle.utro.gen.organisation.v1.User}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.inspirationparticle.utro.gen.organisation.v1.User)
+        com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.UserOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.internal_static_com_inspirationparticle_utro_gen_organisation_v1_User_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.internal_static_com_inspirationparticle_utro_gen_organisation_v1_User_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User.class, com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User.Builder.class);
+      }
+
+      // Construct using com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage
+                .alwaysUseFieldBuilders) {
+          internalGetJoinedAtFieldBuilder();
+          internalGetCreatedAtFieldBuilder();
+          internalGetUpdatedAtFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        id_ = "";
+        username_ = "";
+        fullName_ = "";
+        email_ = "";
+        memberType_ = 0;
+        joinedAt_ = null;
+        if (joinedAtBuilder_ != null) {
+          joinedAtBuilder_.dispose();
+          joinedAtBuilder_ = null;
+        }
+        createdAt_ = null;
+        if (createdAtBuilder_ != null) {
+          createdAtBuilder_.dispose();
+          createdAtBuilder_ = null;
+        }
+        updatedAt_ = null;
+        if (updatedAtBuilder_ != null) {
+          updatedAtBuilder_.dispose();
+          updatedAtBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.internal_static_com_inspirationparticle_utro_gen_organisation_v1_User_descriptor;
+      }
+
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User getDefaultInstanceForType() {
+        return com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User build() {
+        com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User buildPartial() {
+        com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User result = new com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.id_ = id_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.username_ = username_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.fullName_ = fullName_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.email_ = email_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.memberType_ = memberType_;
+        }
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.joinedAt_ = joinedAtBuilder_ == null
+              ? joinedAt_
+              : joinedAtBuilder_.build();
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.createdAt_ = createdAtBuilder_ == null
+              ? createdAt_
+              : createdAtBuilder_.build();
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.updatedAt_ = updatedAtBuilder_ == null
+              ? updatedAt_
+              : updatedAtBuilder_.build();
+          to_bitField0_ |= 0x00000004;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User) {
+          return mergeFrom((com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User other) {
+        if (other == com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User.getDefaultInstance()) return this;
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        if (!other.getUsername().isEmpty()) {
+          username_ = other.username_;
+          bitField0_ |= 0x00000002;
+          onChanged();
+        }
+        if (!other.getFullName().isEmpty()) {
+          fullName_ = other.fullName_;
+          bitField0_ |= 0x00000004;
+          onChanged();
+        }
+        if (!other.getEmail().isEmpty()) {
+          email_ = other.email_;
+          bitField0_ |= 0x00000008;
+          onChanged();
+        }
+        if (other.memberType_ != 0) {
+          setMemberTypeValue(other.getMemberTypeValue());
+        }
+        if (other.hasJoinedAt()) {
+          mergeJoinedAt(other.getJoinedAt());
+        }
+        if (other.hasCreatedAt()) {
+          mergeCreatedAt(other.getCreatedAt());
+        }
+        if (other.hasUpdatedAt()) {
+          mergeUpdatedAt(other.getUpdatedAt());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                id_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                username_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                fullName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                email_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 40: {
+                memberType_ = input.readEnum();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              case 50: {
+                input.readMessage(
+                    internalGetJoinedAtFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              case 58: {
+                input.readMessage(
+                    internalGetCreatedAtFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 58
+              case 66: {
+                input.readMessage(
+                    internalGetUpdatedAtFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 66
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object id_ = "";
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @return The id.
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @return The bytes for id.
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        id_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        id_ = getDefaultInstance().getId();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        id_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object username_ = "";
+      /**
+       * <code>string username = 2 [json_name = "username"];</code>
+       * @return The username.
+       */
+      public java.lang.String getUsername() {
+        java.lang.Object ref = username_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          username_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string username = 2 [json_name = "username"];</code>
+       * @return The bytes for username.
+       */
+      public com.google.protobuf.ByteString
+          getUsernameBytes() {
+        java.lang.Object ref = username_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          username_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string username = 2 [json_name = "username"];</code>
+       * @param value The username to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUsername(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        username_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string username = 2 [json_name = "username"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUsername() {
+        username_ = getDefaultInstance().getUsername();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string username = 2 [json_name = "username"];</code>
+       * @param value The bytes for username to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUsernameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        username_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object fullName_ = "";
+      /**
+       * <code>string full_name = 3 [json_name = "fullName"];</code>
+       * @return The fullName.
+       */
+      public java.lang.String getFullName() {
+        java.lang.Object ref = fullName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          fullName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string full_name = 3 [json_name = "fullName"];</code>
+       * @return The bytes for fullName.
+       */
+      public com.google.protobuf.ByteString
+          getFullNameBytes() {
+        java.lang.Object ref = fullName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          fullName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string full_name = 3 [json_name = "fullName"];</code>
+       * @param value The fullName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFullName(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        fullName_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string full_name = 3 [json_name = "fullName"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFullName() {
+        fullName_ = getDefaultInstance().getFullName();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string full_name = 3 [json_name = "fullName"];</code>
+       * @param value The bytes for fullName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFullNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        fullName_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object email_ = "";
+      /**
+       * <code>string email = 4 [json_name = "email"];</code>
+       * @return The email.
+       */
+      public java.lang.String getEmail() {
+        java.lang.Object ref = email_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          email_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string email = 4 [json_name = "email"];</code>
+       * @return The bytes for email.
+       */
+      public com.google.protobuf.ByteString
+          getEmailBytes() {
+        java.lang.Object ref = email_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          email_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string email = 4 [json_name = "email"];</code>
+       * @param value The email to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEmail(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        email_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string email = 4 [json_name = "email"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearEmail() {
+        email_ = getDefaultInstance().getEmail();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string email = 4 [json_name = "email"];</code>
+       * @param value The bytes for email to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEmailBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        email_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+
+      private int memberType_ = 0;
+      /**
+       * <code>.com.inspirationparticle.utro.gen.organisation.v1.MemberType member_type = 5 [json_name = "memberType"];</code>
+       * @return The enum numeric value on the wire for memberType.
+       */
+      @java.lang.Override public int getMemberTypeValue() {
+        return memberType_;
+      }
+      /**
+       * <code>.com.inspirationparticle.utro.gen.organisation.v1.MemberType member_type = 5 [json_name = "memberType"];</code>
+       * @param value The enum numeric value on the wire for memberType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMemberTypeValue(int value) {
+        memberType_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.com.inspirationparticle.utro.gen.organisation.v1.MemberType member_type = 5 [json_name = "memberType"];</code>
+       * @return The memberType.
+       */
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.MemberType getMemberType() {
+        com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.MemberType result = com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.MemberType.forNumber(memberType_);
+        return result == null ? com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.MemberType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.com.inspirationparticle.utro.gen.organisation.v1.MemberType member_type = 5 [json_name = "memberType"];</code>
+       * @param value The memberType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMemberType(com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.MemberType value) {
+        if (value == null) { throw new NullPointerException(); }
+        bitField0_ |= 0x00000010;
+        memberType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.com.inspirationparticle.utro.gen.organisation.v1.MemberType member_type = 5 [json_name = "memberType"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMemberType() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        memberType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Timestamp joinedAt_;
+      private com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> joinedAtBuilder_;
+      /**
+       * <code>.google.protobuf.Timestamp joined_at = 6 [json_name = "joinedAt"];</code>
+       * @return Whether the joinedAt field is set.
+       */
+      public boolean hasJoinedAt() {
+        return ((bitField0_ & 0x00000020) != 0);
+      }
+      /**
+       * <code>.google.protobuf.Timestamp joined_at = 6 [json_name = "joinedAt"];</code>
+       * @return The joinedAt.
+       */
+      public com.google.protobuf.Timestamp getJoinedAt() {
+        if (joinedAtBuilder_ == null) {
+          return joinedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : joinedAt_;
+        } else {
+          return joinedAtBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp joined_at = 6 [json_name = "joinedAt"];</code>
+       */
+      public Builder setJoinedAt(com.google.protobuf.Timestamp value) {
+        if (joinedAtBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          joinedAt_ = value;
+        } else {
+          joinedAtBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp joined_at = 6 [json_name = "joinedAt"];</code>
+       */
+      public Builder setJoinedAt(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (joinedAtBuilder_ == null) {
+          joinedAt_ = builderForValue.build();
+        } else {
+          joinedAtBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp joined_at = 6 [json_name = "joinedAt"];</code>
+       */
+      public Builder mergeJoinedAt(com.google.protobuf.Timestamp value) {
+        if (joinedAtBuilder_ == null) {
+          if (((bitField0_ & 0x00000020) != 0) &&
+            joinedAt_ != null &&
+            joinedAt_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getJoinedAtBuilder().mergeFrom(value);
+          } else {
+            joinedAt_ = value;
+          }
+        } else {
+          joinedAtBuilder_.mergeFrom(value);
+        }
+        if (joinedAt_ != null) {
+          bitField0_ |= 0x00000020;
+          onChanged();
+        }
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp joined_at = 6 [json_name = "joinedAt"];</code>
+       */
+      public Builder clearJoinedAt() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        joinedAt_ = null;
+        if (joinedAtBuilder_ != null) {
+          joinedAtBuilder_.dispose();
+          joinedAtBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp joined_at = 6 [json_name = "joinedAt"];</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getJoinedAtBuilder() {
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return internalGetJoinedAtFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Timestamp joined_at = 6 [json_name = "joinedAt"];</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getJoinedAtOrBuilder() {
+        if (joinedAtBuilder_ != null) {
+          return joinedAtBuilder_.getMessageOrBuilder();
+        } else {
+          return joinedAt_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : joinedAt_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp joined_at = 6 [json_name = "joinedAt"];</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          internalGetJoinedAtFieldBuilder() {
+        if (joinedAtBuilder_ == null) {
+          joinedAtBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getJoinedAt(),
+                  getParentForChildren(),
+                  isClean());
+          joinedAt_ = null;
+        }
+        return joinedAtBuilder_;
+      }
+
+      private com.google.protobuf.Timestamp createdAt_;
+      private com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> createdAtBuilder_;
+      /**
+       * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+       * @return Whether the createdAt field is set.
+       */
+      public boolean hasCreatedAt() {
+        return ((bitField0_ & 0x00000040) != 0);
+      }
+      /**
+       * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+       * @return The createdAt.
+       */
+      public com.google.protobuf.Timestamp getCreatedAt() {
+        if (createdAtBuilder_ == null) {
+          return createdAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
+        } else {
+          return createdAtBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+       */
+      public Builder setCreatedAt(com.google.protobuf.Timestamp value) {
+        if (createdAtBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          createdAt_ = value;
+        } else {
+          createdAtBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+       */
+      public Builder setCreatedAt(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (createdAtBuilder_ == null) {
+          createdAt_ = builderForValue.build();
+        } else {
+          createdAtBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+       */
+      public Builder mergeCreatedAt(com.google.protobuf.Timestamp value) {
+        if (createdAtBuilder_ == null) {
+          if (((bitField0_ & 0x00000040) != 0) &&
+            createdAt_ != null &&
+            createdAt_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getCreatedAtBuilder().mergeFrom(value);
+          } else {
+            createdAt_ = value;
+          }
+        } else {
+          createdAtBuilder_.mergeFrom(value);
+        }
+        if (createdAt_ != null) {
+          bitField0_ |= 0x00000040;
+          onChanged();
+        }
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+       */
+      public Builder clearCreatedAt() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        createdAt_ = null;
+        if (createdAtBuilder_ != null) {
+          createdAtBuilder_.dispose();
+          createdAtBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getCreatedAtBuilder() {
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return internalGetCreatedAtFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
+        if (createdAtBuilder_ != null) {
+          return createdAtBuilder_.getMessageOrBuilder();
+        } else {
+          return createdAt_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp created_at = 7 [json_name = "createdAt"];</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          internalGetCreatedAtFieldBuilder() {
+        if (createdAtBuilder_ == null) {
+          createdAtBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getCreatedAt(),
+                  getParentForChildren(),
+                  isClean());
+          createdAt_ = null;
+        }
+        return createdAtBuilder_;
+      }
+
+      private com.google.protobuf.Timestamp updatedAt_;
+      private com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> updatedAtBuilder_;
+      /**
+       * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
+       * @return Whether the updatedAt field is set.
+       */
+      public boolean hasUpdatedAt() {
+        return ((bitField0_ & 0x00000080) != 0);
+      }
+      /**
+       * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
+       * @return The updatedAt.
+       */
+      public com.google.protobuf.Timestamp getUpdatedAt() {
+        if (updatedAtBuilder_ == null) {
+          return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
+        } else {
+          return updatedAtBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
+       */
+      public Builder setUpdatedAt(com.google.protobuf.Timestamp value) {
+        if (updatedAtBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          updatedAt_ = value;
+        } else {
+          updatedAtBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
+       */
+      public Builder setUpdatedAt(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (updatedAtBuilder_ == null) {
+          updatedAt_ = builderForValue.build();
+        } else {
+          updatedAtBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
+       */
+      public Builder mergeUpdatedAt(com.google.protobuf.Timestamp value) {
+        if (updatedAtBuilder_ == null) {
+          if (((bitField0_ & 0x00000080) != 0) &&
+            updatedAt_ != null &&
+            updatedAt_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getUpdatedAtBuilder().mergeFrom(value);
+          } else {
+            updatedAt_ = value;
+          }
+        } else {
+          updatedAtBuilder_.mergeFrom(value);
+        }
+        if (updatedAt_ != null) {
+          bitField0_ |= 0x00000080;
+          onChanged();
+        }
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
+       */
+      public Builder clearUpdatedAt() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        updatedAt_ = null;
+        if (updatedAtBuilder_ != null) {
+          updatedAtBuilder_.dispose();
+          updatedAtBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getUpdatedAtBuilder() {
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return internalGetUpdatedAtFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
+        if (updatedAtBuilder_ != null) {
+          return updatedAtBuilder_.getMessageOrBuilder();
+        } else {
+          return updatedAt_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp updated_at = 8 [json_name = "updatedAt"];</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          internalGetUpdatedAtFieldBuilder() {
+        if (updatedAtBuilder_ == null) {
+          updatedAtBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getUpdatedAt(),
+                  getParentForChildren(),
+                  isClean());
+          updatedAt_ = null;
+        }
+        return updatedAtBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.inspirationparticle.utro.gen.organisation.v1.User)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.inspirationparticle.utro.gen.organisation.v1.User)
+    private static final com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User();
+    }
+
+    public static com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<User>
+        PARSER = new com.google.protobuf.AbstractParser<User>() {
+      @java.lang.Override
+      public User parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<User> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<User> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.User getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_inspirationparticle_utro_gen_organisation_v1_GetMyOrganisationsRequest_descriptor;
   private static final 
@@ -5277,6 +8192,21 @@ public final class OrganisationOuterClass {
   private static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_com_inspirationparticle_utro_gen_organisation_v1_Organisation_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_inspirationparticle_utro_gen_organisation_v1_GetOrganisationUsersRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_inspirationparticle_utro_gen_organisation_v1_GetOrganisationUsersRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_inspirationparticle_utro_gen_organisation_v1_GetOrganisationUsersResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_inspirationparticle_utro_gen_organisation_v1_GetOrganisationUsersResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_inspirationparticle_utro_gen_organisation_v1_User_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_inspirationparticle_utro_gen_organisation_v1_User_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -5311,25 +8241,44 @@ public final class OrganisationOuterClass {
       "(\0132\032.google.protobuf.TimestampR\010joinedAt" +
       "\0229\n\ncreated_at\030\006 \001(\0132\032.google.protobuf.T" +
       "imestampR\tcreatedAt\0229\n\nupdated_at\030\007 \001(\0132" +
-      "\032.google.protobuf.TimestampR\tupdatedAt*`" +
-      "\n\nMemberType\022\033\n\027MEMBER_TYPE_UNSPECIFIED\020" +
-      "\000\022\026\n\022MEMBER_TYPE_MEMBER\020\001\022\035\n\031MEMBER_TYPE" +
-      "_ADMINISTRATOR\020\0022\256\004\n\023OrganisationService" +
-      "\022\257\001\n\022GetMyOrganisations\022K.com.inspiratio" +
-      "nparticle.utro.gen.organisation.v1.GetMy" +
-      "OrganisationsRequest\032L.com.inspirationpa" +
-      "rticle.utro.gen.organisation.v1.GetMyOrg" +
-      "anisationsResponse\022\257\001\n\022CreateOrganisatio" +
-      "n\022K.com.inspirationparticle.utro.gen.org" +
-      "anisation.v1.CreateOrganisationRequest\032L" +
+      "\032.google.protobuf.TimestampR\tupdatedAt\"F" +
+      "\n\033GetOrganisationUsersRequest\022\'\n\017organis" +
+      "ation_id\030\001 \001(\tR\016organisationId\"l\n\034GetOrg" +
+      "anisationUsersResponse\022L\n\005users\030\001 \003(\01326." +
+      "com.inspirationparticle.utro.gen.organis" +
+      "ation.v1.UserR\005users\"\363\002\n\004User\022\016\n\002id\030\001 \001(" +
+      "\tR\002id\022\032\n\010username\030\002 \001(\tR\010username\022\033\n\tful" +
+      "l_name\030\003 \001(\tR\010fullName\022\024\n\005email\030\004 \001(\tR\005e" +
+      "mail\022]\n\013member_type\030\005 \001(\0162<.com.inspirat" +
+      "ionparticle.utro.gen.organisation.v1.Mem" +
+      "berTypeR\nmemberType\0227\n\tjoined_at\030\006 \001(\0132\032" +
+      ".google.protobuf.TimestampR\010joinedAt\0229\n\n" +
+      "created_at\030\007 \001(\0132\032.google.protobuf.Times" +
+      "tampR\tcreatedAt\0229\n\nupdated_at\030\010 \001(\0132\032.go" +
+      "ogle.protobuf.TimestampR\tupdatedAt*`\n\nMe" +
+      "mberType\022\033\n\027MEMBER_TYPE_UNSPECIFIED\020\000\022\026\n" +
+      "\022MEMBER_TYPE_MEMBER\020\001\022\035\n\031MEMBER_TYPE_ADM" +
+      "INISTRATOR\020\0022\346\005\n\023OrganisationService\022\257\001\n" +
+      "\022GetMyOrganisations\022K.com.inspirationpar" +
+      "ticle.utro.gen.organisation.v1.GetMyOrga" +
+      "nisationsRequest\032L.com.inspirationpartic" +
+      "le.utro.gen.organisation.v1.GetMyOrganis" +
+      "ationsResponse\022\257\001\n\022CreateOrganisation\022K." +
+      "com.inspirationparticle.utro.gen.organis" +
+      "ation.v1.CreateOrganisationRequest\032L.com" +
+      ".inspirationparticle.utro.gen.organisati" +
+      "on.v1.CreateOrganisationResponse\022\262\001\n\023Sea" +
+      "rchOrganisations\022L.com.inspirationpartic" +
+      "le.utro.gen.organisation.v1.SearchOrgani" +
+      "sationsRequest\032M.com.inspirationparticle" +
+      ".utro.gen.organisation.v1.SearchOrganisa" +
+      "tionsResponse\022\265\001\n\024GetOrganisationUsers\022M" +
       ".com.inspirationparticle.utro.gen.organi" +
-      "sation.v1.CreateOrganisationResponse\022\262\001\n" +
-      "\023SearchOrganisations\022L.com.inspirationpa" +
-      "rticle.utro.gen.organisation.v1.SearchOr" +
-      "ganisationsRequest\032M.com.inspirationpart" +
-      "icle.utro.gen.organisation.v1.SearchOrga" +
-      "nisationsResponseB2\n0com.inspirationpart" +
-      "icle.utro.gen.organisation.v1b\006proto3"
+      "sation.v1.GetOrganisationUsersRequest\032N." +
+      "com.inspirationparticle.utro.gen.organis" +
+      "ation.v1.GetOrganisationUsersResponseB2\n" +
+      "0com.inspirationparticle.utro.gen.organi" +
+      "sation.v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -5378,6 +8327,24 @@ public final class OrganisationOuterClass {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_inspirationparticle_utro_gen_organisation_v1_Organisation_descriptor,
         new java.lang.String[] { "Id", "Name", "Description", "MemberType", "JoinedAt", "CreatedAt", "UpdatedAt", });
+    internal_static_com_inspirationparticle_utro_gen_organisation_v1_GetOrganisationUsersRequest_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_com_inspirationparticle_utro_gen_organisation_v1_GetOrganisationUsersRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_com_inspirationparticle_utro_gen_organisation_v1_GetOrganisationUsersRequest_descriptor,
+        new java.lang.String[] { "OrganisationId", });
+    internal_static_com_inspirationparticle_utro_gen_organisation_v1_GetOrganisationUsersResponse_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_com_inspirationparticle_utro_gen_organisation_v1_GetOrganisationUsersResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_com_inspirationparticle_utro_gen_organisation_v1_GetOrganisationUsersResponse_descriptor,
+        new java.lang.String[] { "Users", });
+    internal_static_com_inspirationparticle_utro_gen_organisation_v1_User_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_com_inspirationparticle_utro_gen_organisation_v1_User_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_com_inspirationparticle_utro_gen_organisation_v1_User_descriptor,
+        new java.lang.String[] { "Id", "Username", "FullName", "Email", "MemberType", "JoinedAt", "CreatedAt", "UpdatedAt", });
     descriptor.resolveAllFeaturesImmutable();
     com.google.protobuf.TimestampProto.getDescriptor();
   }

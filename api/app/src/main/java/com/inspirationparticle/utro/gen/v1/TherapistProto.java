@@ -24091,6 +24091,9047 @@ public final class TherapistProto {
 
   }
 
+  public interface CreateTherapistRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:utro.v1.CreateTherapistRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string user_id = 1 [json_name = "userId"];</code>
+     * @return The userId.
+     */
+    java.lang.String getUserId();
+    /**
+     * <code>string user_id = 1 [json_name = "userId"];</code>
+     * @return The bytes for userId.
+     */
+    com.google.protobuf.ByteString
+        getUserIdBytes();
+
+    /**
+     * <code>string organisation_id = 2 [json_name = "organisationId"];</code>
+     * @return The organisationId.
+     */
+    java.lang.String getOrganisationId();
+    /**
+     * <code>string organisation_id = 2 [json_name = "organisationId"];</code>
+     * @return The bytes for organisationId.
+     */
+    com.google.protobuf.ByteString
+        getOrganisationIdBytes();
+
+    /**
+     * <code>string professional_title = 3 [json_name = "professionalTitle"];</code>
+     * @return The professionalTitle.
+     */
+    java.lang.String getProfessionalTitle();
+    /**
+     * <code>string professional_title = 3 [json_name = "professionalTitle"];</code>
+     * @return The bytes for professionalTitle.
+     */
+    com.google.protobuf.ByteString
+        getProfessionalTitleBytes();
+
+    /**
+     * <code>string description_eng = 4 [json_name = "descriptionEng"];</code>
+     * @return The descriptionEng.
+     */
+    java.lang.String getDescriptionEng();
+    /**
+     * <code>string description_eng = 4 [json_name = "descriptionEng"];</code>
+     * @return The bytes for descriptionEng.
+     */
+    com.google.protobuf.ByteString
+        getDescriptionEngBytes();
+
+    /**
+     * <code>string description_pl = 5 [json_name = "descriptionPl"];</code>
+     * @return The descriptionPl.
+     */
+    java.lang.String getDescriptionPl();
+    /**
+     * <code>string description_pl = 5 [json_name = "descriptionPl"];</code>
+     * @return The bytes for descriptionPl.
+     */
+    com.google.protobuf.ByteString
+        getDescriptionPlBytes();
+
+    /**
+     * <code>string work_experience_eng = 6 [json_name = "workExperienceEng"];</code>
+     * @return The workExperienceEng.
+     */
+    java.lang.String getWorkExperienceEng();
+    /**
+     * <code>string work_experience_eng = 6 [json_name = "workExperienceEng"];</code>
+     * @return The bytes for workExperienceEng.
+     */
+    com.google.protobuf.ByteString
+        getWorkExperienceEngBytes();
+
+    /**
+     * <code>string work_experience_pl = 7 [json_name = "workExperiencePl"];</code>
+     * @return The workExperiencePl.
+     */
+    java.lang.String getWorkExperiencePl();
+    /**
+     * <code>string work_experience_pl = 7 [json_name = "workExperiencePl"];</code>
+     * @return The bytes for workExperiencePl.
+     */
+    com.google.protobuf.ByteString
+        getWorkExperiencePlBytes();
+
+    /**
+     * <code>repeated string languages = 8 [json_name = "languages"];</code>
+     * @return A list containing the languages.
+     */
+    java.util.List<java.lang.String>
+        getLanguagesList();
+    /**
+     * <code>repeated string languages = 8 [json_name = "languages"];</code>
+     * @return The count of languages.
+     */
+    int getLanguagesCount();
+    /**
+     * <code>repeated string languages = 8 [json_name = "languages"];</code>
+     * @param index The index of the element to return.
+     * @return The languages at the given index.
+     */
+    java.lang.String getLanguages(int index);
+    /**
+     * <code>repeated string languages = 8 [json_name = "languages"];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the languages at the given index.
+     */
+    com.google.protobuf.ByteString
+        getLanguagesBytes(int index);
+
+    /**
+     * <code>bool in_person_therapy_format = 9 [json_name = "inPersonTherapyFormat"];</code>
+     * @return The inPersonTherapyFormat.
+     */
+    boolean getInPersonTherapyFormat();
+
+    /**
+     * <code>bool online_therapy_format = 10 [json_name = "onlineTherapyFormat"];</code>
+     * @return The onlineTherapyFormat.
+     */
+    boolean getOnlineTherapyFormat();
+
+    /**
+     * <code>string contact_email = 11 [json_name = "contactEmail"];</code>
+     * @return The contactEmail.
+     */
+    java.lang.String getContactEmail();
+    /**
+     * <code>string contact_email = 11 [json_name = "contactEmail"];</code>
+     * @return The bytes for contactEmail.
+     */
+    com.google.protobuf.ByteString
+        getContactEmailBytes();
+
+    /**
+     * <code>string contact_phone = 12 [json_name = "contactPhone"];</code>
+     * @return The contactPhone.
+     */
+    java.lang.String getContactPhone();
+    /**
+     * <code>string contact_phone = 12 [json_name = "contactPhone"];</code>
+     * @return The bytes for contactPhone.
+     */
+    com.google.protobuf.ByteString
+        getContactPhoneBytes();
+
+    /**
+     * <code>string website_url = 13 [json_name = "websiteUrl"];</code>
+     * @return The websiteUrl.
+     */
+    java.lang.String getWebsiteUrl();
+    /**
+     * <code>string website_url = 13 [json_name = "websiteUrl"];</code>
+     * @return The bytes for websiteUrl.
+     */
+    com.google.protobuf.ByteString
+        getWebsiteUrlBytes();
+
+    /**
+     * <code>bool is_accepting_new_clients = 14 [json_name = "isAcceptingNewClients"];</code>
+     * @return The isAcceptingNewClients.
+     */
+    boolean getIsAcceptingNewClients();
+
+    /**
+     * <code>.utro.v1.TherapistVisibility visibility = 15 [json_name = "visibility"];</code>
+     * @return The enum numeric value on the wire for visibility.
+     */
+    int getVisibilityValue();
+    /**
+     * <code>.utro.v1.TherapistVisibility visibility = 15 [json_name = "visibility"];</code>
+     * @return The visibility.
+     */
+    com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility getVisibility();
+
+    /**
+     * <code>string slug = 16 [json_name = "slug"];</code>
+     * @return The slug.
+     */
+    java.lang.String getSlug();
+    /**
+     * <code>string slug = 16 [json_name = "slug"];</code>
+     * @return The bytes for slug.
+     */
+    com.google.protobuf.ByteString
+        getSlugBytes();
+
+    /**
+     * <code>string meta_description = 17 [json_name = "metaDescription"];</code>
+     * @return The metaDescription.
+     */
+    java.lang.String getMetaDescription();
+    /**
+     * <code>string meta_description = 17 [json_name = "metaDescription"];</code>
+     * @return The bytes for metaDescription.
+     */
+    com.google.protobuf.ByteString
+        getMetaDescriptionBytes();
+
+    /**
+     * <code>repeated string search_tags = 18 [json_name = "searchTags"];</code>
+     * @return A list containing the searchTags.
+     */
+    java.util.List<java.lang.String>
+        getSearchTagsList();
+    /**
+     * <code>repeated string search_tags = 18 [json_name = "searchTags"];</code>
+     * @return The count of searchTags.
+     */
+    int getSearchTagsCount();
+    /**
+     * <code>repeated string search_tags = 18 [json_name = "searchTags"];</code>
+     * @param index The index of the element to return.
+     * @return The searchTags at the given index.
+     */
+    java.lang.String getSearchTags(int index);
+    /**
+     * <code>repeated string search_tags = 18 [json_name = "searchTags"];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the searchTags at the given index.
+     */
+    com.google.protobuf.ByteString
+        getSearchTagsBytes(int index);
+
+    /**
+     * <code>repeated string specialization_ids = 19 [json_name = "specializationIds"];</code>
+     * @return A list containing the specializationIds.
+     */
+    java.util.List<java.lang.String>
+        getSpecializationIdsList();
+    /**
+     * <code>repeated string specialization_ids = 19 [json_name = "specializationIds"];</code>
+     * @return The count of specializationIds.
+     */
+    int getSpecializationIdsCount();
+    /**
+     * <code>repeated string specialization_ids = 19 [json_name = "specializationIds"];</code>
+     * @param index The index of the element to return.
+     * @return The specializationIds at the given index.
+     */
+    java.lang.String getSpecializationIds(int index);
+    /**
+     * <code>repeated string specialization_ids = 19 [json_name = "specializationIds"];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the specializationIds at the given index.
+     */
+    com.google.protobuf.ByteString
+        getSpecializationIdsBytes(int index);
+
+    /**
+     * <code>bytes profile_image_data = 20 [json_name = "profileImageData"];</code>
+     * @return The profileImageData.
+     */
+    com.google.protobuf.ByteString getProfileImageData();
+
+    /**
+     * <code>string profile_image_mime_type = 21 [json_name = "profileImageMimeType"];</code>
+     * @return The profileImageMimeType.
+     */
+    java.lang.String getProfileImageMimeType();
+    /**
+     * <code>string profile_image_mime_type = 21 [json_name = "profileImageMimeType"];</code>
+     * @return The bytes for profileImageMimeType.
+     */
+    com.google.protobuf.ByteString
+        getProfileImageMimeTypeBytes();
+  }
+  /**
+   * <pre>
+   * CRUD Request/Response messages for Therapist management
+   * </pre>
+   *
+   * Protobuf type {@code utro.v1.CreateTherapistRequest}
+   */
+  public static final class CreateTherapistRequest extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:utro.v1.CreateTherapistRequest)
+      CreateTherapistRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    static {
+      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+        /* major= */ 4,
+        /* minor= */ 31,
+        /* patch= */ 1,
+        /* suffix= */ "",
+        CreateTherapistRequest.class.getName());
+    }
+    // Use CreateTherapistRequest.newBuilder() to construct.
+    private CreateTherapistRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private CreateTherapistRequest() {
+      userId_ = "";
+      organisationId_ = "";
+      professionalTitle_ = "";
+      descriptionEng_ = "";
+      descriptionPl_ = "";
+      workExperienceEng_ = "";
+      workExperiencePl_ = "";
+      languages_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      contactEmail_ = "";
+      contactPhone_ = "";
+      websiteUrl_ = "";
+      visibility_ = 0;
+      slug_ = "";
+      metaDescription_ = "";
+      searchTags_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      specializationIds_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      profileImageData_ = com.google.protobuf.ByteString.EMPTY;
+      profileImageMimeType_ = "";
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_CreateTherapistRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_CreateTherapistRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest.class, com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest.Builder.class);
+    }
+
+    public static final int USER_ID_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object userId_ = "";
+    /**
+     * <code>string user_id = 1 [json_name = "userId"];</code>
+     * @return The userId.
+     */
+    @java.lang.Override
+    public java.lang.String getUserId() {
+      java.lang.Object ref = userId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string user_id = 1 [json_name = "userId"];</code>
+     * @return The bytes for userId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getUserIdBytes() {
+      java.lang.Object ref = userId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ORGANISATION_ID_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object organisationId_ = "";
+    /**
+     * <code>string organisation_id = 2 [json_name = "organisationId"];</code>
+     * @return The organisationId.
+     */
+    @java.lang.Override
+    public java.lang.String getOrganisationId() {
+      java.lang.Object ref = organisationId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        organisationId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string organisation_id = 2 [json_name = "organisationId"];</code>
+     * @return The bytes for organisationId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getOrganisationIdBytes() {
+      java.lang.Object ref = organisationId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        organisationId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PROFESSIONAL_TITLE_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object professionalTitle_ = "";
+    /**
+     * <code>string professional_title = 3 [json_name = "professionalTitle"];</code>
+     * @return The professionalTitle.
+     */
+    @java.lang.Override
+    public java.lang.String getProfessionalTitle() {
+      java.lang.Object ref = professionalTitle_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        professionalTitle_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string professional_title = 3 [json_name = "professionalTitle"];</code>
+     * @return The bytes for professionalTitle.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getProfessionalTitleBytes() {
+      java.lang.Object ref = professionalTitle_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        professionalTitle_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DESCRIPTION_ENG_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object descriptionEng_ = "";
+    /**
+     * <code>string description_eng = 4 [json_name = "descriptionEng"];</code>
+     * @return The descriptionEng.
+     */
+    @java.lang.Override
+    public java.lang.String getDescriptionEng() {
+      java.lang.Object ref = descriptionEng_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        descriptionEng_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string description_eng = 4 [json_name = "descriptionEng"];</code>
+     * @return The bytes for descriptionEng.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getDescriptionEngBytes() {
+      java.lang.Object ref = descriptionEng_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        descriptionEng_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DESCRIPTION_PL_FIELD_NUMBER = 5;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object descriptionPl_ = "";
+    /**
+     * <code>string description_pl = 5 [json_name = "descriptionPl"];</code>
+     * @return The descriptionPl.
+     */
+    @java.lang.Override
+    public java.lang.String getDescriptionPl() {
+      java.lang.Object ref = descriptionPl_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        descriptionPl_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string description_pl = 5 [json_name = "descriptionPl"];</code>
+     * @return The bytes for descriptionPl.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getDescriptionPlBytes() {
+      java.lang.Object ref = descriptionPl_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        descriptionPl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int WORK_EXPERIENCE_ENG_FIELD_NUMBER = 6;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object workExperienceEng_ = "";
+    /**
+     * <code>string work_experience_eng = 6 [json_name = "workExperienceEng"];</code>
+     * @return The workExperienceEng.
+     */
+    @java.lang.Override
+    public java.lang.String getWorkExperienceEng() {
+      java.lang.Object ref = workExperienceEng_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        workExperienceEng_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string work_experience_eng = 6 [json_name = "workExperienceEng"];</code>
+     * @return The bytes for workExperienceEng.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getWorkExperienceEngBytes() {
+      java.lang.Object ref = workExperienceEng_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        workExperienceEng_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int WORK_EXPERIENCE_PL_FIELD_NUMBER = 7;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object workExperiencePl_ = "";
+    /**
+     * <code>string work_experience_pl = 7 [json_name = "workExperiencePl"];</code>
+     * @return The workExperiencePl.
+     */
+    @java.lang.Override
+    public java.lang.String getWorkExperiencePl() {
+      java.lang.Object ref = workExperiencePl_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        workExperiencePl_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string work_experience_pl = 7 [json_name = "workExperiencePl"];</code>
+     * @return The bytes for workExperiencePl.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getWorkExperiencePlBytes() {
+      java.lang.Object ref = workExperiencePl_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        workExperiencePl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int LANGUAGES_FIELD_NUMBER = 8;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.LazyStringArrayList languages_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+    /**
+     * <code>repeated string languages = 8 [json_name = "languages"];</code>
+     * @return A list containing the languages.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getLanguagesList() {
+      return languages_;
+    }
+    /**
+     * <code>repeated string languages = 8 [json_name = "languages"];</code>
+     * @return The count of languages.
+     */
+    public int getLanguagesCount() {
+      return languages_.size();
+    }
+    /**
+     * <code>repeated string languages = 8 [json_name = "languages"];</code>
+     * @param index The index of the element to return.
+     * @return The languages at the given index.
+     */
+    public java.lang.String getLanguages(int index) {
+      return languages_.get(index);
+    }
+    /**
+     * <code>repeated string languages = 8 [json_name = "languages"];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the languages at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getLanguagesBytes(int index) {
+      return languages_.getByteString(index);
+    }
+
+    public static final int IN_PERSON_THERAPY_FORMAT_FIELD_NUMBER = 9;
+    private boolean inPersonTherapyFormat_ = false;
+    /**
+     * <code>bool in_person_therapy_format = 9 [json_name = "inPersonTherapyFormat"];</code>
+     * @return The inPersonTherapyFormat.
+     */
+    @java.lang.Override
+    public boolean getInPersonTherapyFormat() {
+      return inPersonTherapyFormat_;
+    }
+
+    public static final int ONLINE_THERAPY_FORMAT_FIELD_NUMBER = 10;
+    private boolean onlineTherapyFormat_ = false;
+    /**
+     * <code>bool online_therapy_format = 10 [json_name = "onlineTherapyFormat"];</code>
+     * @return The onlineTherapyFormat.
+     */
+    @java.lang.Override
+    public boolean getOnlineTherapyFormat() {
+      return onlineTherapyFormat_;
+    }
+
+    public static final int CONTACT_EMAIL_FIELD_NUMBER = 11;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object contactEmail_ = "";
+    /**
+     * <code>string contact_email = 11 [json_name = "contactEmail"];</code>
+     * @return The contactEmail.
+     */
+    @java.lang.Override
+    public java.lang.String getContactEmail() {
+      java.lang.Object ref = contactEmail_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        contactEmail_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string contact_email = 11 [json_name = "contactEmail"];</code>
+     * @return The bytes for contactEmail.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getContactEmailBytes() {
+      java.lang.Object ref = contactEmail_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        contactEmail_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CONTACT_PHONE_FIELD_NUMBER = 12;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object contactPhone_ = "";
+    /**
+     * <code>string contact_phone = 12 [json_name = "contactPhone"];</code>
+     * @return The contactPhone.
+     */
+    @java.lang.Override
+    public java.lang.String getContactPhone() {
+      java.lang.Object ref = contactPhone_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        contactPhone_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string contact_phone = 12 [json_name = "contactPhone"];</code>
+     * @return The bytes for contactPhone.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getContactPhoneBytes() {
+      java.lang.Object ref = contactPhone_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        contactPhone_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int WEBSITE_URL_FIELD_NUMBER = 13;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object websiteUrl_ = "";
+    /**
+     * <code>string website_url = 13 [json_name = "websiteUrl"];</code>
+     * @return The websiteUrl.
+     */
+    @java.lang.Override
+    public java.lang.String getWebsiteUrl() {
+      java.lang.Object ref = websiteUrl_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        websiteUrl_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string website_url = 13 [json_name = "websiteUrl"];</code>
+     * @return The bytes for websiteUrl.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getWebsiteUrlBytes() {
+      java.lang.Object ref = websiteUrl_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        websiteUrl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int IS_ACCEPTING_NEW_CLIENTS_FIELD_NUMBER = 14;
+    private boolean isAcceptingNewClients_ = false;
+    /**
+     * <code>bool is_accepting_new_clients = 14 [json_name = "isAcceptingNewClients"];</code>
+     * @return The isAcceptingNewClients.
+     */
+    @java.lang.Override
+    public boolean getIsAcceptingNewClients() {
+      return isAcceptingNewClients_;
+    }
+
+    public static final int VISIBILITY_FIELD_NUMBER = 15;
+    private int visibility_ = 0;
+    /**
+     * <code>.utro.v1.TherapistVisibility visibility = 15 [json_name = "visibility"];</code>
+     * @return The enum numeric value on the wire for visibility.
+     */
+    @java.lang.Override public int getVisibilityValue() {
+      return visibility_;
+    }
+    /**
+     * <code>.utro.v1.TherapistVisibility visibility = 15 [json_name = "visibility"];</code>
+     * @return The visibility.
+     */
+    @java.lang.Override public com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility getVisibility() {
+      com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility result = com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility.forNumber(visibility_);
+      return result == null ? com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility.UNRECOGNIZED : result;
+    }
+
+    public static final int SLUG_FIELD_NUMBER = 16;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object slug_ = "";
+    /**
+     * <code>string slug = 16 [json_name = "slug"];</code>
+     * @return The slug.
+     */
+    @java.lang.Override
+    public java.lang.String getSlug() {
+      java.lang.Object ref = slug_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        slug_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string slug = 16 [json_name = "slug"];</code>
+     * @return The bytes for slug.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getSlugBytes() {
+      java.lang.Object ref = slug_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        slug_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int META_DESCRIPTION_FIELD_NUMBER = 17;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object metaDescription_ = "";
+    /**
+     * <code>string meta_description = 17 [json_name = "metaDescription"];</code>
+     * @return The metaDescription.
+     */
+    @java.lang.Override
+    public java.lang.String getMetaDescription() {
+      java.lang.Object ref = metaDescription_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        metaDescription_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string meta_description = 17 [json_name = "metaDescription"];</code>
+     * @return The bytes for metaDescription.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getMetaDescriptionBytes() {
+      java.lang.Object ref = metaDescription_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        metaDescription_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SEARCH_TAGS_FIELD_NUMBER = 18;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.LazyStringArrayList searchTags_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+    /**
+     * <code>repeated string search_tags = 18 [json_name = "searchTags"];</code>
+     * @return A list containing the searchTags.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getSearchTagsList() {
+      return searchTags_;
+    }
+    /**
+     * <code>repeated string search_tags = 18 [json_name = "searchTags"];</code>
+     * @return The count of searchTags.
+     */
+    public int getSearchTagsCount() {
+      return searchTags_.size();
+    }
+    /**
+     * <code>repeated string search_tags = 18 [json_name = "searchTags"];</code>
+     * @param index The index of the element to return.
+     * @return The searchTags at the given index.
+     */
+    public java.lang.String getSearchTags(int index) {
+      return searchTags_.get(index);
+    }
+    /**
+     * <code>repeated string search_tags = 18 [json_name = "searchTags"];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the searchTags at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getSearchTagsBytes(int index) {
+      return searchTags_.getByteString(index);
+    }
+
+    public static final int SPECIALIZATION_IDS_FIELD_NUMBER = 19;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.LazyStringArrayList specializationIds_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+    /**
+     * <code>repeated string specialization_ids = 19 [json_name = "specializationIds"];</code>
+     * @return A list containing the specializationIds.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getSpecializationIdsList() {
+      return specializationIds_;
+    }
+    /**
+     * <code>repeated string specialization_ids = 19 [json_name = "specializationIds"];</code>
+     * @return The count of specializationIds.
+     */
+    public int getSpecializationIdsCount() {
+      return specializationIds_.size();
+    }
+    /**
+     * <code>repeated string specialization_ids = 19 [json_name = "specializationIds"];</code>
+     * @param index The index of the element to return.
+     * @return The specializationIds at the given index.
+     */
+    public java.lang.String getSpecializationIds(int index) {
+      return specializationIds_.get(index);
+    }
+    /**
+     * <code>repeated string specialization_ids = 19 [json_name = "specializationIds"];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the specializationIds at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getSpecializationIdsBytes(int index) {
+      return specializationIds_.getByteString(index);
+    }
+
+    public static final int PROFILE_IMAGE_DATA_FIELD_NUMBER = 20;
+    private com.google.protobuf.ByteString profileImageData_ = com.google.protobuf.ByteString.EMPTY;
+    /**
+     * <code>bytes profile_image_data = 20 [json_name = "profileImageData"];</code>
+     * @return The profileImageData.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getProfileImageData() {
+      return profileImageData_;
+    }
+
+    public static final int PROFILE_IMAGE_MIME_TYPE_FIELD_NUMBER = 21;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object profileImageMimeType_ = "";
+    /**
+     * <code>string profile_image_mime_type = 21 [json_name = "profileImageMimeType"];</code>
+     * @return The profileImageMimeType.
+     */
+    @java.lang.Override
+    public java.lang.String getProfileImageMimeType() {
+      java.lang.Object ref = profileImageMimeType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        profileImageMimeType_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string profile_image_mime_type = 21 [json_name = "profileImageMimeType"];</code>
+     * @return The bytes for profileImageMimeType.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getProfileImageMimeTypeBytes() {
+      java.lang.Object ref = profileImageMimeType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        profileImageMimeType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(userId_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, userId_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(organisationId_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 2, organisationId_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(professionalTitle_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 3, professionalTitle_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(descriptionEng_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 4, descriptionEng_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(descriptionPl_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 5, descriptionPl_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(workExperienceEng_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 6, workExperienceEng_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(workExperiencePl_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 7, workExperiencePl_);
+      }
+      for (int i = 0; i < languages_.size(); i++) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 8, languages_.getRaw(i));
+      }
+      if (inPersonTherapyFormat_ != false) {
+        output.writeBool(9, inPersonTherapyFormat_);
+      }
+      if (onlineTherapyFormat_ != false) {
+        output.writeBool(10, onlineTherapyFormat_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(contactEmail_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 11, contactEmail_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(contactPhone_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 12, contactPhone_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(websiteUrl_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 13, websiteUrl_);
+      }
+      if (isAcceptingNewClients_ != false) {
+        output.writeBool(14, isAcceptingNewClients_);
+      }
+      if (visibility_ != com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility.THERAPIST_VISIBILITY_UNSPECIFIED.getNumber()) {
+        output.writeEnum(15, visibility_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(slug_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 16, slug_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(metaDescription_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 17, metaDescription_);
+      }
+      for (int i = 0; i < searchTags_.size(); i++) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 18, searchTags_.getRaw(i));
+      }
+      for (int i = 0; i < specializationIds_.size(); i++) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 19, specializationIds_.getRaw(i));
+      }
+      if (!profileImageData_.isEmpty()) {
+        output.writeBytes(20, profileImageData_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(profileImageMimeType_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 21, profileImageMimeType_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(userId_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, userId_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(organisationId_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(2, organisationId_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(professionalTitle_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(3, professionalTitle_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(descriptionEng_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(4, descriptionEng_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(descriptionPl_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(5, descriptionPl_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(workExperienceEng_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(6, workExperienceEng_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(workExperiencePl_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(7, workExperiencePl_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < languages_.size(); i++) {
+          dataSize += computeStringSizeNoTag(languages_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getLanguagesList().size();
+      }
+      if (inPersonTherapyFormat_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(9, inPersonTherapyFormat_);
+      }
+      if (onlineTherapyFormat_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(10, onlineTherapyFormat_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(contactEmail_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(11, contactEmail_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(contactPhone_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(12, contactPhone_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(websiteUrl_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(13, websiteUrl_);
+      }
+      if (isAcceptingNewClients_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(14, isAcceptingNewClients_);
+      }
+      if (visibility_ != com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility.THERAPIST_VISIBILITY_UNSPECIFIED.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(15, visibility_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(slug_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(16, slug_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(metaDescription_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(17, metaDescription_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < searchTags_.size(); i++) {
+          dataSize += computeStringSizeNoTag(searchTags_.getRaw(i));
+        }
+        size += dataSize;
+        size += 2 * getSearchTagsList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < specializationIds_.size(); i++) {
+          dataSize += computeStringSizeNoTag(specializationIds_.getRaw(i));
+        }
+        size += dataSize;
+        size += 2 * getSpecializationIdsList().size();
+      }
+      if (!profileImageData_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(20, profileImageData_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(profileImageMimeType_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(21, profileImageMimeType_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest)) {
+        return super.equals(obj);
+      }
+      com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest other = (com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest) obj;
+
+      if (!getUserId()
+          .equals(other.getUserId())) return false;
+      if (!getOrganisationId()
+          .equals(other.getOrganisationId())) return false;
+      if (!getProfessionalTitle()
+          .equals(other.getProfessionalTitle())) return false;
+      if (!getDescriptionEng()
+          .equals(other.getDescriptionEng())) return false;
+      if (!getDescriptionPl()
+          .equals(other.getDescriptionPl())) return false;
+      if (!getWorkExperienceEng()
+          .equals(other.getWorkExperienceEng())) return false;
+      if (!getWorkExperiencePl()
+          .equals(other.getWorkExperiencePl())) return false;
+      if (!getLanguagesList()
+          .equals(other.getLanguagesList())) return false;
+      if (getInPersonTherapyFormat()
+          != other.getInPersonTherapyFormat()) return false;
+      if (getOnlineTherapyFormat()
+          != other.getOnlineTherapyFormat()) return false;
+      if (!getContactEmail()
+          .equals(other.getContactEmail())) return false;
+      if (!getContactPhone()
+          .equals(other.getContactPhone())) return false;
+      if (!getWebsiteUrl()
+          .equals(other.getWebsiteUrl())) return false;
+      if (getIsAcceptingNewClients()
+          != other.getIsAcceptingNewClients()) return false;
+      if (visibility_ != other.visibility_) return false;
+      if (!getSlug()
+          .equals(other.getSlug())) return false;
+      if (!getMetaDescription()
+          .equals(other.getMetaDescription())) return false;
+      if (!getSearchTagsList()
+          .equals(other.getSearchTagsList())) return false;
+      if (!getSpecializationIdsList()
+          .equals(other.getSpecializationIdsList())) return false;
+      if (!getProfileImageData()
+          .equals(other.getProfileImageData())) return false;
+      if (!getProfileImageMimeType()
+          .equals(other.getProfileImageMimeType())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + USER_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getUserId().hashCode();
+      hash = (37 * hash) + ORGANISATION_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getOrganisationId().hashCode();
+      hash = (37 * hash) + PROFESSIONAL_TITLE_FIELD_NUMBER;
+      hash = (53 * hash) + getProfessionalTitle().hashCode();
+      hash = (37 * hash) + DESCRIPTION_ENG_FIELD_NUMBER;
+      hash = (53 * hash) + getDescriptionEng().hashCode();
+      hash = (37 * hash) + DESCRIPTION_PL_FIELD_NUMBER;
+      hash = (53 * hash) + getDescriptionPl().hashCode();
+      hash = (37 * hash) + WORK_EXPERIENCE_ENG_FIELD_NUMBER;
+      hash = (53 * hash) + getWorkExperienceEng().hashCode();
+      hash = (37 * hash) + WORK_EXPERIENCE_PL_FIELD_NUMBER;
+      hash = (53 * hash) + getWorkExperiencePl().hashCode();
+      if (getLanguagesCount() > 0) {
+        hash = (37 * hash) + LANGUAGES_FIELD_NUMBER;
+        hash = (53 * hash) + getLanguagesList().hashCode();
+      }
+      hash = (37 * hash) + IN_PERSON_THERAPY_FORMAT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getInPersonTherapyFormat());
+      hash = (37 * hash) + ONLINE_THERAPY_FORMAT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getOnlineTherapyFormat());
+      hash = (37 * hash) + CONTACT_EMAIL_FIELD_NUMBER;
+      hash = (53 * hash) + getContactEmail().hashCode();
+      hash = (37 * hash) + CONTACT_PHONE_FIELD_NUMBER;
+      hash = (53 * hash) + getContactPhone().hashCode();
+      hash = (37 * hash) + WEBSITE_URL_FIELD_NUMBER;
+      hash = (53 * hash) + getWebsiteUrl().hashCode();
+      hash = (37 * hash) + IS_ACCEPTING_NEW_CLIENTS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsAcceptingNewClients());
+      hash = (37 * hash) + VISIBILITY_FIELD_NUMBER;
+      hash = (53 * hash) + visibility_;
+      hash = (37 * hash) + SLUG_FIELD_NUMBER;
+      hash = (53 * hash) + getSlug().hashCode();
+      hash = (37 * hash) + META_DESCRIPTION_FIELD_NUMBER;
+      hash = (53 * hash) + getMetaDescription().hashCode();
+      if (getSearchTagsCount() > 0) {
+        hash = (37 * hash) + SEARCH_TAGS_FIELD_NUMBER;
+        hash = (53 * hash) + getSearchTagsList().hashCode();
+      }
+      if (getSpecializationIdsCount() > 0) {
+        hash = (37 * hash) + SPECIALIZATION_IDS_FIELD_NUMBER;
+        hash = (53 * hash) + getSpecializationIdsList().hashCode();
+      }
+      hash = (37 * hash) + PROFILE_IMAGE_DATA_FIELD_NUMBER;
+      hash = (53 * hash) + getProfileImageData().hashCode();
+      hash = (37 * hash) + PROFILE_IMAGE_MIME_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + getProfileImageMimeType().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * CRUD Request/Response messages for Therapist management
+     * </pre>
+     *
+     * Protobuf type {@code utro.v1.CreateTherapistRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:utro.v1.CreateTherapistRequest)
+        com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_CreateTherapistRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_CreateTherapistRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest.class, com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest.Builder.class);
+      }
+
+      // Construct using com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        userId_ = "";
+        organisationId_ = "";
+        professionalTitle_ = "";
+        descriptionEng_ = "";
+        descriptionPl_ = "";
+        workExperienceEng_ = "";
+        workExperiencePl_ = "";
+        languages_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        inPersonTherapyFormat_ = false;
+        onlineTherapyFormat_ = false;
+        contactEmail_ = "";
+        contactPhone_ = "";
+        websiteUrl_ = "";
+        isAcceptingNewClients_ = false;
+        visibility_ = 0;
+        slug_ = "";
+        metaDescription_ = "";
+        searchTags_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        specializationIds_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        profileImageData_ = com.google.protobuf.ByteString.EMPTY;
+        profileImageMimeType_ = "";
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_CreateTherapistRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest getDefaultInstanceForType() {
+        return com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest build() {
+        com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest buildPartial() {
+        com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest result = new com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.userId_ = userId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.organisationId_ = organisationId_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.professionalTitle_ = professionalTitle_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.descriptionEng_ = descriptionEng_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.descriptionPl_ = descriptionPl_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.workExperienceEng_ = workExperienceEng_;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.workExperiencePl_ = workExperiencePl_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          languages_.makeImmutable();
+          result.languages_ = languages_;
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.inPersonTherapyFormat_ = inPersonTherapyFormat_;
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.onlineTherapyFormat_ = onlineTherapyFormat_;
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.contactEmail_ = contactEmail_;
+        }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.contactPhone_ = contactPhone_;
+        }
+        if (((from_bitField0_ & 0x00001000) != 0)) {
+          result.websiteUrl_ = websiteUrl_;
+        }
+        if (((from_bitField0_ & 0x00002000) != 0)) {
+          result.isAcceptingNewClients_ = isAcceptingNewClients_;
+        }
+        if (((from_bitField0_ & 0x00004000) != 0)) {
+          result.visibility_ = visibility_;
+        }
+        if (((from_bitField0_ & 0x00008000) != 0)) {
+          result.slug_ = slug_;
+        }
+        if (((from_bitField0_ & 0x00010000) != 0)) {
+          result.metaDescription_ = metaDescription_;
+        }
+        if (((from_bitField0_ & 0x00020000) != 0)) {
+          searchTags_.makeImmutable();
+          result.searchTags_ = searchTags_;
+        }
+        if (((from_bitField0_ & 0x00040000) != 0)) {
+          specializationIds_.makeImmutable();
+          result.specializationIds_ = specializationIds_;
+        }
+        if (((from_bitField0_ & 0x00080000) != 0)) {
+          result.profileImageData_ = profileImageData_;
+        }
+        if (((from_bitField0_ & 0x00100000) != 0)) {
+          result.profileImageMimeType_ = profileImageMimeType_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest) {
+          return mergeFrom((com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest other) {
+        if (other == com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest.getDefaultInstance()) return this;
+        if (!other.getUserId().isEmpty()) {
+          userId_ = other.userId_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        if (!other.getOrganisationId().isEmpty()) {
+          organisationId_ = other.organisationId_;
+          bitField0_ |= 0x00000002;
+          onChanged();
+        }
+        if (!other.getProfessionalTitle().isEmpty()) {
+          professionalTitle_ = other.professionalTitle_;
+          bitField0_ |= 0x00000004;
+          onChanged();
+        }
+        if (!other.getDescriptionEng().isEmpty()) {
+          descriptionEng_ = other.descriptionEng_;
+          bitField0_ |= 0x00000008;
+          onChanged();
+        }
+        if (!other.getDescriptionPl().isEmpty()) {
+          descriptionPl_ = other.descriptionPl_;
+          bitField0_ |= 0x00000010;
+          onChanged();
+        }
+        if (!other.getWorkExperienceEng().isEmpty()) {
+          workExperienceEng_ = other.workExperienceEng_;
+          bitField0_ |= 0x00000020;
+          onChanged();
+        }
+        if (!other.getWorkExperiencePl().isEmpty()) {
+          workExperiencePl_ = other.workExperiencePl_;
+          bitField0_ |= 0x00000040;
+          onChanged();
+        }
+        if (!other.languages_.isEmpty()) {
+          if (languages_.isEmpty()) {
+            languages_ = other.languages_;
+            bitField0_ |= 0x00000080;
+          } else {
+            ensureLanguagesIsMutable();
+            languages_.addAll(other.languages_);
+          }
+          onChanged();
+        }
+        if (other.getInPersonTherapyFormat() != false) {
+          setInPersonTherapyFormat(other.getInPersonTherapyFormat());
+        }
+        if (other.getOnlineTherapyFormat() != false) {
+          setOnlineTherapyFormat(other.getOnlineTherapyFormat());
+        }
+        if (!other.getContactEmail().isEmpty()) {
+          contactEmail_ = other.contactEmail_;
+          bitField0_ |= 0x00000400;
+          onChanged();
+        }
+        if (!other.getContactPhone().isEmpty()) {
+          contactPhone_ = other.contactPhone_;
+          bitField0_ |= 0x00000800;
+          onChanged();
+        }
+        if (!other.getWebsiteUrl().isEmpty()) {
+          websiteUrl_ = other.websiteUrl_;
+          bitField0_ |= 0x00001000;
+          onChanged();
+        }
+        if (other.getIsAcceptingNewClients() != false) {
+          setIsAcceptingNewClients(other.getIsAcceptingNewClients());
+        }
+        if (other.visibility_ != 0) {
+          setVisibilityValue(other.getVisibilityValue());
+        }
+        if (!other.getSlug().isEmpty()) {
+          slug_ = other.slug_;
+          bitField0_ |= 0x00008000;
+          onChanged();
+        }
+        if (!other.getMetaDescription().isEmpty()) {
+          metaDescription_ = other.metaDescription_;
+          bitField0_ |= 0x00010000;
+          onChanged();
+        }
+        if (!other.searchTags_.isEmpty()) {
+          if (searchTags_.isEmpty()) {
+            searchTags_ = other.searchTags_;
+            bitField0_ |= 0x00020000;
+          } else {
+            ensureSearchTagsIsMutable();
+            searchTags_.addAll(other.searchTags_);
+          }
+          onChanged();
+        }
+        if (!other.specializationIds_.isEmpty()) {
+          if (specializationIds_.isEmpty()) {
+            specializationIds_ = other.specializationIds_;
+            bitField0_ |= 0x00040000;
+          } else {
+            ensureSpecializationIdsIsMutable();
+            specializationIds_.addAll(other.specializationIds_);
+          }
+          onChanged();
+        }
+        if (!other.getProfileImageData().isEmpty()) {
+          setProfileImageData(other.getProfileImageData());
+        }
+        if (!other.getProfileImageMimeType().isEmpty()) {
+          profileImageMimeType_ = other.profileImageMimeType_;
+          bitField0_ |= 0x00100000;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                userId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                organisationId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                professionalTitle_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                descriptionEng_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                descriptionPl_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              case 50: {
+                workExperienceEng_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              case 58: {
+                workExperiencePl_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 58
+              case 66: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureLanguagesIsMutable();
+                languages_.add(s);
+                break;
+              } // case 66
+              case 72: {
+                inPersonTherapyFormat_ = input.readBool();
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 72
+              case 80: {
+                onlineTherapyFormat_ = input.readBool();
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 80
+              case 90: {
+                contactEmail_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000400;
+                break;
+              } // case 90
+              case 98: {
+                contactPhone_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000800;
+                break;
+              } // case 98
+              case 106: {
+                websiteUrl_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00001000;
+                break;
+              } // case 106
+              case 112: {
+                isAcceptingNewClients_ = input.readBool();
+                bitField0_ |= 0x00002000;
+                break;
+              } // case 112
+              case 120: {
+                visibility_ = input.readEnum();
+                bitField0_ |= 0x00004000;
+                break;
+              } // case 120
+              case 130: {
+                slug_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00008000;
+                break;
+              } // case 130
+              case 138: {
+                metaDescription_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00010000;
+                break;
+              } // case 138
+              case 146: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureSearchTagsIsMutable();
+                searchTags_.add(s);
+                break;
+              } // case 146
+              case 154: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureSpecializationIdsIsMutable();
+                specializationIds_.add(s);
+                break;
+              } // case 154
+              case 162: {
+                profileImageData_ = input.readBytes();
+                bitField0_ |= 0x00080000;
+                break;
+              } // case 162
+              case 170: {
+                profileImageMimeType_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00100000;
+                break;
+              } // case 170
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object userId_ = "";
+      /**
+       * <code>string user_id = 1 [json_name = "userId"];</code>
+       * @return The userId.
+       */
+      public java.lang.String getUserId() {
+        java.lang.Object ref = userId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          userId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string user_id = 1 [json_name = "userId"];</code>
+       * @return The bytes for userId.
+       */
+      public com.google.protobuf.ByteString
+          getUserIdBytes() {
+        java.lang.Object ref = userId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string user_id = 1 [json_name = "userId"];</code>
+       * @param value The userId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        userId_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string user_id = 1 [json_name = "userId"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUserId() {
+        userId_ = getDefaultInstance().getUserId();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string user_id = 1 [json_name = "userId"];</code>
+       * @param value The bytes for userId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        userId_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object organisationId_ = "";
+      /**
+       * <code>string organisation_id = 2 [json_name = "organisationId"];</code>
+       * @return The organisationId.
+       */
+      public java.lang.String getOrganisationId() {
+        java.lang.Object ref = organisationId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          organisationId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string organisation_id = 2 [json_name = "organisationId"];</code>
+       * @return The bytes for organisationId.
+       */
+      public com.google.protobuf.ByteString
+          getOrganisationIdBytes() {
+        java.lang.Object ref = organisationId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          organisationId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string organisation_id = 2 [json_name = "organisationId"];</code>
+       * @param value The organisationId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrganisationId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        organisationId_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string organisation_id = 2 [json_name = "organisationId"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOrganisationId() {
+        organisationId_ = getDefaultInstance().getOrganisationId();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string organisation_id = 2 [json_name = "organisationId"];</code>
+       * @param value The bytes for organisationId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrganisationIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        organisationId_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object professionalTitle_ = "";
+      /**
+       * <code>string professional_title = 3 [json_name = "professionalTitle"];</code>
+       * @return The professionalTitle.
+       */
+      public java.lang.String getProfessionalTitle() {
+        java.lang.Object ref = professionalTitle_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          professionalTitle_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string professional_title = 3 [json_name = "professionalTitle"];</code>
+       * @return The bytes for professionalTitle.
+       */
+      public com.google.protobuf.ByteString
+          getProfessionalTitleBytes() {
+        java.lang.Object ref = professionalTitle_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          professionalTitle_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string professional_title = 3 [json_name = "professionalTitle"];</code>
+       * @param value The professionalTitle to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProfessionalTitle(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        professionalTitle_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string professional_title = 3 [json_name = "professionalTitle"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProfessionalTitle() {
+        professionalTitle_ = getDefaultInstance().getProfessionalTitle();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string professional_title = 3 [json_name = "professionalTitle"];</code>
+       * @param value The bytes for professionalTitle to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProfessionalTitleBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        professionalTitle_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object descriptionEng_ = "";
+      /**
+       * <code>string description_eng = 4 [json_name = "descriptionEng"];</code>
+       * @return The descriptionEng.
+       */
+      public java.lang.String getDescriptionEng() {
+        java.lang.Object ref = descriptionEng_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          descriptionEng_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string description_eng = 4 [json_name = "descriptionEng"];</code>
+       * @return The bytes for descriptionEng.
+       */
+      public com.google.protobuf.ByteString
+          getDescriptionEngBytes() {
+        java.lang.Object ref = descriptionEng_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          descriptionEng_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string description_eng = 4 [json_name = "descriptionEng"];</code>
+       * @param value The descriptionEng to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDescriptionEng(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        descriptionEng_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string description_eng = 4 [json_name = "descriptionEng"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDescriptionEng() {
+        descriptionEng_ = getDefaultInstance().getDescriptionEng();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string description_eng = 4 [json_name = "descriptionEng"];</code>
+       * @param value The bytes for descriptionEng to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDescriptionEngBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        descriptionEng_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object descriptionPl_ = "";
+      /**
+       * <code>string description_pl = 5 [json_name = "descriptionPl"];</code>
+       * @return The descriptionPl.
+       */
+      public java.lang.String getDescriptionPl() {
+        java.lang.Object ref = descriptionPl_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          descriptionPl_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string description_pl = 5 [json_name = "descriptionPl"];</code>
+       * @return The bytes for descriptionPl.
+       */
+      public com.google.protobuf.ByteString
+          getDescriptionPlBytes() {
+        java.lang.Object ref = descriptionPl_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          descriptionPl_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string description_pl = 5 [json_name = "descriptionPl"];</code>
+       * @param value The descriptionPl to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDescriptionPl(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        descriptionPl_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string description_pl = 5 [json_name = "descriptionPl"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDescriptionPl() {
+        descriptionPl_ = getDefaultInstance().getDescriptionPl();
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string description_pl = 5 [json_name = "descriptionPl"];</code>
+       * @param value The bytes for descriptionPl to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDescriptionPlBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        descriptionPl_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object workExperienceEng_ = "";
+      /**
+       * <code>string work_experience_eng = 6 [json_name = "workExperienceEng"];</code>
+       * @return The workExperienceEng.
+       */
+      public java.lang.String getWorkExperienceEng() {
+        java.lang.Object ref = workExperienceEng_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          workExperienceEng_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string work_experience_eng = 6 [json_name = "workExperienceEng"];</code>
+       * @return The bytes for workExperienceEng.
+       */
+      public com.google.protobuf.ByteString
+          getWorkExperienceEngBytes() {
+        java.lang.Object ref = workExperienceEng_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          workExperienceEng_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string work_experience_eng = 6 [json_name = "workExperienceEng"];</code>
+       * @param value The workExperienceEng to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWorkExperienceEng(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        workExperienceEng_ = value;
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string work_experience_eng = 6 [json_name = "workExperienceEng"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWorkExperienceEng() {
+        workExperienceEng_ = getDefaultInstance().getWorkExperienceEng();
+        bitField0_ = (bitField0_ & ~0x00000020);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string work_experience_eng = 6 [json_name = "workExperienceEng"];</code>
+       * @param value The bytes for workExperienceEng to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWorkExperienceEngBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        workExperienceEng_ = value;
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object workExperiencePl_ = "";
+      /**
+       * <code>string work_experience_pl = 7 [json_name = "workExperiencePl"];</code>
+       * @return The workExperiencePl.
+       */
+      public java.lang.String getWorkExperiencePl() {
+        java.lang.Object ref = workExperiencePl_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          workExperiencePl_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string work_experience_pl = 7 [json_name = "workExperiencePl"];</code>
+       * @return The bytes for workExperiencePl.
+       */
+      public com.google.protobuf.ByteString
+          getWorkExperiencePlBytes() {
+        java.lang.Object ref = workExperiencePl_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          workExperiencePl_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string work_experience_pl = 7 [json_name = "workExperiencePl"];</code>
+       * @param value The workExperiencePl to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWorkExperiencePl(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        workExperiencePl_ = value;
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string work_experience_pl = 7 [json_name = "workExperiencePl"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWorkExperiencePl() {
+        workExperiencePl_ = getDefaultInstance().getWorkExperiencePl();
+        bitField0_ = (bitField0_ & ~0x00000040);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string work_experience_pl = 7 [json_name = "workExperiencePl"];</code>
+       * @param value The bytes for workExperiencePl to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWorkExperiencePlBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        workExperiencePl_ = value;
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringArrayList languages_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      private void ensureLanguagesIsMutable() {
+        if (!languages_.isModifiable()) {
+          languages_ = new com.google.protobuf.LazyStringArrayList(languages_);
+        }
+        bitField0_ |= 0x00000080;
+      }
+      /**
+       * <code>repeated string languages = 8 [json_name = "languages"];</code>
+       * @return A list containing the languages.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getLanguagesList() {
+        languages_.makeImmutable();
+        return languages_;
+      }
+      /**
+       * <code>repeated string languages = 8 [json_name = "languages"];</code>
+       * @return The count of languages.
+       */
+      public int getLanguagesCount() {
+        return languages_.size();
+      }
+      /**
+       * <code>repeated string languages = 8 [json_name = "languages"];</code>
+       * @param index The index of the element to return.
+       * @return The languages at the given index.
+       */
+      public java.lang.String getLanguages(int index) {
+        return languages_.get(index);
+      }
+      /**
+       * <code>repeated string languages = 8 [json_name = "languages"];</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the languages at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getLanguagesBytes(int index) {
+        return languages_.getByteString(index);
+      }
+      /**
+       * <code>repeated string languages = 8 [json_name = "languages"];</code>
+       * @param index The index to set the value at.
+       * @param value The languages to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLanguages(
+          int index, java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        ensureLanguagesIsMutable();
+        languages_.set(index, value);
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string languages = 8 [json_name = "languages"];</code>
+       * @param value The languages to add.
+       * @return This builder for chaining.
+       */
+      public Builder addLanguages(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        ensureLanguagesIsMutable();
+        languages_.add(value);
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string languages = 8 [json_name = "languages"];</code>
+       * @param values The languages to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllLanguages(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureLanguagesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, languages_);
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string languages = 8 [json_name = "languages"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLanguages() {
+        languages_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000080);;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string languages = 8 [json_name = "languages"];</code>
+       * @param value The bytes of the languages to add.
+       * @return This builder for chaining.
+       */
+      public Builder addLanguagesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        ensureLanguagesIsMutable();
+        languages_.add(value);
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return this;
+      }
+
+      private boolean inPersonTherapyFormat_ ;
+      /**
+       * <code>bool in_person_therapy_format = 9 [json_name = "inPersonTherapyFormat"];</code>
+       * @return The inPersonTherapyFormat.
+       */
+      @java.lang.Override
+      public boolean getInPersonTherapyFormat() {
+        return inPersonTherapyFormat_;
+      }
+      /**
+       * <code>bool in_person_therapy_format = 9 [json_name = "inPersonTherapyFormat"];</code>
+       * @param value The inPersonTherapyFormat to set.
+       * @return This builder for chaining.
+       */
+      public Builder setInPersonTherapyFormat(boolean value) {
+
+        inPersonTherapyFormat_ = value;
+        bitField0_ |= 0x00000100;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool in_person_therapy_format = 9 [json_name = "inPersonTherapyFormat"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearInPersonTherapyFormat() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        inPersonTherapyFormat_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean onlineTherapyFormat_ ;
+      /**
+       * <code>bool online_therapy_format = 10 [json_name = "onlineTherapyFormat"];</code>
+       * @return The onlineTherapyFormat.
+       */
+      @java.lang.Override
+      public boolean getOnlineTherapyFormat() {
+        return onlineTherapyFormat_;
+      }
+      /**
+       * <code>bool online_therapy_format = 10 [json_name = "onlineTherapyFormat"];</code>
+       * @param value The onlineTherapyFormat to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOnlineTherapyFormat(boolean value) {
+
+        onlineTherapyFormat_ = value;
+        bitField0_ |= 0x00000200;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool online_therapy_format = 10 [json_name = "onlineTherapyFormat"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOnlineTherapyFormat() {
+        bitField0_ = (bitField0_ & ~0x00000200);
+        onlineTherapyFormat_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object contactEmail_ = "";
+      /**
+       * <code>string contact_email = 11 [json_name = "contactEmail"];</code>
+       * @return The contactEmail.
+       */
+      public java.lang.String getContactEmail() {
+        java.lang.Object ref = contactEmail_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          contactEmail_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string contact_email = 11 [json_name = "contactEmail"];</code>
+       * @return The bytes for contactEmail.
+       */
+      public com.google.protobuf.ByteString
+          getContactEmailBytes() {
+        java.lang.Object ref = contactEmail_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          contactEmail_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string contact_email = 11 [json_name = "contactEmail"];</code>
+       * @param value The contactEmail to set.
+       * @return This builder for chaining.
+       */
+      public Builder setContactEmail(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        contactEmail_ = value;
+        bitField0_ |= 0x00000400;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string contact_email = 11 [json_name = "contactEmail"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearContactEmail() {
+        contactEmail_ = getDefaultInstance().getContactEmail();
+        bitField0_ = (bitField0_ & ~0x00000400);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string contact_email = 11 [json_name = "contactEmail"];</code>
+       * @param value The bytes for contactEmail to set.
+       * @return This builder for chaining.
+       */
+      public Builder setContactEmailBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        contactEmail_ = value;
+        bitField0_ |= 0x00000400;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object contactPhone_ = "";
+      /**
+       * <code>string contact_phone = 12 [json_name = "contactPhone"];</code>
+       * @return The contactPhone.
+       */
+      public java.lang.String getContactPhone() {
+        java.lang.Object ref = contactPhone_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          contactPhone_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string contact_phone = 12 [json_name = "contactPhone"];</code>
+       * @return The bytes for contactPhone.
+       */
+      public com.google.protobuf.ByteString
+          getContactPhoneBytes() {
+        java.lang.Object ref = contactPhone_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          contactPhone_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string contact_phone = 12 [json_name = "contactPhone"];</code>
+       * @param value The contactPhone to set.
+       * @return This builder for chaining.
+       */
+      public Builder setContactPhone(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        contactPhone_ = value;
+        bitField0_ |= 0x00000800;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string contact_phone = 12 [json_name = "contactPhone"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearContactPhone() {
+        contactPhone_ = getDefaultInstance().getContactPhone();
+        bitField0_ = (bitField0_ & ~0x00000800);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string contact_phone = 12 [json_name = "contactPhone"];</code>
+       * @param value The bytes for contactPhone to set.
+       * @return This builder for chaining.
+       */
+      public Builder setContactPhoneBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        contactPhone_ = value;
+        bitField0_ |= 0x00000800;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object websiteUrl_ = "";
+      /**
+       * <code>string website_url = 13 [json_name = "websiteUrl"];</code>
+       * @return The websiteUrl.
+       */
+      public java.lang.String getWebsiteUrl() {
+        java.lang.Object ref = websiteUrl_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          websiteUrl_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string website_url = 13 [json_name = "websiteUrl"];</code>
+       * @return The bytes for websiteUrl.
+       */
+      public com.google.protobuf.ByteString
+          getWebsiteUrlBytes() {
+        java.lang.Object ref = websiteUrl_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          websiteUrl_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string website_url = 13 [json_name = "websiteUrl"];</code>
+       * @param value The websiteUrl to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWebsiteUrl(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        websiteUrl_ = value;
+        bitField0_ |= 0x00001000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string website_url = 13 [json_name = "websiteUrl"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWebsiteUrl() {
+        websiteUrl_ = getDefaultInstance().getWebsiteUrl();
+        bitField0_ = (bitField0_ & ~0x00001000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string website_url = 13 [json_name = "websiteUrl"];</code>
+       * @param value The bytes for websiteUrl to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWebsiteUrlBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        websiteUrl_ = value;
+        bitField0_ |= 0x00001000;
+        onChanged();
+        return this;
+      }
+
+      private boolean isAcceptingNewClients_ ;
+      /**
+       * <code>bool is_accepting_new_clients = 14 [json_name = "isAcceptingNewClients"];</code>
+       * @return The isAcceptingNewClients.
+       */
+      @java.lang.Override
+      public boolean getIsAcceptingNewClients() {
+        return isAcceptingNewClients_;
+      }
+      /**
+       * <code>bool is_accepting_new_clients = 14 [json_name = "isAcceptingNewClients"];</code>
+       * @param value The isAcceptingNewClients to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIsAcceptingNewClients(boolean value) {
+
+        isAcceptingNewClients_ = value;
+        bitField0_ |= 0x00002000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool is_accepting_new_clients = 14 [json_name = "isAcceptingNewClients"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIsAcceptingNewClients() {
+        bitField0_ = (bitField0_ & ~0x00002000);
+        isAcceptingNewClients_ = false;
+        onChanged();
+        return this;
+      }
+
+      private int visibility_ = 0;
+      /**
+       * <code>.utro.v1.TherapistVisibility visibility = 15 [json_name = "visibility"];</code>
+       * @return The enum numeric value on the wire for visibility.
+       */
+      @java.lang.Override public int getVisibilityValue() {
+        return visibility_;
+      }
+      /**
+       * <code>.utro.v1.TherapistVisibility visibility = 15 [json_name = "visibility"];</code>
+       * @param value The enum numeric value on the wire for visibility to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVisibilityValue(int value) {
+        visibility_ = value;
+        bitField0_ |= 0x00004000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.utro.v1.TherapistVisibility visibility = 15 [json_name = "visibility"];</code>
+       * @return The visibility.
+       */
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility getVisibility() {
+        com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility result = com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility.forNumber(visibility_);
+        return result == null ? com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.utro.v1.TherapistVisibility visibility = 15 [json_name = "visibility"];</code>
+       * @param value The visibility to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVisibility(com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility value) {
+        if (value == null) { throw new NullPointerException(); }
+        bitField0_ |= 0x00004000;
+        visibility_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.utro.v1.TherapistVisibility visibility = 15 [json_name = "visibility"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearVisibility() {
+        bitField0_ = (bitField0_ & ~0x00004000);
+        visibility_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object slug_ = "";
+      /**
+       * <code>string slug = 16 [json_name = "slug"];</code>
+       * @return The slug.
+       */
+      public java.lang.String getSlug() {
+        java.lang.Object ref = slug_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          slug_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string slug = 16 [json_name = "slug"];</code>
+       * @return The bytes for slug.
+       */
+      public com.google.protobuf.ByteString
+          getSlugBytes() {
+        java.lang.Object ref = slug_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          slug_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string slug = 16 [json_name = "slug"];</code>
+       * @param value The slug to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSlug(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        slug_ = value;
+        bitField0_ |= 0x00008000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string slug = 16 [json_name = "slug"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSlug() {
+        slug_ = getDefaultInstance().getSlug();
+        bitField0_ = (bitField0_ & ~0x00008000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string slug = 16 [json_name = "slug"];</code>
+       * @param value The bytes for slug to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSlugBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        slug_ = value;
+        bitField0_ |= 0x00008000;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object metaDescription_ = "";
+      /**
+       * <code>string meta_description = 17 [json_name = "metaDescription"];</code>
+       * @return The metaDescription.
+       */
+      public java.lang.String getMetaDescription() {
+        java.lang.Object ref = metaDescription_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          metaDescription_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string meta_description = 17 [json_name = "metaDescription"];</code>
+       * @return The bytes for metaDescription.
+       */
+      public com.google.protobuf.ByteString
+          getMetaDescriptionBytes() {
+        java.lang.Object ref = metaDescription_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          metaDescription_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string meta_description = 17 [json_name = "metaDescription"];</code>
+       * @param value The metaDescription to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMetaDescription(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        metaDescription_ = value;
+        bitField0_ |= 0x00010000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string meta_description = 17 [json_name = "metaDescription"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMetaDescription() {
+        metaDescription_ = getDefaultInstance().getMetaDescription();
+        bitField0_ = (bitField0_ & ~0x00010000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string meta_description = 17 [json_name = "metaDescription"];</code>
+       * @param value The bytes for metaDescription to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMetaDescriptionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        metaDescription_ = value;
+        bitField0_ |= 0x00010000;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringArrayList searchTags_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      private void ensureSearchTagsIsMutable() {
+        if (!searchTags_.isModifiable()) {
+          searchTags_ = new com.google.protobuf.LazyStringArrayList(searchTags_);
+        }
+        bitField0_ |= 0x00020000;
+      }
+      /**
+       * <code>repeated string search_tags = 18 [json_name = "searchTags"];</code>
+       * @return A list containing the searchTags.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getSearchTagsList() {
+        searchTags_.makeImmutable();
+        return searchTags_;
+      }
+      /**
+       * <code>repeated string search_tags = 18 [json_name = "searchTags"];</code>
+       * @return The count of searchTags.
+       */
+      public int getSearchTagsCount() {
+        return searchTags_.size();
+      }
+      /**
+       * <code>repeated string search_tags = 18 [json_name = "searchTags"];</code>
+       * @param index The index of the element to return.
+       * @return The searchTags at the given index.
+       */
+      public java.lang.String getSearchTags(int index) {
+        return searchTags_.get(index);
+      }
+      /**
+       * <code>repeated string search_tags = 18 [json_name = "searchTags"];</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the searchTags at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getSearchTagsBytes(int index) {
+        return searchTags_.getByteString(index);
+      }
+      /**
+       * <code>repeated string search_tags = 18 [json_name = "searchTags"];</code>
+       * @param index The index to set the value at.
+       * @param value The searchTags to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSearchTags(
+          int index, java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        ensureSearchTagsIsMutable();
+        searchTags_.set(index, value);
+        bitField0_ |= 0x00020000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string search_tags = 18 [json_name = "searchTags"];</code>
+       * @param value The searchTags to add.
+       * @return This builder for chaining.
+       */
+      public Builder addSearchTags(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        ensureSearchTagsIsMutable();
+        searchTags_.add(value);
+        bitField0_ |= 0x00020000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string search_tags = 18 [json_name = "searchTags"];</code>
+       * @param values The searchTags to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllSearchTags(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureSearchTagsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, searchTags_);
+        bitField0_ |= 0x00020000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string search_tags = 18 [json_name = "searchTags"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSearchTags() {
+        searchTags_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+        bitField0_ = (bitField0_ & ~0x00020000);;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string search_tags = 18 [json_name = "searchTags"];</code>
+       * @param value The bytes of the searchTags to add.
+       * @return This builder for chaining.
+       */
+      public Builder addSearchTagsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        ensureSearchTagsIsMutable();
+        searchTags_.add(value);
+        bitField0_ |= 0x00020000;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringArrayList specializationIds_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      private void ensureSpecializationIdsIsMutable() {
+        if (!specializationIds_.isModifiable()) {
+          specializationIds_ = new com.google.protobuf.LazyStringArrayList(specializationIds_);
+        }
+        bitField0_ |= 0x00040000;
+      }
+      /**
+       * <code>repeated string specialization_ids = 19 [json_name = "specializationIds"];</code>
+       * @return A list containing the specializationIds.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getSpecializationIdsList() {
+        specializationIds_.makeImmutable();
+        return specializationIds_;
+      }
+      /**
+       * <code>repeated string specialization_ids = 19 [json_name = "specializationIds"];</code>
+       * @return The count of specializationIds.
+       */
+      public int getSpecializationIdsCount() {
+        return specializationIds_.size();
+      }
+      /**
+       * <code>repeated string specialization_ids = 19 [json_name = "specializationIds"];</code>
+       * @param index The index of the element to return.
+       * @return The specializationIds at the given index.
+       */
+      public java.lang.String getSpecializationIds(int index) {
+        return specializationIds_.get(index);
+      }
+      /**
+       * <code>repeated string specialization_ids = 19 [json_name = "specializationIds"];</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the specializationIds at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getSpecializationIdsBytes(int index) {
+        return specializationIds_.getByteString(index);
+      }
+      /**
+       * <code>repeated string specialization_ids = 19 [json_name = "specializationIds"];</code>
+       * @param index The index to set the value at.
+       * @param value The specializationIds to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSpecializationIds(
+          int index, java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        ensureSpecializationIdsIsMutable();
+        specializationIds_.set(index, value);
+        bitField0_ |= 0x00040000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string specialization_ids = 19 [json_name = "specializationIds"];</code>
+       * @param value The specializationIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addSpecializationIds(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        ensureSpecializationIdsIsMutable();
+        specializationIds_.add(value);
+        bitField0_ |= 0x00040000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string specialization_ids = 19 [json_name = "specializationIds"];</code>
+       * @param values The specializationIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllSpecializationIds(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureSpecializationIdsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, specializationIds_);
+        bitField0_ |= 0x00040000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string specialization_ids = 19 [json_name = "specializationIds"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSpecializationIds() {
+        specializationIds_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+        bitField0_ = (bitField0_ & ~0x00040000);;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string specialization_ids = 19 [json_name = "specializationIds"];</code>
+       * @param value The bytes of the specializationIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addSpecializationIdsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        ensureSpecializationIdsIsMutable();
+        specializationIds_.add(value);
+        bitField0_ |= 0x00040000;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString profileImageData_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes profile_image_data = 20 [json_name = "profileImageData"];</code>
+       * @return The profileImageData.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getProfileImageData() {
+        return profileImageData_;
+      }
+      /**
+       * <code>bytes profile_image_data = 20 [json_name = "profileImageData"];</code>
+       * @param value The profileImageData to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProfileImageData(com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        profileImageData_ = value;
+        bitField0_ |= 0x00080000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes profile_image_data = 20 [json_name = "profileImageData"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProfileImageData() {
+        bitField0_ = (bitField0_ & ~0x00080000);
+        profileImageData_ = getDefaultInstance().getProfileImageData();
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object profileImageMimeType_ = "";
+      /**
+       * <code>string profile_image_mime_type = 21 [json_name = "profileImageMimeType"];</code>
+       * @return The profileImageMimeType.
+       */
+      public java.lang.String getProfileImageMimeType() {
+        java.lang.Object ref = profileImageMimeType_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          profileImageMimeType_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string profile_image_mime_type = 21 [json_name = "profileImageMimeType"];</code>
+       * @return The bytes for profileImageMimeType.
+       */
+      public com.google.protobuf.ByteString
+          getProfileImageMimeTypeBytes() {
+        java.lang.Object ref = profileImageMimeType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          profileImageMimeType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string profile_image_mime_type = 21 [json_name = "profileImageMimeType"];</code>
+       * @param value The profileImageMimeType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProfileImageMimeType(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        profileImageMimeType_ = value;
+        bitField0_ |= 0x00100000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string profile_image_mime_type = 21 [json_name = "profileImageMimeType"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProfileImageMimeType() {
+        profileImageMimeType_ = getDefaultInstance().getProfileImageMimeType();
+        bitField0_ = (bitField0_ & ~0x00100000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string profile_image_mime_type = 21 [json_name = "profileImageMimeType"];</code>
+       * @param value The bytes for profileImageMimeType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProfileImageMimeTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        profileImageMimeType_ = value;
+        bitField0_ |= 0x00100000;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:utro.v1.CreateTherapistRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:utro.v1.CreateTherapistRequest)
+    private static final com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest();
+    }
+
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CreateTherapistRequest>
+        PARSER = new com.google.protobuf.AbstractParser<CreateTherapistRequest>() {
+      @java.lang.Override
+      public CreateTherapistRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<CreateTherapistRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CreateTherapistRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface UpdateTherapistRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:utro.v1.UpdateTherapistRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The id.
+     */
+    java.lang.String getId();
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+
+    /**
+     * <code>optional string professional_title = 2 [json_name = "professionalTitle"];</code>
+     * @return Whether the professionalTitle field is set.
+     */
+    boolean hasProfessionalTitle();
+    /**
+     * <code>optional string professional_title = 2 [json_name = "professionalTitle"];</code>
+     * @return The professionalTitle.
+     */
+    java.lang.String getProfessionalTitle();
+    /**
+     * <code>optional string professional_title = 2 [json_name = "professionalTitle"];</code>
+     * @return The bytes for professionalTitle.
+     */
+    com.google.protobuf.ByteString
+        getProfessionalTitleBytes();
+
+    /**
+     * <code>optional string description_eng = 3 [json_name = "descriptionEng"];</code>
+     * @return Whether the descriptionEng field is set.
+     */
+    boolean hasDescriptionEng();
+    /**
+     * <code>optional string description_eng = 3 [json_name = "descriptionEng"];</code>
+     * @return The descriptionEng.
+     */
+    java.lang.String getDescriptionEng();
+    /**
+     * <code>optional string description_eng = 3 [json_name = "descriptionEng"];</code>
+     * @return The bytes for descriptionEng.
+     */
+    com.google.protobuf.ByteString
+        getDescriptionEngBytes();
+
+    /**
+     * <code>optional string description_pl = 4 [json_name = "descriptionPl"];</code>
+     * @return Whether the descriptionPl field is set.
+     */
+    boolean hasDescriptionPl();
+    /**
+     * <code>optional string description_pl = 4 [json_name = "descriptionPl"];</code>
+     * @return The descriptionPl.
+     */
+    java.lang.String getDescriptionPl();
+    /**
+     * <code>optional string description_pl = 4 [json_name = "descriptionPl"];</code>
+     * @return The bytes for descriptionPl.
+     */
+    com.google.protobuf.ByteString
+        getDescriptionPlBytes();
+
+    /**
+     * <code>optional string work_experience_eng = 5 [json_name = "workExperienceEng"];</code>
+     * @return Whether the workExperienceEng field is set.
+     */
+    boolean hasWorkExperienceEng();
+    /**
+     * <code>optional string work_experience_eng = 5 [json_name = "workExperienceEng"];</code>
+     * @return The workExperienceEng.
+     */
+    java.lang.String getWorkExperienceEng();
+    /**
+     * <code>optional string work_experience_eng = 5 [json_name = "workExperienceEng"];</code>
+     * @return The bytes for workExperienceEng.
+     */
+    com.google.protobuf.ByteString
+        getWorkExperienceEngBytes();
+
+    /**
+     * <code>optional string work_experience_pl = 6 [json_name = "workExperiencePl"];</code>
+     * @return Whether the workExperiencePl field is set.
+     */
+    boolean hasWorkExperiencePl();
+    /**
+     * <code>optional string work_experience_pl = 6 [json_name = "workExperiencePl"];</code>
+     * @return The workExperiencePl.
+     */
+    java.lang.String getWorkExperiencePl();
+    /**
+     * <code>optional string work_experience_pl = 6 [json_name = "workExperiencePl"];</code>
+     * @return The bytes for workExperiencePl.
+     */
+    com.google.protobuf.ByteString
+        getWorkExperiencePlBytes();
+
+    /**
+     * <code>repeated string languages = 7 [json_name = "languages"];</code>
+     * @return A list containing the languages.
+     */
+    java.util.List<java.lang.String>
+        getLanguagesList();
+    /**
+     * <code>repeated string languages = 7 [json_name = "languages"];</code>
+     * @return The count of languages.
+     */
+    int getLanguagesCount();
+    /**
+     * <code>repeated string languages = 7 [json_name = "languages"];</code>
+     * @param index The index of the element to return.
+     * @return The languages at the given index.
+     */
+    java.lang.String getLanguages(int index);
+    /**
+     * <code>repeated string languages = 7 [json_name = "languages"];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the languages at the given index.
+     */
+    com.google.protobuf.ByteString
+        getLanguagesBytes(int index);
+
+    /**
+     * <code>optional bool in_person_therapy_format = 8 [json_name = "inPersonTherapyFormat"];</code>
+     * @return Whether the inPersonTherapyFormat field is set.
+     */
+    boolean hasInPersonTherapyFormat();
+    /**
+     * <code>optional bool in_person_therapy_format = 8 [json_name = "inPersonTherapyFormat"];</code>
+     * @return The inPersonTherapyFormat.
+     */
+    boolean getInPersonTherapyFormat();
+
+    /**
+     * <code>optional bool online_therapy_format = 9 [json_name = "onlineTherapyFormat"];</code>
+     * @return Whether the onlineTherapyFormat field is set.
+     */
+    boolean hasOnlineTherapyFormat();
+    /**
+     * <code>optional bool online_therapy_format = 9 [json_name = "onlineTherapyFormat"];</code>
+     * @return The onlineTherapyFormat.
+     */
+    boolean getOnlineTherapyFormat();
+
+    /**
+     * <code>optional string contact_email = 10 [json_name = "contactEmail"];</code>
+     * @return Whether the contactEmail field is set.
+     */
+    boolean hasContactEmail();
+    /**
+     * <code>optional string contact_email = 10 [json_name = "contactEmail"];</code>
+     * @return The contactEmail.
+     */
+    java.lang.String getContactEmail();
+    /**
+     * <code>optional string contact_email = 10 [json_name = "contactEmail"];</code>
+     * @return The bytes for contactEmail.
+     */
+    com.google.protobuf.ByteString
+        getContactEmailBytes();
+
+    /**
+     * <code>optional string contact_phone = 11 [json_name = "contactPhone"];</code>
+     * @return Whether the contactPhone field is set.
+     */
+    boolean hasContactPhone();
+    /**
+     * <code>optional string contact_phone = 11 [json_name = "contactPhone"];</code>
+     * @return The contactPhone.
+     */
+    java.lang.String getContactPhone();
+    /**
+     * <code>optional string contact_phone = 11 [json_name = "contactPhone"];</code>
+     * @return The bytes for contactPhone.
+     */
+    com.google.protobuf.ByteString
+        getContactPhoneBytes();
+
+    /**
+     * <code>optional string website_url = 12 [json_name = "websiteUrl"];</code>
+     * @return Whether the websiteUrl field is set.
+     */
+    boolean hasWebsiteUrl();
+    /**
+     * <code>optional string website_url = 12 [json_name = "websiteUrl"];</code>
+     * @return The websiteUrl.
+     */
+    java.lang.String getWebsiteUrl();
+    /**
+     * <code>optional string website_url = 12 [json_name = "websiteUrl"];</code>
+     * @return The bytes for websiteUrl.
+     */
+    com.google.protobuf.ByteString
+        getWebsiteUrlBytes();
+
+    /**
+     * <code>optional bool is_accepting_new_clients = 13 [json_name = "isAcceptingNewClients"];</code>
+     * @return Whether the isAcceptingNewClients field is set.
+     */
+    boolean hasIsAcceptingNewClients();
+    /**
+     * <code>optional bool is_accepting_new_clients = 13 [json_name = "isAcceptingNewClients"];</code>
+     * @return The isAcceptingNewClients.
+     */
+    boolean getIsAcceptingNewClients();
+
+    /**
+     * <code>optional .utro.v1.TherapistVisibility visibility = 14 [json_name = "visibility"];</code>
+     * @return Whether the visibility field is set.
+     */
+    boolean hasVisibility();
+    /**
+     * <code>optional .utro.v1.TherapistVisibility visibility = 14 [json_name = "visibility"];</code>
+     * @return The enum numeric value on the wire for visibility.
+     */
+    int getVisibilityValue();
+    /**
+     * <code>optional .utro.v1.TherapistVisibility visibility = 14 [json_name = "visibility"];</code>
+     * @return The visibility.
+     */
+    com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility getVisibility();
+
+    /**
+     * <code>optional string slug = 15 [json_name = "slug"];</code>
+     * @return Whether the slug field is set.
+     */
+    boolean hasSlug();
+    /**
+     * <code>optional string slug = 15 [json_name = "slug"];</code>
+     * @return The slug.
+     */
+    java.lang.String getSlug();
+    /**
+     * <code>optional string slug = 15 [json_name = "slug"];</code>
+     * @return The bytes for slug.
+     */
+    com.google.protobuf.ByteString
+        getSlugBytes();
+
+    /**
+     * <code>optional string meta_description = 16 [json_name = "metaDescription"];</code>
+     * @return Whether the metaDescription field is set.
+     */
+    boolean hasMetaDescription();
+    /**
+     * <code>optional string meta_description = 16 [json_name = "metaDescription"];</code>
+     * @return The metaDescription.
+     */
+    java.lang.String getMetaDescription();
+    /**
+     * <code>optional string meta_description = 16 [json_name = "metaDescription"];</code>
+     * @return The bytes for metaDescription.
+     */
+    com.google.protobuf.ByteString
+        getMetaDescriptionBytes();
+
+    /**
+     * <code>repeated string search_tags = 17 [json_name = "searchTags"];</code>
+     * @return A list containing the searchTags.
+     */
+    java.util.List<java.lang.String>
+        getSearchTagsList();
+    /**
+     * <code>repeated string search_tags = 17 [json_name = "searchTags"];</code>
+     * @return The count of searchTags.
+     */
+    int getSearchTagsCount();
+    /**
+     * <code>repeated string search_tags = 17 [json_name = "searchTags"];</code>
+     * @param index The index of the element to return.
+     * @return The searchTags at the given index.
+     */
+    java.lang.String getSearchTags(int index);
+    /**
+     * <code>repeated string search_tags = 17 [json_name = "searchTags"];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the searchTags at the given index.
+     */
+    com.google.protobuf.ByteString
+        getSearchTagsBytes(int index);
+
+    /**
+     * <code>repeated string specialization_ids = 18 [json_name = "specializationIds"];</code>
+     * @return A list containing the specializationIds.
+     */
+    java.util.List<java.lang.String>
+        getSpecializationIdsList();
+    /**
+     * <code>repeated string specialization_ids = 18 [json_name = "specializationIds"];</code>
+     * @return The count of specializationIds.
+     */
+    int getSpecializationIdsCount();
+    /**
+     * <code>repeated string specialization_ids = 18 [json_name = "specializationIds"];</code>
+     * @param index The index of the element to return.
+     * @return The specializationIds at the given index.
+     */
+    java.lang.String getSpecializationIds(int index);
+    /**
+     * <code>repeated string specialization_ids = 18 [json_name = "specializationIds"];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the specializationIds at the given index.
+     */
+    com.google.protobuf.ByteString
+        getSpecializationIdsBytes(int index);
+
+    /**
+     * <code>optional bytes profile_image_data = 19 [json_name = "profileImageData"];</code>
+     * @return Whether the profileImageData field is set.
+     */
+    boolean hasProfileImageData();
+    /**
+     * <code>optional bytes profile_image_data = 19 [json_name = "profileImageData"];</code>
+     * @return The profileImageData.
+     */
+    com.google.protobuf.ByteString getProfileImageData();
+
+    /**
+     * <code>optional string profile_image_mime_type = 20 [json_name = "profileImageMimeType"];</code>
+     * @return Whether the profileImageMimeType field is set.
+     */
+    boolean hasProfileImageMimeType();
+    /**
+     * <code>optional string profile_image_mime_type = 20 [json_name = "profileImageMimeType"];</code>
+     * @return The profileImageMimeType.
+     */
+    java.lang.String getProfileImageMimeType();
+    /**
+     * <code>optional string profile_image_mime_type = 20 [json_name = "profileImageMimeType"];</code>
+     * @return The bytes for profileImageMimeType.
+     */
+    com.google.protobuf.ByteString
+        getProfileImageMimeTypeBytes();
+  }
+  /**
+   * Protobuf type {@code utro.v1.UpdateTherapistRequest}
+   */
+  public static final class UpdateTherapistRequest extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:utro.v1.UpdateTherapistRequest)
+      UpdateTherapistRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    static {
+      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+        /* major= */ 4,
+        /* minor= */ 31,
+        /* patch= */ 1,
+        /* suffix= */ "",
+        UpdateTherapistRequest.class.getName());
+    }
+    // Use UpdateTherapistRequest.newBuilder() to construct.
+    private UpdateTherapistRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private UpdateTherapistRequest() {
+      id_ = "";
+      professionalTitle_ = "";
+      descriptionEng_ = "";
+      descriptionPl_ = "";
+      workExperienceEng_ = "";
+      workExperiencePl_ = "";
+      languages_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      contactEmail_ = "";
+      contactPhone_ = "";
+      websiteUrl_ = "";
+      visibility_ = 0;
+      slug_ = "";
+      metaDescription_ = "";
+      searchTags_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      specializationIds_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      profileImageData_ = com.google.protobuf.ByteString.EMPTY;
+      profileImageMimeType_ = "";
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_UpdateTherapistRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_UpdateTherapistRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest.class, com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int ID_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object id_ = "";
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The bytes for id.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PROFESSIONAL_TITLE_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object professionalTitle_ = "";
+    /**
+     * <code>optional string professional_title = 2 [json_name = "professionalTitle"];</code>
+     * @return Whether the professionalTitle field is set.
+     */
+    @java.lang.Override
+    public boolean hasProfessionalTitle() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional string professional_title = 2 [json_name = "professionalTitle"];</code>
+     * @return The professionalTitle.
+     */
+    @java.lang.Override
+    public java.lang.String getProfessionalTitle() {
+      java.lang.Object ref = professionalTitle_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        professionalTitle_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string professional_title = 2 [json_name = "professionalTitle"];</code>
+     * @return The bytes for professionalTitle.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getProfessionalTitleBytes() {
+      java.lang.Object ref = professionalTitle_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        professionalTitle_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DESCRIPTION_ENG_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object descriptionEng_ = "";
+    /**
+     * <code>optional string description_eng = 3 [json_name = "descriptionEng"];</code>
+     * @return Whether the descriptionEng field is set.
+     */
+    @java.lang.Override
+    public boolean hasDescriptionEng() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional string description_eng = 3 [json_name = "descriptionEng"];</code>
+     * @return The descriptionEng.
+     */
+    @java.lang.Override
+    public java.lang.String getDescriptionEng() {
+      java.lang.Object ref = descriptionEng_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        descriptionEng_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string description_eng = 3 [json_name = "descriptionEng"];</code>
+     * @return The bytes for descriptionEng.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getDescriptionEngBytes() {
+      java.lang.Object ref = descriptionEng_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        descriptionEng_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DESCRIPTION_PL_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object descriptionPl_ = "";
+    /**
+     * <code>optional string description_pl = 4 [json_name = "descriptionPl"];</code>
+     * @return Whether the descriptionPl field is set.
+     */
+    @java.lang.Override
+    public boolean hasDescriptionPl() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional string description_pl = 4 [json_name = "descriptionPl"];</code>
+     * @return The descriptionPl.
+     */
+    @java.lang.Override
+    public java.lang.String getDescriptionPl() {
+      java.lang.Object ref = descriptionPl_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        descriptionPl_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string description_pl = 4 [json_name = "descriptionPl"];</code>
+     * @return The bytes for descriptionPl.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getDescriptionPlBytes() {
+      java.lang.Object ref = descriptionPl_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        descriptionPl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int WORK_EXPERIENCE_ENG_FIELD_NUMBER = 5;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object workExperienceEng_ = "";
+    /**
+     * <code>optional string work_experience_eng = 5 [json_name = "workExperienceEng"];</code>
+     * @return Whether the workExperienceEng field is set.
+     */
+    @java.lang.Override
+    public boolean hasWorkExperienceEng() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>optional string work_experience_eng = 5 [json_name = "workExperienceEng"];</code>
+     * @return The workExperienceEng.
+     */
+    @java.lang.Override
+    public java.lang.String getWorkExperienceEng() {
+      java.lang.Object ref = workExperienceEng_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        workExperienceEng_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string work_experience_eng = 5 [json_name = "workExperienceEng"];</code>
+     * @return The bytes for workExperienceEng.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getWorkExperienceEngBytes() {
+      java.lang.Object ref = workExperienceEng_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        workExperienceEng_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int WORK_EXPERIENCE_PL_FIELD_NUMBER = 6;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object workExperiencePl_ = "";
+    /**
+     * <code>optional string work_experience_pl = 6 [json_name = "workExperiencePl"];</code>
+     * @return Whether the workExperiencePl field is set.
+     */
+    @java.lang.Override
+    public boolean hasWorkExperiencePl() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <code>optional string work_experience_pl = 6 [json_name = "workExperiencePl"];</code>
+     * @return The workExperiencePl.
+     */
+    @java.lang.Override
+    public java.lang.String getWorkExperiencePl() {
+      java.lang.Object ref = workExperiencePl_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        workExperiencePl_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string work_experience_pl = 6 [json_name = "workExperiencePl"];</code>
+     * @return The bytes for workExperiencePl.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getWorkExperiencePlBytes() {
+      java.lang.Object ref = workExperiencePl_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        workExperiencePl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int LANGUAGES_FIELD_NUMBER = 7;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.LazyStringArrayList languages_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+    /**
+     * <code>repeated string languages = 7 [json_name = "languages"];</code>
+     * @return A list containing the languages.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getLanguagesList() {
+      return languages_;
+    }
+    /**
+     * <code>repeated string languages = 7 [json_name = "languages"];</code>
+     * @return The count of languages.
+     */
+    public int getLanguagesCount() {
+      return languages_.size();
+    }
+    /**
+     * <code>repeated string languages = 7 [json_name = "languages"];</code>
+     * @param index The index of the element to return.
+     * @return The languages at the given index.
+     */
+    public java.lang.String getLanguages(int index) {
+      return languages_.get(index);
+    }
+    /**
+     * <code>repeated string languages = 7 [json_name = "languages"];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the languages at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getLanguagesBytes(int index) {
+      return languages_.getByteString(index);
+    }
+
+    public static final int IN_PERSON_THERAPY_FORMAT_FIELD_NUMBER = 8;
+    private boolean inPersonTherapyFormat_ = false;
+    /**
+     * <code>optional bool in_person_therapy_format = 8 [json_name = "inPersonTherapyFormat"];</code>
+     * @return Whether the inPersonTherapyFormat field is set.
+     */
+    @java.lang.Override
+    public boolean hasInPersonTherapyFormat() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <code>optional bool in_person_therapy_format = 8 [json_name = "inPersonTherapyFormat"];</code>
+     * @return The inPersonTherapyFormat.
+     */
+    @java.lang.Override
+    public boolean getInPersonTherapyFormat() {
+      return inPersonTherapyFormat_;
+    }
+
+    public static final int ONLINE_THERAPY_FORMAT_FIELD_NUMBER = 9;
+    private boolean onlineTherapyFormat_ = false;
+    /**
+     * <code>optional bool online_therapy_format = 9 [json_name = "onlineTherapyFormat"];</code>
+     * @return Whether the onlineTherapyFormat field is set.
+     */
+    @java.lang.Override
+    public boolean hasOnlineTherapyFormat() {
+      return ((bitField0_ & 0x00000040) != 0);
+    }
+    /**
+     * <code>optional bool online_therapy_format = 9 [json_name = "onlineTherapyFormat"];</code>
+     * @return The onlineTherapyFormat.
+     */
+    @java.lang.Override
+    public boolean getOnlineTherapyFormat() {
+      return onlineTherapyFormat_;
+    }
+
+    public static final int CONTACT_EMAIL_FIELD_NUMBER = 10;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object contactEmail_ = "";
+    /**
+     * <code>optional string contact_email = 10 [json_name = "contactEmail"];</code>
+     * @return Whether the contactEmail field is set.
+     */
+    @java.lang.Override
+    public boolean hasContactEmail() {
+      return ((bitField0_ & 0x00000080) != 0);
+    }
+    /**
+     * <code>optional string contact_email = 10 [json_name = "contactEmail"];</code>
+     * @return The contactEmail.
+     */
+    @java.lang.Override
+    public java.lang.String getContactEmail() {
+      java.lang.Object ref = contactEmail_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        contactEmail_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string contact_email = 10 [json_name = "contactEmail"];</code>
+     * @return The bytes for contactEmail.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getContactEmailBytes() {
+      java.lang.Object ref = contactEmail_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        contactEmail_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CONTACT_PHONE_FIELD_NUMBER = 11;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object contactPhone_ = "";
+    /**
+     * <code>optional string contact_phone = 11 [json_name = "contactPhone"];</code>
+     * @return Whether the contactPhone field is set.
+     */
+    @java.lang.Override
+    public boolean hasContactPhone() {
+      return ((bitField0_ & 0x00000100) != 0);
+    }
+    /**
+     * <code>optional string contact_phone = 11 [json_name = "contactPhone"];</code>
+     * @return The contactPhone.
+     */
+    @java.lang.Override
+    public java.lang.String getContactPhone() {
+      java.lang.Object ref = contactPhone_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        contactPhone_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string contact_phone = 11 [json_name = "contactPhone"];</code>
+     * @return The bytes for contactPhone.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getContactPhoneBytes() {
+      java.lang.Object ref = contactPhone_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        contactPhone_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int WEBSITE_URL_FIELD_NUMBER = 12;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object websiteUrl_ = "";
+    /**
+     * <code>optional string website_url = 12 [json_name = "websiteUrl"];</code>
+     * @return Whether the websiteUrl field is set.
+     */
+    @java.lang.Override
+    public boolean hasWebsiteUrl() {
+      return ((bitField0_ & 0x00000200) != 0);
+    }
+    /**
+     * <code>optional string website_url = 12 [json_name = "websiteUrl"];</code>
+     * @return The websiteUrl.
+     */
+    @java.lang.Override
+    public java.lang.String getWebsiteUrl() {
+      java.lang.Object ref = websiteUrl_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        websiteUrl_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string website_url = 12 [json_name = "websiteUrl"];</code>
+     * @return The bytes for websiteUrl.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getWebsiteUrlBytes() {
+      java.lang.Object ref = websiteUrl_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        websiteUrl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int IS_ACCEPTING_NEW_CLIENTS_FIELD_NUMBER = 13;
+    private boolean isAcceptingNewClients_ = false;
+    /**
+     * <code>optional bool is_accepting_new_clients = 13 [json_name = "isAcceptingNewClients"];</code>
+     * @return Whether the isAcceptingNewClients field is set.
+     */
+    @java.lang.Override
+    public boolean hasIsAcceptingNewClients() {
+      return ((bitField0_ & 0x00000400) != 0);
+    }
+    /**
+     * <code>optional bool is_accepting_new_clients = 13 [json_name = "isAcceptingNewClients"];</code>
+     * @return The isAcceptingNewClients.
+     */
+    @java.lang.Override
+    public boolean getIsAcceptingNewClients() {
+      return isAcceptingNewClients_;
+    }
+
+    public static final int VISIBILITY_FIELD_NUMBER = 14;
+    private int visibility_ = 0;
+    /**
+     * <code>optional .utro.v1.TherapistVisibility visibility = 14 [json_name = "visibility"];</code>
+     * @return Whether the visibility field is set.
+     */
+    @java.lang.Override public boolean hasVisibility() {
+      return ((bitField0_ & 0x00000800) != 0);
+    }
+    /**
+     * <code>optional .utro.v1.TherapistVisibility visibility = 14 [json_name = "visibility"];</code>
+     * @return The enum numeric value on the wire for visibility.
+     */
+    @java.lang.Override public int getVisibilityValue() {
+      return visibility_;
+    }
+    /**
+     * <code>optional .utro.v1.TherapistVisibility visibility = 14 [json_name = "visibility"];</code>
+     * @return The visibility.
+     */
+    @java.lang.Override public com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility getVisibility() {
+      com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility result = com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility.forNumber(visibility_);
+      return result == null ? com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility.UNRECOGNIZED : result;
+    }
+
+    public static final int SLUG_FIELD_NUMBER = 15;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object slug_ = "";
+    /**
+     * <code>optional string slug = 15 [json_name = "slug"];</code>
+     * @return Whether the slug field is set.
+     */
+    @java.lang.Override
+    public boolean hasSlug() {
+      return ((bitField0_ & 0x00001000) != 0);
+    }
+    /**
+     * <code>optional string slug = 15 [json_name = "slug"];</code>
+     * @return The slug.
+     */
+    @java.lang.Override
+    public java.lang.String getSlug() {
+      java.lang.Object ref = slug_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        slug_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string slug = 15 [json_name = "slug"];</code>
+     * @return The bytes for slug.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getSlugBytes() {
+      java.lang.Object ref = slug_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        slug_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int META_DESCRIPTION_FIELD_NUMBER = 16;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object metaDescription_ = "";
+    /**
+     * <code>optional string meta_description = 16 [json_name = "metaDescription"];</code>
+     * @return Whether the metaDescription field is set.
+     */
+    @java.lang.Override
+    public boolean hasMetaDescription() {
+      return ((bitField0_ & 0x00002000) != 0);
+    }
+    /**
+     * <code>optional string meta_description = 16 [json_name = "metaDescription"];</code>
+     * @return The metaDescription.
+     */
+    @java.lang.Override
+    public java.lang.String getMetaDescription() {
+      java.lang.Object ref = metaDescription_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        metaDescription_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string meta_description = 16 [json_name = "metaDescription"];</code>
+     * @return The bytes for metaDescription.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getMetaDescriptionBytes() {
+      java.lang.Object ref = metaDescription_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        metaDescription_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SEARCH_TAGS_FIELD_NUMBER = 17;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.LazyStringArrayList searchTags_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+    /**
+     * <code>repeated string search_tags = 17 [json_name = "searchTags"];</code>
+     * @return A list containing the searchTags.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getSearchTagsList() {
+      return searchTags_;
+    }
+    /**
+     * <code>repeated string search_tags = 17 [json_name = "searchTags"];</code>
+     * @return The count of searchTags.
+     */
+    public int getSearchTagsCount() {
+      return searchTags_.size();
+    }
+    /**
+     * <code>repeated string search_tags = 17 [json_name = "searchTags"];</code>
+     * @param index The index of the element to return.
+     * @return The searchTags at the given index.
+     */
+    public java.lang.String getSearchTags(int index) {
+      return searchTags_.get(index);
+    }
+    /**
+     * <code>repeated string search_tags = 17 [json_name = "searchTags"];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the searchTags at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getSearchTagsBytes(int index) {
+      return searchTags_.getByteString(index);
+    }
+
+    public static final int SPECIALIZATION_IDS_FIELD_NUMBER = 18;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.LazyStringArrayList specializationIds_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+    /**
+     * <code>repeated string specialization_ids = 18 [json_name = "specializationIds"];</code>
+     * @return A list containing the specializationIds.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getSpecializationIdsList() {
+      return specializationIds_;
+    }
+    /**
+     * <code>repeated string specialization_ids = 18 [json_name = "specializationIds"];</code>
+     * @return The count of specializationIds.
+     */
+    public int getSpecializationIdsCount() {
+      return specializationIds_.size();
+    }
+    /**
+     * <code>repeated string specialization_ids = 18 [json_name = "specializationIds"];</code>
+     * @param index The index of the element to return.
+     * @return The specializationIds at the given index.
+     */
+    public java.lang.String getSpecializationIds(int index) {
+      return specializationIds_.get(index);
+    }
+    /**
+     * <code>repeated string specialization_ids = 18 [json_name = "specializationIds"];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the specializationIds at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getSpecializationIdsBytes(int index) {
+      return specializationIds_.getByteString(index);
+    }
+
+    public static final int PROFILE_IMAGE_DATA_FIELD_NUMBER = 19;
+    private com.google.protobuf.ByteString profileImageData_ = com.google.protobuf.ByteString.EMPTY;
+    /**
+     * <code>optional bytes profile_image_data = 19 [json_name = "profileImageData"];</code>
+     * @return Whether the profileImageData field is set.
+     */
+    @java.lang.Override
+    public boolean hasProfileImageData() {
+      return ((bitField0_ & 0x00004000) != 0);
+    }
+    /**
+     * <code>optional bytes profile_image_data = 19 [json_name = "profileImageData"];</code>
+     * @return The profileImageData.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getProfileImageData() {
+      return profileImageData_;
+    }
+
+    public static final int PROFILE_IMAGE_MIME_TYPE_FIELD_NUMBER = 20;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object profileImageMimeType_ = "";
+    /**
+     * <code>optional string profile_image_mime_type = 20 [json_name = "profileImageMimeType"];</code>
+     * @return Whether the profileImageMimeType field is set.
+     */
+    @java.lang.Override
+    public boolean hasProfileImageMimeType() {
+      return ((bitField0_ & 0x00008000) != 0);
+    }
+    /**
+     * <code>optional string profile_image_mime_type = 20 [json_name = "profileImageMimeType"];</code>
+     * @return The profileImageMimeType.
+     */
+    @java.lang.Override
+    public java.lang.String getProfileImageMimeType() {
+      java.lang.Object ref = profileImageMimeType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        profileImageMimeType_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string profile_image_mime_type = 20 [json_name = "profileImageMimeType"];</code>
+     * @return The bytes for profileImageMimeType.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getProfileImageMimeTypeBytes() {
+      java.lang.Object ref = profileImageMimeType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        profileImageMimeType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(id_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, id_);
+      }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 2, professionalTitle_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 3, descriptionEng_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 4, descriptionPl_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 5, workExperienceEng_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 6, workExperiencePl_);
+      }
+      for (int i = 0; i < languages_.size(); i++) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 7, languages_.getRaw(i));
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        output.writeBool(8, inPersonTherapyFormat_);
+      }
+      if (((bitField0_ & 0x00000040) != 0)) {
+        output.writeBool(9, onlineTherapyFormat_);
+      }
+      if (((bitField0_ & 0x00000080) != 0)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 10, contactEmail_);
+      }
+      if (((bitField0_ & 0x00000100) != 0)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 11, contactPhone_);
+      }
+      if (((bitField0_ & 0x00000200) != 0)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 12, websiteUrl_);
+      }
+      if (((bitField0_ & 0x00000400) != 0)) {
+        output.writeBool(13, isAcceptingNewClients_);
+      }
+      if (((bitField0_ & 0x00000800) != 0)) {
+        output.writeEnum(14, visibility_);
+      }
+      if (((bitField0_ & 0x00001000) != 0)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 15, slug_);
+      }
+      if (((bitField0_ & 0x00002000) != 0)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 16, metaDescription_);
+      }
+      for (int i = 0; i < searchTags_.size(); i++) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 17, searchTags_.getRaw(i));
+      }
+      for (int i = 0; i < specializationIds_.size(); i++) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 18, specializationIds_.getRaw(i));
+      }
+      if (((bitField0_ & 0x00004000) != 0)) {
+        output.writeBytes(19, profileImageData_);
+      }
+      if (((bitField0_ & 0x00008000) != 0)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 20, profileImageMimeType_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(id_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, id_);
+      }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(2, professionalTitle_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(3, descriptionEng_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(4, descriptionPl_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(5, workExperienceEng_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(6, workExperiencePl_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < languages_.size(); i++) {
+          dataSize += computeStringSizeNoTag(languages_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getLanguagesList().size();
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(8, inPersonTherapyFormat_);
+      }
+      if (((bitField0_ & 0x00000040) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(9, onlineTherapyFormat_);
+      }
+      if (((bitField0_ & 0x00000080) != 0)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(10, contactEmail_);
+      }
+      if (((bitField0_ & 0x00000100) != 0)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(11, contactPhone_);
+      }
+      if (((bitField0_ & 0x00000200) != 0)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(12, websiteUrl_);
+      }
+      if (((bitField0_ & 0x00000400) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(13, isAcceptingNewClients_);
+      }
+      if (((bitField0_ & 0x00000800) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(14, visibility_);
+      }
+      if (((bitField0_ & 0x00001000) != 0)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(15, slug_);
+      }
+      if (((bitField0_ & 0x00002000) != 0)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(16, metaDescription_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < searchTags_.size(); i++) {
+          dataSize += computeStringSizeNoTag(searchTags_.getRaw(i));
+        }
+        size += dataSize;
+        size += 2 * getSearchTagsList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < specializationIds_.size(); i++) {
+          dataSize += computeStringSizeNoTag(specializationIds_.getRaw(i));
+        }
+        size += dataSize;
+        size += 2 * getSpecializationIdsList().size();
+      }
+      if (((bitField0_ & 0x00004000) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(19, profileImageData_);
+      }
+      if (((bitField0_ & 0x00008000) != 0)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(20, profileImageMimeType_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest)) {
+        return super.equals(obj);
+      }
+      com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest other = (com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest) obj;
+
+      if (!getId()
+          .equals(other.getId())) return false;
+      if (hasProfessionalTitle() != other.hasProfessionalTitle()) return false;
+      if (hasProfessionalTitle()) {
+        if (!getProfessionalTitle()
+            .equals(other.getProfessionalTitle())) return false;
+      }
+      if (hasDescriptionEng() != other.hasDescriptionEng()) return false;
+      if (hasDescriptionEng()) {
+        if (!getDescriptionEng()
+            .equals(other.getDescriptionEng())) return false;
+      }
+      if (hasDescriptionPl() != other.hasDescriptionPl()) return false;
+      if (hasDescriptionPl()) {
+        if (!getDescriptionPl()
+            .equals(other.getDescriptionPl())) return false;
+      }
+      if (hasWorkExperienceEng() != other.hasWorkExperienceEng()) return false;
+      if (hasWorkExperienceEng()) {
+        if (!getWorkExperienceEng()
+            .equals(other.getWorkExperienceEng())) return false;
+      }
+      if (hasWorkExperiencePl() != other.hasWorkExperiencePl()) return false;
+      if (hasWorkExperiencePl()) {
+        if (!getWorkExperiencePl()
+            .equals(other.getWorkExperiencePl())) return false;
+      }
+      if (!getLanguagesList()
+          .equals(other.getLanguagesList())) return false;
+      if (hasInPersonTherapyFormat() != other.hasInPersonTherapyFormat()) return false;
+      if (hasInPersonTherapyFormat()) {
+        if (getInPersonTherapyFormat()
+            != other.getInPersonTherapyFormat()) return false;
+      }
+      if (hasOnlineTherapyFormat() != other.hasOnlineTherapyFormat()) return false;
+      if (hasOnlineTherapyFormat()) {
+        if (getOnlineTherapyFormat()
+            != other.getOnlineTherapyFormat()) return false;
+      }
+      if (hasContactEmail() != other.hasContactEmail()) return false;
+      if (hasContactEmail()) {
+        if (!getContactEmail()
+            .equals(other.getContactEmail())) return false;
+      }
+      if (hasContactPhone() != other.hasContactPhone()) return false;
+      if (hasContactPhone()) {
+        if (!getContactPhone()
+            .equals(other.getContactPhone())) return false;
+      }
+      if (hasWebsiteUrl() != other.hasWebsiteUrl()) return false;
+      if (hasWebsiteUrl()) {
+        if (!getWebsiteUrl()
+            .equals(other.getWebsiteUrl())) return false;
+      }
+      if (hasIsAcceptingNewClients() != other.hasIsAcceptingNewClients()) return false;
+      if (hasIsAcceptingNewClients()) {
+        if (getIsAcceptingNewClients()
+            != other.getIsAcceptingNewClients()) return false;
+      }
+      if (hasVisibility() != other.hasVisibility()) return false;
+      if (hasVisibility()) {
+        if (visibility_ != other.visibility_) return false;
+      }
+      if (hasSlug() != other.hasSlug()) return false;
+      if (hasSlug()) {
+        if (!getSlug()
+            .equals(other.getSlug())) return false;
+      }
+      if (hasMetaDescription() != other.hasMetaDescription()) return false;
+      if (hasMetaDescription()) {
+        if (!getMetaDescription()
+            .equals(other.getMetaDescription())) return false;
+      }
+      if (!getSearchTagsList()
+          .equals(other.getSearchTagsList())) return false;
+      if (!getSpecializationIdsList()
+          .equals(other.getSpecializationIdsList())) return false;
+      if (hasProfileImageData() != other.hasProfileImageData()) return false;
+      if (hasProfileImageData()) {
+        if (!getProfileImageData()
+            .equals(other.getProfileImageData())) return false;
+      }
+      if (hasProfileImageMimeType() != other.hasProfileImageMimeType()) return false;
+      if (hasProfileImageMimeType()) {
+        if (!getProfileImageMimeType()
+            .equals(other.getProfileImageMimeType())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      if (hasProfessionalTitle()) {
+        hash = (37 * hash) + PROFESSIONAL_TITLE_FIELD_NUMBER;
+        hash = (53 * hash) + getProfessionalTitle().hashCode();
+      }
+      if (hasDescriptionEng()) {
+        hash = (37 * hash) + DESCRIPTION_ENG_FIELD_NUMBER;
+        hash = (53 * hash) + getDescriptionEng().hashCode();
+      }
+      if (hasDescriptionPl()) {
+        hash = (37 * hash) + DESCRIPTION_PL_FIELD_NUMBER;
+        hash = (53 * hash) + getDescriptionPl().hashCode();
+      }
+      if (hasWorkExperienceEng()) {
+        hash = (37 * hash) + WORK_EXPERIENCE_ENG_FIELD_NUMBER;
+        hash = (53 * hash) + getWorkExperienceEng().hashCode();
+      }
+      if (hasWorkExperiencePl()) {
+        hash = (37 * hash) + WORK_EXPERIENCE_PL_FIELD_NUMBER;
+        hash = (53 * hash) + getWorkExperiencePl().hashCode();
+      }
+      if (getLanguagesCount() > 0) {
+        hash = (37 * hash) + LANGUAGES_FIELD_NUMBER;
+        hash = (53 * hash) + getLanguagesList().hashCode();
+      }
+      if (hasInPersonTherapyFormat()) {
+        hash = (37 * hash) + IN_PERSON_THERAPY_FORMAT_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getInPersonTherapyFormat());
+      }
+      if (hasOnlineTherapyFormat()) {
+        hash = (37 * hash) + ONLINE_THERAPY_FORMAT_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getOnlineTherapyFormat());
+      }
+      if (hasContactEmail()) {
+        hash = (37 * hash) + CONTACT_EMAIL_FIELD_NUMBER;
+        hash = (53 * hash) + getContactEmail().hashCode();
+      }
+      if (hasContactPhone()) {
+        hash = (37 * hash) + CONTACT_PHONE_FIELD_NUMBER;
+        hash = (53 * hash) + getContactPhone().hashCode();
+      }
+      if (hasWebsiteUrl()) {
+        hash = (37 * hash) + WEBSITE_URL_FIELD_NUMBER;
+        hash = (53 * hash) + getWebsiteUrl().hashCode();
+      }
+      if (hasIsAcceptingNewClients()) {
+        hash = (37 * hash) + IS_ACCEPTING_NEW_CLIENTS_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getIsAcceptingNewClients());
+      }
+      if (hasVisibility()) {
+        hash = (37 * hash) + VISIBILITY_FIELD_NUMBER;
+        hash = (53 * hash) + visibility_;
+      }
+      if (hasSlug()) {
+        hash = (37 * hash) + SLUG_FIELD_NUMBER;
+        hash = (53 * hash) + getSlug().hashCode();
+      }
+      if (hasMetaDescription()) {
+        hash = (37 * hash) + META_DESCRIPTION_FIELD_NUMBER;
+        hash = (53 * hash) + getMetaDescription().hashCode();
+      }
+      if (getSearchTagsCount() > 0) {
+        hash = (37 * hash) + SEARCH_TAGS_FIELD_NUMBER;
+        hash = (53 * hash) + getSearchTagsList().hashCode();
+      }
+      if (getSpecializationIdsCount() > 0) {
+        hash = (37 * hash) + SPECIALIZATION_IDS_FIELD_NUMBER;
+        hash = (53 * hash) + getSpecializationIdsList().hashCode();
+      }
+      if (hasProfileImageData()) {
+        hash = (37 * hash) + PROFILE_IMAGE_DATA_FIELD_NUMBER;
+        hash = (53 * hash) + getProfileImageData().hashCode();
+      }
+      if (hasProfileImageMimeType()) {
+        hash = (37 * hash) + PROFILE_IMAGE_MIME_TYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getProfileImageMimeType().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code utro.v1.UpdateTherapistRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:utro.v1.UpdateTherapistRequest)
+        com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_UpdateTherapistRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_UpdateTherapistRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest.class, com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest.Builder.class);
+      }
+
+      // Construct using com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        id_ = "";
+        professionalTitle_ = "";
+        descriptionEng_ = "";
+        descriptionPl_ = "";
+        workExperienceEng_ = "";
+        workExperiencePl_ = "";
+        languages_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        inPersonTherapyFormat_ = false;
+        onlineTherapyFormat_ = false;
+        contactEmail_ = "";
+        contactPhone_ = "";
+        websiteUrl_ = "";
+        isAcceptingNewClients_ = false;
+        visibility_ = 0;
+        slug_ = "";
+        metaDescription_ = "";
+        searchTags_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        specializationIds_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        profileImageData_ = com.google.protobuf.ByteString.EMPTY;
+        profileImageMimeType_ = "";
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_UpdateTherapistRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest getDefaultInstanceForType() {
+        return com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest build() {
+        com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest buildPartial() {
+        com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest result = new com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.id_ = id_;
+        }
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.professionalTitle_ = professionalTitle_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.descriptionEng_ = descriptionEng_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.descriptionPl_ = descriptionPl_;
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.workExperienceEng_ = workExperienceEng_;
+          to_bitField0_ |= 0x00000008;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.workExperiencePl_ = workExperiencePl_;
+          to_bitField0_ |= 0x00000010;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          languages_.makeImmutable();
+          result.languages_ = languages_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.inPersonTherapyFormat_ = inPersonTherapyFormat_;
+          to_bitField0_ |= 0x00000020;
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.onlineTherapyFormat_ = onlineTherapyFormat_;
+          to_bitField0_ |= 0x00000040;
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.contactEmail_ = contactEmail_;
+          to_bitField0_ |= 0x00000080;
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.contactPhone_ = contactPhone_;
+          to_bitField0_ |= 0x00000100;
+        }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.websiteUrl_ = websiteUrl_;
+          to_bitField0_ |= 0x00000200;
+        }
+        if (((from_bitField0_ & 0x00001000) != 0)) {
+          result.isAcceptingNewClients_ = isAcceptingNewClients_;
+          to_bitField0_ |= 0x00000400;
+        }
+        if (((from_bitField0_ & 0x00002000) != 0)) {
+          result.visibility_ = visibility_;
+          to_bitField0_ |= 0x00000800;
+        }
+        if (((from_bitField0_ & 0x00004000) != 0)) {
+          result.slug_ = slug_;
+          to_bitField0_ |= 0x00001000;
+        }
+        if (((from_bitField0_ & 0x00008000) != 0)) {
+          result.metaDescription_ = metaDescription_;
+          to_bitField0_ |= 0x00002000;
+        }
+        if (((from_bitField0_ & 0x00010000) != 0)) {
+          searchTags_.makeImmutable();
+          result.searchTags_ = searchTags_;
+        }
+        if (((from_bitField0_ & 0x00020000) != 0)) {
+          specializationIds_.makeImmutable();
+          result.specializationIds_ = specializationIds_;
+        }
+        if (((from_bitField0_ & 0x00040000) != 0)) {
+          result.profileImageData_ = profileImageData_;
+          to_bitField0_ |= 0x00004000;
+        }
+        if (((from_bitField0_ & 0x00080000) != 0)) {
+          result.profileImageMimeType_ = profileImageMimeType_;
+          to_bitField0_ |= 0x00008000;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest) {
+          return mergeFrom((com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest other) {
+        if (other == com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest.getDefaultInstance()) return this;
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        if (other.hasProfessionalTitle()) {
+          professionalTitle_ = other.professionalTitle_;
+          bitField0_ |= 0x00000002;
+          onChanged();
+        }
+        if (other.hasDescriptionEng()) {
+          descriptionEng_ = other.descriptionEng_;
+          bitField0_ |= 0x00000004;
+          onChanged();
+        }
+        if (other.hasDescriptionPl()) {
+          descriptionPl_ = other.descriptionPl_;
+          bitField0_ |= 0x00000008;
+          onChanged();
+        }
+        if (other.hasWorkExperienceEng()) {
+          workExperienceEng_ = other.workExperienceEng_;
+          bitField0_ |= 0x00000010;
+          onChanged();
+        }
+        if (other.hasWorkExperiencePl()) {
+          workExperiencePl_ = other.workExperiencePl_;
+          bitField0_ |= 0x00000020;
+          onChanged();
+        }
+        if (!other.languages_.isEmpty()) {
+          if (languages_.isEmpty()) {
+            languages_ = other.languages_;
+            bitField0_ |= 0x00000040;
+          } else {
+            ensureLanguagesIsMutable();
+            languages_.addAll(other.languages_);
+          }
+          onChanged();
+        }
+        if (other.hasInPersonTherapyFormat()) {
+          setInPersonTherapyFormat(other.getInPersonTherapyFormat());
+        }
+        if (other.hasOnlineTherapyFormat()) {
+          setOnlineTherapyFormat(other.getOnlineTherapyFormat());
+        }
+        if (other.hasContactEmail()) {
+          contactEmail_ = other.contactEmail_;
+          bitField0_ |= 0x00000200;
+          onChanged();
+        }
+        if (other.hasContactPhone()) {
+          contactPhone_ = other.contactPhone_;
+          bitField0_ |= 0x00000400;
+          onChanged();
+        }
+        if (other.hasWebsiteUrl()) {
+          websiteUrl_ = other.websiteUrl_;
+          bitField0_ |= 0x00000800;
+          onChanged();
+        }
+        if (other.hasIsAcceptingNewClients()) {
+          setIsAcceptingNewClients(other.getIsAcceptingNewClients());
+        }
+        if (other.hasVisibility()) {
+          setVisibilityValue(other.getVisibilityValue());
+        }
+        if (other.hasSlug()) {
+          slug_ = other.slug_;
+          bitField0_ |= 0x00004000;
+          onChanged();
+        }
+        if (other.hasMetaDescription()) {
+          metaDescription_ = other.metaDescription_;
+          bitField0_ |= 0x00008000;
+          onChanged();
+        }
+        if (!other.searchTags_.isEmpty()) {
+          if (searchTags_.isEmpty()) {
+            searchTags_ = other.searchTags_;
+            bitField0_ |= 0x00010000;
+          } else {
+            ensureSearchTagsIsMutable();
+            searchTags_.addAll(other.searchTags_);
+          }
+          onChanged();
+        }
+        if (!other.specializationIds_.isEmpty()) {
+          if (specializationIds_.isEmpty()) {
+            specializationIds_ = other.specializationIds_;
+            bitField0_ |= 0x00020000;
+          } else {
+            ensureSpecializationIdsIsMutable();
+            specializationIds_.addAll(other.specializationIds_);
+          }
+          onChanged();
+        }
+        if (other.hasProfileImageData()) {
+          setProfileImageData(other.getProfileImageData());
+        }
+        if (other.hasProfileImageMimeType()) {
+          profileImageMimeType_ = other.profileImageMimeType_;
+          bitField0_ |= 0x00080000;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                id_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                professionalTitle_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                descriptionEng_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                descriptionPl_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                workExperienceEng_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              case 50: {
+                workExperiencePl_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              case 58: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureLanguagesIsMutable();
+                languages_.add(s);
+                break;
+              } // case 58
+              case 64: {
+                inPersonTherapyFormat_ = input.readBool();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 64
+              case 72: {
+                onlineTherapyFormat_ = input.readBool();
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 72
+              case 82: {
+                contactEmail_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 82
+              case 90: {
+                contactPhone_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000400;
+                break;
+              } // case 90
+              case 98: {
+                websiteUrl_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000800;
+                break;
+              } // case 98
+              case 104: {
+                isAcceptingNewClients_ = input.readBool();
+                bitField0_ |= 0x00001000;
+                break;
+              } // case 104
+              case 112: {
+                visibility_ = input.readEnum();
+                bitField0_ |= 0x00002000;
+                break;
+              } // case 112
+              case 122: {
+                slug_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00004000;
+                break;
+              } // case 122
+              case 130: {
+                metaDescription_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00008000;
+                break;
+              } // case 130
+              case 138: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureSearchTagsIsMutable();
+                searchTags_.add(s);
+                break;
+              } // case 138
+              case 146: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureSpecializationIdsIsMutable();
+                specializationIds_.add(s);
+                break;
+              } // case 146
+              case 154: {
+                profileImageData_ = input.readBytes();
+                bitField0_ |= 0x00040000;
+                break;
+              } // case 154
+              case 162: {
+                profileImageMimeType_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00080000;
+                break;
+              } // case 162
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object id_ = "";
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @return The id.
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @return The bytes for id.
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        id_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        id_ = getDefaultInstance().getId();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        id_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object professionalTitle_ = "";
+      /**
+       * <code>optional string professional_title = 2 [json_name = "professionalTitle"];</code>
+       * @return Whether the professionalTitle field is set.
+       */
+      public boolean hasProfessionalTitle() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>optional string professional_title = 2 [json_name = "professionalTitle"];</code>
+       * @return The professionalTitle.
+       */
+      public java.lang.String getProfessionalTitle() {
+        java.lang.Object ref = professionalTitle_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          professionalTitle_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string professional_title = 2 [json_name = "professionalTitle"];</code>
+       * @return The bytes for professionalTitle.
+       */
+      public com.google.protobuf.ByteString
+          getProfessionalTitleBytes() {
+        java.lang.Object ref = professionalTitle_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          professionalTitle_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string professional_title = 2 [json_name = "professionalTitle"];</code>
+       * @param value The professionalTitle to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProfessionalTitle(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        professionalTitle_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string professional_title = 2 [json_name = "professionalTitle"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProfessionalTitle() {
+        professionalTitle_ = getDefaultInstance().getProfessionalTitle();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string professional_title = 2 [json_name = "professionalTitle"];</code>
+       * @param value The bytes for professionalTitle to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProfessionalTitleBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        professionalTitle_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object descriptionEng_ = "";
+      /**
+       * <code>optional string description_eng = 3 [json_name = "descriptionEng"];</code>
+       * @return Whether the descriptionEng field is set.
+       */
+      public boolean hasDescriptionEng() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional string description_eng = 3 [json_name = "descriptionEng"];</code>
+       * @return The descriptionEng.
+       */
+      public java.lang.String getDescriptionEng() {
+        java.lang.Object ref = descriptionEng_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          descriptionEng_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string description_eng = 3 [json_name = "descriptionEng"];</code>
+       * @return The bytes for descriptionEng.
+       */
+      public com.google.protobuf.ByteString
+          getDescriptionEngBytes() {
+        java.lang.Object ref = descriptionEng_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          descriptionEng_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string description_eng = 3 [json_name = "descriptionEng"];</code>
+       * @param value The descriptionEng to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDescriptionEng(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        descriptionEng_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string description_eng = 3 [json_name = "descriptionEng"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDescriptionEng() {
+        descriptionEng_ = getDefaultInstance().getDescriptionEng();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string description_eng = 3 [json_name = "descriptionEng"];</code>
+       * @param value The bytes for descriptionEng to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDescriptionEngBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        descriptionEng_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object descriptionPl_ = "";
+      /**
+       * <code>optional string description_pl = 4 [json_name = "descriptionPl"];</code>
+       * @return Whether the descriptionPl field is set.
+       */
+      public boolean hasDescriptionPl() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>optional string description_pl = 4 [json_name = "descriptionPl"];</code>
+       * @return The descriptionPl.
+       */
+      public java.lang.String getDescriptionPl() {
+        java.lang.Object ref = descriptionPl_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          descriptionPl_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string description_pl = 4 [json_name = "descriptionPl"];</code>
+       * @return The bytes for descriptionPl.
+       */
+      public com.google.protobuf.ByteString
+          getDescriptionPlBytes() {
+        java.lang.Object ref = descriptionPl_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          descriptionPl_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string description_pl = 4 [json_name = "descriptionPl"];</code>
+       * @param value The descriptionPl to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDescriptionPl(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        descriptionPl_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string description_pl = 4 [json_name = "descriptionPl"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDescriptionPl() {
+        descriptionPl_ = getDefaultInstance().getDescriptionPl();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string description_pl = 4 [json_name = "descriptionPl"];</code>
+       * @param value The bytes for descriptionPl to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDescriptionPlBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        descriptionPl_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object workExperienceEng_ = "";
+      /**
+       * <code>optional string work_experience_eng = 5 [json_name = "workExperienceEng"];</code>
+       * @return Whether the workExperienceEng field is set.
+       */
+      public boolean hasWorkExperienceEng() {
+        return ((bitField0_ & 0x00000010) != 0);
+      }
+      /**
+       * <code>optional string work_experience_eng = 5 [json_name = "workExperienceEng"];</code>
+       * @return The workExperienceEng.
+       */
+      public java.lang.String getWorkExperienceEng() {
+        java.lang.Object ref = workExperienceEng_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          workExperienceEng_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string work_experience_eng = 5 [json_name = "workExperienceEng"];</code>
+       * @return The bytes for workExperienceEng.
+       */
+      public com.google.protobuf.ByteString
+          getWorkExperienceEngBytes() {
+        java.lang.Object ref = workExperienceEng_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          workExperienceEng_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string work_experience_eng = 5 [json_name = "workExperienceEng"];</code>
+       * @param value The workExperienceEng to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWorkExperienceEng(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        workExperienceEng_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string work_experience_eng = 5 [json_name = "workExperienceEng"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWorkExperienceEng() {
+        workExperienceEng_ = getDefaultInstance().getWorkExperienceEng();
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string work_experience_eng = 5 [json_name = "workExperienceEng"];</code>
+       * @param value The bytes for workExperienceEng to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWorkExperienceEngBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        workExperienceEng_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object workExperiencePl_ = "";
+      /**
+       * <code>optional string work_experience_pl = 6 [json_name = "workExperiencePl"];</code>
+       * @return Whether the workExperiencePl field is set.
+       */
+      public boolean hasWorkExperiencePl() {
+        return ((bitField0_ & 0x00000020) != 0);
+      }
+      /**
+       * <code>optional string work_experience_pl = 6 [json_name = "workExperiencePl"];</code>
+       * @return The workExperiencePl.
+       */
+      public java.lang.String getWorkExperiencePl() {
+        java.lang.Object ref = workExperiencePl_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          workExperiencePl_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string work_experience_pl = 6 [json_name = "workExperiencePl"];</code>
+       * @return The bytes for workExperiencePl.
+       */
+      public com.google.protobuf.ByteString
+          getWorkExperiencePlBytes() {
+        java.lang.Object ref = workExperiencePl_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          workExperiencePl_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string work_experience_pl = 6 [json_name = "workExperiencePl"];</code>
+       * @param value The workExperiencePl to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWorkExperiencePl(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        workExperiencePl_ = value;
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string work_experience_pl = 6 [json_name = "workExperiencePl"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWorkExperiencePl() {
+        workExperiencePl_ = getDefaultInstance().getWorkExperiencePl();
+        bitField0_ = (bitField0_ & ~0x00000020);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string work_experience_pl = 6 [json_name = "workExperiencePl"];</code>
+       * @param value The bytes for workExperiencePl to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWorkExperiencePlBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        workExperiencePl_ = value;
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringArrayList languages_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      private void ensureLanguagesIsMutable() {
+        if (!languages_.isModifiable()) {
+          languages_ = new com.google.protobuf.LazyStringArrayList(languages_);
+        }
+        bitField0_ |= 0x00000040;
+      }
+      /**
+       * <code>repeated string languages = 7 [json_name = "languages"];</code>
+       * @return A list containing the languages.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getLanguagesList() {
+        languages_.makeImmutable();
+        return languages_;
+      }
+      /**
+       * <code>repeated string languages = 7 [json_name = "languages"];</code>
+       * @return The count of languages.
+       */
+      public int getLanguagesCount() {
+        return languages_.size();
+      }
+      /**
+       * <code>repeated string languages = 7 [json_name = "languages"];</code>
+       * @param index The index of the element to return.
+       * @return The languages at the given index.
+       */
+      public java.lang.String getLanguages(int index) {
+        return languages_.get(index);
+      }
+      /**
+       * <code>repeated string languages = 7 [json_name = "languages"];</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the languages at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getLanguagesBytes(int index) {
+        return languages_.getByteString(index);
+      }
+      /**
+       * <code>repeated string languages = 7 [json_name = "languages"];</code>
+       * @param index The index to set the value at.
+       * @param value The languages to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLanguages(
+          int index, java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        ensureLanguagesIsMutable();
+        languages_.set(index, value);
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string languages = 7 [json_name = "languages"];</code>
+       * @param value The languages to add.
+       * @return This builder for chaining.
+       */
+      public Builder addLanguages(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        ensureLanguagesIsMutable();
+        languages_.add(value);
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string languages = 7 [json_name = "languages"];</code>
+       * @param values The languages to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllLanguages(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureLanguagesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, languages_);
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string languages = 7 [json_name = "languages"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLanguages() {
+        languages_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000040);;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string languages = 7 [json_name = "languages"];</code>
+       * @param value The bytes of the languages to add.
+       * @return This builder for chaining.
+       */
+      public Builder addLanguagesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        ensureLanguagesIsMutable();
+        languages_.add(value);
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
+
+      private boolean inPersonTherapyFormat_ ;
+      /**
+       * <code>optional bool in_person_therapy_format = 8 [json_name = "inPersonTherapyFormat"];</code>
+       * @return Whether the inPersonTherapyFormat field is set.
+       */
+      @java.lang.Override
+      public boolean hasInPersonTherapyFormat() {
+        return ((bitField0_ & 0x00000080) != 0);
+      }
+      /**
+       * <code>optional bool in_person_therapy_format = 8 [json_name = "inPersonTherapyFormat"];</code>
+       * @return The inPersonTherapyFormat.
+       */
+      @java.lang.Override
+      public boolean getInPersonTherapyFormat() {
+        return inPersonTherapyFormat_;
+      }
+      /**
+       * <code>optional bool in_person_therapy_format = 8 [json_name = "inPersonTherapyFormat"];</code>
+       * @param value The inPersonTherapyFormat to set.
+       * @return This builder for chaining.
+       */
+      public Builder setInPersonTherapyFormat(boolean value) {
+
+        inPersonTherapyFormat_ = value;
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool in_person_therapy_format = 8 [json_name = "inPersonTherapyFormat"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearInPersonTherapyFormat() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        inPersonTherapyFormat_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean onlineTherapyFormat_ ;
+      /**
+       * <code>optional bool online_therapy_format = 9 [json_name = "onlineTherapyFormat"];</code>
+       * @return Whether the onlineTherapyFormat field is set.
+       */
+      @java.lang.Override
+      public boolean hasOnlineTherapyFormat() {
+        return ((bitField0_ & 0x00000100) != 0);
+      }
+      /**
+       * <code>optional bool online_therapy_format = 9 [json_name = "onlineTherapyFormat"];</code>
+       * @return The onlineTherapyFormat.
+       */
+      @java.lang.Override
+      public boolean getOnlineTherapyFormat() {
+        return onlineTherapyFormat_;
+      }
+      /**
+       * <code>optional bool online_therapy_format = 9 [json_name = "onlineTherapyFormat"];</code>
+       * @param value The onlineTherapyFormat to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOnlineTherapyFormat(boolean value) {
+
+        onlineTherapyFormat_ = value;
+        bitField0_ |= 0x00000100;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool online_therapy_format = 9 [json_name = "onlineTherapyFormat"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOnlineTherapyFormat() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        onlineTherapyFormat_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object contactEmail_ = "";
+      /**
+       * <code>optional string contact_email = 10 [json_name = "contactEmail"];</code>
+       * @return Whether the contactEmail field is set.
+       */
+      public boolean hasContactEmail() {
+        return ((bitField0_ & 0x00000200) != 0);
+      }
+      /**
+       * <code>optional string contact_email = 10 [json_name = "contactEmail"];</code>
+       * @return The contactEmail.
+       */
+      public java.lang.String getContactEmail() {
+        java.lang.Object ref = contactEmail_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          contactEmail_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string contact_email = 10 [json_name = "contactEmail"];</code>
+       * @return The bytes for contactEmail.
+       */
+      public com.google.protobuf.ByteString
+          getContactEmailBytes() {
+        java.lang.Object ref = contactEmail_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          contactEmail_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string contact_email = 10 [json_name = "contactEmail"];</code>
+       * @param value The contactEmail to set.
+       * @return This builder for chaining.
+       */
+      public Builder setContactEmail(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        contactEmail_ = value;
+        bitField0_ |= 0x00000200;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string contact_email = 10 [json_name = "contactEmail"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearContactEmail() {
+        contactEmail_ = getDefaultInstance().getContactEmail();
+        bitField0_ = (bitField0_ & ~0x00000200);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string contact_email = 10 [json_name = "contactEmail"];</code>
+       * @param value The bytes for contactEmail to set.
+       * @return This builder for chaining.
+       */
+      public Builder setContactEmailBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        contactEmail_ = value;
+        bitField0_ |= 0x00000200;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object contactPhone_ = "";
+      /**
+       * <code>optional string contact_phone = 11 [json_name = "contactPhone"];</code>
+       * @return Whether the contactPhone field is set.
+       */
+      public boolean hasContactPhone() {
+        return ((bitField0_ & 0x00000400) != 0);
+      }
+      /**
+       * <code>optional string contact_phone = 11 [json_name = "contactPhone"];</code>
+       * @return The contactPhone.
+       */
+      public java.lang.String getContactPhone() {
+        java.lang.Object ref = contactPhone_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          contactPhone_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string contact_phone = 11 [json_name = "contactPhone"];</code>
+       * @return The bytes for contactPhone.
+       */
+      public com.google.protobuf.ByteString
+          getContactPhoneBytes() {
+        java.lang.Object ref = contactPhone_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          contactPhone_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string contact_phone = 11 [json_name = "contactPhone"];</code>
+       * @param value The contactPhone to set.
+       * @return This builder for chaining.
+       */
+      public Builder setContactPhone(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        contactPhone_ = value;
+        bitField0_ |= 0x00000400;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string contact_phone = 11 [json_name = "contactPhone"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearContactPhone() {
+        contactPhone_ = getDefaultInstance().getContactPhone();
+        bitField0_ = (bitField0_ & ~0x00000400);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string contact_phone = 11 [json_name = "contactPhone"];</code>
+       * @param value The bytes for contactPhone to set.
+       * @return This builder for chaining.
+       */
+      public Builder setContactPhoneBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        contactPhone_ = value;
+        bitField0_ |= 0x00000400;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object websiteUrl_ = "";
+      /**
+       * <code>optional string website_url = 12 [json_name = "websiteUrl"];</code>
+       * @return Whether the websiteUrl field is set.
+       */
+      public boolean hasWebsiteUrl() {
+        return ((bitField0_ & 0x00000800) != 0);
+      }
+      /**
+       * <code>optional string website_url = 12 [json_name = "websiteUrl"];</code>
+       * @return The websiteUrl.
+       */
+      public java.lang.String getWebsiteUrl() {
+        java.lang.Object ref = websiteUrl_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          websiteUrl_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string website_url = 12 [json_name = "websiteUrl"];</code>
+       * @return The bytes for websiteUrl.
+       */
+      public com.google.protobuf.ByteString
+          getWebsiteUrlBytes() {
+        java.lang.Object ref = websiteUrl_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          websiteUrl_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string website_url = 12 [json_name = "websiteUrl"];</code>
+       * @param value The websiteUrl to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWebsiteUrl(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        websiteUrl_ = value;
+        bitField0_ |= 0x00000800;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string website_url = 12 [json_name = "websiteUrl"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWebsiteUrl() {
+        websiteUrl_ = getDefaultInstance().getWebsiteUrl();
+        bitField0_ = (bitField0_ & ~0x00000800);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string website_url = 12 [json_name = "websiteUrl"];</code>
+       * @param value The bytes for websiteUrl to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWebsiteUrlBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        websiteUrl_ = value;
+        bitField0_ |= 0x00000800;
+        onChanged();
+        return this;
+      }
+
+      private boolean isAcceptingNewClients_ ;
+      /**
+       * <code>optional bool is_accepting_new_clients = 13 [json_name = "isAcceptingNewClients"];</code>
+       * @return Whether the isAcceptingNewClients field is set.
+       */
+      @java.lang.Override
+      public boolean hasIsAcceptingNewClients() {
+        return ((bitField0_ & 0x00001000) != 0);
+      }
+      /**
+       * <code>optional bool is_accepting_new_clients = 13 [json_name = "isAcceptingNewClients"];</code>
+       * @return The isAcceptingNewClients.
+       */
+      @java.lang.Override
+      public boolean getIsAcceptingNewClients() {
+        return isAcceptingNewClients_;
+      }
+      /**
+       * <code>optional bool is_accepting_new_clients = 13 [json_name = "isAcceptingNewClients"];</code>
+       * @param value The isAcceptingNewClients to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIsAcceptingNewClients(boolean value) {
+
+        isAcceptingNewClients_ = value;
+        bitField0_ |= 0x00001000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool is_accepting_new_clients = 13 [json_name = "isAcceptingNewClients"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIsAcceptingNewClients() {
+        bitField0_ = (bitField0_ & ~0x00001000);
+        isAcceptingNewClients_ = false;
+        onChanged();
+        return this;
+      }
+
+      private int visibility_ = 0;
+      /**
+       * <code>optional .utro.v1.TherapistVisibility visibility = 14 [json_name = "visibility"];</code>
+       * @return Whether the visibility field is set.
+       */
+      @java.lang.Override public boolean hasVisibility() {
+        return ((bitField0_ & 0x00002000) != 0);
+      }
+      /**
+       * <code>optional .utro.v1.TherapistVisibility visibility = 14 [json_name = "visibility"];</code>
+       * @return The enum numeric value on the wire for visibility.
+       */
+      @java.lang.Override public int getVisibilityValue() {
+        return visibility_;
+      }
+      /**
+       * <code>optional .utro.v1.TherapistVisibility visibility = 14 [json_name = "visibility"];</code>
+       * @param value The enum numeric value on the wire for visibility to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVisibilityValue(int value) {
+        visibility_ = value;
+        bitField0_ |= 0x00002000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .utro.v1.TherapistVisibility visibility = 14 [json_name = "visibility"];</code>
+       * @return The visibility.
+       */
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility getVisibility() {
+        com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility result = com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility.forNumber(visibility_);
+        return result == null ? com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>optional .utro.v1.TherapistVisibility visibility = 14 [json_name = "visibility"];</code>
+       * @param value The visibility to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVisibility(com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility value) {
+        if (value == null) { throw new NullPointerException(); }
+        bitField0_ |= 0x00002000;
+        visibility_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .utro.v1.TherapistVisibility visibility = 14 [json_name = "visibility"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearVisibility() {
+        bitField0_ = (bitField0_ & ~0x00002000);
+        visibility_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object slug_ = "";
+      /**
+       * <code>optional string slug = 15 [json_name = "slug"];</code>
+       * @return Whether the slug field is set.
+       */
+      public boolean hasSlug() {
+        return ((bitField0_ & 0x00004000) != 0);
+      }
+      /**
+       * <code>optional string slug = 15 [json_name = "slug"];</code>
+       * @return The slug.
+       */
+      public java.lang.String getSlug() {
+        java.lang.Object ref = slug_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          slug_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string slug = 15 [json_name = "slug"];</code>
+       * @return The bytes for slug.
+       */
+      public com.google.protobuf.ByteString
+          getSlugBytes() {
+        java.lang.Object ref = slug_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          slug_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string slug = 15 [json_name = "slug"];</code>
+       * @param value The slug to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSlug(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        slug_ = value;
+        bitField0_ |= 0x00004000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string slug = 15 [json_name = "slug"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSlug() {
+        slug_ = getDefaultInstance().getSlug();
+        bitField0_ = (bitField0_ & ~0x00004000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string slug = 15 [json_name = "slug"];</code>
+       * @param value The bytes for slug to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSlugBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        slug_ = value;
+        bitField0_ |= 0x00004000;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object metaDescription_ = "";
+      /**
+       * <code>optional string meta_description = 16 [json_name = "metaDescription"];</code>
+       * @return Whether the metaDescription field is set.
+       */
+      public boolean hasMetaDescription() {
+        return ((bitField0_ & 0x00008000) != 0);
+      }
+      /**
+       * <code>optional string meta_description = 16 [json_name = "metaDescription"];</code>
+       * @return The metaDescription.
+       */
+      public java.lang.String getMetaDescription() {
+        java.lang.Object ref = metaDescription_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          metaDescription_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string meta_description = 16 [json_name = "metaDescription"];</code>
+       * @return The bytes for metaDescription.
+       */
+      public com.google.protobuf.ByteString
+          getMetaDescriptionBytes() {
+        java.lang.Object ref = metaDescription_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          metaDescription_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string meta_description = 16 [json_name = "metaDescription"];</code>
+       * @param value The metaDescription to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMetaDescription(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        metaDescription_ = value;
+        bitField0_ |= 0x00008000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string meta_description = 16 [json_name = "metaDescription"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMetaDescription() {
+        metaDescription_ = getDefaultInstance().getMetaDescription();
+        bitField0_ = (bitField0_ & ~0x00008000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string meta_description = 16 [json_name = "metaDescription"];</code>
+       * @param value The bytes for metaDescription to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMetaDescriptionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        metaDescription_ = value;
+        bitField0_ |= 0x00008000;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringArrayList searchTags_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      private void ensureSearchTagsIsMutable() {
+        if (!searchTags_.isModifiable()) {
+          searchTags_ = new com.google.protobuf.LazyStringArrayList(searchTags_);
+        }
+        bitField0_ |= 0x00010000;
+      }
+      /**
+       * <code>repeated string search_tags = 17 [json_name = "searchTags"];</code>
+       * @return A list containing the searchTags.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getSearchTagsList() {
+        searchTags_.makeImmutable();
+        return searchTags_;
+      }
+      /**
+       * <code>repeated string search_tags = 17 [json_name = "searchTags"];</code>
+       * @return The count of searchTags.
+       */
+      public int getSearchTagsCount() {
+        return searchTags_.size();
+      }
+      /**
+       * <code>repeated string search_tags = 17 [json_name = "searchTags"];</code>
+       * @param index The index of the element to return.
+       * @return The searchTags at the given index.
+       */
+      public java.lang.String getSearchTags(int index) {
+        return searchTags_.get(index);
+      }
+      /**
+       * <code>repeated string search_tags = 17 [json_name = "searchTags"];</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the searchTags at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getSearchTagsBytes(int index) {
+        return searchTags_.getByteString(index);
+      }
+      /**
+       * <code>repeated string search_tags = 17 [json_name = "searchTags"];</code>
+       * @param index The index to set the value at.
+       * @param value The searchTags to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSearchTags(
+          int index, java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        ensureSearchTagsIsMutable();
+        searchTags_.set(index, value);
+        bitField0_ |= 0x00010000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string search_tags = 17 [json_name = "searchTags"];</code>
+       * @param value The searchTags to add.
+       * @return This builder for chaining.
+       */
+      public Builder addSearchTags(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        ensureSearchTagsIsMutable();
+        searchTags_.add(value);
+        bitField0_ |= 0x00010000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string search_tags = 17 [json_name = "searchTags"];</code>
+       * @param values The searchTags to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllSearchTags(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureSearchTagsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, searchTags_);
+        bitField0_ |= 0x00010000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string search_tags = 17 [json_name = "searchTags"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSearchTags() {
+        searchTags_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+        bitField0_ = (bitField0_ & ~0x00010000);;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string search_tags = 17 [json_name = "searchTags"];</code>
+       * @param value The bytes of the searchTags to add.
+       * @return This builder for chaining.
+       */
+      public Builder addSearchTagsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        ensureSearchTagsIsMutable();
+        searchTags_.add(value);
+        bitField0_ |= 0x00010000;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringArrayList specializationIds_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      private void ensureSpecializationIdsIsMutable() {
+        if (!specializationIds_.isModifiable()) {
+          specializationIds_ = new com.google.protobuf.LazyStringArrayList(specializationIds_);
+        }
+        bitField0_ |= 0x00020000;
+      }
+      /**
+       * <code>repeated string specialization_ids = 18 [json_name = "specializationIds"];</code>
+       * @return A list containing the specializationIds.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getSpecializationIdsList() {
+        specializationIds_.makeImmutable();
+        return specializationIds_;
+      }
+      /**
+       * <code>repeated string specialization_ids = 18 [json_name = "specializationIds"];</code>
+       * @return The count of specializationIds.
+       */
+      public int getSpecializationIdsCount() {
+        return specializationIds_.size();
+      }
+      /**
+       * <code>repeated string specialization_ids = 18 [json_name = "specializationIds"];</code>
+       * @param index The index of the element to return.
+       * @return The specializationIds at the given index.
+       */
+      public java.lang.String getSpecializationIds(int index) {
+        return specializationIds_.get(index);
+      }
+      /**
+       * <code>repeated string specialization_ids = 18 [json_name = "specializationIds"];</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the specializationIds at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getSpecializationIdsBytes(int index) {
+        return specializationIds_.getByteString(index);
+      }
+      /**
+       * <code>repeated string specialization_ids = 18 [json_name = "specializationIds"];</code>
+       * @param index The index to set the value at.
+       * @param value The specializationIds to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSpecializationIds(
+          int index, java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        ensureSpecializationIdsIsMutable();
+        specializationIds_.set(index, value);
+        bitField0_ |= 0x00020000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string specialization_ids = 18 [json_name = "specializationIds"];</code>
+       * @param value The specializationIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addSpecializationIds(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        ensureSpecializationIdsIsMutable();
+        specializationIds_.add(value);
+        bitField0_ |= 0x00020000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string specialization_ids = 18 [json_name = "specializationIds"];</code>
+       * @param values The specializationIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllSpecializationIds(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureSpecializationIdsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, specializationIds_);
+        bitField0_ |= 0x00020000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string specialization_ids = 18 [json_name = "specializationIds"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSpecializationIds() {
+        specializationIds_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+        bitField0_ = (bitField0_ & ~0x00020000);;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string specialization_ids = 18 [json_name = "specializationIds"];</code>
+       * @param value The bytes of the specializationIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addSpecializationIdsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        ensureSpecializationIdsIsMutable();
+        specializationIds_.add(value);
+        bitField0_ |= 0x00020000;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString profileImageData_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes profile_image_data = 19 [json_name = "profileImageData"];</code>
+       * @return Whether the profileImageData field is set.
+       */
+      @java.lang.Override
+      public boolean hasProfileImageData() {
+        return ((bitField0_ & 0x00040000) != 0);
+      }
+      /**
+       * <code>optional bytes profile_image_data = 19 [json_name = "profileImageData"];</code>
+       * @return The profileImageData.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getProfileImageData() {
+        return profileImageData_;
+      }
+      /**
+       * <code>optional bytes profile_image_data = 19 [json_name = "profileImageData"];</code>
+       * @param value The profileImageData to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProfileImageData(com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        profileImageData_ = value;
+        bitField0_ |= 0x00040000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bytes profile_image_data = 19 [json_name = "profileImageData"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProfileImageData() {
+        bitField0_ = (bitField0_ & ~0x00040000);
+        profileImageData_ = getDefaultInstance().getProfileImageData();
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object profileImageMimeType_ = "";
+      /**
+       * <code>optional string profile_image_mime_type = 20 [json_name = "profileImageMimeType"];</code>
+       * @return Whether the profileImageMimeType field is set.
+       */
+      public boolean hasProfileImageMimeType() {
+        return ((bitField0_ & 0x00080000) != 0);
+      }
+      /**
+       * <code>optional string profile_image_mime_type = 20 [json_name = "profileImageMimeType"];</code>
+       * @return The profileImageMimeType.
+       */
+      public java.lang.String getProfileImageMimeType() {
+        java.lang.Object ref = profileImageMimeType_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          profileImageMimeType_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string profile_image_mime_type = 20 [json_name = "profileImageMimeType"];</code>
+       * @return The bytes for profileImageMimeType.
+       */
+      public com.google.protobuf.ByteString
+          getProfileImageMimeTypeBytes() {
+        java.lang.Object ref = profileImageMimeType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          profileImageMimeType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string profile_image_mime_type = 20 [json_name = "profileImageMimeType"];</code>
+       * @param value The profileImageMimeType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProfileImageMimeType(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        profileImageMimeType_ = value;
+        bitField0_ |= 0x00080000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string profile_image_mime_type = 20 [json_name = "profileImageMimeType"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProfileImageMimeType() {
+        profileImageMimeType_ = getDefaultInstance().getProfileImageMimeType();
+        bitField0_ = (bitField0_ & ~0x00080000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string profile_image_mime_type = 20 [json_name = "profileImageMimeType"];</code>
+       * @param value The bytes for profileImageMimeType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProfileImageMimeTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        profileImageMimeType_ = value;
+        bitField0_ |= 0x00080000;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:utro.v1.UpdateTherapistRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:utro.v1.UpdateTherapistRequest)
+    private static final com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest();
+    }
+
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<UpdateTherapistRequest>
+        PARSER = new com.google.protobuf.AbstractParser<UpdateTherapistRequest>() {
+      @java.lang.Override
+      public UpdateTherapistRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<UpdateTherapistRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<UpdateTherapistRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DeleteTherapistRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:utro.v1.DeleteTherapistRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The id.
+     */
+    java.lang.String getId();
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+  }
+  /**
+   * Protobuf type {@code utro.v1.DeleteTherapistRequest}
+   */
+  public static final class DeleteTherapistRequest extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:utro.v1.DeleteTherapistRequest)
+      DeleteTherapistRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    static {
+      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+        /* major= */ 4,
+        /* minor= */ 31,
+        /* patch= */ 1,
+        /* suffix= */ "",
+        DeleteTherapistRequest.class.getName());
+    }
+    // Use DeleteTherapistRequest.newBuilder() to construct.
+    private DeleteTherapistRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private DeleteTherapistRequest() {
+      id_ = "";
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_DeleteTherapistRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_DeleteTherapistRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest.class, com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object id_ = "";
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The bytes for id.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(id_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, id_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(id_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, id_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest)) {
+        return super.equals(obj);
+      }
+      com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest other = (com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest) obj;
+
+      if (!getId()
+          .equals(other.getId())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code utro.v1.DeleteTherapistRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:utro.v1.DeleteTherapistRequest)
+        com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_DeleteTherapistRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_DeleteTherapistRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest.class, com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest.Builder.class);
+      }
+
+      // Construct using com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        id_ = "";
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_DeleteTherapistRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest getDefaultInstanceForType() {
+        return com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest build() {
+        com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest buildPartial() {
+        com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest result = new com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.id_ = id_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest) {
+          return mergeFrom((com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest other) {
+        if (other == com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest.getDefaultInstance()) return this;
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                id_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object id_ = "";
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @return The id.
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @return The bytes for id.
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        id_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        id_ = getDefaultInstance().getId();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        id_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:utro.v1.DeleteTherapistRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:utro.v1.DeleteTherapistRequest)
+    private static final com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest();
+    }
+
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DeleteTherapistRequest>
+        PARSER = new com.google.protobuf.AbstractParser<DeleteTherapistRequest>() {
+      @java.lang.Override
+      public DeleteTherapistRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<DeleteTherapistRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DeleteTherapistRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DeleteTherapistResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:utro.v1.DeleteTherapistResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>bool success = 1 [json_name = "success"];</code>
+     * @return The success.
+     */
+    boolean getSuccess();
+
+    /**
+     * <code>string message = 2 [json_name = "message"];</code>
+     * @return The message.
+     */
+    java.lang.String getMessage();
+    /**
+     * <code>string message = 2 [json_name = "message"];</code>
+     * @return The bytes for message.
+     */
+    com.google.protobuf.ByteString
+        getMessageBytes();
+  }
+  /**
+   * Protobuf type {@code utro.v1.DeleteTherapistResponse}
+   */
+  public static final class DeleteTherapistResponse extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:utro.v1.DeleteTherapistResponse)
+      DeleteTherapistResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    static {
+      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+        /* major= */ 4,
+        /* minor= */ 31,
+        /* patch= */ 1,
+        /* suffix= */ "",
+        DeleteTherapistResponse.class.getName());
+    }
+    // Use DeleteTherapistResponse.newBuilder() to construct.
+    private DeleteTherapistResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private DeleteTherapistResponse() {
+      message_ = "";
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_DeleteTherapistResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_DeleteTherapistResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse.class, com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse.Builder.class);
+    }
+
+    public static final int SUCCESS_FIELD_NUMBER = 1;
+    private boolean success_ = false;
+    /**
+     * <code>bool success = 1 [json_name = "success"];</code>
+     * @return The success.
+     */
+    @java.lang.Override
+    public boolean getSuccess() {
+      return success_;
+    }
+
+    public static final int MESSAGE_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object message_ = "";
+    /**
+     * <code>string message = 2 [json_name = "message"];</code>
+     * @return The message.
+     */
+    @java.lang.Override
+    public java.lang.String getMessage() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        message_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string message = 2 [json_name = "message"];</code>
+     * @return The bytes for message.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getMessageBytes() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        message_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (success_ != false) {
+        output.writeBool(1, success_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(message_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 2, message_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (success_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, success_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(message_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(2, message_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse)) {
+        return super.equals(obj);
+      }
+      com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse other = (com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse) obj;
+
+      if (getSuccess()
+          != other.getSuccess()) return false;
+      if (!getMessage()
+          .equals(other.getMessage())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SUCCESS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getSuccess());
+      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getMessage().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code utro.v1.DeleteTherapistResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:utro.v1.DeleteTherapistResponse)
+        com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_DeleteTherapistResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_DeleteTherapistResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse.class, com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse.Builder.class);
+      }
+
+      // Construct using com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        success_ = false;
+        message_ = "";
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_DeleteTherapistResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse getDefaultInstanceForType() {
+        return com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse build() {
+        com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse buildPartial() {
+        com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse result = new com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.success_ = success_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.message_ = message_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse) {
+          return mergeFrom((com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse other) {
+        if (other == com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse.getDefaultInstance()) return this;
+        if (other.getSuccess() != false) {
+          setSuccess(other.getSuccess());
+        }
+        if (!other.getMessage().isEmpty()) {
+          message_ = other.message_;
+          bitField0_ |= 0x00000002;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                success_ = input.readBool();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                message_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private boolean success_ ;
+      /**
+       * <code>bool success = 1 [json_name = "success"];</code>
+       * @return The success.
+       */
+      @java.lang.Override
+      public boolean getSuccess() {
+        return success_;
+      }
+      /**
+       * <code>bool success = 1 [json_name = "success"];</code>
+       * @param value The success to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSuccess(boolean value) {
+
+        success_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool success = 1 [json_name = "success"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSuccess() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        success_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object message_ = "";
+      /**
+       * <code>string message = 2 [json_name = "message"];</code>
+       * @return The message.
+       */
+      public java.lang.String getMessage() {
+        java.lang.Object ref = message_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          message_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string message = 2 [json_name = "message"];</code>
+       * @return The bytes for message.
+       */
+      public com.google.protobuf.ByteString
+          getMessageBytes() {
+        java.lang.Object ref = message_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          message_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string message = 2 [json_name = "message"];</code>
+       * @param value The message to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMessage(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        message_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string message = 2 [json_name = "message"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMessage() {
+        message_ = getDefaultInstance().getMessage();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string message = 2 [json_name = "message"];</code>
+       * @param value The bytes for message to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMessageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        message_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:utro.v1.DeleteTherapistResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:utro.v1.DeleteTherapistResponse)
+    private static final com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse();
+    }
+
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DeleteTherapistResponse>
+        PARSER = new com.google.protobuf.AbstractParser<DeleteTherapistResponse>() {
+      @java.lang.Override
+      public DeleteTherapistResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<DeleteTherapistResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DeleteTherapistResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface PublishTherapistRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:utro.v1.PublishTherapistRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The id.
+     */
+    java.lang.String getId();
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+  }
+  /**
+   * Protobuf type {@code utro.v1.PublishTherapistRequest}
+   */
+  public static final class PublishTherapistRequest extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:utro.v1.PublishTherapistRequest)
+      PublishTherapistRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    static {
+      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+        /* major= */ 4,
+        /* minor= */ 31,
+        /* patch= */ 1,
+        /* suffix= */ "",
+        PublishTherapistRequest.class.getName());
+    }
+    // Use PublishTherapistRequest.newBuilder() to construct.
+    private PublishTherapistRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private PublishTherapistRequest() {
+      id_ = "";
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_PublishTherapistRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_PublishTherapistRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest.class, com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object id_ = "";
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The bytes for id.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(id_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, id_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(id_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, id_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest)) {
+        return super.equals(obj);
+      }
+      com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest other = (com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest) obj;
+
+      if (!getId()
+          .equals(other.getId())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code utro.v1.PublishTherapistRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:utro.v1.PublishTherapistRequest)
+        com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_PublishTherapistRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_PublishTherapistRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest.class, com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest.Builder.class);
+      }
+
+      // Construct using com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        id_ = "";
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_PublishTherapistRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest getDefaultInstanceForType() {
+        return com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest build() {
+        com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest buildPartial() {
+        com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest result = new com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.id_ = id_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest) {
+          return mergeFrom((com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest other) {
+        if (other == com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest.getDefaultInstance()) return this;
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                id_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object id_ = "";
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @return The id.
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @return The bytes for id.
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        id_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        id_ = getDefaultInstance().getId();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        id_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:utro.v1.PublishTherapistRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:utro.v1.PublishTherapistRequest)
+    private static final com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest();
+    }
+
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<PublishTherapistRequest>
+        PARSER = new com.google.protobuf.AbstractParser<PublishTherapistRequest>() {
+      @java.lang.Override
+      public PublishTherapistRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<PublishTherapistRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PublishTherapistRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface UnpublishTherapistRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:utro.v1.UnpublishTherapistRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The id.
+     */
+    java.lang.String getId();
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+  }
+  /**
+   * Protobuf type {@code utro.v1.UnpublishTherapistRequest}
+   */
+  public static final class UnpublishTherapistRequest extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:utro.v1.UnpublishTherapistRequest)
+      UnpublishTherapistRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    static {
+      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+        /* major= */ 4,
+        /* minor= */ 31,
+        /* patch= */ 1,
+        /* suffix= */ "",
+        UnpublishTherapistRequest.class.getName());
+    }
+    // Use UnpublishTherapistRequest.newBuilder() to construct.
+    private UnpublishTherapistRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private UnpublishTherapistRequest() {
+      id_ = "";
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_UnpublishTherapistRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_UnpublishTherapistRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest.class, com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object id_ = "";
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 1 [json_name = "id"];</code>
+     * @return The bytes for id.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(id_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, id_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(id_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, id_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest)) {
+        return super.equals(obj);
+      }
+      com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest other = (com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest) obj;
+
+      if (!getId()
+          .equals(other.getId())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code utro.v1.UnpublishTherapistRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:utro.v1.UnpublishTherapistRequest)
+        com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_UnpublishTherapistRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_UnpublishTherapistRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest.class, com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest.Builder.class);
+      }
+
+      // Construct using com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        id_ = "";
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.inspirationparticle.utro.gen.v1.TherapistProto.internal_static_utro_v1_UnpublishTherapistRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest getDefaultInstanceForType() {
+        return com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest build() {
+        com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest buildPartial() {
+        com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest result = new com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.id_ = id_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest) {
+          return mergeFrom((com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest other) {
+        if (other == com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest.getDefaultInstance()) return this;
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                id_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object id_ = "";
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @return The id.
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @return The bytes for id.
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        id_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        id_ = getDefaultInstance().getId();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1 [json_name = "id"];</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        id_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:utro.v1.UnpublishTherapistRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:utro.v1.UnpublishTherapistRequest)
+    private static final com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest();
+    }
+
+    public static com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<UnpublishTherapistRequest>
+        PARSER = new com.google.protobuf.AbstractParser<UnpublishTherapistRequest>() {
+      @java.lang.Override
+      public UnpublishTherapistRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<UnpublishTherapistRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<UnpublishTherapistRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_utro_v1_Therapist_descriptor;
   private static final 
@@ -24196,6 +33237,36 @@ public final class TherapistProto {
   private static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_utro_v1_GetSpecializationCategoriesResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_utro_v1_CreateTherapistRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_utro_v1_CreateTherapistRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_utro_v1_UpdateTherapistRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_utro_v1_UpdateTherapistRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_utro_v1_DeleteTherapistRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_utro_v1_DeleteTherapistRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_utro_v1_DeleteTherapistResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_utro_v1_DeleteTherapistResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_utro_v1_PublishTherapistRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_utro_v1_PublishTherapistRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_utro_v1_UnpublishTherapistRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_utro_v1_UnpublishTherapistRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -24330,37 +33401,108 @@ public final class TherapistProto {
       "s\030\001 \003(\0132\027.utro.v1.SpecializationR\017specia" +
       "lizations\"$\n\"GetSpecializationCategories" +
       "Request\"E\n#GetSpecializationCategoriesRe" +
-      "sponse\022\036\n\ncategories\030\001 \003(\tR\ncategories*\252" +
-      "\001\n\023TherapistVisibility\022$\n THERAPIST_VISI" +
-      "BILITY_UNSPECIFIED\020\000\022\037\n\033THERAPIST_VISIBI" +
-      "LITY_PUBLIC\020\001\022*\n&THERAPIST_VISIBILITY_OR" +
-      "GANISATION_ONLY\020\002\022 \n\034THERAPIST_VISIBILIT" +
-      "Y_PRIVATE\020\0032\215\004\n\020TherapistService\022@\n\014GetT" +
-      "herapist\022\034.utro.v1.GetTherapistRequest\032\022" +
-      ".utro.v1.Therapist\022L\n\022GetTherapistBySlug" +
-      "\022\".utro.v1.GetTherapistBySlugRequest\032\022.u" +
-      "tro.v1.Therapist\022L\n\022GetTherapistByUser\022\"" +
-      ".utro.v1.GetTherapistByUserRequest\032\022.utr" +
-      "o.v1.Therapist\022Q\n\016ListTherapists\022\036.utro." +
-      "v1.ListTherapistsRequest\032\037.utro.v1.ListT" +
-      "herapistsResponse\022W\n\020SearchTherapists\022 ." +
-      "utro.v1.SearchTherapistsRequest\032!.utro.v" +
-      "1.SearchTherapistsResponse\022o\n\030GetTherapi" +
-      "stProfileImage\022(.utro.v1.GetTherapistPro" +
-      "fileImageRequest\032).utro.v1.GetTherapistP" +
-      "rofileImageResponse2\254\003\n\025SpecializationSe" +
-      "rvice\022O\n\021GetSpecialization\022!.utro.v1.Get" +
-      "SpecializationRequest\032\027.utro.v1.Speciali" +
-      "zation\022`\n\023ListSpecializations\022#.utro.v1." +
-      "ListSpecializationsRequest\032$.utro.v1.Lis" +
-      "tSpecializationsResponse\022f\n\025SearchSpecia" +
-      "lizations\022%.utro.v1.SearchSpecialization" +
-      "sRequest\032&.utro.v1.SearchSpecializations" +
-      "Response\022x\n\033GetSpecializationCategories\022" +
-      "+.utro.v1.GetSpecializationCategoriesReq" +
-      "uest\032,.utro.v1.GetSpecializationCategori" +
-      "esResponseB5\n#com.inspirationparticle.ut" +
-      "ro.gen.v1B\016TherapistProtob\006proto3"
+      "sponse\022\036\n\ncategories\030\001 \003(\tR\ncategories\"\230" +
+      "\007\n\026CreateTherapistRequest\022\027\n\007user_id\030\001 \001" +
+      "(\tR\006userId\022\'\n\017organisation_id\030\002 \001(\tR\016org" +
+      "anisationId\022-\n\022professional_title\030\003 \001(\tR" +
+      "\021professionalTitle\022\'\n\017description_eng\030\004 " +
+      "\001(\tR\016descriptionEng\022%\n\016description_pl\030\005 " +
+      "\001(\tR\rdescriptionPl\022.\n\023work_experience_en" +
+      "g\030\006 \001(\tR\021workExperienceEng\022,\n\022work_exper" +
+      "ience_pl\030\007 \001(\tR\020workExperiencePl\022\034\n\tlang" +
+      "uages\030\010 \003(\tR\tlanguages\0227\n\030in_person_ther" +
+      "apy_format\030\t \001(\010R\025inPersonTherapyFormat\022" +
+      "2\n\025online_therapy_format\030\n \001(\010R\023onlineTh" +
+      "erapyFormat\022#\n\rcontact_email\030\013 \001(\tR\014cont" +
+      "actEmail\022#\n\rcontact_phone\030\014 \001(\tR\014contact" +
+      "Phone\022\037\n\013website_url\030\r \001(\tR\nwebsiteUrl\0227" +
+      "\n\030is_accepting_new_clients\030\016 \001(\010R\025isAcce" +
+      "ptingNewClients\022<\n\nvisibility\030\017 \001(\0162\034.ut" +
+      "ro.v1.TherapistVisibilityR\nvisibility\022\022\n" +
+      "\004slug\030\020 \001(\tR\004slug\022)\n\020meta_description\030\021 " +
+      "\001(\tR\017metaDescription\022\037\n\013search_tags\030\022 \003(" +
+      "\tR\nsearchTags\022-\n\022specialization_ids\030\023 \003(" +
+      "\tR\021specializationIds\022,\n\022profile_image_da" +
+      "ta\030\024 \001(\014R\020profileImageData\0225\n\027profile_im" +
+      "age_mime_type\030\025 \001(\tR\024profileImageMimeTyp" +
+      "e\"\213\n\n\026UpdateTherapistRequest\022\016\n\002id\030\001 \001(\t" +
+      "R\002id\0222\n\022professional_title\030\002 \001(\tH\000R\021prof" +
+      "essionalTitle\210\001\001\022,\n\017description_eng\030\003 \001(" +
+      "\tH\001R\016descriptionEng\210\001\001\022*\n\016description_pl" +
+      "\030\004 \001(\tH\002R\rdescriptionPl\210\001\001\0223\n\023work_exper" +
+      "ience_eng\030\005 \001(\tH\003R\021workExperienceEng\210\001\001\022" +
+      "1\n\022work_experience_pl\030\006 \001(\tH\004R\020workExper" +
+      "iencePl\210\001\001\022\034\n\tlanguages\030\007 \003(\tR\tlanguages" +
+      "\022<\n\030in_person_therapy_format\030\010 \001(\010H\005R\025in" +
+      "PersonTherapyFormat\210\001\001\0227\n\025online_therapy" +
+      "_format\030\t \001(\010H\006R\023onlineTherapyFormat\210\001\001\022" +
+      "(\n\rcontact_email\030\n \001(\tH\007R\014contactEmail\210\001" +
+      "\001\022(\n\rcontact_phone\030\013 \001(\tH\010R\014contactPhone" +
+      "\210\001\001\022$\n\013website_url\030\014 \001(\tH\tR\nwebsiteUrl\210\001" +
+      "\001\022<\n\030is_accepting_new_clients\030\r \001(\010H\nR\025i" +
+      "sAcceptingNewClients\210\001\001\022A\n\nvisibility\030\016 " +
+      "\001(\0162\034.utro.v1.TherapistVisibilityH\013R\nvis" +
+      "ibility\210\001\001\022\027\n\004slug\030\017 \001(\tH\014R\004slug\210\001\001\022.\n\020m" +
+      "eta_description\030\020 \001(\tH\rR\017metaDescription" +
+      "\210\001\001\022\037\n\013search_tags\030\021 \003(\tR\nsearchTags\022-\n\022" +
+      "specialization_ids\030\022 \003(\tR\021specialization" +
+      "Ids\0221\n\022profile_image_data\030\023 \001(\014H\016R\020profi" +
+      "leImageData\210\001\001\022:\n\027profile_image_mime_typ" +
+      "e\030\024 \001(\tH\017R\024profileImageMimeType\210\001\001B\025\n\023_p" +
+      "rofessional_titleB\022\n\020_description_engB\021\n" +
+      "\017_description_plB\026\n\024_work_experience_eng" +
+      "B\025\n\023_work_experience_plB\033\n\031_in_person_th" +
+      "erapy_formatB\030\n\026_online_therapy_formatB\020" +
+      "\n\016_contact_emailB\020\n\016_contact_phoneB\016\n\014_w" +
+      "ebsite_urlB\033\n\031_is_accepting_new_clientsB" +
+      "\r\n\013_visibilityB\007\n\005_slugB\023\n\021_meta_descrip" +
+      "tionB\025\n\023_profile_image_dataB\032\n\030_profile_" +
+      "image_mime_type\"(\n\026DeleteTherapistReques" +
+      "t\022\016\n\002id\030\001 \001(\tR\002id\"M\n\027DeleteTherapistResp" +
+      "onse\022\030\n\007success\030\001 \001(\010R\007success\022\030\n\007messag" +
+      "e\030\002 \001(\tR\007message\")\n\027PublishTherapistRequ" +
+      "est\022\016\n\002id\030\001 \001(\tR\002id\"+\n\031UnpublishTherapis" +
+      "tRequest\022\016\n\002id\030\001 \001(\tR\002id*\252\001\n\023TherapistVi" +
+      "sibility\022$\n THERAPIST_VISIBILITY_UNSPECI" +
+      "FIED\020\000\022\037\n\033THERAPIST_VISIBILITY_PUBLIC\020\001\022" +
+      "*\n&THERAPIST_VISIBILITY_ORGANISATION_ONL" +
+      "Y\020\002\022 \n\034THERAPIST_VISIBILITY_PRIVATE\020\0032\213\007" +
+      "\n\020TherapistService\022@\n\014GetTherapist\022\034.utr" +
+      "o.v1.GetTherapistRequest\032\022.utro.v1.Thera" +
+      "pist\022L\n\022GetTherapistBySlug\022\".utro.v1.Get" +
+      "TherapistBySlugRequest\032\022.utro.v1.Therapi" +
+      "st\022L\n\022GetTherapistByUser\022\".utro.v1.GetTh" +
+      "erapistByUserRequest\032\022.utro.v1.Therapist" +
+      "\022Q\n\016ListTherapists\022\036.utro.v1.ListTherapi" +
+      "stsRequest\032\037.utro.v1.ListTherapistsRespo" +
+      "nse\022W\n\020SearchTherapists\022 .utro.v1.Search" +
+      "TherapistsRequest\032!.utro.v1.SearchTherap" +
+      "istsResponse\022o\n\030GetTherapistProfileImage" +
+      "\022(.utro.v1.GetTherapistProfileImageReque" +
+      "st\032).utro.v1.GetTherapistProfileImageRes" +
+      "ponse\022F\n\017CreateTherapist\022\037.utro.v1.Creat" +
+      "eTherapistRequest\032\022.utro.v1.Therapist\022F\n" +
+      "\017UpdateTherapist\022\037.utro.v1.UpdateTherapi" +
+      "stRequest\032\022.utro.v1.Therapist\022T\n\017DeleteT" +
+      "herapist\022\037.utro.v1.DeleteTherapistReques" +
+      "t\032 .utro.v1.DeleteTherapistResponse\022H\n\020P" +
+      "ublishTherapist\022 .utro.v1.PublishTherapi" +
+      "stRequest\032\022.utro.v1.Therapist\022L\n\022Unpubli" +
+      "shTherapist\022\".utro.v1.UnpublishTherapist" +
+      "Request\032\022.utro.v1.Therapist2\254\003\n\025Speciali" +
+      "zationService\022O\n\021GetSpecialization\022!.utr" +
+      "o.v1.GetSpecializationRequest\032\027.utro.v1." +
+      "Specialization\022`\n\023ListSpecializations\022#." +
+      "utro.v1.ListSpecializationsRequest\032$.utr" +
+      "o.v1.ListSpecializationsResponse\022f\n\025Sear" +
+      "chSpecializations\022%.utro.v1.SearchSpecia" +
+      "lizationsRequest\032&.utro.v1.SearchSpecial" +
+      "izationsResponse\022x\n\033GetSpecializationCat" +
+      "egories\022+.utro.v1.GetSpecializationCateg" +
+      "oriesRequest\032,.utro.v1.GetSpecialization" +
+      "CategoriesResponseB5\n#com.inspirationpar" +
+      "ticle.utro.gen.v1B\016TherapistProtob\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -24493,6 +33635,42 @@ public final class TherapistProto {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_utro_v1_GetSpecializationCategoriesResponse_descriptor,
         new java.lang.String[] { "Categories", });
+    internal_static_utro_v1_CreateTherapistRequest_descriptor =
+      getDescriptor().getMessageTypes().get(21);
+    internal_static_utro_v1_CreateTherapistRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_utro_v1_CreateTherapistRequest_descriptor,
+        new java.lang.String[] { "UserId", "OrganisationId", "ProfessionalTitle", "DescriptionEng", "DescriptionPl", "WorkExperienceEng", "WorkExperiencePl", "Languages", "InPersonTherapyFormat", "OnlineTherapyFormat", "ContactEmail", "ContactPhone", "WebsiteUrl", "IsAcceptingNewClients", "Visibility", "Slug", "MetaDescription", "SearchTags", "SpecializationIds", "ProfileImageData", "ProfileImageMimeType", });
+    internal_static_utro_v1_UpdateTherapistRequest_descriptor =
+      getDescriptor().getMessageTypes().get(22);
+    internal_static_utro_v1_UpdateTherapistRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_utro_v1_UpdateTherapistRequest_descriptor,
+        new java.lang.String[] { "Id", "ProfessionalTitle", "DescriptionEng", "DescriptionPl", "WorkExperienceEng", "WorkExperiencePl", "Languages", "InPersonTherapyFormat", "OnlineTherapyFormat", "ContactEmail", "ContactPhone", "WebsiteUrl", "IsAcceptingNewClients", "Visibility", "Slug", "MetaDescription", "SearchTags", "SpecializationIds", "ProfileImageData", "ProfileImageMimeType", });
+    internal_static_utro_v1_DeleteTherapistRequest_descriptor =
+      getDescriptor().getMessageTypes().get(23);
+    internal_static_utro_v1_DeleteTherapistRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_utro_v1_DeleteTherapistRequest_descriptor,
+        new java.lang.String[] { "Id", });
+    internal_static_utro_v1_DeleteTherapistResponse_descriptor =
+      getDescriptor().getMessageTypes().get(24);
+    internal_static_utro_v1_DeleteTherapistResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_utro_v1_DeleteTherapistResponse_descriptor,
+        new java.lang.String[] { "Success", "Message", });
+    internal_static_utro_v1_PublishTherapistRequest_descriptor =
+      getDescriptor().getMessageTypes().get(25);
+    internal_static_utro_v1_PublishTherapistRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_utro_v1_PublishTherapistRequest_descriptor,
+        new java.lang.String[] { "Id", });
+    internal_static_utro_v1_UnpublishTherapistRequest_descriptor =
+      getDescriptor().getMessageTypes().get(26);
+    internal_static_utro_v1_UnpublishTherapistRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_utro_v1_UnpublishTherapistRequest_descriptor,
+        new java.lang.String[] { "Id", });
     descriptor.resolveAllFeaturesImmutable();
     com.google.protobuf.TimestampProto.getDescriptor();
   }

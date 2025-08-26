@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
@@ -95,6 +96,60 @@ public class OrganisationController {
 
         OrganisationOuterClass.SearchOrganisationsResponse response = OrganisationOuterClass.SearchOrganisationsResponse.newBuilder()
                 .addAllOrganisations(organisations)
+                .build();
+
+        return ResponseEntity.ok(response);
+    }
+
+    @PreAuthorize("hasAuthority('ROLE_USER')")
+    @PostMapping(value = "/com.inspirationparticle.utro.gen.organisation.v1.OrganisationService/GetOrganisationUsers",
+                 consumes = "application/json", 
+                 produces = "application/json")
+    public ResponseEntity<OrganisationOuterClass.GetOrganisationUsersResponse> getOrganisationUsers(@RequestBody OrganisationOuterClass.GetOrganisationUsersRequest request) {
+        // Get the authenticated user's username from security context
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+
+        // Find the user by username
+        Optional<User> userOpt = userRepository.findByUsername(username);
+        if (userOpt.isEmpty()) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        User user = userOpt.get();
+        
+        // Parse organisation ID
+        UUID organisationId;
+        try {
+            organisationId = UUID.fromString(request.getOrganisationId());
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        // Check if user is member of the requested organisation
+        Optional<OrganisationMember> membershipOpt = organisationMemberRepository
+            .findByUserIdAndOrganisationId(user.getId(), organisationId);
+        if (membershipOpt.isEmpty()) {
+            return ResponseEntity.status(403).build();
+        }
+
+        // Only allow admins to see all users
+        OrganisationMember membership = membershipOpt.get();
+        if (membership.getMemberType() != MemberType.ADMINISTRATOR) {
+            return ResponseEntity.status(403).build();
+        }
+
+        // Get all users in the organisation
+        List<OrganisationMember> allMembers = organisationMemberRepository
+            .findByOrganisationIdWithUser(organisationId);
+        
+        List<OrganisationOuterClass.User> users = allMembers.stream()
+            .map(member -> OrganisationMapper.userProtoFromMember(member))
+            .collect(Collectors.toList());
+
+        OrganisationOuterClass.GetOrganisationUsersResponse response = 
+            OrganisationOuterClass.GetOrganisationUsersResponse.newBuilder()
+                .addAllUsers(users)
                 .build();
 
         return ResponseEntity.ok(response);

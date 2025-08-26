@@ -4,15 +4,11 @@ import Navbar from './Navbar';
 
 interface LayoutProps {
   children: React.ReactNode;
-  isAuthenticated?: boolean;
-  onLogout?: () => void;
   fullWidth?: boolean;
 }
 
 const Layout: React.FC<LayoutProps> = ({
   children,
-  isAuthenticated = false,
-  onLogout,
   fullWidth = false,
 }) => {
   return (
@@ -24,7 +20,7 @@ const Layout: React.FC<LayoutProps> = ({
         flexDirection: 'column',
       }}
     >
-      <Navbar isAuthenticated={isAuthenticated} onLogout={onLogout} />
+      <Navbar />
       <Box
         component="main"
         sx={{

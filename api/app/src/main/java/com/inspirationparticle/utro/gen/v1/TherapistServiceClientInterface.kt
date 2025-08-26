@@ -30,4 +30,22 @@ public interface TherapistServiceClientInterface {
       fun getTherapistProfileImage(request: TherapistProto.GetTherapistProfileImageRequest,
       headers: Headers = emptyMap()):
       ResponseMessage<TherapistProto.GetTherapistProfileImageResponse>
+
+  /**
+   *  CRUD operations for therapist management
+   */
+  public suspend fun createTherapist(request: TherapistProto.CreateTherapistRequest,
+      headers: Headers = emptyMap()): ResponseMessage<TherapistProto.Therapist>
+
+  public suspend fun updateTherapist(request: TherapistProto.UpdateTherapistRequest,
+      headers: Headers = emptyMap()): ResponseMessage<TherapistProto.Therapist>
+
+  public suspend fun deleteTherapist(request: TherapistProto.DeleteTherapistRequest,
+      headers: Headers = emptyMap()): ResponseMessage<TherapistProto.DeleteTherapistResponse>
+
+  public suspend fun publishTherapist(request: TherapistProto.PublishTherapistRequest,
+      headers: Headers = emptyMap()): ResponseMessage<TherapistProto.Therapist>
+
+  public suspend fun unpublishTherapist(request: TherapistProto.UnpublishTherapistRequest,
+      headers: Headers = emptyMap()): ResponseMessage<TherapistProto.Therapist>
 }

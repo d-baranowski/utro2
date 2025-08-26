@@ -95,4 +95,72 @@ public class TherapistServiceClient(
     ),
   )
 
+
+  /**
+   *  CRUD operations for therapist management
+   */
+  override suspend fun createTherapist(request: TherapistProto.CreateTherapistRequest,
+      headers: Headers): ResponseMessage<TherapistProto.Therapist> = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "utro.v1.TherapistService/CreateTherapist",
+      com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest::class,
+      com.inspirationparticle.utro.gen.v1.TherapistProto.Therapist::class,
+      StreamType.UNARY,
+    ),
+  )
+
+
+  override suspend fun updateTherapist(request: TherapistProto.UpdateTherapistRequest,
+      headers: Headers): ResponseMessage<TherapistProto.Therapist> = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "utro.v1.TherapistService/UpdateTherapist",
+      com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest::class,
+      com.inspirationparticle.utro.gen.v1.TherapistProto.Therapist::class,
+      StreamType.UNARY,
+    ),
+  )
+
+
+  override suspend fun deleteTherapist(request: TherapistProto.DeleteTherapistRequest,
+      headers: Headers): ResponseMessage<TherapistProto.DeleteTherapistResponse> = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "utro.v1.TherapistService/DeleteTherapist",
+      com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest::class,
+      com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse::class,
+      StreamType.UNARY,
+    ),
+  )
+
+
+  override suspend fun publishTherapist(request: TherapistProto.PublishTherapistRequest,
+      headers: Headers): ResponseMessage<TherapistProto.Therapist> = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "utro.v1.TherapistService/PublishTherapist",
+      com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest::class,
+      com.inspirationparticle.utro.gen.v1.TherapistProto.Therapist::class,
+      StreamType.UNARY,
+    ),
+  )
+
+
+  override suspend fun unpublishTherapist(request: TherapistProto.UnpublishTherapistRequest,
+      headers: Headers): ResponseMessage<TherapistProto.Therapist> = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "utro.v1.TherapistService/UnpublishTherapist",
+      com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest::class,
+      com.inspirationparticle.utro.gen.v1.TherapistProto.Therapist::class,
+      StreamType.UNARY,
+    ),
+  )
+
 }

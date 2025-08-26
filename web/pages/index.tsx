@@ -95,7 +95,7 @@ export default function Home({ publicMsg }: Props) {
   }
 
   return (
-    <Layout isAuthenticated={isAuthenticated} onLogout={handleLogout}>
+    <Layout>
       <Container maxWidth="sm">
         <Box
           sx={{
