@@ -5,10 +5,20 @@ on:
     branches:
       - main
       - develop
+    paths:
+      - 'api/**'
+      - 'web/**'
+      - 'proto/**'
+      - '.github/workflows/lint.yml'
   push:
     branches:
       - main
       - develop
+    paths:
+      - 'api/**'
+      - 'web/**'
+      - 'proto/**'
+      - '.github/workflows/lint.yml'
 
 jobs:
   backend-lint:
@@ -41,6 +51,15 @@ jobs:
       - name: Run SpotBugs
         working-directory: ./api/app
         run: mvn spotbugs:check
+
+      - name: Upload backend lint results
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: backend-lint-results
+          path: |
+            api/app/target/checkstyle-result.xml
+            api/app/target/spotbugsXml.xml
 
   frontend-lint:
     name: Frontend Linting (TypeScript)
@@ -86,3 +105,29 @@ jobs:
       - name: Run TypeScript type checking
         working-directory: ./web
         run: pnpm run typecheck
+
+      - name: Upload frontend lint results  
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: frontend-lint-results
+          path: web/eslint-report.json
+
+  lint-summary:
+    name: Linting Summary
+    runs-on: ubuntu-latest
+    needs: [backend-lint, frontend-lint]
+    if: always()
+    
+    steps:
+      - name: Check linting results
+        run: |
+          echo "Backend linting: ${{ needs.backend-lint.result }}"
+          echo "Frontend linting: ${{ needs.frontend-lint.result }}"
+          
+          if [[ "${{ needs.backend-lint.result }}" == "failure" || "${{ needs.frontend-lint.result }}" == "failure" ]]; then
+            echo "❌ Some linting checks failed"
+            exit 1
+          else
+            echo "✅ All linting checks passed"
+          fi
