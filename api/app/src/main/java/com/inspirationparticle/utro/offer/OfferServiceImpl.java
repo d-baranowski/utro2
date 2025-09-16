@@ -1,6 +1,6 @@
 package com.inspirationparticle.utro.offer;
 
-import com.inspirationparticle.utro.gen.v1.OfferProto;
+import com.inspirationparticle.utro.gen.offer.v1.OfferProto;
 import com.inspirationparticle.utro.organisation.MemberType;
 import com.inspirationparticle.utro.organisation.Organisation;
 import com.inspirationparticle.utro.organisation.OrganisationMember;

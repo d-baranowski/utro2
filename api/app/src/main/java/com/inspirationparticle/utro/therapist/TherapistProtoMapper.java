@@ -1,6 +1,6 @@
 package com.inspirationparticle.utro.therapist;
 
-import com.inspirationparticle.utro.gen.v1.TherapistProto.*;
+import com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.*;
 import com.inspirationparticle.utro.time.TimeMapper;
 
 import java.time.LocalDate;
@@ -9,12 +9,12 @@ import java.util.stream.Collectors;
 
 public class TherapistProtoMapper {
 
-    public static com.inspirationparticle.utro.gen.v1.TherapistProto.Therapist toProto(com.inspirationparticle.utro.therapist.Therapist therapist) {
+    public static com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.Therapist toProto(com.inspirationparticle.utro.therapist.Therapist therapist) {
         if (therapist == null) {
             return null;
         }
 
-        com.inspirationparticle.utro.gen.v1.TherapistProto.Therapist.Builder builder = com.inspirationparticle.utro.gen.v1.TherapistProto.Therapist.newBuilder()
+        com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.Therapist.Builder builder = com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.Therapist.newBuilder()
             .setId(therapist.getId().toString())
             .setUserId(therapist.getUser().getId().toString())
             .setUserName(therapist.getUser().getUsername())
@@ -105,12 +105,12 @@ public class TherapistProtoMapper {
         return builder.build();
     }
 
-    public static com.inspirationparticle.utro.gen.v1.TherapistProto.Specialization toProto(com.inspirationparticle.utro.therapist.Specialization specialization) {
+    public static com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.Specialization toProto(com.inspirationparticle.utro.therapist.Specialization specialization) {
         if (specialization == null) {
             return null;
         }
 
-        com.inspirationparticle.utro.gen.v1.TherapistProto.Specialization.Builder builder = com.inspirationparticle.utro.gen.v1.TherapistProto.Specialization.newBuilder()
+        com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.Specialization.Builder builder = com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.Specialization.newBuilder()
             .setId(specialization.getId().toString())
             .setNameEng(specialization.getNameEng())
             .setNamePl(specialization.getNamePl())
@@ -131,12 +131,12 @@ public class TherapistProtoMapper {
         return builder.build();
     }
 
-    public static com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistSpecialization toTherapistSpecializationProto(com.inspirationparticle.utro.therapist.TherapistSpecialization ts) {
+    public static com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.TherapistSpecialization toTherapistSpecializationProto(com.inspirationparticle.utro.therapist.TherapistSpecialization ts) {
         if (ts == null) {
             return null;
         }
 
-        com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistSpecialization.Builder builder = com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistSpecialization.newBuilder()
+        com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.TherapistSpecialization.Builder builder = com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.TherapistSpecialization.newBuilder()
             .setSpecializationId(ts.getSpecialization().getId().toString())
             .setNameEng(ts.getSpecialization().getNameEng())
             .setNamePl(ts.getSpecialization().getNamePl())
@@ -159,12 +159,12 @@ public class TherapistProtoMapper {
         return builder.build();
     }
 
-    public static com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistEducation toEducationProto(com.inspirationparticle.utro.therapist.TherapistEducation education) {
+    public static com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.TherapistEducation toEducationProto(com.inspirationparticle.utro.therapist.TherapistEducation education) {
         if (education == null) {
             return null;
         }
 
-        com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistEducation.Builder builder = com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistEducation.newBuilder()
+        com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.TherapistEducation.Builder builder = com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.TherapistEducation.newBuilder()
             .setId(education.getId().toString())
             .setDegree(education.getDegree())
             .setInstitution(education.getInstitution())
@@ -195,12 +195,12 @@ public class TherapistProtoMapper {
         return builder.build();
     }
 
-    public static com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistCertification toCertificationProto(com.inspirationparticle.utro.therapist.TherapistCertification certification) {
+    public static com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.TherapistCertification toCertificationProto(com.inspirationparticle.utro.therapist.TherapistCertification certification) {
         if (certification == null) {
             return null;
         }
 
-        com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistCertification.Builder builder = com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistCertification.newBuilder()
+        com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.TherapistCertification.Builder builder = com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.TherapistCertification.newBuilder()
             .setId(certification.getId().toString())
             .setName(certification.getName())
             .setIssuingOrganization(certification.getIssuingOrganization())
@@ -231,15 +231,15 @@ public class TherapistProtoMapper {
         return builder.build();
     }
 
-    private static com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility mapVisibilityToProto(com.inspirationparticle.utro.therapist.Therapist.TherapistVisibility visibility) {
+    private static com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.TherapistVisibility mapVisibilityToProto(com.inspirationparticle.utro.therapist.Therapist.TherapistVisibility visibility) {
         if (visibility == null) {
-            return com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility.THERAPIST_VISIBILITY_PUBLIC;
+            return com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.TherapistVisibility.THERAPIST_VISIBILITY_PUBLIC;
         }
         
         return switch (visibility) {
-            case PUBLIC -> com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility.THERAPIST_VISIBILITY_PUBLIC;
-            case ORGANISATION_ONLY -> com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility.THERAPIST_VISIBILITY_ORGANISATION_ONLY;
-            case PRIVATE -> com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility.THERAPIST_VISIBILITY_PRIVATE;
+            case PUBLIC -> com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.TherapistVisibility.THERAPIST_VISIBILITY_PUBLIC;
+            case ORGANISATION_ONLY -> com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.TherapistVisibility.THERAPIST_VISIBILITY_ORGANISATION_ONLY;
+            case PRIVATE -> com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.TherapistVisibility.THERAPIST_VISIBILITY_PRIVATE;
         };
     }
 
