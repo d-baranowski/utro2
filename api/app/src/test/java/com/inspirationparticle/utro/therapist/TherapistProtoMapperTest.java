@@ -17,14 +17,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TherapistProtoMapperTest {
 
-    private TherapistProtoMapper mapper;
     private User testUser;
     private Organisation testOrganisation;
 
     @BeforeEach
     void setUp() {
-        mapper = new TherapistProtoMapper();
-        
         testUser = new User();
         testUser.setId(UUID.randomUUID());
         testUser.setUsername("testuser");
@@ -37,7 +34,7 @@ class TherapistProtoMapperTest {
 
     @Test
     void testToProtoTherapist_WithNullInput_ReturnsNull() {
-        assertNull(mapper.toProto((Therapist) null));
+        assertNull(TherapistProtoMapper.toProto((Therapist) null));
     }
 
     @Test
@@ -70,7 +67,7 @@ class TherapistProtoMapperTest {
         therapist.setPublishedAt(Instant.now());
 
         // When
-        TherapistProto.Therapist proto = mapper.toProto(therapist);
+        TherapistProto.Therapist proto = TherapistProtoMapper.toProto(therapist);
 
         // Then
         assertNotNull(proto);
@@ -107,7 +104,7 @@ class TherapistProtoMapperTest {
 
     @Test
     void testToProtoSpecialization_WithNullInput_ReturnsNull() {
-        assertNull(mapper.toProto((Specialization) null));
+        assertNull(TherapistProtoMapper.toProto((Specialization) null));
     }
 
     @Test
@@ -125,7 +122,7 @@ class TherapistProtoMapperTest {
         specialization.setUpdatedAt(Instant.now());
 
         // When
-        TherapistProto.Specialization proto = mapper.toProto(specialization);
+        TherapistProto.Specialization proto = TherapistProtoMapper.toProto(specialization);
 
         // Then
         assertNotNull(proto);
@@ -142,7 +139,7 @@ class TherapistProtoMapperTest {
 
     @Test
     void testToProtoTherapistSpecialization_WithNullInput_ReturnsNull() {
-        assertNull(mapper.toProto((TherapistSpecialization) null));
+        assertNull(TherapistSpecializationMapper.toProto((TherapistSpecialization) null));
     }
 
     @Test
@@ -163,7 +160,7 @@ class TherapistProtoMapperTest {
         ts.setCreatedAt(Instant.now());
 
         // When
-        TherapistProto.TherapistSpecialization proto = mapper.toProto(ts);
+        TherapistProto.TherapistSpecialization proto = TherapistSpecializationMapper.toProto(ts);
 
         // Then
         assertNotNull(proto);
@@ -180,7 +177,7 @@ class TherapistProtoMapperTest {
 
     @Test
     void testToProtoTherapistEducation_WithNullInput_ReturnsNull() {
-        assertNull(mapper.toProto((TherapistEducation) null));
+        assertNull(TherapistEducationMapper.toProto((TherapistEducation) null));
     }
 
     @Test
@@ -202,7 +199,7 @@ class TherapistProtoMapperTest {
         education.setUpdatedAt(Instant.now());
 
         // When
-        TherapistProto.TherapistEducation proto = mapper.toProto(education);
+        TherapistProto.TherapistEducation proto = TherapistEducationMapper.toProto(education);
 
         // Then
         assertNotNull(proto);
@@ -223,7 +220,7 @@ class TherapistProtoMapperTest {
 
     @Test
     void testToProtoTherapistCertification_WithNullInput_ReturnsNull() {
-        assertNull(mapper.toProto((TherapistCertification) null));
+        assertNull(TherapistCertificationMapper.toProto((TherapistCertification) null));
     }
 
     @Test
@@ -245,7 +242,7 @@ class TherapistProtoMapperTest {
         certification.setUpdatedAt(Instant.now());
 
         // When
-        TherapistProto.TherapistCertification proto = mapper.toProto(certification);
+        TherapistProto.TherapistCertification proto = TherapistCertificationMapper.toProto(certification);
 
         // Then
         assertNotNull(proto);
@@ -274,19 +271,19 @@ class TherapistProtoMapperTest {
         therapist1.setCreatedAt(Instant.now());
         therapist1.setUpdatedAt(Instant.now());
         
-        TherapistProto.Therapist proto1 = mapper.toProto(therapist1);
+        TherapistProto.Therapist proto1 = TherapistProtoMapper.toProto(therapist1);
         assertEquals(TherapistProto.TherapistVisibility.THERAPIST_VISIBILITY_PUBLIC, proto1.getVisibility());
 
         therapist1.setVisibility(Therapist.TherapistVisibility.ORGANISATION_ONLY);
-        TherapistProto.Therapist proto2 = mapper.toProto(therapist1);
+        TherapistProto.Therapist proto2 = TherapistProtoMapper.toProto(therapist1);
         assertEquals(TherapistProto.TherapistVisibility.THERAPIST_VISIBILITY_ORGANISATION_ONLY, proto2.getVisibility());
 
         therapist1.setVisibility(Therapist.TherapistVisibility.PRIVATE);
-        TherapistProto.Therapist proto3 = mapper.toProto(therapist1);
+        TherapistProto.Therapist proto3 = TherapistProtoMapper.toProto(therapist1);
         assertEquals(TherapistProto.TherapistVisibility.THERAPIST_VISIBILITY_PRIVATE, proto3.getVisibility());
 
         therapist1.setVisibility(null);
-        TherapistProto.Therapist proto4 = mapper.toProto(therapist1);
+        TherapistProto.Therapist proto4 = TherapistProtoMapper.toProto(therapist1);
         assertEquals(TherapistProto.TherapistVisibility.THERAPIST_VISIBILITY_PUBLIC, proto4.getVisibility());
     }
 }

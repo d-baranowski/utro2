@@ -54,7 +54,7 @@ describe('UserDropdown', () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByText('Error loading users')).toBeInTheDocument();
+      expect(screen.getByText('common.errorLoadingUsers')).toBeInTheDocument();
     });
   });
 

@@ -59,6 +59,7 @@ jest.mock('@/contexts/AuthContext', () => ({
     token: null,
     login: jest.fn(),
     logout: jest.fn(),
+    loading: false,
   }),
   AuthProvider: ({ children }) => children,
 }));
@@ -72,6 +73,25 @@ jest.mock('@/contexts/OrganisationContext', () => ({
     error: null,
     setCurrentOrganisation: jest.fn(),
     refetchOrganisations: jest.fn(),
+    isCurrentUserAdmin: jest.fn(() => false),
   }),
   OrganisationProvider: ({ children }) => children,
 }));
+
+// Protobuf generated files are now mocked with actual files in src/generated/
+
+// Connect query files can be mocked individually in specific tests if needed
+
+// Mock Connect RPC
+jest.mock('@connectrpc/connect', () => {
+  class ConnectError extends Error {
+    constructor(message) {
+      super(message);
+      this.name = 'ConnectError';
+    }
+  }
+  return {
+    ConnectError,
+    createClient: jest.fn(),
+  };
+});

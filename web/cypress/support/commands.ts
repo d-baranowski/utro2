@@ -39,8 +39,7 @@ Cypress.Commands.add('deleteTestUser', (username: string) => {
 Cypress.Commands.add('setupUniqueUser', (baseUsername?: string) => {
   return cy.createTestUser(baseUsername).then((userCreds) => {
     // Store credentials for later use in test
-    cy.wrap(userCreds).as('userCreds');
-    return userCreds;
+    return cy.wrap(userCreds).as('userCreds').then(() => userCreds);
   });
 });
 

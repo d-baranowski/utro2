@@ -61,6 +61,7 @@ const Navbar: React.FC = () => {
     
     if (isCurrentUserAdmin()) {
       therapistMenuItems.push({ label: t('navigation.manageTherapists', 'Manage Therapists'), href: '/therapist-management' });
+      therapistMenuItems.push({ label: t('navigation.manageMembers', 'Manage Members'), href: '/organization-members' });
     }
   }
 

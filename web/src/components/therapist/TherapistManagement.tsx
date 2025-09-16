@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import {
   Box,
   Typography,
@@ -34,29 +35,28 @@ import {
   Lock as LockIcon,
 } from '@mui/icons-material';
 import { useTranslation } from 'next-i18next';
+import { useQuery, useMutation } from '@connectrpc/connect-query';
+import { create } from '@bufbuild/protobuf';
 import { TherapistForm, TherapistFormData } from './TherapistForm';
-import { TherapistVisibility } from '../../../generated/utro/v1/therapist_pb';
+import { 
+  TherapistVisibility, 
+  Therapist,
+  ListTherapistsRequestSchema,
+  CreateTherapistRequestSchema,
+  UpdateTherapistRequestSchema,
+  DeleteTherapistRequestSchema,
+  PublishTherapistRequestSchema,
+  UnpublishTherapistRequestSchema
+} from '@/generated/utro/v1/therapist_pb';
+import { 
+  listTherapists, 
+  createTherapist, 
+  updateTherapist, 
+  deleteTherapist, 
+  publishTherapist, 
+  unpublishTherapist 
+} from '@/generated/utro/v1/therapist-TherapistService_connectquery';
 
-interface Therapist {
-  id: string;
-  userId: string;
-  userName: string;
-  userFullName: string;
-  professionalTitle: string;
-  contactEmail: string;
-  contactPhone: string;
-  languages: string[];
-  inPersonTherapyFormat: boolean;
-  onlineTherapyFormat: boolean;
-  isAcceptingNewClients: boolean;
-  visibility: TherapistVisibility;
-  slug: string;
-  isActive: boolean;
-  publishedAt?: string;
-  createdAt: string;
-  updatedAt: string;
-  profileImageUrl?: string;
-}
 
 
 interface TherapistManagementProps {
@@ -69,8 +69,7 @@ export const TherapistManagement: React.FC<TherapistManagementProps> = ({
   isAdmin,
 }) => {
   const { t } = useTranslation('common');
-  const [therapists, setTherapists] = useState<Therapist[]>([]);
-  const [loading, setLoading] = useState(true);
+  const router = useRouter();
   const [formOpen, setFormOpen] = useState(false);
   const [selectedTherapist, setSelectedTherapist] = useState<Therapist | null>(null);
   const [formMode, setFormMode] = useState<'create' | 'edit'>('create');
@@ -84,44 +83,130 @@ export const TherapistManagement: React.FC<TherapistManagementProps> = ({
     severity: 'success' | 'error';
   }>({ open: false, message: '', severity: 'success' });
 
-  useEffect(() => {
-    loadTherapists();
-  }, [organizationId]);
-
-  const loadTherapists = async () => {
-    try {
-      setLoading(true);
-      // TODO: Replace with actual API call
-      const response = await fetch(`/api/therapists?organizationId=${organizationId}`, {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`,
-        },
-      });
-      
-      if (response.ok) {
-        const data = await response.json();
-        setTherapists(data.therapists || []);
-      } else {
-        showSnackbar('Failed to load therapists', 'error');
-      }
-    } catch (error) {
-      console.error('Error loading therapists:', error);
-      showSnackbar('Error loading therapists', 'error');
-    } finally {
-      setLoading(false);
+  // URL-aware handlers that don't cause infinite loops - defined first
+  const handleCreateTherapistFromUrl = () => {
+    if (!formOpen || formMode !== 'create') {
+      setSelectedTherapist(null);
+      setFormMode('create');
+      setFormOpen(true);
     }
   };
 
-  // Users are now loaded via the UserDropdown component using Connect Query hooks
+  const handleEditTherapistFromUrl = (therapist: Therapist) => {
+    if (!formOpen || formMode !== 'edit' || selectedTherapist?.id !== therapist.id) {
+      setSelectedTherapist(therapist);
+      setFormMode('edit');
+      setFormOpen(true);
+    }
+  };
+
+  const { data, error, isLoading, refetch } = useQuery(
+    listTherapists,
+    create(ListTherapistsRequestSchema, {
+      organisationId: organizationId,
+      pageSize: 100,
+      pageNumber: 0,
+    })
+  );
+
+  // Handle URL parameters for opening edit modal
+  useEffect(() => {
+    const { editId, action } = router.query;
+    
+    if (action === 'create') {
+      handleCreateTherapistFromUrl();
+    } else if (action === 'edit' && editId && data?.therapists) {
+      const therapist = data.therapists.find(t => t.id === editId);
+      if (therapist) {
+        handleEditTherapistFromUrl(therapist);
+      }
+    }
+  }, [router.query, data?.therapists]);
+
+  const createMutation = useMutation(createTherapist, {
+    onSuccess: () => {
+      refetch();
+      showSnackbar('Therapist created successfully', 'success');
+      handleFormClose();
+    },
+    onError: (error) => {
+      console.error('Error creating therapist:', error);
+      showSnackbar('Failed to create therapist', 'error');
+    },
+  });
+
+  const updateMutation = useMutation(updateTherapist, {
+    onSuccess: () => {
+      refetch();
+      showSnackbar('Therapist updated successfully', 'success');
+      handleFormClose();
+    },
+    onError: (error) => {
+      console.error('Error updating therapist:', error);
+      showSnackbar('Failed to update therapist', 'error');
+    },
+  });
+
+  const deleteMutation = useMutation(deleteTherapist, {
+    onSuccess: () => {
+      refetch();
+      showSnackbar('Therapist deleted successfully', 'success');
+      setDeleteDialogOpen(false);
+      setTherapistToDelete(null);
+    },
+    onError: (error) => {
+      console.error('Error deleting therapist:', error);
+      showSnackbar('Failed to delete therapist', 'error');
+    },
+  });
+
+  const publishMutation = useMutation(publishTherapist, {
+    onSuccess: () => {
+      refetch();
+      showSnackbar('Therapist published successfully', 'success');
+      handleMenuClose();
+    },
+    onError: (error) => {
+      console.error('Error publishing therapist:', error);
+      showSnackbar('Failed to publish therapist', 'error');
+    },
+  });
+
+  const unpublishMutation = useMutation(unpublishTherapist, {
+    onSuccess: () => {
+      refetch();
+      showSnackbar('Therapist unpublished successfully', 'success');
+      handleMenuClose();
+    },
+    onError: (error) => {
+      console.error('Error unpublishing therapist:', error);
+      showSnackbar('Failed to unpublish therapist', 'error');
+    },
+  });
+
+  const therapists = data?.therapists || [];
+
 
   const showSnackbar = (message: string, severity: 'success' | 'error') => {
     setSnackbar({ open: true, message, severity });
   };
 
   const handleCreateTherapist = () => {
+    // First close any existing form to ensure clean state
+    setFormOpen(false);
     setSelectedTherapist(null);
     setFormMode('create');
-    setFormOpen(true);
+    
+    // Use setTimeout to ensure state updates are applied before opening form
+    setTimeout(() => {
+      setFormOpen(true);
+    }, 0);
+    
+    // Update URL to reflect create action
+    router.push({
+      pathname: router.pathname,
+      query: { ...router.query, action: 'create' }
+    }, undefined, { shallow: true });
   };
 
   const handleEditTherapist = (therapist: Therapist) => {
@@ -129,6 +214,25 @@ export const TherapistManagement: React.FC<TherapistManagementProps> = ({
     setFormMode('edit');
     setFormOpen(true);
     handleMenuClose();
+    // Update URL to reflect edit action with therapist ID
+    router.push({
+      pathname: router.pathname,
+      query: { ...router.query, action: 'edit', editId: therapist.id }
+    }, undefined, { shallow: true });
+  };
+
+
+  const handleFormClose = () => {
+    setFormOpen(false);
+    setSelectedTherapist(null);
+    // Clear URL parameters when closing the form
+    const newQuery = { ...router.query };
+    delete newQuery.action;
+    delete newQuery.editId;
+    router.push({
+      pathname: router.pathname,
+      query: newQuery
+    }, undefined, { shallow: true });
   };
 
   const handleDeleteTherapist = (therapist: Therapist) => {
@@ -137,96 +241,82 @@ export const TherapistManagement: React.FC<TherapistManagementProps> = ({
     handleMenuClose();
   };
 
-  const confirmDelete = async () => {
+  const confirmDelete = () => {
     if (!therapistToDelete) return;
-
-    try {
-      // TODO: Replace with actual API call
-      const response = await fetch(`/api/therapists/${therapistToDelete.id}`, {
-        method: 'DELETE',
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`,
-        },
-      });
-
-      if (response.ok) {
-        setTherapists(prev => prev.filter(t => t.id !== therapistToDelete.id));
-        showSnackbar('Therapist deleted successfully', 'success');
-      } else {
-        showSnackbar('Failed to delete therapist', 'error');
-      }
-    } catch (error) {
-      console.error('Error deleting therapist:', error);
-      showSnackbar('Error deleting therapist', 'error');
-    } finally {
-      setDeleteDialogOpen(false);
-      setTherapistToDelete(null);
-    }
+    
+    deleteMutation.mutate(
+      create(DeleteTherapistRequestSchema, {
+        id: therapistToDelete.id,
+      })
+    );
   };
 
-  const handlePublishToggle = async (therapist: Therapist) => {
+  const handlePublishToggle = (therapist: Therapist) => {
     const isPublished = !!therapist.publishedAt;
-    const action = isPublished ? 'unpublish' : 'publish';
     
-    try {
-      // TODO: Replace with actual API call
-      const response = await fetch(`/api/therapists/${therapist.id}/${action}`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`,
-        },
-      });
-
-      if (response.ok) {
-        loadTherapists(); // Reload to get updated data
-        showSnackbar(`Therapist ${action}ed successfully`, 'success');
-      } else {
-        showSnackbar(`Failed to ${action} therapist`, 'error');
-      }
-    } catch (error) {
-      console.error(`Error ${action}ing therapist:`, error);
-      showSnackbar(`Error ${action}ing therapist`, 'error');
+    if (isPublished) {
+      unpublishMutation.mutate(
+        create(UnpublishTherapistRequestSchema, {
+          id: therapist.id,
+        })
+      );
+    } else {
+      publishMutation.mutate(
+        create(PublishTherapistRequestSchema, {
+          id: therapist.id,
+        })
+      );
     }
-    
-    handleMenuClose();
   };
 
   const handleFormSubmit = async (formData: TherapistFormData) => {
-    try {
-      const url = formMode === 'create' 
-        ? '/api/therapists'
-        : `/api/therapists/${selectedTherapist?.id}`;
-      
-      const method = formMode === 'create' ? 'POST' : 'PUT';
-      
-      // TODO: Replace with actual API call
-      const response = await fetch(url, {
-        method,
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`,
-        },
-        body: JSON.stringify({
-          ...formData,
-          organizationId,
-        }),
-      });
-
-      if (response.ok) {
-        loadTherapists();
-        showSnackbar(
-          formMode === 'create' 
-            ? 'Therapist created successfully' 
-            : 'Therapist updated successfully', 
-          'success'
-        );
-        setFormOpen(false);
-      } else {
-        showSnackbar(`Failed to ${formMode} therapist`, 'error');
-      }
-    } catch (error) {
-      console.error(`Error ${formMode}ing therapist:`, error);
-      showSnackbar(`Error ${formMode}ing therapist`, 'error');
+    if (formMode === 'create') {
+      createMutation.mutate(
+        create(CreateTherapistRequestSchema, {
+          userId: formData.userId,
+          organisationId: organizationId,
+          professionalTitle: formData.professionalTitle,
+          descriptionEng: formData.descriptionEng,
+          descriptionPl: formData.descriptionPl,
+          workExperienceEng: formData.workExperienceEng,
+          workExperiencePl: formData.workExperiencePl,
+          languages: formData.languages,
+          inPersonTherapyFormat: formData.inPersonTherapyFormat,
+          onlineTherapyFormat: formData.onlineTherapyFormat,
+          contactEmail: formData.contactEmail,
+          contactPhone: formData.contactPhone,
+          websiteUrl: formData.websiteUrl,
+          isAcceptingNewClients: formData.isAcceptingNewClients,
+          visibility: formData.visibility,
+          slug: formData.slug,
+          metaDescription: formData.metaDescription,
+          searchTags: formData.searchTags,
+          specializationIds: formData.specializationIds,
+        })
+      );
+    } else if (selectedTherapist) {
+      updateMutation.mutate(
+        create(UpdateTherapistRequestSchema, {
+          id: selectedTherapist.id,
+          professionalTitle: formData.professionalTitle,
+          descriptionEng: formData.descriptionEng,
+          descriptionPl: formData.descriptionPl,
+          workExperienceEng: formData.workExperienceEng,
+          workExperiencePl: formData.workExperiencePl,
+          languages: formData.languages,
+          inPersonTherapyFormat: formData.inPersonTherapyFormat,
+          onlineTherapyFormat: formData.onlineTherapyFormat,
+          contactEmail: formData.contactEmail,
+          contactPhone: formData.contactPhone,
+          websiteUrl: formData.websiteUrl,
+          isAcceptingNewClients: formData.isAcceptingNewClients,
+          visibility: formData.visibility,
+          slug: formData.slug,
+          metaDescription: formData.metaDescription,
+          searchTags: formData.searchTags,
+          specializationIds: formData.specializationIds,
+        })
+      );
     }
   };
 
@@ -269,24 +359,24 @@ export const TherapistManagement: React.FC<TherapistManagementProps> = ({
   const convertTherapistToFormData = (therapist: Therapist): TherapistFormData => ({
     id: therapist.id,
     userId: therapist.userId,
-    professionalTitle: therapist.professionalTitle || '',
-    descriptionEng: '', // TODO: Add these fields to the interface
-    descriptionPl: '',
-    workExperienceEng: '',
-    workExperiencePl: '',
-    languages: therapist.languages || [],
+    professionalTitle: therapist.professionalTitle,
+    descriptionEng: therapist.descriptionEng,
+    descriptionPl: therapist.descriptionPl,
+    workExperienceEng: therapist.workExperienceEng,
+    workExperiencePl: therapist.workExperiencePl,
+    languages: therapist.languages,
     inPersonTherapyFormat: therapist.inPersonTherapyFormat,
     onlineTherapyFormat: therapist.onlineTherapyFormat,
-    contactEmail: therapist.contactEmail || '',
-    contactPhone: therapist.contactPhone || '',
-    websiteUrl: '',
+    contactEmail: therapist.contactEmail,
+    contactPhone: therapist.contactPhone,
+    websiteUrl: therapist.websiteUrl,
     isAcceptingNewClients: therapist.isAcceptingNewClients,
     visibility: therapist.visibility,
-    slug: therapist.slug || '',
-    metaDescription: '',
-    searchTags: [],
-    specializationIds: [],
-    profileImageUrl: therapist.profileImageUrl,
+    slug: therapist.slug,
+    metaDescription: therapist.metaDescription,
+    searchTags: therapist.searchTags,
+    specializationIds: therapist.specializations.map(s => s.specializationId),
+    profileImageUrl: undefined,
   });
 
   if (!isAdmin) {
@@ -330,10 +420,18 @@ export const TherapistManagement: React.FC<TherapistManagementProps> = ({
               </TableRow>
             </TableHead>
             <TableBody>
-              {loading ? (
+              {isLoading ? (
                 <TableRow>
                   <TableCell colSpan={9} align="center">
                     {t('common.loading')}
+                  </TableCell>
+                </TableRow>
+              ) : error ? (
+                <TableRow>
+                  <TableCell colSpan={9} align="center">
+                    <Alert severity="error">
+                      {t('therapist.loadError')}
+                    </Alert>
                   </TableCell>
                 </TableRow>
               ) : therapists.length === 0 ? (
@@ -347,10 +445,11 @@ export const TherapistManagement: React.FC<TherapistManagementProps> = ({
                   <TableRow key={therapist.id} hover data-testid={`therapist-row-${therapist.id}`}>
                     <TableCell>
                       <Avatar
-                        src={therapist.profileImageUrl}
                         alt={therapist.userFullName}
                         sx={{ width: 40, height: 40 }}
-                      />
+                      >
+                        {therapist.userFullName.charAt(0)}
+                      </Avatar>
                     </TableCell>
                     <TableCell>
                       <Box>
@@ -470,7 +569,7 @@ export const TherapistManagement: React.FC<TherapistManagementProps> = ({
 
       <TherapistForm
         open={formOpen}
-        onClose={() => setFormOpen(false)}
+        onClose={handleFormClose}
         onSubmit={handleFormSubmit}
         initialData={selectedTherapist ? convertTherapistToFormData(selectedTherapist) : undefined}
         mode={formMode}

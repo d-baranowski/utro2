@@ -24,4 +24,9 @@ public interface OrganisationServiceClientInterface {
       fun getOrganisationUsers(request: OrganisationOuterClass.GetOrganisationUsersRequest,
       headers: Headers = emptyMap()):
       ResponseMessage<OrganisationOuterClass.GetOrganisationUsersResponse>
+
+  public suspend
+      fun removeOrganisationMember(request: OrganisationOuterClass.RemoveOrganisationMemberRequest,
+      headers: Headers = emptyMap()):
+      ResponseMessage<OrganisationOuterClass.RemoveOrganisationMemberResponse>
 }

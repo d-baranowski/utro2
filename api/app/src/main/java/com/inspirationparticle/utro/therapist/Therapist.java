@@ -52,7 +52,7 @@ public class Therapist {
     @Column(name = "language")
     private Set<String> languages = new HashSet<>();
 
-    @Column(name = "in_person_therapy_format")
+    @Column(name = "in_person_therapy_format") // TODO this should be on the relation between the offer and therapist instead on the therapist
     private Boolean inPersonTherapyFormat = false;
 
     @Column(name = "online_therapy_format")

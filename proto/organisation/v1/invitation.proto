@@ -1,0 +1,75 @@
+syntax = "proto3";
+package com.inspirationparticle.utro.gen.organisation.v1;
+
+import "google/protobuf/timestamp.proto";
+import "organisation/v1/organisation.proto";
+
+option java_package = "com.inspirationparticle.utro.gen.organisation.v1";
+
+service InvitationService {
+  // Create a new invitation
+  rpc CreateInvitation(CreateInvitationRequest) returns (CreateInvitationResponse);
+  
+  // Get all invitations for an organization (admin only)
+  rpc GetInvitations(GetInvitationsRequest) returns (GetInvitationsResponse);
+  
+  // Accept or decline an invitation
+  rpc RespondToInvitation(RespondToInvitationRequest) returns (RespondToInvitationResponse);
+  
+  // Cancel an invitation (admin only)
+  rpc CancelInvitation(CancelInvitationRequest) returns (CancelInvitationResponse);
+}
+
+message CreateInvitationRequest {
+  string organisation_id = 1;
+  string email = 2;
+  MemberType member_type = 3;
+}
+
+message CreateInvitationResponse {
+  Invitation invitation = 1;
+}
+
+message GetInvitationsRequest {
+  string organisation_id = 1;
+}
+
+message GetInvitationsResponse {
+  repeated Invitation invitations = 1;
+}
+
+message RespondToInvitationRequest {
+  string invitation_id = 1;
+  bool accept = 2; // true to accept, false to decline
+}
+
+message RespondToInvitationResponse {
+  Invitation invitation = 1;
+}
+
+message CancelInvitationRequest {
+  string invitation_id = 1;
+}
+
+message CancelInvitationResponse {
+  bool success = 1;
+}
+
+message Invitation {
+  string id = 1;
+  string email = 2;
+  string organisation_id = 3;
+  User invited_by = 4;
+  MemberType member_type = 5;
+  InvitationStatus status = 6;
+  google.protobuf.Timestamp created_at = 7;
+  google.protobuf.Timestamp expires_at = 8;
+}
+
+enum InvitationStatus {
+  INVITATION_STATUS_UNSPECIFIED = 0;
+  PENDING = 1;
+  ACCEPTED = 2;
+  DECLINED = 3;
+  EXPIRED = 4;
+}

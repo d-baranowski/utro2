@@ -22,7 +22,7 @@ import {
 } from '@mui/material';
 import { PhotoCamera, Delete } from '@mui/icons-material';
 import { useTranslation } from 'next-i18next';
-import { TherapistVisibility } from '../../../generated/utro/v1/therapist_pb';
+import { TherapistVisibility } from '@/generated/utro/v1/therapist_pb';
 import { UserDropdown } from '../common/UserDropdown';
 
 interface TherapistFormProps {
@@ -82,7 +82,7 @@ export const TherapistForm: React.FC<TherapistFormProps> = ({
   organizationId,
 }) => {
   const { t } = useTranslation('common');
-  const [formData, setFormData] = useState<TherapistFormData>({
+  const getInitialFormData = (): TherapistFormData => ({
     professionalTitle: '',
     descriptionEng: '',
     descriptionPl: '',
@@ -100,19 +100,25 @@ export const TherapistForm: React.FC<TherapistFormProps> = ({
     metaDescription: '',
     searchTags: [],
     specializationIds: [],
-    ...initialData,
   });
 
+  const [formData, setFormData] = useState<TherapistFormData>(getInitialFormData());
   const [newTag, setNewTag] = useState('');
   const [newLanguage, setNewLanguage] = useState('');
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (initialData) {
+    if (mode === 'create') {
+      // Reset form to initial state for create mode
+      setFormData(getInitialFormData());
+      setErrors({});
+    } else if (mode === 'edit' && initialData) {
+      // Load initial data for edit mode
       setFormData(initialData);
+      setErrors({});
     }
-  }, [initialData]);
+  }, [mode, initialData]);
 
   const handleChange = (field: keyof TherapistFormData, value: any) => {
     setFormData((prev) => ({

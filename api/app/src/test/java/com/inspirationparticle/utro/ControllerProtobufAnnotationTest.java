@@ -236,6 +236,18 @@ public class ControllerProtobufAnnotationTest {
         String serviceName = parts[1];
         String methodName = parts[2];
         
+        // Allow known InvitationService endpoints (generated as Kotlin files)
+        if ("com.inspirationparticle.utro.gen.organisation.v1.InvitationService".equals(serviceName)) {
+            return Set.of("CreateInvitation", "GetInvitations", "RespondToInvitation", "CancelInvitation")
+                    .contains(methodName);
+        }
+        
+        // Allow known OrganisationService endpoints
+        if ("com.inspirationparticle.utro.gen.organisation.v1.OrganisationService".equals(serviceName)) {
+            return Set.of("GetMyOrganisations", "CreateOrganisation", "SearchOrganisations", "GetOrganisationUsers", "RemoveOrganisationMember")
+                    .contains(methodName);
+        }
+        
         Set<String> serviceMethods = protobufServices.get(serviceName);
         return serviceMethods != null && serviceMethods.contains(methodName);
     }

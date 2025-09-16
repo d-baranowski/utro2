@@ -70,4 +70,19 @@ public class OrganisationServiceClient(
     ),
   )
 
+
+  override suspend
+      fun removeOrganisationMember(request: OrganisationOuterClass.RemoveOrganisationMemberRequest,
+      headers: Headers): ResponseMessage<OrganisationOuterClass.RemoveOrganisationMemberResponse> =
+      client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "com.inspirationparticle.utro.gen.organisation.v1.OrganisationService/RemoveOrganisationMember",
+      com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.RemoveOrganisationMemberRequest::class,
+      com.inspirationparticle.utro.gen.organisation.v1.OrganisationOuterClass.RemoveOrganisationMemberResponse::class,
+      StreamType.UNARY,
+    ),
+  )
+
 }

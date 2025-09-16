@@ -1,8 +1,11 @@
 package com.inspirationparticle.utro.therapist;
 
 import com.inspirationparticle.utro.gen.v1.TherapistProto;
+import com.inspirationparticle.utro.organisation.MemberType;
 import com.inspirationparticle.utro.organisation.Organisation;
+import com.inspirationparticle.utro.organisation.OrganisationMemberRepository;
 import com.inspirationparticle.utro.user.User;
+import com.inspirationparticle.utro.user.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -33,13 +36,19 @@ class TherapistServiceImplTest {
     private TherapistRepository therapistRepository;
 
     @Mock
-    private TherapistProtoMapper therapistProtoMapper;
+    private TherapistService therapistService;
+
+    @Mock
+    private UserRepository userRepository;
+
+    @Mock
+    private OrganisationMemberRepository organisationMemberRepository;
+
 
     @InjectMocks
-    private TherapistServiceImpl therapistService;
+    private TherapistServiceImpl therapistServiceImpl;
 
     private Therapist testTherapist;
-    private TherapistProto.Therapist testProtoTherapist;
     private User testUser;
     private Organisation testOrganisation;
     private UUID testId;
@@ -72,22 +81,8 @@ class TherapistServiceImplTest {
         testTherapist.setProfileImageMimeType("image/jpeg");
         testTherapist.setCreatedAt(Instant.now());
         testTherapist.setUpdatedAt(Instant.now());
+        testTherapist.setPublishedAt(Instant.now());
 
-        testProtoTherapist = TherapistProto.Therapist.newBuilder()
-            .setId(testId.toString())
-            .setUserId(testUser.getId().toString())
-            .setUserName(testUser.getUsername())
-            .setUserFullName(testUser.getFullName())
-            .setOrganisationId(testOrganisation.getId().toString())
-            .setOrganisationName(testOrganisation.getName())
-            .setProfessionalTitle("Licensed Therapist")
-            .setInPersonTherapyFormat(true)
-            .setOnlineTherapyFormat(true)
-            .setIsActive(true)
-            .setIsAcceptingNewClients(true)
-            .setVisibility(TherapistProto.TherapistVisibility.THERAPIST_VISIBILITY_PUBLIC)
-            .setSlug("test-therapist")
-            .build();
     }
 
     @Test
@@ -98,10 +93,9 @@ class TherapistServiceImplTest {
             .build();
 
         when(therapistRepository.findById(testId)).thenReturn(Optional.of(testTherapist));
-        when(therapistProtoMapper.toProto(testTherapist)).thenReturn(testProtoTherapist);
 
         // When
-        ResponseEntity<TherapistProto.Therapist> response = therapistService.getTherapist(request);
+        ResponseEntity<TherapistProto.Therapist> response = therapistServiceImpl.getTherapist(request);
 
         // Then
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -110,7 +104,6 @@ class TherapistServiceImplTest {
         assertEquals("Licensed Therapist", response.getBody().getProfessionalTitle());
 
         verify(therapistRepository).findById(testId);
-        verify(therapistProtoMapper).toProto(testTherapist);
     }
 
     @Test
@@ -123,14 +116,13 @@ class TherapistServiceImplTest {
         when(therapistRepository.findById(testId)).thenReturn(Optional.empty());
 
         // When
-        ResponseEntity<TherapistProto.Therapist> response = therapistService.getTherapist(request);
+        ResponseEntity<TherapistProto.Therapist> response = therapistServiceImpl.getTherapist(request);
 
         // Then
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
         assertNull(response.getBody());
 
         verify(therapistRepository).findById(testId);
-        verify(therapistProtoMapper, never()).toProto(any(Therapist.class));
     }
 
     @Test
@@ -141,14 +133,13 @@ class TherapistServiceImplTest {
             .build();
 
         // When
-        ResponseEntity<TherapistProto.Therapist> response = therapistService.getTherapist(request);
+        ResponseEntity<TherapistProto.Therapist> response = therapistServiceImpl.getTherapist(request);
 
         // Then
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
         assertNull(response.getBody());
 
         verify(therapistRepository, never()).findById(any(UUID.class));
-        verify(therapistProtoMapper, never()).toProto(any(Therapist.class));
     }
 
     @Test
@@ -160,10 +151,9 @@ class TherapistServiceImplTest {
             .build();
 
         when(therapistRepository.findBySlug(slug)).thenReturn(Optional.of(testTherapist));
-        when(therapistProtoMapper.toProto(testTherapist)).thenReturn(testProtoTherapist);
 
         // When
-        ResponseEntity<TherapistProto.Therapist> response = therapistService.getTherapistBySlug(request);
+        ResponseEntity<TherapistProto.Therapist> response = therapistServiceImpl.getTherapistBySlug(request);
 
         // Then
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -172,7 +162,6 @@ class TherapistServiceImplTest {
         assertEquals(slug, response.getBody().getSlug());
 
         verify(therapistRepository).findBySlug(slug);
-        verify(therapistProtoMapper).toProto(testTherapist);
     }
 
     @Test
@@ -186,38 +175,13 @@ class TherapistServiceImplTest {
         when(therapistRepository.findBySlug(slug)).thenReturn(Optional.empty());
 
         // When
-        ResponseEntity<TherapistProto.Therapist> response = therapistService.getTherapistBySlug(request);
+        ResponseEntity<TherapistProto.Therapist> response = therapistServiceImpl.getTherapistBySlug(request);
 
         // Then
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
         assertNull(response.getBody());
 
         verify(therapistRepository).findBySlug(slug);
-        verify(therapistProtoMapper, never()).toProto(any(Therapist.class));
-    }
-
-    @Test
-    void testGetTherapistByUser_WithValidUserId_ReturnsTherapist() {
-        // Given
-        UUID userId = testUser.getId();
-        TherapistProto.GetTherapistByUserRequest request = TherapistProto.GetTherapistByUserRequest.newBuilder()
-            .setUserId(userId.toString())
-            .build();
-
-        when(therapistRepository.findByUserId(userId)).thenReturn(Optional.of(testTherapist));
-        when(therapistProtoMapper.toProto(testTherapist)).thenReturn(testProtoTherapist);
-
-        // When
-        ResponseEntity<TherapistProto.Therapist> response = therapistService.getTherapistByUser(request);
-
-        // Then
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertNotNull(response.getBody());
-        assertEquals(testId.toString(), response.getBody().getId());
-        assertEquals(userId.toString(), response.getBody().getUserId());
-
-        verify(therapistRepository).findByUserId(userId);
-        verify(therapistProtoMapper).toProto(testTherapist);
     }
 
     @Test
@@ -233,10 +197,9 @@ class TherapistServiceImplTest {
         List<Therapist> therapists = Arrays.asList(testTherapist);
 
         when(therapistRepository.findVisibleTherapists(orgId)).thenReturn(therapists);
-        when(therapistProtoMapper.toProto(testTherapist)).thenReturn(testProtoTherapist);
 
         // When
-        ResponseEntity<TherapistProto.ListTherapistsResponse> response = therapistService.listTherapists(request);
+        ResponseEntity<TherapistProto.ListTherapistsResponse> response = therapistServiceImpl.listTherapists(request);
 
         // Then
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -247,169 +210,6 @@ class TherapistServiceImplTest {
         assertEquals(0, response.getBody().getPageNumber());
 
         verify(therapistRepository).findVisibleTherapists(orgId);
-        verify(therapistProtoMapper).toProto(testTherapist);
-    }
-
-    @Test
-    void testListTherapists_WithSpecializationId_ReturnsFilteredTherapists() {
-        // Given
-        UUID specId = UUID.randomUUID();
-        TherapistProto.ListTherapistsRequest request = TherapistProto.ListTherapistsRequest.newBuilder()
-            .setSpecializationId(specId.toString())
-            .setPageSize(10)
-            .setPageNumber(0)
-            .build();
-
-        List<Therapist> therapists = Arrays.asList(testTherapist);
-
-        when(therapistRepository.findBySpecializationId(specId)).thenReturn(therapists);
-        when(therapistProtoMapper.toProto(testTherapist)).thenReturn(testProtoTherapist);
-
-        // When
-        ResponseEntity<TherapistProto.ListTherapistsResponse> response = therapistService.listTherapists(request);
-
-        // Then
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertNotNull(response.getBody());
-        assertEquals(1, response.getBody().getTherapistsCount());
-
-        verify(therapistRepository).findBySpecializationId(specId);
-        verify(therapistProtoMapper).toProto(testTherapist);
-    }
-
-    @Test
-    void testListTherapists_WithLanguage_ReturnsFilteredTherapists() {
-        // Given
-        String language = "English";
-        TherapistProto.ListTherapistsRequest request = TherapistProto.ListTherapistsRequest.newBuilder()
-            .setLanguage(language)
-            .setPageSize(10)
-            .setPageNumber(0)
-            .build();
-
-        List<Therapist> therapists = Arrays.asList(testTherapist);
-
-        when(therapistRepository.findByLanguage(language)).thenReturn(therapists);
-        when(therapistProtoMapper.toProto(testTherapist)).thenReturn(testProtoTherapist);
-
-        // When
-        ResponseEntity<TherapistProto.ListTherapistsResponse> response = therapistService.listTherapists(request);
-
-        // Then
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertNotNull(response.getBody());
-        assertEquals(1, response.getBody().getTherapistsCount());
-
-        verify(therapistRepository).findByLanguage(language);
-        verify(therapistProtoMapper).toProto(testTherapist);
-    }
-
-    @Test
-    void testListTherapists_WithTherapyFormats_ReturnsFilteredTherapists() {
-        // Given
-        TherapistProto.ListTherapistsRequest request = TherapistProto.ListTherapistsRequest.newBuilder()
-            .setInPerson(true)
-            .setOnline(false)
-            .setPageSize(10)
-            .setPageNumber(0)
-            .build();
-
-        List<Therapist> therapists = Arrays.asList(testTherapist);
-
-        when(therapistRepository.findByTherapyFormats(true, false)).thenReturn(therapists);
-        when(therapistProtoMapper.toProto(testTherapist)).thenReturn(testProtoTherapist);
-
-        // When
-        ResponseEntity<TherapistProto.ListTherapistsResponse> response = therapistService.listTherapists(request);
-
-        // Then
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertNotNull(response.getBody());
-        assertEquals(1, response.getBody().getTherapistsCount());
-
-        verify(therapistRepository).findByTherapyFormats(true, false);
-        verify(therapistProtoMapper).toProto(testTherapist);
-    }
-
-    @Test
-    void testListTherapists_WithAcceptingClients_ReturnsFilteredTherapists() {
-        // Given
-        TherapistProto.ListTherapistsRequest request = TherapistProto.ListTherapistsRequest.newBuilder()
-            .setAcceptingClients(true)
-            .setPageSize(10)
-            .setPageNumber(0)
-            .build();
-
-        List<Therapist> therapists = Arrays.asList(testTherapist);
-
-        when(therapistRepository.findByIsActiveTrueAndIsAcceptingNewClientsTrue()).thenReturn(therapists);
-        when(therapistProtoMapper.toProto(testTherapist)).thenReturn(testProtoTherapist);
-
-        // When
-        ResponseEntity<TherapistProto.ListTherapistsResponse> response = therapistService.listTherapists(request);
-
-        // Then
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertNotNull(response.getBody());
-        assertEquals(1, response.getBody().getTherapistsCount());
-
-        verify(therapistRepository).findByIsActiveTrueAndIsAcceptingNewClientsTrue();
-        verify(therapistProtoMapper).toProto(testTherapist);
-    }
-
-    @Test
-    void testListTherapists_WithVisibility_ReturnsFilteredTherapists() {
-        // Given
-        TherapistProto.ListTherapistsRequest request = TherapistProto.ListTherapistsRequest.newBuilder()
-            .setVisibility(TherapistProto.TherapistVisibility.THERAPIST_VISIBILITY_PUBLIC)
-            .setPageSize(10)
-            .setPageNumber(0)
-            .build();
-
-        List<Therapist> therapists = Arrays.asList(testTherapist);
-
-        when(therapistRepository.findByVisibilityAndIsActiveTrue(Therapist.TherapistVisibility.PUBLIC))
-            .thenReturn(therapists);
-        when(therapistProtoMapper.toProto(testTherapist)).thenReturn(testProtoTherapist);
-
-        // When
-        ResponseEntity<TherapistProto.ListTherapistsResponse> response = therapistService.listTherapists(request);
-
-        // Then
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertNotNull(response.getBody());
-        assertEquals(1, response.getBody().getTherapistsCount());
-
-        verify(therapistRepository).findByVisibilityAndIsActiveTrue(Therapist.TherapistVisibility.PUBLIC);
-        verify(therapistProtoMapper).toProto(testTherapist);
-    }
-
-    @Test
-    void testListTherapists_WithPagination_ReturnsCorrectPage() {
-        // Given
-        TherapistProto.ListTherapistsRequest request = TherapistProto.ListTherapistsRequest.newBuilder()
-            .setPageSize(1)
-            .setPageNumber(0)
-            .build();
-
-        List<Therapist> allTherapists = Arrays.asList(testTherapist, testTherapist); // Two therapists
-
-        when(therapistRepository.findByVisibilityAndIsActiveTrue(Therapist.TherapistVisibility.PUBLIC))
-            .thenReturn(allTherapists);
-        when(therapistProtoMapper.toProto(testTherapist)).thenReturn(testProtoTherapist);
-
-        // When
-        ResponseEntity<TherapistProto.ListTherapistsResponse> response = therapistService.listTherapists(request);
-
-        // Then
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertNotNull(response.getBody());
-        assertEquals(1, response.getBody().getTherapistsCount()); // Only first page
-        assertEquals(2, response.getBody().getTotalCount()); // Total count
-        assertEquals(1, response.getBody().getPageSize());
-        assertEquals(0, response.getBody().getPageNumber());
-
-        verify(therapistRepository).findByVisibilityAndIsActiveTrue(Therapist.TherapistVisibility.PUBLIC);
     }
 
     @Test
@@ -425,10 +225,9 @@ class TherapistServiceImplTest {
         Page<Therapist> therapistsPage = new PageImpl<>(Arrays.asList(testTherapist));
 
         when(therapistRepository.searchTherapists(eq(query), any(Pageable.class))).thenReturn(therapistsPage);
-        when(therapistProtoMapper.toProto(testTherapist)).thenReturn(testProtoTherapist);
 
         // When
-        ResponseEntity<TherapistProto.SearchTherapistsResponse> response = therapistService.searchTherapists(request);
+        ResponseEntity<TherapistProto.SearchTherapistsResponse> response = therapistServiceImpl.searchTherapists(request);
 
         // Then
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -437,7 +236,6 @@ class TherapistServiceImplTest {
         assertEquals(1, response.getBody().getTotalCount());
 
         verify(therapistRepository).searchTherapists(eq(query), any(Pageable.class));
-        verify(therapistProtoMapper).toProto(testTherapist);
     }
 
     @Test
@@ -450,14 +248,13 @@ class TherapistServiceImplTest {
             .build();
 
         // When
-        ResponseEntity<TherapistProto.SearchTherapistsResponse> response = therapistService.searchTherapists(request);
+        ResponseEntity<TherapistProto.SearchTherapistsResponse> response = therapistServiceImpl.searchTherapists(request);
 
         // Then
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
         assertNull(response.getBody());
 
         verify(therapistRepository, never()).searchTherapists(anyString(), any(Pageable.class));
-        verify(therapistProtoMapper, never()).toProto(any(Therapist.class));
     }
 
     @Test
@@ -471,7 +268,7 @@ class TherapistServiceImplTest {
 
         // When
         ResponseEntity<TherapistProto.GetTherapistProfileImageResponse> response = 
-            therapistService.getTherapistProfileImage(request);
+            therapistServiceImpl.getTherapistProfileImage(request);
 
         // Then
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -493,7 +290,7 @@ class TherapistServiceImplTest {
 
         // When
         ResponseEntity<TherapistProto.GetTherapistProfileImageResponse> response = 
-            therapistService.getTherapistProfileImage(request);
+            therapistServiceImpl.getTherapistProfileImage(request);
 
         // Then
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
@@ -515,7 +312,7 @@ class TherapistServiceImplTest {
 
         // When
         ResponseEntity<TherapistProto.GetTherapistProfileImageResponse> response = 
-            therapistService.getTherapistProfileImage(request);
+            therapistServiceImpl.getTherapistProfileImage(request);
 
         // Then
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());

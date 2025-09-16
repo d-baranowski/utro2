@@ -27,8 +27,6 @@ class SpecializationServiceImplTest {
     @Mock
     private SpecializationRepository specializationRepository;
 
-    @Mock
-    private TherapistProtoMapper therapistProtoMapper;
 
     @InjectMocks
     private SpecializationServiceImpl specializationService;
@@ -71,7 +69,6 @@ class SpecializationServiceImplTest {
             .build();
 
         when(specializationRepository.findById(testId)).thenReturn(Optional.of(testSpecialization));
-        when(therapistProtoMapper.toProto(testSpecialization)).thenReturn(testProtoSpecialization);
 
         // When
         ResponseEntity<TherapistProto.Specialization> response = specializationService.getSpecialization(request);
@@ -83,7 +80,6 @@ class SpecializationServiceImplTest {
         assertEquals("Test Specialization", response.getBody().getNameEng());
 
         verify(specializationRepository).findById(testId);
-        verify(therapistProtoMapper).toProto(testSpecialization);
     }
 
     @Test
@@ -103,7 +99,6 @@ class SpecializationServiceImplTest {
         assertNull(response.getBody());
 
         verify(specializationRepository).findById(testId);
-        verify(therapistProtoMapper, never()).toProto(any(Specialization.class));
     }
 
     @Test
@@ -121,7 +116,6 @@ class SpecializationServiceImplTest {
         assertNull(response.getBody());
 
         verify(specializationRepository, never()).findById(any(UUID.class));
-        verify(therapistProtoMapper, never()).toProto(any(Specialization.class));
     }
 
     @Test
@@ -134,7 +128,6 @@ class SpecializationServiceImplTest {
         List<TherapistProto.Specialization> protoSpecializations = Arrays.asList(testProtoSpecialization);
 
         when(specializationRepository.findByIsActiveTrueOrderByNameEng()).thenReturn(specializations);
-        when(therapistProtoMapper.toProto(testSpecialization)).thenReturn(testProtoSpecialization);
 
         // When
         ResponseEntity<TherapistProto.ListSpecializationsResponse> response = specializationService.listSpecializations(request);
@@ -147,7 +140,6 @@ class SpecializationServiceImplTest {
 
         verify(specializationRepository).findByIsActiveTrueOrderByNameEng();
         verify(specializationRepository, never()).findByCategoryAndIsActiveTrueOrderByNameEng(anyString());
-        verify(therapistProtoMapper).toProto(testSpecialization);
     }
 
     @Test
@@ -161,7 +153,6 @@ class SpecializationServiceImplTest {
         List<Specialization> specializations = Arrays.asList(testSpecialization);
 
         when(specializationRepository.findByCategoryAndIsActiveTrueOrderByNameEng(category)).thenReturn(specializations);
-        when(therapistProtoMapper.toProto(testSpecialization)).thenReturn(testProtoSpecialization);
 
         // When
         ResponseEntity<TherapistProto.ListSpecializationsResponse> response = specializationService.listSpecializations(request);
@@ -174,7 +165,6 @@ class SpecializationServiceImplTest {
 
         verify(specializationRepository).findByCategoryAndIsActiveTrueOrderByNameEng(category);
         verify(specializationRepository, never()).findByIsActiveTrueOrderByNameEng();
-        verify(therapistProtoMapper).toProto(testSpecialization);
     }
 
     @Test
@@ -188,7 +178,6 @@ class SpecializationServiceImplTest {
         List<Specialization> specializations = Arrays.asList(testSpecialization);
 
         when(specializationRepository.searchSpecializations(query)).thenReturn(specializations);
-        when(therapistProtoMapper.toProto(testSpecialization)).thenReturn(testProtoSpecialization);
 
         // When
         ResponseEntity<TherapistProto.SearchSpecializationsResponse> response = specializationService.searchSpecializations(request);
@@ -200,7 +189,6 @@ class SpecializationServiceImplTest {
         assertEquals(testId.toString(), response.getBody().getSpecializations(0).getId());
 
         verify(specializationRepository).searchSpecializations(query);
-        verify(therapistProtoMapper).toProto(testSpecialization);
     }
 
     @Test
@@ -218,7 +206,6 @@ class SpecializationServiceImplTest {
         assertNull(response.getBody());
 
         verify(specializationRepository, never()).searchSpecializations(anyString());
-        verify(therapistProtoMapper, never()).toProto(any(Specialization.class));
     }
 
     @Test
@@ -236,7 +223,6 @@ class SpecializationServiceImplTest {
         assertNull(response.getBody());
 
         verify(specializationRepository, never()).searchSpecializations(anyString());
-        verify(therapistProtoMapper, never()).toProto(any(Specialization.class));
     }
 
     @Test

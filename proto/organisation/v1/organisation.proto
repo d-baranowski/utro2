@@ -10,6 +10,7 @@ service OrganisationService {
   rpc CreateOrganisation(CreateOrganisationRequest) returns (CreateOrganisationResponse);
   rpc SearchOrganisations(SearchOrganisationsRequest) returns (SearchOrganisationsResponse);
   rpc GetOrganisationUsers(GetOrganisationUsersRequest) returns (GetOrganisationUsersResponse);
+  rpc RemoveOrganisationMember(RemoveOrganisationMemberRequest) returns (RemoveOrganisationMemberResponse);
 }
 
 message GetMyOrganisationsRequest {}
@@ -62,6 +63,15 @@ message User {
   google.protobuf.Timestamp joined_at = 6;
   google.protobuf.Timestamp created_at = 7;
   google.protobuf.Timestamp updated_at = 8;
+}
+
+message RemoveOrganisationMemberRequest {
+  string organisation_id = 1;
+  string user_id = 2;
+}
+
+message RemoveOrganisationMemberResponse {
+  bool success = 1;
 }
 
 enum MemberType {

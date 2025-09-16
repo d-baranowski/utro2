@@ -33,4 +33,17 @@ public class OrganisationMapper {
                 .setUpdatedAt(TimeMapper.timestampFromInstant(member.getUser().getUpdatedAt()))
                 .build();
     }
+    
+    public static OrganisationOuterClass.User userProtoFromUser(com.inspirationparticle.utro.user.User user) {
+        return OrganisationOuterClass.User.newBuilder()
+                .setId(user.getId().toString())
+                .setUsername(user.getUsername())
+                .setFullName(user.getFullName() != null ? user.getFullName() : "")
+                .setEmail(user.getEmail() != null ? user.getEmail() : "")
+                // Default member type when not in context of an organisation
+                .setMemberType(OrganisationOuterClass.MemberType.MEMBER_TYPE_MEMBER)
+                .setCreatedAt(TimeMapper.timestampFromInstant(user.getCreatedAt()))
+                .setUpdatedAt(TimeMapper.timestampFromInstant(user.getUpdatedAt()))
+                .build();
+    }
 }

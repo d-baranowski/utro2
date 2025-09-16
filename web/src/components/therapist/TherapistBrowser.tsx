@@ -45,7 +45,7 @@ import {
   SpecializationService,
   ListTherapistsRequestSchema,
   ListSpecializationsRequestSchema 
-} from '../../../generated/utro/v1/therapist_pb';
+} from '@/generated/utro/v1/therapist_pb';
 import { useQuery } from '@connectrpc/connect-query';
 import { create } from '@bufbuild/protobuf';
 import { therapistApi } from '@/lib/api/therapist';

@@ -1,15 +1,18 @@
 import { render, screen } from '@testing-library/react';
 import Layout from '../../src/components/Layout';
 
+// Mock the AuthContext
+jest.mock('../../src/contexts/AuthContext', () => ({
+  useAuth: jest.fn(() => ({
+    isAuthenticated: false,
+    logout: jest.fn(),
+  })),
+}));
+
 // Mock the Navbar component
 jest.mock('../../src/components/Navbar', () => {
-  return function MockNavbar({ isAuthenticated, onLogout }: any) {
-    return (
-      <nav data-testid="navbar">
-        <span>Authenticated: {isAuthenticated ? 'Yes' : 'No'}</span>
-        {onLogout && <button onClick={onLogout}>Logout</button>}
-      </nav>
-    );
+  return function MockNavbar() {
+    return <nav data-testid="navbar">Mocked Navbar</nav>;
   };
 });
 
@@ -24,25 +27,35 @@ describe('Layout', () => {
     expect(screen.getByText('Test content')).toBeInTheDocument();
   });
 
-  it('passes authentication state to navbar', () => {
+  it('renders navbar', () => {
     render(
-      <Layout isAuthenticated={true}>
+      <Layout>
         <div>Content</div>
       </Layout>
     );
 
-    expect(screen.getByText('Authenticated: Yes')).toBeInTheDocument();
+    expect(screen.getByTestId('navbar')).toBeInTheDocument();
   });
 
-  it('passes logout handler to navbar', () => {
-    const mockLogout = jest.fn();
-
-    render(
-      <Layout isAuthenticated={true} onLogout={mockLogout}>
+  it('wraps content in container by default', () => {
+    const { container } = render(
+      <Layout>
         <div>Content</div>
       </Layout>
     );
 
-    expect(screen.getByRole('button', { name: 'Logout' })).toBeInTheDocument();
+    const muiContainer = container.querySelector('.MuiContainer-root');
+    expect(muiContainer).toBeInTheDocument();
+  });
+
+  it('does not use container when fullWidth is true', () => {
+    const { container } = render(
+      <Layout fullWidth={true}>
+        <div>Content</div>
+      </Layout>
+    );
+
+    const muiContainer = container.querySelector('.MuiContainer-root');
+    expect(muiContainer).not.toBeInTheDocument();
   });
 });

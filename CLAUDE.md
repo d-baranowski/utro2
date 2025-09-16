@@ -229,6 +229,68 @@ pnpm run test:coverage   # Run tests with coverage report
 4. Update frontend in Next.js pages/components
 5. Test with `task docker` for full integration
 
+## Test Quality and Requirements
+
+### MANDATORY Testing Standards
+All code changes MUST include high-quality tests with careful, reasonable assertions that verify UI functionality. The following standards are **NON-NEGOTIABLE**:
+
+#### Cypress E2E Test Requirements
+1. **Realistic Assertions**: Tests must verify actual UI behavior, not imaginary test IDs or elements that don't exist
+2. **Proper Wait Conditions**: Use appropriate timeouts and wait for actual content to load
+3. **Functional Verification**: Tests must verify that features actually work end-to-end
+4. **Data Validation**: When testing data display, verify that actual data is rendered, not just that loading states disappear
+5. **Error State Testing**: Test both success and failure scenarios
+6. **Authentication Flow Testing**: Verify login/logout works and protected pages are properly secured
+
+#### Example of GOOD vs BAD Cypress Tests
+
+**❌ BAD Test Example:**
+```typescript
+// BAD: Looking for non-existent test IDs
+cy.getByTestId('login-success-alert').should('be.visible');
+
+// BAD: Not verifying actual functionality
+cy.contains('Add Therapist').should('be.visible'); // Just checks button exists
+```
+
+**✅ GOOD Test Example:**
+```typescript
+// GOOD: Verify actual login flow works
+cy.contains('Successfully signed in', { timeout: 10000 }).should('be.visible');
+cy.visit('/organization-members');
+cy.contains('Organization Members', { timeout: 10000 }).should('be.visible');
+
+// GOOD: Verify data is actually displayed
+cy.get('[data-testid^="therapist-row-"]', { timeout: 10000 }).should('have.length.greaterThan', 0);
+cy.get('table tbody tr').should('have.length.greaterThan', 0);
+```
+
+#### Jest Unit Test Requirements
+1. **Component Behavior**: Test component renders correctly with props
+2. **User Interactions**: Test click handlers, form submissions work
+3. **Edge Cases**: Test loading states, error states, empty states
+4. **Integration**: Test that Connect Query hooks are used correctly
+5. **Mock Appropriately**: Mock external dependencies, not internal logic
+
+#### Test Coverage Standards
+- **All new components** must have corresponding tests
+- **All API integration points** must be tested (especially Connect RPC calls)
+- **Critical user flows** must have E2E test coverage
+- **Error handling** must be tested for all user-facing operations
+
+#### Prohibited Test Practices
+- ❌ Testing for non-existent DOM elements or test IDs
+- ❌ Writing tests that pass but don't verify actual functionality
+- ❌ Ignoring failures or marking failing tests as "expected to fail"
+- ❌ Tests that depend on unrealistic mock data or custom commands that don't exist
+- ❌ Tests that don't wait for async operations to complete
+
+#### Test Failure Policy
+- **ZERO tolerance** for failing tests in main branch
+- All tests must pass before any PR is merged
+- If a test fails, the code is considered broken until fixed
+- Adding test cases is required for any new feature or bug fix
+
 ## Important Configuration Files
 - `/api/app/src/main/resources/application.yml` - Spring Boot config, JWT secrets
 - `/proto/buf.gen.yaml` - Protocol buffer code generation config
@@ -528,6 +590,13 @@ pnpm run typecheck       # TypeScript validation
 - Always run tests before commits: `task test && task lint`
 - Fix any linting or formatting issues before code reviews
 - Maintain test coverage for new features and bug fixes
+- **CRITICAL**: No task is considered complete unless ALL tests pass - this includes:
+  - Java/Spring Boot tests (`mvn test`)
+  - Jest unit tests (`pnpm test`)
+  - Cypress E2E tests (`pnpm cypress:run`)
+  - TypeScript compilation (`pnpm typecheck`)
+- **MANDATORY**: Fix any broken Java, Jest, or Cypress tests before marking any task as done
+- **MANDATORY**: Always ensure all database migrations work correctly and the application starts successfully before considering any task as done
 
 ## Code Style and Architecture Guidelines
 
@@ -561,11 +630,119 @@ pnpm run typecheck       # TypeScript validation
 7. **Proper Authorization**: Check user permissions in service layer, not controllers
 8. **Consistent Error Handling**: Use proper exception types and HTTP status codes
 
-### Proto/API Design
-1. **MANDATORY**: Use Protocol Buffers for all API contracts - NEVER create REST endpoints
-2. **Frontend**: Always use Connect RPC client with generated protobuf services - no fetch() calls to custom endpoints
-3. **Backend**: All API endpoints must be protobuf-based with Connect annotations
-4. Generate code with `task proto` after modifying .proto files
-5. Keep proto definitions aligned with database schema
-6. Use optional fields for update requests
-7. If you need new API functionality, define it in `.proto` files first, never create ad-hoc REST endpoints
+### Proto/API Design and Connect RPC Communication Pattern
+
+**CRITICAL ARCHITECTURAL RULE**: This application NEVER uses REST endpoints. ALL API communication is through Protocol Buffers (protobuf) and Connect RPC.
+
+#### Frontend-to-Backend Communication Pattern
+
+1. **MANDATORY**: Use Protocol Buffers for all API contracts - NEVER create REST endpoints or fetch() calls
+2. **NEVER** use `fetch()` or `axios` or any HTTP client directly to call APIs
+3. **ALWAYS** use Connect Query hooks (`useQuery`, `useMutation`) with generated protobuf services
+
+#### How Frontend Communicates with Backend:
+
+**Step 1: Proto Definition**
+Define services in `.proto` files:
+```protobuf
+service TherapistService {
+  rpc ListTherapists(ListTherapistsRequest) returns (ListTherapistsResponse);
+  rpc CreateTherapist(CreateTherapistRequest) returns (Therapist);
+  rpc UpdateTherapist(UpdateTherapistRequest) returns (Therapist);
+  rpc DeleteTherapist(DeleteTherapistRequest) returns (DeleteTherapistResponse);
+}
+```
+
+**Step 2: Code Generation**
+Run `task proto` to generate:
+- TypeScript types and services in `/web/generated/`
+- Java classes and services in `/api/app/src/main/java/com/inspirationparticle/utro/gen/`
+
+**Step 3: Frontend Usage with Connect Query Hooks**
+```typescript
+import { useQuery, useMutation } from '@connectrpc/connect-query';
+import { create } from '@bufbuild/protobuf';
+import { 
+  listTherapists, 
+  createTherapist, 
+  updateTherapist, 
+  deleteTherapist 
+} from '@/generated/utro/v1/therapist-TherapistService_connectquery';
+import { 
+  ListTherapistsRequestSchema,
+  CreateTherapistRequestSchema,
+  UpdateTherapistRequestSchema,
+  DeleteTherapistRequestSchema 
+} from '@/generated/utro/v1/therapist_pb';
+
+// Query data
+const { data, error, isLoading, refetch } = useQuery(
+  listTherapists,
+  create(ListTherapistsRequestSchema, {
+    organisationId: organizationId,
+    pageSize: 100,
+    pageNumber: 1,
+  })
+);
+
+// Mutate data
+const createMutation = useMutation(createTherapist, {
+  onSuccess: () => {
+    refetch();
+    showSuccessMessage('Therapist created successfully');
+  },
+  onError: (error) => {
+    console.error('Error creating therapist:', error);
+    showErrorMessage('Failed to create therapist');
+  },
+});
+
+// Trigger mutation
+createMutation.mutate(
+  create(CreateTherapistRequestSchema, {
+    userId: formData.userId,
+    organisationId: organizationId,
+    professionalTitle: formData.professionalTitle,
+    // ... other fields
+  })
+);
+```
+
+**Step 4: Backend Implementation**
+Backend controllers handle Connect RPC requests:
+```java
+@Controller
+public class TherapistController {
+  @ConnectMapping
+  public ResponseEntity<Therapist> listTherapists(ListTherapistsRequest request) {
+    // Implementation using service layer
+  }
+  
+  @ConnectMapping  
+  public ResponseEntity<Therapist> createTherapist(CreateTherapistRequest request) {
+    // Implementation using service layer
+  }
+}
+```
+
+#### Rules for API Development:
+
+1. **Frontend**: 
+   - **ALWAYS** use Connect Query hooks (`useQuery`, `useMutation`)
+   - **ALWAYS** use generated protobuf services from `@/generated/`
+   - **ALWAYS** use `create()` from `@bufbuild/protobuf` to create request messages
+   - **NEVER** use `fetch()`, `axios`, or any HTTP client directly
+
+2. **Backend**: 
+   - All API endpoints must be protobuf-based with `@ConnectMapping` annotations
+   - Controllers should only handle Connect RPC, never `@RestController` or `@GetMapping`
+
+3. **Code Generation**: 
+   - Generate code with `task proto` after modifying .proto files
+   - Keep proto definitions aligned with database schema
+   - Use optional fields for update requests
+
+4. **New API Development**:
+   - If you need new API functionality, define it in `.proto` files first
+   - **NEVER** create ad-hoc REST endpoints
+   - **NEVER** bypass the protobuf/Connect RPC pattern
