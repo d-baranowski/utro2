@@ -6,7 +6,9 @@
     "profile": "Profil",
     "settings": "Ustawienia",
     "logout": "Wyloguj",
-    "login": "Zaloguj się"
+    "login": "Zaloguj się",
+    "manageOffers": "Zarządzaj ofertami",
+    "browseOffers": "Przeglądaj oferty"
   },
   "auth": {
     "signIn": "Zaloguj się",
