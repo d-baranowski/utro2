@@ -1,5 +1,6 @@
 import './commands';
 import './database-commands';
+import './offer-database-commands';
 
 // Hide fetch/XHR requests from command log
 Cypress.on('window:before:load', (win) => {
@@ -17,12 +18,17 @@ Cypress.Commands.add(
   }
 );
 
-// Command to login user
+// Command to login user (real authentication, no mocking)
 Cypress.Commands.add('loginUser', (username = 'testuser', password = 'testpass') => {
   cy.visit('/');
-  cy.get('[data-testid="login-username"]').type(username);
-  cy.get('[data-testid="login-password"]').type(password);
+  
+  // Wait for login form to be visible
+  cy.get('[data-testid="login-username"]', { timeout: 10000 }).should('be.visible').type(username);
+  cy.get('[data-testid="login-password"]').should('be.visible').type(password);
   cy.get('[data-testid="login-submit"]').click();
+  
+  // Wait for successful login (check for redirect or success indicator)
+  cy.url({ timeout: 15000 }).should('not.include', '/login');
 });
 
 // Command to clear all storage
