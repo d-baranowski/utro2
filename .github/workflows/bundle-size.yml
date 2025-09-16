@@ -40,6 +40,15 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-
 
+      - name: Setup Buf
+        uses: bufbuild/buf-setup-action@v1
+        with:
+          version: '1.28.1'
+
+      - name: Generate protobuf code
+        working-directory: ./proto
+        run: buf generate
+
       - name: Install dependencies
         working-directory: ./web
         run: pnpm install --frozen-lockfile
