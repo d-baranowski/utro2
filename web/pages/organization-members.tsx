@@ -70,7 +70,7 @@ const OrganizationMembersPage: React.FC = () => {
   const router = useRouter();
   const { isAuthenticated } = useAuth();
   const { currentOrganisation } = useOrganisation();
-  
+
   const [activeTab, setActiveTab] = useState('members');
   const [members, setMembers] = useState<User[]>([]);
   const [invitations, setInvitations] = useState<Invitation[]>([]);
@@ -80,7 +80,7 @@ const OrganizationMembersPage: React.FC = () => {
   const [inviteMemberType, setInviteMemberType] = useState(1); // MEMBER_TYPE_MEMBER
   const [inviteLoading, setInviteLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  
+
   // Remove member confirmation dialog
   const [isRemoveDialogOpen, setIsRemoveDialogOpen] = useState(false);
   const [memberToRemove, setMemberToRemove] = useState<User | null>(null);
@@ -93,25 +93,25 @@ const OrganizationMembersPage: React.FC = () => {
       router.push('/');
       return;
     }
-    
+
     if (!currentOrganisation) {
       console.warn('Please select an organization first');
       router.push('/');
       return;
     }
-    
+
     if (!isAdmin) {
       console.error('You need administrator privileges to access this page');
       router.push('/');
       return;
     }
-    
+
     loadData();
   }, [isAuthenticated, currentOrganisation, isAdmin, router]);
 
   const loadData = async () => {
     if (!currentOrganisation) return;
-    
+
     setLoading(true);
     setError(null);
     try {
@@ -119,7 +119,7 @@ const OrganizationMembersPage: React.FC = () => {
         organisationApi.getOrganisationUsers(currentOrganisation.id),
         organisationApi.getInvitations(currentOrganisation.id),
       ]);
-      
+
       setMembers(usersData || []);
       setInvitations(invitationsData || []);
     } catch (error) {
@@ -134,15 +134,11 @@ const OrganizationMembersPage: React.FC = () => {
 
   const handleInviteSubmit = async () => {
     if (!currentOrganisation || !inviteEmail) return;
-    
+
     setInviteLoading(true);
     try {
-      await organisationApi.createInvitation(
-        currentOrganisation.id,
-        inviteEmail,
-        inviteMemberType
-      );
-      
+      await organisationApi.createInvitation(currentOrganisation.id, inviteEmail, inviteMemberType);
+
       console.log('Invitation sent successfully');
       setIsInviteDialogOpen(false);
       setInviteEmail('');
@@ -173,7 +169,7 @@ const OrganizationMembersPage: React.FC = () => {
 
   const handleRemoveMemberConfirm = async () => {
     if (!currentOrganisation || !memberToRemove) return;
-    
+
     setRemoveLoading(true);
     try {
       await organisationApi.removeOrganisationMember(currentOrganisation.id, memberToRemove.id);
@@ -196,29 +192,42 @@ const OrganizationMembersPage: React.FC = () => {
 
   const getMemberTypeLabel = (memberType: number): string => {
     switch (memberType) {
-      case 2: return 'Administrator';
-      case 1: return 'Member';
-      default: return 'Unknown';
+      case 2:
+        return 'Administrator';
+      case 1:
+        return 'Member';
+      default:
+        return 'Unknown';
     }
   };
 
   const getStatusLabel = (status: number): string => {
     switch (status) {
-      case 1: return 'Pending';
-      case 2: return 'Accepted';
-      case 3: return 'Declined';
-      case 4: return 'Expired';
-      default: return 'Unknown';
+      case 1:
+        return 'Pending';
+      case 2:
+        return 'Accepted';
+      case 3:
+        return 'Declined';
+      case 4:
+        return 'Expired';
+      default:
+        return 'Unknown';
     }
   };
 
   const getStatusColor = (status: number): 'default' | 'success' | 'error' | 'warning' => {
     switch (status) {
-      case 1: return 'default'; // Pending
-      case 2: return 'success'; // Accepted
-      case 3: return 'error';   // Declined
-      case 4: return 'warning'; // Expired
-      default: return 'default';
+      case 1:
+        return 'default'; // Pending
+      case 2:
+        return 'success'; // Accepted
+      case 3:
+        return 'error'; // Declined
+      case 4:
+        return 'warning'; // Expired
+      default:
+        return 'default';
     }
   };
 
@@ -238,16 +247,14 @@ const OrganizationMembersPage: React.FC = () => {
     return (
       <Layout>
         <Container>
-          <Alert severity="error">
-            {t('organisation.adminPrivilegesRequired')}
-          </Alert>
+          <Alert severity="error">{t('organisation.adminPrivilegesRequired')}</Alert>
         </Container>
       </Layout>
     );
   }
 
-  const pendingInvitations = invitations.filter(inv => inv.status === 1);
-  const pastInvitations = invitations.filter(inv => inv.status !== 1);
+  const pendingInvitations = invitations.filter((inv) => inv.status === 1);
+  const pastInvitations = invitations.filter((inv) => inv.status !== 1);
 
   return (
     <Layout>
@@ -279,24 +286,17 @@ const OrganizationMembersPage: React.FC = () => {
 
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <Tabs value={activeTab} onChange={(_, newValue) => setActiveTab(newValue)}>
-            <Tab 
-              label={t('organisation.membersTab', { count: members.length })}
-              value="members" 
-            />
-            <Tab 
+            <Tab label={t('organisation.membersTab', { count: members.length })} value="members" />
+            <Tab
               label={
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                   <span>{t('organisation.invitations')}</span>
                   {pendingInvitations.length > 0 && (
-                    <Chip 
-                      label={pendingInvitations.length} 
-                      color="primary" 
-                      size="small"
-                    />
+                    <Chip label={pendingInvitations.length} color="primary" size="small" />
                   )}
                 </Box>
-              } 
-              value="invitations" 
+              }
+              value="invitations"
             />
           </Tabs>
         </Box>
@@ -329,8 +329,8 @@ const OrganizationMembersPage: React.FC = () => {
                         />
                       </TableCell>
                       <TableCell>
-                        {member.joinedAt && member.joinedAt.seconds 
-                          ? new Date(Number(member.joinedAt.seconds) * 1000).toLocaleDateString() 
+                        {member.joinedAt && member.joinedAt.seconds
+                          ? new Date(Number(member.joinedAt.seconds) * 1000).toLocaleDateString()
                           : '-'}
                       </TableCell>
                       <TableCell>
@@ -385,12 +385,12 @@ const OrganizationMembersPage: React.FC = () => {
                               size="small"
                             />
                           </TableCell>
-                          <TableCell>
-                            {invitation.invitedBy?.username || '-'}
-                          </TableCell>
+                          <TableCell>{invitation.invitedBy?.username || '-'}</TableCell>
                           <TableCell>
                             {invitation.expiresAt && invitation.expiresAt.seconds
-                              ? new Date(Number(invitation.expiresAt.seconds) * 1000).toLocaleDateString()
+                              ? new Date(
+                                  Number(invitation.expiresAt.seconds) * 1000
+                                ).toLocaleDateString()
                               : '-'}
                           </TableCell>
                           <TableCell>
@@ -446,7 +446,9 @@ const OrganizationMembersPage: React.FC = () => {
                           </TableCell>
                           <TableCell>
                             {invitation.createdAt && invitation.createdAt.seconds
-                              ? new Date(Number(invitation.createdAt.seconds) * 1000).toLocaleDateString()
+                              ? new Date(
+                                  Number(invitation.createdAt.seconds) * 1000
+                                ).toLocaleDateString()
                               : '-'}
                           </TableCell>
                         </TableRow>
@@ -458,9 +460,7 @@ const OrganizationMembersPage: React.FC = () => {
             )}
 
             {invitations.length === 0 && (
-              <Alert severity="info">
-                {t('organisation.noInvitationsYet')}
-              </Alert>
+              <Alert severity="info">{t('organisation.noInvitationsYet')}</Alert>
             )}
           </Box>
         )}
@@ -488,7 +488,7 @@ const OrganizationMembersPage: React.FC = () => {
                 <InputLabel>{t('common.role')}</InputLabel>
                 <Select
                   value={inviteMemberType}
-                  onChange={(e: SelectChangeEvent<number>) => 
+                  onChange={(e: SelectChangeEvent<number>) =>
                     setInviteMemberType(e.target.value as number)
                   }
                   label={t('common.role')}
@@ -500,10 +500,7 @@ const OrganizationMembersPage: React.FC = () => {
             </Box>
           </DialogContent>
           <DialogActions>
-            <Button 
-              onClick={() => setIsInviteDialogOpen(false)}
-              disabled={inviteLoading}
-            >
+            <Button onClick={() => setIsInviteDialogOpen(false)} disabled={inviteLoading}>
               {t('common.cancel')}
             </Button>
             <Button
@@ -527,17 +524,16 @@ const OrganizationMembersPage: React.FC = () => {
           <DialogTitle>{t('organisation.removeMemberTitle')}</DialogTitle>
           <DialogContent>
             <Typography>
-              {t('organisation.removeMemberConfirm', { name: memberToRemove?.fullName || memberToRemove?.username })}
+              {t('organisation.removeMemberConfirm', {
+                name: memberToRemove?.fullName || memberToRemove?.username,
+              })}
             </Typography>
             <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
               {t('organisation.removeMemberWarning')}
             </Typography>
           </DialogContent>
           <DialogActions>
-            <Button 
-              onClick={handleRemoveMemberCancel}
-              disabled={removeLoading}
-            >
+            <Button onClick={handleRemoveMemberCancel} disabled={removeLoading}>
               {t('common.cancel')}
             </Button>
             <Button

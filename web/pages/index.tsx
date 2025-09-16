@@ -251,7 +251,7 @@ export default function Home({ publicMsg }: Props) {
 export const getServerSideProps: GetServerSideProps<Props> = async ({ locale }) => {
   const resp = await fetch(`${config.apiBaseUrlServer}/public`);
   const publicMsg = await resp.text();
-  
+
   return {
     props: {
       publicMsg,

@@ -47,7 +47,7 @@ describe('TherapistManagement', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
-    
+
     // Default mock implementations
     mockListTherapists.mockReturnValue({
       data: {

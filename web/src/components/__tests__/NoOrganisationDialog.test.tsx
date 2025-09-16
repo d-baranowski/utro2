@@ -10,8 +10,10 @@ jest.mock('../../lib/api/organisation', () => ({
   },
 }));
 
-const mockCreateOrganisation = require('../../lib/api/organisation').organisationApi.createOrganisation;
-const mockSearchOrganisations = require('../../lib/api/organisation').organisationApi.searchOrganisations;
+const mockCreateOrganisation = require('../../lib/api/organisation').organisationApi
+  .createOrganisation;
+const mockSearchOrganisations = require('../../lib/api/organisation').organisationApi
+  .searchOrganisations;
 
 describe('NoOrganisationDialog', () => {
   const mockOnClose = jest.fn();
@@ -86,7 +88,7 @@ describe('NoOrganisationDialog', () => {
     );
 
     fireEvent.click(screen.getByText('organisation.createOrganisation'));
-    
+
     // Try to submit without filling fields
     const submitButton = screen.getByText('common.create');
     fireEvent.click(submitButton);
@@ -191,7 +193,7 @@ describe('NoOrganisationDialog', () => {
     );
 
     fireEvent.click(screen.getByText('organisation.createOrganisation'));
-    
+
     const backButton = screen.getByText('common.back');
     fireEvent.click(backButton);
 

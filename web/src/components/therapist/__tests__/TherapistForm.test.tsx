@@ -103,7 +103,7 @@ describe('TherapistForm', () => {
     // Select a language
     const languageSelect = screen.getByTestId('therapist-language-select');
     fireEvent.mouseDown(languageSelect);
-    
+
     const englishOption = screen.getByText('English');
     fireEvent.click(englishOption);
 
@@ -201,11 +201,11 @@ describe('TherapistForm', () => {
     expect(screen.getByTestId('therapist-phone-input')).toHaveValue('+1234567890');
     expect(screen.getByTestId('therapist-email-input')).toHaveValue('existing@example.com');
     expect(screen.getByTestId('therapist-slug-input')).toHaveValue('dr-existing');
-    
+
     // Check languages are displayed
     expect(screen.getByTestId('language-chip-ENGLISH')).toBeInTheDocument();
     expect(screen.getByTestId('language-chip-POLISH')).toBeInTheDocument();
-    
+
     // Check switches
     expect(screen.getByTestId('online-therapy-switch')).toBeChecked();
     expect(screen.getByTestId('in-person-therapy-switch')).toBeChecked();

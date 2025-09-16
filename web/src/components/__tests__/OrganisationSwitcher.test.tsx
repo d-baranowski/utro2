@@ -78,7 +78,11 @@ describe('OrganisationSwitcher', () => {
     fireEvent.click(org2Item);
 
     await waitFor(() => {
-      expect(mockSetCurrentOrganisation).toHaveBeenCalledWith({ id: '2', name: 'Org 2', memberType: 2 });
+      expect(mockSetCurrentOrganisation).toHaveBeenCalledWith({
+        id: '2',
+        name: 'Org 2',
+        memberType: 2,
+      });
     });
   });
 

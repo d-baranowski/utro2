@@ -10,10 +10,10 @@ describe('No Organisation Dialog', () => {
       // Use REAL authentication
       cy.visit('/');
       cy.loginUser();
-      
+
       // Wait for real login to complete
       cy.contains('Successfully signed in', { timeout: 10000 }).should('be.visible');
-      
+
       // Check if no-org dialog appears (depends on user's actual org status)
       cy.get('body').then(($body) => {
         if ($body.find('[data-testid="no-organisation-dialog"]').length > 0) {
@@ -29,7 +29,7 @@ describe('No Organisation Dialog', () => {
       cy.visit('/');
       cy.loginUser();
       cy.contains('Successfully signed in', { timeout: 10000 }).should('be.visible');
-      
+
       cy.get('body').then(($body) => {
         if ($body.find('[data-testid="no-organisation-dialog"]').length > 0) {
           // Check for both options
@@ -45,12 +45,12 @@ describe('No Organisation Dialog', () => {
       cy.visit('/');
       cy.loginUser();
       cy.contains('Successfully signed in', { timeout: 10000 }).should('be.visible');
-      
+
       cy.get('body').then(($body) => {
         if ($body.find('[data-testid="no-organisation-dialog"]').length > 0) {
           // Click create organisation
           cy.contains('Create Organisation').click();
-          
+
           // Should either navigate to create page or show create dialog
           cy.get('body').should('be.visible');
         }
@@ -63,12 +63,12 @@ describe('No Organisation Dialog', () => {
       cy.visit('/');
       cy.loginUser();
       cy.contains('Successfully signed in', { timeout: 10000 }).should('be.visible');
-      
+
       cy.get('body').then(($body) => {
         if ($body.find('[data-testid="no-organisation-dialog"]').length > 0) {
           // Click search for organisations
           cy.contains('Search for Organisations').click();
-          
+
           // Should show search interface
           cy.get('body').should('be.visible');
         }
@@ -80,7 +80,7 @@ describe('No Organisation Dialog', () => {
     it('should not show dialog when not authenticated', () => {
       // Visit without login
       cy.visit('/');
-      
+
       // Should see login form, not no-org dialog
       cy.getByTestId('login-username').should('be.visible');
       cy.getByTestId('no-organisation-dialog').should('not.exist');

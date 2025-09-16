@@ -19,10 +19,7 @@
   },
   {
     "name": "Total App Size",
-    "path": [
-      ".next/static/chunks/**/*.js",
-      ".next/static/css/**/*.css"
-    ],
+    "path": [".next/static/chunks/**/*.js", ".next/static/css/**/*.css"],
     "limit": "500 KB",
     "gzip": true
   },

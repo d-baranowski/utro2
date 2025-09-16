@@ -19,10 +19,10 @@ describe('Therapist Functionality - Simple Tests', () => {
       cy.get('[data-testid="login-username"]').type('testuser');
       cy.get('[data-testid="login-password"]').type('testpass');
       cy.get('[data-testid="login-submit"]').click();
-      
+
       // Wait for real login to complete
       cy.contains('Successfully signed in', { timeout: 10000 }).should('be.visible');
-      
+
       // After successful login, user should not see login form
       cy.get('[data-testid="login-username"]').should('not.exist');
     });
@@ -35,12 +35,12 @@ describe('Therapist Functionality - Simple Tests', () => {
       cy.get('[data-testid="login-username"]').type('testuser');
       cy.get('[data-testid="login-password"]').type('testpass');
       cy.get('[data-testid="login-submit"]').click();
-      
+
       cy.contains('Successfully signed in', { timeout: 10000 }).should('be.visible');
-      
+
       // Visit therapist management page
       cy.visit('/therapist-management');
-      
+
       // Check what happens based on user permissions
       cy.url({ timeout: 10000 }).then((url) => {
         if (url.includes('/therapist-management')) {

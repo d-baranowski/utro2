@@ -67,7 +67,7 @@ export const organisationApi = {
     const response = await organisationClient.searchOrganisations(request);
     return response.organisations;
   },
-  
+
   async getOrganisationUsers(organisationId: string) {
     const request = create(GetOrganisationUsersRequestSchema, {
       organisationId,
@@ -75,7 +75,7 @@ export const organisationApi = {
     const response = await organisationClient.getOrganisationUsers(request);
     return response.users;
   },
-  
+
   async createInvitation(organisationId: string, email: string, memberType: number) {
     const request = create(CreateInvitationRequestSchema, {
       organisationId,
@@ -85,7 +85,7 @@ export const organisationApi = {
     const response = await invitationClient.createInvitation(request);
     return response.invitation;
   },
-  
+
   async getInvitations(organisationId: string) {
     const request = create(GetInvitationsRequestSchema, {
       organisationId,
@@ -93,7 +93,7 @@ export const organisationApi = {
     const response = await invitationClient.getInvitations(request);
     return response.invitations;
   },
-  
+
   async respondToInvitation(invitationId: string, accept: boolean) {
     const request = create(RespondToInvitationRequestSchema, {
       invitationId,
@@ -102,7 +102,7 @@ export const organisationApi = {
     const response = await invitationClient.respondToInvitation(request);
     return response.invitation;
   },
-  
+
   async cancelInvitation(invitationId: string) {
     const request = create(CancelInvitationRequestSchema, {
       invitationId,
@@ -110,7 +110,7 @@ export const organisationApi = {
     const response = await invitationClient.cancelInvitation(request);
     return response.success;
   },
-  
+
   async removeOrganisationMember(organisationId: string, userId: string) {
     const request = create(RemoveOrganisationMemberRequestSchema, {
       organisationId,

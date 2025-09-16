@@ -10,7 +10,7 @@ describe('Organisation Switching Flow', () => {
       // Use REAL authentication - no mocks!
       cy.visit('/');
       cy.loginUser();
-      
+
       // Wait for real login to complete
       cy.contains('Successfully signed in', { timeout: 10000 }).should('be.visible');
     });
@@ -30,7 +30,7 @@ describe('Organisation Switching Flow', () => {
       cy.get('body').then(($body) => {
         if ($body.find('[data-testid="organisation-switcher-button"]').length > 0) {
           cy.getByTestId('organisation-switcher-button').click();
-          
+
           // Should show create option
           cy.getByTestId('create-organisation-menu-item').should('be.visible');
         } else {
@@ -44,16 +44,15 @@ describe('Organisation Switching Flow', () => {
         if ($body.find('[data-testid="organisation-switcher-button"]').length > 0) {
           const currentOrgText = $body.find('[data-testid="organisation-switcher-button"]').text();
           cy.getByTestId('organisation-switcher-button').click();
-          
+
           // Try to find another org to switch to
           cy.get('[data-testid^="organisation-option-"]').then(($options) => {
             if ($options.length > 1) {
               // Click a different org
               cy.wrap($options[1]).click();
-              
+
               // Verify the switcher updated
-              cy.getByTestId('organisation-switcher-button')
-                .should('not.contain', currentOrgText);
+              cy.getByTestId('organisation-switcher-button').should('not.contain', currentOrgText);
             } else {
               cy.log('Only one organisation available');
             }
@@ -69,12 +68,12 @@ describe('Organisation Switching Flow', () => {
       cy.visit('/');
       cy.loginUser();
       cy.contains('Successfully signed in', { timeout: 10000 }).should('be.visible');
-      
+
       cy.get('body').then(($body) => {
         if ($body.find('[data-testid="organisation-switcher-button"]').length > 0) {
           cy.getByTestId('organisation-switcher-button').click();
           cy.getByTestId('create-organisation-menu-item').click();
-          
+
           // Should navigate to create org page or show dialog
           cy.get('body').should('be.visible');
         } else {
@@ -91,19 +90,18 @@ describe('Organisation Switching Flow', () => {
       cy.visit('/');
       cy.loginUser();
       cy.contains('Successfully signed in', { timeout: 10000 }).should('be.visible');
-      
+
       cy.get('body').then(($body) => {
         if ($body.find('[data-testid="organisation-switcher-button"]').length > 0) {
           // Get current org
           cy.getByTestId('organisation-switcher-button').then(($button) => {
             const originalOrg = $button.text();
-            
+
             // Reload page
             cy.reload();
-            
+
             // Should still show same org
-            cy.getByTestId('organisation-switcher-button')
-              .should('contain', originalOrg);
+            cy.getByTestId('organisation-switcher-button').should('contain', originalOrg);
           });
         }
       });

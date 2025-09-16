@@ -68,7 +68,7 @@ describe('UserDropdown', () => {
         memberType: 1, // ADMINISTRATOR
       },
       {
-        id: 'user-2', 
+        id: 'user-2',
         username: 'jane_smith',
         fullName: 'Jane Smith',
         email: 'jane@example.com',
@@ -141,7 +141,7 @@ describe('UserDropdown', () => {
         <UserDropdown {...defaultProps} />
       </TestProviders>
     );
-    
+
     // The component should render without throwing errors
     expect(container).toBeTruthy();
   });

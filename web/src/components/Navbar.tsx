@@ -57,11 +57,20 @@ const Navbar: React.FC = () => {
   // Add therapist-related menu items for authenticated users with organisations
   const therapistMenuItems = [];
   if (isAuthenticated && organisations.length > 0) {
-    therapistMenuItems.push({ label: t('navigation.findTherapists', 'Find Therapists'), href: '/therapists' });
-    
+    therapistMenuItems.push({
+      label: t('navigation.findTherapists', 'Find Therapists'),
+      href: '/therapists',
+    });
+
     if (isCurrentUserAdmin()) {
-      therapistMenuItems.push({ label: t('navigation.manageTherapists', 'Manage Therapists'), href: '/therapist-management' });
-      therapistMenuItems.push({ label: t('navigation.manageMembers', 'Manage Members'), href: '/organization-members' });
+      therapistMenuItems.push({
+        label: t('navigation.manageTherapists', 'Manage Therapists'),
+        href: '/therapist-management',
+      });
+      therapistMenuItems.push({
+        label: t('navigation.manageMembers', 'Manage Members'),
+        href: '/organization-members',
+      });
     }
   }
 

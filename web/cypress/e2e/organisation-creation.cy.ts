@@ -10,10 +10,10 @@ describe('Organisation Creation Flow', () => {
       // Use REAL authentication - no mocks!
       cy.visit('/');
       cy.loginUser('testuser', 'testpass');
-      
-      // Wait for real login to complete  
+
+      // Wait for real login to complete
       cy.contains('Successfully signed in', { timeout: 10000 }).should('be.visible');
-      
+
       // Check if user has no organisations (might see create org flow)
       cy.get('body').then(($body) => {
         if ($body.find('[data-testid="no-organisation-dialog"]').length > 0) {
@@ -31,12 +31,12 @@ describe('Organisation Creation Flow', () => {
       cy.visit('/');
       cy.loginUser('testuser', 'testpass');
       cy.contains('Successfully signed in', { timeout: 10000 }).should('be.visible');
-      
+
       // Try to access create org functionality
       cy.get('body').then(($body) => {
         if ($body.find('[data-testid="no-organisation-dialog"]').length > 0) {
           cy.contains('Create Organisation').click();
-          
+
           // Should show create form or navigate somewhere
           cy.get('body').should('be.visible');
         } else if ($body.find('[data-testid="organisation-switcher-button"]').length > 0) {
@@ -55,7 +55,7 @@ describe('Organisation Creation Flow', () => {
     it('should redirect to login when not authenticated', () => {
       // Try to access organisation functionality without login
       cy.visit('/');
-      
+
       // Should see login form
       cy.getByTestId('login-username').should('be.visible');
       cy.getByTestId('login-password').should('be.visible');

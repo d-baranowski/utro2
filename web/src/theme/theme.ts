@@ -1,27 +1,37 @@
 import { createTheme } from '@mui/material/styles';
 
+/**
+ * Theme inspired by Foundation/NGO websites like Fundacja Bez Klamek
+ *
+ * Color Philosophy:
+ * - Primary Green: Trust, growth, stability, nature-friendly
+ * - Secondary Orange: Warmth, energy, human connection, optimism
+ * - Background: Clean, accessible, professional
+ * - Text: High contrast for accessibility, warm yet professional
+ */
+
 const theme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#1976d2',
-      light: '#42a5f5',
-      dark: '#1565c0',
+      main: '#2e7d3e', // Forest green - trust, growth, foundation values
+      light: '#5cb85c', // Lighter green for hover states
+      dark: '#1e5128', // Darker green for active states
       contrastText: '#ffffff',
     },
     secondary: {
-      main: '#0288d1',
-      light: '#03a9f4',
-      dark: '#01579b',
+      main: '#f39c12', // Warm orange - energy, warmth, human connection
+      light: '#f7ca18', // Light orange for accents
+      dark: '#d68910', // Dark orange for emphasis
       contrastText: '#ffffff',
     },
     background: {
-      default: '#f5f7fa',
+      default: '#f8f9fa', // Softer, warmer background
       paper: '#ffffff',
     },
     text: {
-      primary: '#1a2332',
-      secondary: '#5f6d7e',
+      primary: '#2c3e50', // Dark blue-grey for better readability
+      secondary: '#7f8c8d', // Medium grey for secondary text
     },
     divider: 'rgba(0, 0, 0, 0.08)',
   },
@@ -79,7 +89,7 @@ const theme = createTheme({
         },
         contained: {
           '&:hover': {
-            boxShadow: '0 4px 12px rgba(25, 118, 210, 0.25)',
+            boxShadow: '0 4px 12px rgba(46, 125, 62, 0.25)', // Updated to match new primary color
           },
         },
       },
@@ -93,7 +103,7 @@ const theme = createTheme({
         root: {
           '& .MuiOutlinedInput-root': {
             '&:hover fieldset': {
-              borderColor: '#1976d2',
+              borderColor: '#2e7d3e', // Updated to match new primary color
             },
           },
         },
@@ -111,7 +121,7 @@ const theme = createTheme({
         root: {
           boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)',
           backgroundColor: '#ffffff',
-          color: '#1a2332',
+          color: '#2c3e50', // Updated to match new text primary color
         },
       },
     },

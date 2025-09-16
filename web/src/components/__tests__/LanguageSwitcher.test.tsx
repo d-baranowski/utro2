@@ -198,8 +198,8 @@ describe('LanguageSwitcher', () => {
     fireEvent.click(button);
 
     const menuItems = screen.getAllByRole('menuitem');
-    const englishItem = menuItems.find(item => item.textContent?.includes('English'));
-    
+    const englishItem = menuItems.find((item) => item.textContent?.includes('English'));
+
     expect(englishItem).toHaveAttribute('aria-disabled', 'true');
   });
 });
