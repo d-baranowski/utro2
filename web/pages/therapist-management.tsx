@@ -48,7 +48,7 @@ const TherapistManagementPage = () => {
     );
   }
 
-  if (!currentOrganisation) {
+  if (!currentOrganisation?.id) {
     return (
       <Layout>
         <Box sx={{ p: 3 }}>
@@ -71,7 +71,7 @@ const TherapistManagementPage = () => {
 
   return (
     <Layout>
-      <TherapistManagement organizationId={currentOrganisation!.id} isAdmin={isCurrentUserAdmin()} />
+      <TherapistManagement organizationId={currentOrganisation.id} isAdmin={isCurrentUserAdmin()} />
     </Layout>
   );
 };

@@ -43,8 +43,10 @@ export default function OrganisationSwitcher({ onCreateOrganisation }: Organisat
 
   const getMemberTypeLabel = (memberType: MemberType) => {
     switch (memberType) {
+      case MemberType.MEMBER_TYPE_ADMINISTRATOR:
       case MemberType.ADMINISTRATOR:
         return 'Admin';
+      case MemberType.MEMBER_TYPE_MEMBER:
       case MemberType.MEMBER:
         return 'Member';
       default:
@@ -106,7 +108,7 @@ export default function OrganisationSwitcher({ onCreateOrganisation }: Organisat
               secondary={org.description ? org.description.substring(0, 50) + '...' : null}
             />
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-              {org.memberType !== MemberType.UNSPECIFIED && (
+              {org.memberType && (
                 <Chip
                   label={getMemberTypeLabel(org.memberType)}
                   size="small"

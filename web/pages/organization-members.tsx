@@ -110,7 +110,7 @@ const OrganizationMembersPage: React.FC = () => {
   }, [isAuthenticated, currentOrganisation, isAdmin, router]);
 
   const loadData = async () => {
-    if (!currentOrganisation) return;
+    if (!currentOrganisation?.id) return;
     
     setLoading(true);
     setError(null);
@@ -133,7 +133,7 @@ const OrganizationMembersPage: React.FC = () => {
   };
 
   const handleInviteSubmit = async () => {
-    if (!currentOrganisation || !inviteEmail) return;
+    if (!currentOrganisation?.id || !inviteEmail) return;
     
     setInviteLoading(true);
     try {
@@ -172,7 +172,7 @@ const OrganizationMembersPage: React.FC = () => {
   };
 
   const handleRemoveMemberConfirm = async () => {
-    if (!currentOrganisation || !memberToRemove) return;
+    if (!currentOrganisation?.id || !memberToRemove?.id) return;
     
     setRemoveLoading(true);
     try {
