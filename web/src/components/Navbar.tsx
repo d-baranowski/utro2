@@ -65,7 +65,17 @@ const Navbar: React.FC = () => {
     }
   }
 
-  const allMenuItems = [...menuItems, ...therapistMenuItems];
+  // Add offer-related menu items for authenticated users with organisations
+  const offerMenuItems = [];
+  if (isAuthenticated && organisations.length > 0) {
+    offerMenuItems.push({ label: t('navigation.browseOffers'), href: '/offers' });
+    
+    if (isCurrentUserAdmin()) {
+      offerMenuItems.push({ label: t('navigation.manageOffers'), href: '/offer-management' });
+    }
+  }
+
+  const allMenuItems = [...menuItems, ...therapistMenuItems, ...offerMenuItems];
 
   const drawer = (
     <Box sx={{ width: 250, height: '100%', bgcolor: 'background.paper' }}>

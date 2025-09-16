@@ -1,7 +1,6 @@
 package com.inspirationparticle.utro.therapist;
 
 import com.inspirationparticle.utro.therapist.dto.*;
-import org.springframework.stereotype.Component;
 
 import java.util.stream.Collectors;
 
@@ -146,7 +145,7 @@ public class TherapistMapper {
         return dto;
     }
 
-    public static com.inspirationparticle.utro.therapist.Therapist.TherapistVisibility mapVisibilityFromProto(com.inspirationparticle.utro.gen.v1.TherapistProto.TherapistVisibility visibility) {
+    public static com.inspirationparticle.utro.therapist.Therapist.TherapistVisibility mapVisibilityFromProto(com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.TherapistVisibility visibility) {
         return switch (visibility) {
             case THERAPIST_VISIBILITY_PUBLIC -> com.inspirationparticle.utro.therapist.Therapist.TherapistVisibility.PUBLIC;
             case THERAPIST_VISIBILITY_ORGANISATION_ONLY -> com.inspirationparticle.utro.therapist.Therapist.TherapistVisibility.ORGANISATION_ONLY;

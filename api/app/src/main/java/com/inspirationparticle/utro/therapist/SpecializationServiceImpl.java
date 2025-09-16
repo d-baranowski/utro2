@@ -1,6 +1,7 @@
 package com.inspirationparticle.utro.therapist;
 
-import com.inspirationparticle.utro.gen.v1.TherapistProto.*;
+import com.inspirationparticle.utro.gen.therapist.v1.TherapistProto;
+import com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,7 @@ public class SpecializationServiceImpl {
 
 
     @PostMapping("/GetSpecialization")
-    public ResponseEntity<com.inspirationparticle.utro.gen.v1.TherapistProto.Specialization> getSpecialization(@RequestBody com.inspirationparticle.utro.gen.v1.TherapistProto.GetSpecializationRequest request) {
+    public ResponseEntity<TherapistProto.Specialization> getSpecialization(@RequestBody TherapistProto.GetSpecializationRequest request) {
         try {
             UUID id = UUID.fromString(request.getId());
             Optional<com.inspirationparticle.utro.therapist.Specialization> specialization = 
@@ -37,7 +38,7 @@ public class SpecializationServiceImpl {
     }
 
     @PostMapping("/ListSpecializations")
-    public ResponseEntity<com.inspirationparticle.utro.gen.v1.TherapistProto.ListSpecializationsResponse> listSpecializations(@RequestBody com.inspirationparticle.utro.gen.v1.TherapistProto.ListSpecializationsRequest request) {
+    public ResponseEntity<TherapistProto.ListSpecializationsResponse> listSpecializations(@RequestBody TherapistProto.ListSpecializationsRequest request) {
         List<com.inspirationparticle.utro.therapist.Specialization> specializations;
         
         if (request.hasCategory()) {
@@ -46,17 +47,17 @@ public class SpecializationServiceImpl {
             specializations = specializationRepository.findByIsActiveTrueOrderByNameEng();
         }
 
-        List<com.inspirationparticle.utro.gen.v1.TherapistProto.Specialization> protoSpecializations = specializations.stream()
+        List<TherapistProto.Specialization> protoSpecializations = specializations.stream()
             .map(TherapistProtoMapper::toProto)
             .collect(Collectors.toList());
 
-        return ResponseEntity.ok(com.inspirationparticle.utro.gen.v1.TherapistProto.ListSpecializationsResponse.newBuilder()
+        return ResponseEntity.ok(TherapistProto.ListSpecializationsResponse.newBuilder()
             .addAllSpecializations(protoSpecializations)
             .build());
     }
 
     @PostMapping("/SearchSpecializations")
-    public ResponseEntity<com.inspirationparticle.utro.gen.v1.TherapistProto.SearchSpecializationsResponse> searchSpecializations(@RequestBody com.inspirationparticle.utro.gen.v1.TherapistProto.SearchSpecializationsRequest request) {
+    public ResponseEntity<TherapistProto.SearchSpecializationsResponse> searchSpecializations(@RequestBody TherapistProto.SearchSpecializationsRequest request) {
         if (request.getQuery().trim().isEmpty()) {
             return ResponseEntity.badRequest().build();
         }
@@ -64,20 +65,20 @@ public class SpecializationServiceImpl {
         List<com.inspirationparticle.utro.therapist.Specialization> specializations = 
             specializationRepository.searchSpecializations(request.getQuery());
 
-        List<com.inspirationparticle.utro.gen.v1.TherapistProto.Specialization> protoSpecializations = specializations.stream()
+        List<TherapistProto.Specialization> protoSpecializations = specializations.stream()
             .map(TherapistProtoMapper::toProto)
             .collect(Collectors.toList());
 
-        return ResponseEntity.ok(com.inspirationparticle.utro.gen.v1.TherapistProto.SearchSpecializationsResponse.newBuilder()
+        return ResponseEntity.ok(TherapistProto.SearchSpecializationsResponse.newBuilder()
             .addAllSpecializations(protoSpecializations)
             .build());
     }
 
     @PostMapping("/GetSpecializationCategories")
-    public ResponseEntity<com.inspirationparticle.utro.gen.v1.TherapistProto.GetSpecializationCategoriesResponse> getSpecializationCategories(@RequestBody com.inspirationparticle.utro.gen.v1.TherapistProto.GetSpecializationCategoriesRequest request) {
+    public ResponseEntity<TherapistProto.GetSpecializationCategoriesResponse> getSpecializationCategories(@RequestBody TherapistProto.GetSpecializationCategoriesRequest request) {
         List<String> categories = specializationRepository.findDistinctCategories();
 
-        return ResponseEntity.ok(com.inspirationparticle.utro.gen.v1.TherapistProto.GetSpecializationCategoriesResponse.newBuilder()
+        return ResponseEntity.ok(TherapistProto.GetSpecializationCategoriesResponse.newBuilder()
             .addAllCategories(categories)
             .build());
     }

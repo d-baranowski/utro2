@@ -1,4 +1,0 @@
-syntax = "proto3";
-package com.inspirationparticle.utro.gen.v1;
-
-option java_package = "com.inspirationparticle.utro.gen.v1";

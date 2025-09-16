@@ -1,6 +1,6 @@
 package com.inspirationparticle.utro.therapist;
 
-import com.inspirationparticle.utro.gen.v1.TherapistProto;
+import com.inspirationparticle.utro.gen.therapist.v1.TherapistProto;
 import com.inspirationparticle.utro.organisation.Organisation;
 import com.inspirationparticle.utro.user.User;
 

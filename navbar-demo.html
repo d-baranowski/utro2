@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utro Navigation Demo</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .navbar {
+            background-color: #1976d2;
+            color: white;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #1565c0;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-weight: 700;
+        }
+        .nav-items {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        .nav-item:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        .nav-item.admin-only {
+            background-color: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .content {
+            padding: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .badge {
+            display: inline-block;
+            background-color: #4caf50;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-left: 8px;
+        }
+        .admin-badge {
+            background-color: #ff9800;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <div class="logo-icon">U</div>
+            UTRO
+        </div>
+        <div class="nav-items">
+            <a href="#" class="nav-item">Home</a>
+            <a href="#" class="nav-item">About</a>
+            <a href="#" class="nav-item">Services</a>
+            <a href="#" class="nav-item">Contact</a>
+            <a href="#" class="nav-item">Find Therapists</a>
+            <a href="#" class="nav-item">Browse Offers <span class="badge">NEW</span></a>
+            <a href="#" class="nav-item admin-only">Manage Therapists <span class="badge admin-badge">ADMIN</span></a>
+            <a href="#" class="nav-item admin-only">Manage Offers <span class="badge admin-badge">ADMIN</span></a>
+            <a href="#" class="nav-item admin-only">Manage Members <span class="badge admin-badge">ADMIN</span></a>
+        </div>
+    </nav>
+    
+    <div class="content">
+        <div class="card">
+            <h2>🎉 Navigation Updated - Offer Management Access Added</h2>
+            <p><strong>The navbar now includes offer management navigation items:</strong></p>
+            
+            <h3>📋 For All Authenticated Users:</h3>
+            <ul>
+                <li><strong>"Browse Offers"</strong> - Links to <code>/offers</code> page for public offer browsing</li>
+                <li>Available to all users with organization access</li>
+                <li>Supports multilingual navigation (English/Polish)</li>
+            </ul>
+            
+            <h3>🔐 For Organization Administrators:</h3>
+            <ul>
+                <li><strong>"Manage Offers"</strong> - Links to <code>/offer-management</code> page for CRUD operations</li>
+                <li>Only visible to users with administrator privileges</li>
+                <li>Full administrative control over organization offers</li>
+            </ul>
+            
+            <h3>🌍 Multilingual Support:</h3>
+            <ul>
+                <li><strong>English:</strong> "Browse Offers" and "Manage Offers"</li>
+                <li><strong>Polish:</strong> "Przeglądaj oferty" and "Zarządzaj ofertami"</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h3>📱 Responsive Design</h3>
+            <p>The navigation items are also integrated into the mobile drawer menu, ensuring consistent access across all device sizes.</p>
+        </div>
+    </div>
+</body>
+</html>

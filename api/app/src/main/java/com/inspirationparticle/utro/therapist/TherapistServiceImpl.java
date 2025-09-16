@@ -1,6 +1,6 @@
 package com.inspirationparticle.utro.therapist;
 
-import com.inspirationparticle.utro.gen.v1.TherapistProto.*;
+import com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.*;
 import com.inspirationparticle.utro.organisation.MemberType;
 import com.inspirationparticle.utro.organisation.OrganisationMemberRepository;
 import com.inspirationparticle.utro.user.User;
@@ -38,7 +38,7 @@ public class TherapistServiceImpl {
     private OrganisationMemberRepository organisationMemberRepository;
 
     @PostMapping("/GetTherapist")
-    public ResponseEntity<com.inspirationparticle.utro.gen.v1.TherapistProto.Therapist> getTherapist(@RequestBody com.inspirationparticle.utro.gen.v1.TherapistProto.GetTherapistRequest request) {
+    public ResponseEntity<com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.Therapist> getTherapist(@RequestBody com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.GetTherapistRequest request) {
         try {
             UUID id = UUID.fromString(request.getId());
             Optional<com.inspirationparticle.utro.therapist.Therapist> therapist = therapistRepository.findById(id);
@@ -54,7 +54,7 @@ public class TherapistServiceImpl {
     }
 
     @PostMapping("/GetTherapistBySlug")
-    public ResponseEntity<com.inspirationparticle.utro.gen.v1.TherapistProto.Therapist> getTherapistBySlug(@RequestBody com.inspirationparticle.utro.gen.v1.TherapistProto.GetTherapistBySlugRequest request) {
+    public ResponseEntity<com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.Therapist> getTherapistBySlug(@RequestBody com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.GetTherapistBySlugRequest request) {
         Optional<com.inspirationparticle.utro.therapist.Therapist> therapist = 
             therapistRepository.findBySlug(request.getSlug());
         
@@ -66,7 +66,7 @@ public class TherapistServiceImpl {
     }
 
     @PostMapping("/GetTherapistByUser")
-    public ResponseEntity<com.inspirationparticle.utro.gen.v1.TherapistProto.Therapist> getTherapistByUser(@RequestBody com.inspirationparticle.utro.gen.v1.TherapistProto.GetTherapistByUserRequest request) {
+    public ResponseEntity<com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.Therapist> getTherapistByUser(@RequestBody com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.GetTherapistByUserRequest request) {
         try {
             UUID userId = UUID.fromString(request.getUserId());
             Optional<com.inspirationparticle.utro.therapist.Therapist> therapist = 
@@ -83,7 +83,7 @@ public class TherapistServiceImpl {
     }
 
     @PostMapping("/ListTherapists")
-    public ResponseEntity<com.inspirationparticle.utro.gen.v1.TherapistProto.ListTherapistsResponse> listTherapists(@RequestBody com.inspirationparticle.utro.gen.v1.TherapistProto.ListTherapistsRequest request) {
+    public ResponseEntity<com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.ListTherapistsResponse> listTherapists(@RequestBody com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.ListTherapistsRequest request) {
         try {
             List<com.inspirationparticle.utro.therapist.Therapist> therapists;
             int totalCount = 0;
@@ -161,11 +161,11 @@ public class TherapistServiceImpl {
                 therapists = List.of();
             }
 
-            List<com.inspirationparticle.utro.gen.v1.TherapistProto.Therapist> protoTherapists = therapists.stream()
+            List<com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.Therapist> protoTherapists = therapists.stream()
                 .map(TherapistProtoMapper::toProto)
                 .collect(Collectors.toList());
 
-            return ResponseEntity.ok(com.inspirationparticle.utro.gen.v1.TherapistProto.ListTherapistsResponse.newBuilder()
+            return ResponseEntity.ok(com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.ListTherapistsResponse.newBuilder()
                 .addAllTherapists(protoTherapists)
                 .setTotalCount(totalCount)
                 .setPageSize(pageSize)
@@ -177,7 +177,7 @@ public class TherapistServiceImpl {
     }
 
     @PostMapping("/SearchTherapists")
-    public ResponseEntity<com.inspirationparticle.utro.gen.v1.TherapistProto.SearchTherapistsResponse> searchTherapists(@RequestBody com.inspirationparticle.utro.gen.v1.TherapistProto.SearchTherapistsRequest request) {
+    public ResponseEntity<com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.SearchTherapistsResponse> searchTherapists(@RequestBody com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.SearchTherapistsRequest request) {
         if (request.getQuery().trim().isEmpty()) {
             return ResponseEntity.badRequest().build();
         }
@@ -189,11 +189,11 @@ public class TherapistServiceImpl {
         Page<com.inspirationparticle.utro.therapist.Therapist> therapistsPage = 
             therapistRepository.searchTherapists(request.getQuery(), pageable);
 
-        List<com.inspirationparticle.utro.gen.v1.TherapistProto.Therapist> protoTherapists = therapistsPage.getContent().stream()
+        List<com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.Therapist> protoTherapists = therapistsPage.getContent().stream()
             .map(TherapistProtoMapper::toProto)
             .collect(Collectors.toList());
 
-        return ResponseEntity.ok(com.inspirationparticle.utro.gen.v1.TherapistProto.SearchTherapistsResponse.newBuilder()
+        return ResponseEntity.ok(com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.SearchTherapistsResponse.newBuilder()
             .addAllTherapists(protoTherapists)
             .setTotalCount((int) therapistsPage.getTotalElements())
             .setPageSize(pageSize)
@@ -202,7 +202,7 @@ public class TherapistServiceImpl {
     }
 
     @PostMapping("/GetTherapistProfileImage")
-    public ResponseEntity<com.inspirationparticle.utro.gen.v1.TherapistProto.GetTherapistProfileImageResponse> getTherapistProfileImage(@RequestBody com.inspirationparticle.utro.gen.v1.TherapistProto.GetTherapistProfileImageRequest request) {
+    public ResponseEntity<com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.GetTherapistProfileImageResponse> getTherapistProfileImage(@RequestBody com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.GetTherapistProfileImageRequest request) {
         try {
             UUID id = UUID.fromString(request.getId());
             Optional<com.inspirationparticle.utro.therapist.Therapist> therapist = therapistRepository.findById(id);
@@ -215,7 +215,7 @@ public class TherapistServiceImpl {
                 return ResponseEntity.notFound().build();
             }
             
-            return ResponseEntity.ok(com.inspirationparticle.utro.gen.v1.TherapistProto.GetTherapistProfileImageResponse.newBuilder()
+            return ResponseEntity.ok(com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.GetTherapistProfileImageResponse.newBuilder()
                 .setImageData(com.google.protobuf.ByteString.copyFrom(therapist.get().getProfileImage()))
                 .setMimeType(therapist.get().getProfileImageMimeType() != null ? 
                     therapist.get().getProfileImageMimeType() : "image/jpeg")
@@ -225,28 +225,28 @@ public class TherapistServiceImpl {
         }
     }
 
-    public ResponseEntity<com.inspirationparticle.utro.gen.v1.TherapistProto.Therapist> createTherapist(
-            com.inspirationparticle.utro.gen.v1.TherapistProto.CreateTherapistRequest request, String username) {
+    public ResponseEntity<com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.Therapist> createTherapist(
+            com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.CreateTherapistRequest request, String username) {
         return therapistService.createTherapist(request, username);
     }
 
-    public ResponseEntity<com.inspirationparticle.utro.gen.v1.TherapistProto.Therapist> updateTherapist(
-            com.inspirationparticle.utro.gen.v1.TherapistProto.UpdateTherapistRequest request, String username) {
+    public ResponseEntity<com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.Therapist> updateTherapist(
+            com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.UpdateTherapistRequest request, String username) {
         return therapistService.updateTherapist(request, username);
     }
 
-    public ResponseEntity<com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistResponse> deleteTherapist(
-            com.inspirationparticle.utro.gen.v1.TherapistProto.DeleteTherapistRequest request, String username) {
+    public ResponseEntity<com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.DeleteTherapistResponse> deleteTherapist(
+            com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.DeleteTherapistRequest request, String username) {
         return therapistService.deleteTherapist(request, username);
     }
 
-    public ResponseEntity<com.inspirationparticle.utro.gen.v1.TherapistProto.Therapist> publishTherapist(
-            com.inspirationparticle.utro.gen.v1.TherapistProto.PublishTherapistRequest request, String username) {
+    public ResponseEntity<com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.Therapist> publishTherapist(
+            com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.PublishTherapistRequest request, String username) {
         return therapistService.publishTherapist(request, username);
     }
 
-    public ResponseEntity<com.inspirationparticle.utro.gen.v1.TherapistProto.Therapist> unpublishTherapist(
-            com.inspirationparticle.utro.gen.v1.TherapistProto.UnpublishTherapistRequest request, String username) {
+    public ResponseEntity<com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.Therapist> unpublishTherapist(
+            com.inspirationparticle.utro.gen.therapist.v1.TherapistProto.UnpublishTherapistRequest request, String username) {
         return therapistService.unpublishTherapist(request, username);
     }
 }

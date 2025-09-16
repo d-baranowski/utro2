@@ -6,7 +6,9 @@
     "profile": "Profil",
     "settings": "Ustawienia",
     "logout": "Wyloguj",
-    "login": "Zaloguj się"
+    "login": "Zaloguj się",
+    "manageOffers": "Zarządzaj ofertami",
+    "browseOffers": "Przeglądaj oferty"
   },
   "auth": {
     "signIn": "Zaloguj się",
@@ -172,6 +174,54 @@
       "slugRequired": "Identyfikator URL jest wymagany",
       "languagesRequired": "Wymagany jest przynajmniej jeden język",
       "formatRequired": "Wymagany jest przynajmniej jeden format terapii"
+    }
+  },
+  "offers": {
+    "title": "Zarządzanie ofertami",
+    "subtitle": "Zarządzaj usługami i ofertami swojej organizacji",
+    "add": "Dodaj ofertę",
+    "edit": "Edytuj ofertę",
+    "delete": "Usuń ofertę",
+    "createOffer": "Utwórz ofertę",
+    "editOffer": "Edytuj ofertę",
+    "deleteConfirm": "Czy na pewno chcesz usunąć tę ofertę?",
+    "deleteWarning": "Ta akcja nie może zostać cofnięta. Spowoduje to trwałe usunięcie oferty.",
+    "noOffers": "Nie znaleziono ofert",
+    "noOffersMessage": "Utwórz swoją pierwszą ofertę, aby rozpocząć",
+    "searchPlaceholder": "Szukaj ofert po nazwie lub opisie...",
+    "nameEng": "Nazwa (angielski)",
+    "namePl": "Nazwa (polski)",
+    "descriptionEng": "Opis (angielski)",
+    "descriptionPl": "Opis (polski)",
+    "profileImage": "Zdjęcie profilowe",
+    "uploadImage": "Prześlij zdjęcie",
+    "removeImage": "Usuń zdjęcie",
+    "imagePreview": "Podgląd zdjęcia",
+    "created": "Utworzono",
+    "updated": "Zaktualizowano",
+    "actions": "Akcje",
+    "view": "Zobacz",
+    "browse": "Przeglądaj oferty",
+    "browseSubtitle": "Odkryj dostępne usługi i oferty",
+    "offersCount": "Dostępnych ofert: {{count}}",
+    "noOffersAvailable": "W tej chwili brak dostępnych ofert",
+    "errors": {
+      "nameRequired": "Nazwa oferty jest wymagana w przynajmniej jednym języku",
+      "nameEngRequired": "Nazwa angielska jest wymagana",
+      "namePlRequired": "Nazwa polska jest wymagana",
+      "descriptionRequired": "Opis jest wymagany w przynajmniej jednym języku",
+      "createFailed": "Nie udało się utworzyć oferty",
+      "updateFailed": "Nie udało się zaktualizować oferty",
+      "deleteFailed": "Nie udało się usunąć oferty",
+      "loadFailed": "Nie udało się załadować ofert",
+      "imageTooLarge": "Plik obrazu jest za duży (max 5MB)",
+      "invalidImageType": "Nieprawidłowy typ obrazu. Użyj JPG, PNG lub WebP",
+      "adminRequired": "Wymagany dostęp administratora do zarządzania ofertami"
+    },
+    "success": {
+      "created": "Oferta została utworzona pomyślnie",
+      "updated": "Oferta została zaktualizowana pomyślnie",
+      "deleted": "Oferta została usunięta pomyślnie"
     }
   }
 }

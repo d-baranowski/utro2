@@ -16,6 +16,39 @@ export default defineConfig({
     numTestsKeptInMemory: 1,
     env: {
       apiUrl: 'http://localhost:8080',
+      dbHost: 'localhost',
+      dbPort: '5432',
+      dbName: 'utro',
+      dbUser: 'utro',
+      dbPassword: 'utro_password',
+    },
+    setupNodeEvents(on, config) {
+      // Database task for real E2E tests (no mocking)
+      on('task', {
+        'db:seed': async ({ sql }: { sql: string }) => {
+          // Import pg dynamically to avoid issues if not installed
+          try {
+            const { Client } = await import('pg');
+            const client = new Client({
+              host: config.env.dbHost,
+              port: config.env.dbPort,
+              database: config.env.dbName,
+              user: config.env.dbUser,
+              password: config.env.dbPassword,
+            });
+
+            await client.connect();
+            const result = await client.query(sql);
+            await client.end();
+            return result;
+          } catch (error) {
+            console.error('Database task error:', error);
+            throw error;
+          }
+        },
+      });
+
+      return config;
     },
   },
   component: {
