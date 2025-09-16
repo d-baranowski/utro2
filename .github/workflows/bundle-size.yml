@@ -31,7 +31,7 @@ jobs:
           version: 8
 
       - name: Cache dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             web/node_modules
@@ -55,7 +55,7 @@ jobs:
           node scripts/bundle-analysis.js --detailed
 
       - name: Upload bundle report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: bundle-report
