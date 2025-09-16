@@ -14,7 +14,12 @@ import {
 } from '@mui/material';
 import { Invitation } from '../../../generated/organisation/v1/invitation_pb';
 import { MemberType } from '../../../generated/organisation/v1/organisation_pb';
-import { Timestamp } from '@bufbuild/protobuf';
+
+// Temporary mock Timestamp interface
+interface Timestamp {
+  seconds: { toNumber(): number };
+  nanos: number;
+}
 
 interface InvitationListProps {
   invitations: Invitation[];
@@ -44,7 +49,8 @@ const getStatusDisplayName = (status: Invitation['status']): string => {
 };
 
 // Helper function to get member type display name
-const getMemberTypeDisplayName = (memberType: MemberType): string => {
+const getMemberTypeDisplayName = (memberType: MemberType | undefined): string => {
+  if (!memberType) return 'UNKNOWN';
   switch (memberType) {
     case MemberType.MEMBER_TYPE_ADMINISTRATOR: return 'ADMINISTRATOR';
     case MemberType.MEMBER_TYPE_MEMBER: return 'MEMBER';
@@ -95,7 +101,7 @@ export const InvitationList: React.FC<InvitationListProps> = ({
         </TableHead>
         <TableBody>
           {invitations.map((invitation) => (
-            <TableRow key={invitation.id}>
+            <TableRow key={invitation.id || 'unknown'}>
               <TableCell>{invitation.organisationId}</TableCell>
               <TableCell>
                 <Chip
@@ -115,13 +121,13 @@ export const InvitationList: React.FC<InvitationListProps> = ({
                 {toDate(invitation.expiresAt).toLocaleDateString()}
               </TableCell>
               <TableCell>
-                {invitation.status === 1 && (
+                {invitation.status === 1 && invitation.id && (
                   <Box sx={{ display: 'flex', gap: 1 }}>
                     <Button
                       variant="contained"
                       color="primary"
                       size="small"
-                      onClick={() => onAccept(invitation.id)}
+                      onClick={() => onAccept(invitation.id!)}
                     >
                       Accept
                     </Button>
@@ -129,7 +135,7 @@ export const InvitationList: React.FC<InvitationListProps> = ({
                       variant="outlined"
                       color="error"
                       size="small"
-                      onClick={() => onDecline(invitation.id)}
+                      onClick={() => onDecline(invitation.id!)}
                     >
                       Decline
                     </Button>
