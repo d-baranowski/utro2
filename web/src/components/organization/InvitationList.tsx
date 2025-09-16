@@ -26,29 +26,34 @@ interface InvitationListProps {
 // Helper function to convert Timestamp to Date
 const toDate = (timestamp: Timestamp | undefined): Date => {
   if (!timestamp) return new Date(0);
-  return new Date(
-    timestamp.seconds.toNumber() * 1000 + 
-    Math.floor(timestamp.nanos / 1000000)
-  );
+  return new Date(timestamp.seconds.toNumber() * 1000 + Math.floor(timestamp.nanos / 1000000));
 };
 
 // Helper function to get status display name
 const getStatusDisplayName = (status: Invitation['status']): string => {
   switch (status) {
-    case 1: return 'PENDING';
-    case 2: return 'ACCEPTED';
-    case 3: return 'DECLINED';
-    case 4: return 'EXPIRED';
-    default: return 'UNKNOWN';
+    case 1:
+      return 'PENDING';
+    case 2:
+      return 'ACCEPTED';
+    case 3:
+      return 'DECLINED';
+    case 4:
+      return 'EXPIRED';
+    default:
+      return 'UNKNOWN';
   }
 };
 
 // Helper function to get member type display name
 const getMemberTypeDisplayName = (memberType: MemberType): string => {
   switch (memberType) {
-    case MemberType.MEMBER_TYPE_ADMINISTRATOR: return 'ADMINISTRATOR';
-    case MemberType.MEMBER_TYPE_MEMBER: return 'MEMBER';
-    default: return 'UNKNOWN';
+    case MemberType.MEMBER_TYPE_ADMINISTRATOR:
+      return 'ADMINISTRATOR';
+    case MemberType.MEMBER_TYPE_MEMBER:
+      return 'MEMBER';
+    default:
+      return 'UNKNOWN';
   }
 };
 
@@ -101,7 +106,11 @@ export const InvitationList: React.FC<InvitationListProps> = ({
                 <Chip
                   label={getMemberTypeDisplayName(invitation.memberType)}
                   size="small"
-                  color={invitation.memberType === MemberType.MEMBER_TYPE_ADMINISTRATOR ? 'primary' : 'default'}
+                  color={
+                    invitation.memberType === MemberType.MEMBER_TYPE_ADMINISTRATOR
+                      ? 'primary'
+                      : 'default'
+                  }
                 />
               </TableCell>
               <TableCell>
@@ -111,9 +120,7 @@ export const InvitationList: React.FC<InvitationListProps> = ({
                   size="small"
                 />
               </TableCell>
-              <TableCell>
-                {toDate(invitation.expiresAt).toLocaleDateString()}
-              </TableCell>
+              <TableCell>{toDate(invitation.expiresAt).toLocaleDateString()}</TableCell>
               <TableCell>
                 {invitation.status === 1 && (
                   <Box sx={{ display: 'flex', gap: 1 }}>

@@ -41,16 +41,18 @@ const client = createClient(TherapistService, transport);
 const specializationClient = createClient(SpecializationService, transport);
 
 export const therapistApi = {
-  async listTherapists(params: {
-    organisationId?: string;
-    pageSize?: number;
-    pageNumber?: number;
-    specializationId?: string;
-    language?: string;
-    inPerson?: boolean;
-    online?: boolean;
-    acceptingClients?: boolean;
-  } = {}) {
+  async listTherapists(
+    params: {
+      organisationId?: string;
+      pageSize?: number;
+      pageNumber?: number;
+      specializationId?: string;
+      language?: string;
+      inPerson?: boolean;
+      online?: boolean;
+      acceptingClients?: boolean;
+    } = {}
+  ) {
     const request = create(ListTherapistsRequestSchema, {
       organisationId: params.organisationId,
       pageSize: params.pageSize || 12,

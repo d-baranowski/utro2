@@ -3,13 +3,13 @@ describe('Organization Members Management', () => {
     // Clear any existing auth state
     cy.clearLocalStorage();
     cy.clearCookies();
-    
+
     // Login as testuser
     cy.visit('http://localhost:3000/');
     cy.getByTestId('login-username').type('testuser');
     cy.getByTestId('login-password').type('testpass');
     cy.getByTestId('login-submit').click();
-    
+
     // Wait for successful login
     cy.contains('Successfully signed in', { timeout: 10000 }).should('be.visible');
   });
@@ -17,7 +17,7 @@ describe('Organization Members Management', () => {
   describe('Access Control Tests', () => {
     it('handles organization members page access appropriately', () => {
       cy.visit('http://localhost:3000/organization-members');
-      
+
       // Check what happens when user tries to access the page
       cy.url({ timeout: 10000 }).then((url) => {
         if (url.includes('/organization-members')) {
@@ -37,10 +37,10 @@ describe('Organization Members Management', () => {
       // Clear authentication
       cy.clearLocalStorage();
       cy.clearCookies();
-      
+
       // Try to access organization members page directly
       cy.visit('http://localhost:3000/organization-members');
-      
+
       // Should be redirected to login
       cy.url({ timeout: 10000 }).should('eq', Cypress.config().baseUrl + '/');
       cy.contains('Welcome Back').should('be.visible');
@@ -50,10 +50,10 @@ describe('Organization Members Management', () => {
   describe('Translation Tests', () => {
     it('verifies no untranslated keys are visible on organization members page', () => {
       cy.visit('http://localhost:3000/organization-members');
-      
+
       // Wait for page to load
       cy.wait(2000);
-      
+
       // Verify no untranslated keys regardless of access level
       cy.get('body').should('not.contain', 'organisation.members');
       cy.get('body').should('not.contain', 'organisation.inviteMember');
@@ -64,10 +64,10 @@ describe('Organization Members Management', () => {
 
     it('verifies Polish page works without untranslated keys', () => {
       cy.visit('http://localhost:3000/pl/organization-members');
-      
+
       // Wait for page to load
       cy.wait(2000);
-      
+
       // Verify no untranslated keys regardless of access level
       cy.get('body').should('not.contain', 'organisation.members');
       cy.get('body').should('not.contain', 'organisation.inviteMember');

@@ -71,7 +71,10 @@ const TherapistManagementPage = () => {
 
   return (
     <Layout>
-      <TherapistManagement organizationId={currentOrganisation!.id} isAdmin={isCurrentUserAdmin()} />
+      <TherapistManagement
+        organizationId={currentOrganisation!.id}
+        isAdmin={isCurrentUserAdmin()}
+      />
     </Layout>
   );
 };

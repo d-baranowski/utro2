@@ -24,7 +24,7 @@ Cypress.Commands.add('createTestUser', (baseUsername?: string) => {
   const timestamp = Date.now();
   const username = baseUsername ? `${baseUsername}_${timestamp}` : `testuser_${timestamp}`;
   const password = 'testpass123';
-  
+
   // Return mock user data without actual API call since test endpoint doesn't exist
   return cy.wrap({ username, password });
 });
@@ -39,7 +39,10 @@ Cypress.Commands.add('deleteTestUser', (username: string) => {
 Cypress.Commands.add('setupUniqueUser', (baseUsername?: string) => {
   return cy.createTestUser(baseUsername).then((userCreds) => {
     // Store credentials for later use in test
-    return cy.wrap(userCreds).as('userCreds').then(() => userCreds);
+    return cy
+      .wrap(userCreds)
+      .as('userCreds')
+      .then(() => userCreds);
   });
 });
 
@@ -50,9 +53,9 @@ declare global {
       findByTestId(testId: string): Chainable<JQuery<HTMLElement>>;
       loginUser(username?: string, password?: string): Chainable<void>;
       clearStorage(): Chainable<void>;
-      createTestUser(baseUsername?: string): Chainable<{username: string, password: string}>;
+      createTestUser(baseUsername?: string): Chainable<{ username: string; password: string }>;
       deleteTestUser(username: string): Chainable<void>;
-      setupUniqueUser(baseUsername?: string): Chainable<{username: string, password: string}>;
+      setupUniqueUser(baseUsername?: string): Chainable<{ username: string; password: string }>;
     }
   }
 }

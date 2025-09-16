@@ -25,7 +25,7 @@ import { Add as AddIcon, Send as SendIcon, Cancel as CancelIcon } from '@mui/ico
 import { useSnackbar } from 'notistack';
 import { useConnect } from 'connect-react-query';
 import { InvitationList } from './InvitationList';
-import { 
+import {
   Invitation as InvitationType,
   MemberType,
   createInvitation,
@@ -50,29 +50,28 @@ const MembersPage: React.FC<MembersPageProps> = ({ organizationId, isAdmin }) =>
   const [error, setError] = useState<string | null>(null);
 
   // Fetch invitations
-  const { data: invitationsData, refetch: refetchInvitations } = useConnect(
-    getInvitations,
-    { organizationId }
-  );
+  const { data: invitationsData, refetch: refetchInvitations } = useConnect(getInvitations, {
+    organizationId,
+  });
 
   const invitations = invitationsData?.invitations || [];
-  const pendingInvitations = invitations.filter(inv => inv.status === 1); // PENDING
-  const pastInvitations = invitations.filter(inv => inv.status !== 1);
+  const pendingInvitations = invitations.filter((inv) => inv.status === 1); // PENDING
+  const pastInvitations = invitations.filter((inv) => inv.status !== 1);
 
   const handleInviteSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
-    
+
     setIsLoading(true);
     setError(null);
-    
+
     try {
       await createInvitation({
         organisationId: organizationId,
         email,
         memberType,
       });
-      
+
       enqueueSnackbar('Invitation sent successfully', { variant: 'success' });
       setIsInviteDialogOpen(false);
       setEmail('');
@@ -92,12 +91,11 @@ const MembersPage: React.FC<MembersPageProps> = ({ organizationId, isAdmin }) =>
         invitationId,
         accept,
       });
-      
-      enqueueSnackbar(
-        accept ? 'Invitation accepted' : 'Invitation declined',
-        { variant: 'success' }
-      );
-      
+
+      enqueueSnackbar(accept ? 'Invitation accepted' : 'Invitation declined', {
+        variant: 'success',
+      });
+
       refetchInvitations();
     } catch (err) {
       console.error('Failed to respond to invitation:', err);
@@ -128,7 +126,7 @@ const MembersPage: React.FC<MembersPageProps> = ({ organizationId, isAdmin }) =>
             aria-label="organization tabs"
           >
             <Tab label="Members" value="members" />
-            <Tab 
+            <Tab
               label={
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                   <span>Invitations</span>
@@ -221,15 +219,13 @@ const MembersPage: React.FC<MembersPageProps> = ({ organizationId, isAdmin }) =>
                 <InputLabel>Role</InputLabel>
                 <Select
                   value={memberType}
-                  onChange={(e: SelectChangeEvent<MemberType>) => 
+                  onChange={(e: SelectChangeEvent<MemberType>) =>
                     setMemberType(e.target.value as MemberType)
                   }
                   label="Role"
                 >
                   <MenuItem value={MemberType.MEMBER_TYPE_MEMBER}>Member</MenuItem>
-                  <MenuItem value={MemberType.MEMBER_TYPE_ADMINISTRATOR}>
-                    Administrator
-                  </MenuItem>
+                  <MenuItem value={MemberType.MEMBER_TYPE_ADMINISTRATOR}>Administrator</MenuItem>
                 </Select>
               </FormControl>
             </Box>

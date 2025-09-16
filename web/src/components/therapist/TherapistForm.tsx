@@ -226,7 +226,13 @@ export const TherapistForm: React.FC<TherapistFormProps> = ({
   };
 
   return (
-    <Dialog open={open} onClose={onClose} maxWidth="md" fullWidth data-testid="therapist-form-dialog">
+    <Dialog
+      open={open}
+      onClose={onClose}
+      maxWidth="md"
+      fullWidth
+      data-testid="therapist-form-dialog"
+    >
       <DialogTitle>
         {mode === 'create' ? t('therapist.createTitle') : t('therapist.editTitle')}
       </DialogTitle>
@@ -273,10 +279,7 @@ export const TherapistForm: React.FC<TherapistFormProps> = ({
 
           <Grid item xs={12}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-              <Avatar
-                src={formData.profileImageUrl}
-                sx={{ width: 100, height: 100 }}
-              />
+              <Avatar src={formData.profileImageUrl} sx={{ width: 100, height: 100 }} />
               <Box>
                 <input
                   accept="image/*"
@@ -349,11 +352,7 @@ export const TherapistForm: React.FC<TherapistFormProps> = ({
             </Typography>
             <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mb: 1 }}>
               {formData.languages.map((lang) => (
-                <Chip
-                  key={lang}
-                  label={lang}
-                  onDelete={() => handleRemoveLanguage(lang)}
-                />
+                <Chip key={lang} label={lang} onDelete={() => handleRemoveLanguage(lang)} />
               ))}
             </Box>
             <Box sx={{ display: 'flex', gap: 1 }}>
@@ -367,22 +366,24 @@ export const TherapistForm: React.FC<TherapistFormProps> = ({
                   <MenuItem value="">
                     <em>{t('therapist.selectLanguage')}</em>
                   </MenuItem>
-                  {AVAILABLE_LANGUAGES.filter(
-                    (lang) => !formData.languages.includes(lang)
-                  ).map((lang) => (
-                    <MenuItem key={lang} value={lang}>
-                      {lang}
-                    </MenuItem>
-                  ))}
+                  {AVAILABLE_LANGUAGES.filter((lang) => !formData.languages.includes(lang)).map(
+                    (lang) => (
+                      <MenuItem key={lang} value={lang}>
+                        {lang}
+                      </MenuItem>
+                    )
+                  )}
                 </Select>
               </FormControl>
-              <Button onClick={handleAddLanguage} variant="outlined" data-testid="add-language-button">
+              <Button
+                onClick={handleAddLanguage}
+                variant="outlined"
+                data-testid="add-language-button"
+              >
                 {t('common.add')}
               </Button>
             </Box>
-            {errors.languages && (
-              <FormHelperText error>{errors.languages}</FormHelperText>
-            )}
+            {errors.languages && <FormHelperText error>{errors.languages}</FormHelperText>}
           </Grid>
 
           <Grid item xs={12} md={6}>
@@ -390,9 +391,7 @@ export const TherapistForm: React.FC<TherapistFormProps> = ({
               control={
                 <Switch
                   checked={formData.inPersonTherapyFormat}
-                  onChange={(e) =>
-                    handleChange('inPersonTherapyFormat', e.target.checked)
-                  }
+                  onChange={(e) => handleChange('inPersonTherapyFormat', e.target.checked)}
                   data-testid="in-person-therapy-switch"
                 />
               }
@@ -405,9 +404,7 @@ export const TherapistForm: React.FC<TherapistFormProps> = ({
               control={
                 <Switch
                   checked={formData.onlineTherapyFormat}
-                  onChange={(e) =>
-                    handleChange('onlineTherapyFormat', e.target.checked)
-                  }
+                  onChange={(e) => handleChange('onlineTherapyFormat', e.target.checked)}
                 />
               }
               label={t('therapist.onlineTherapy')}
@@ -476,9 +473,7 @@ export const TherapistForm: React.FC<TherapistFormProps> = ({
               control={
                 <Switch
                   checked={formData.isAcceptingNewClients}
-                  onChange={(e) =>
-                    handleChange('isAcceptingNewClients', e.target.checked)
-                  }
+                  onChange={(e) => handleChange('isAcceptingNewClients', e.target.checked)}
                 />
               }
               label={t('therapist.acceptingNewClients')}
@@ -528,7 +523,12 @@ export const TherapistForm: React.FC<TherapistFormProps> = ({
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>{t('common.cancel')}</Button>
-        <Button onClick={handleSubmit} variant="contained" disabled={loading} data-testid="therapist-form-submit">
+        <Button
+          onClick={handleSubmit}
+          variant="contained"
+          disabled={loading}
+          data-testid="therapist-form-submit"
+        >
           {mode === 'create' ? t('common.create') : t('common.save')}
         </Button>
       </DialogActions>

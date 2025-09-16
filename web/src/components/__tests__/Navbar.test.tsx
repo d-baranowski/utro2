@@ -205,7 +205,7 @@ describe('Navbar', () => {
   it('opens mobile menu when menu button is clicked', () => {
     // Set mobile viewport
     Object.defineProperty(window, 'innerWidth', { writable: true, value: 500 });
-    window.matchMedia = jest.fn().mockImplementation(query => ({
+    window.matchMedia = jest.fn().mockImplementation((query) => ({
       matches: query === '(max-width: 899.95px)',
       media: query,
       onchange: null,

@@ -7,10 +7,7 @@ interface LayoutProps {
   fullWidth?: boolean;
 }
 
-const Layout: React.FC<LayoutProps> = ({
-  children,
-  fullWidth = false,
-}) => {
+const Layout: React.FC<LayoutProps> = ({ children, fullWidth = false }) => {
   return (
     <Box
       sx={{

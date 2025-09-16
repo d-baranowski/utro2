@@ -22,17 +22,23 @@ describe('Therapist Authorization & Visibility', () => {
         body: { token: 'mock-admin-jwt-token' },
       }).as('adminLogin');
 
-      cy.intercept('POST', '**/com.inspirationparticle.organisation.v1.OrganisationService/GetMyOrganisations', {
-        statusCode: 200,
-        body: { 
-          organisations: [{
-            id: testContext.organization.id,
-            name: testContext.organization.name,
-            description: testContext.organization.description,
-            memberType: 'ADMINISTRATOR'
-          }] 
-        },
-      }).as('getAdminOrganisations');
+      cy.intercept(
+        'POST',
+        '**/com.inspirationparticle.organisation.v1.OrganisationService/GetMyOrganisations',
+        {
+          statusCode: 200,
+          body: {
+            organisations: [
+              {
+                id: testContext.organization.id,
+                name: testContext.organization.name,
+                description: testContext.organization.description,
+                memberType: 'ADMINISTRATOR',
+              },
+            ],
+          },
+        }
+      ).as('getAdminOrganisations');
 
       cy.visit('/');
       cy.loginUser('therapist_admin', 'testpass');
@@ -44,7 +50,7 @@ describe('Therapist Authorization & Visibility', () => {
       cy.fixture('therapists').then((therapists) => {
         const allTherapists = [
           therapists.sampleTherapist, // published
-          therapists.unpublishedTherapist // unpublished
+          therapists.unpublishedTherapist, // unpublished
         ];
 
         cy.intercept('POST', '**/utro.v1.TherapistService/ListTherapists', {
@@ -60,8 +66,14 @@ describe('Therapist Authorization & Visibility', () => {
         cy.getByTestId(`therapist-row-${therapists.unpublishedTherapist.id}`).should('be.visible');
 
         // Should show correct status indicators
-        cy.getByTestId(`therapist-status-${therapists.sampleTherapist.id}`).should('contain', 'Published');
-        cy.getByTestId(`therapist-status-${therapists.unpublishedTherapist.id}`).should('contain', 'Unpublished');
+        cy.getByTestId(`therapist-status-${therapists.sampleTherapist.id}`).should(
+          'contain',
+          'Published'
+        );
+        cy.getByTestId(`therapist-status-${therapists.unpublishedTherapist.id}`).should(
+          'contain',
+          'Unpublished'
+        );
       });
     });
 
@@ -88,7 +100,10 @@ describe('Therapist Authorization & Visibility', () => {
 
         // Form should load with therapist data
         cy.getByTestId('therapist-form-dialog').should('be.visible');
-        cy.getByTestId('therapist-title-input').should('have.value', unpublishedTherapist.professionalTitle);
+        cy.getByTestId('therapist-title-input').should(
+          'have.value',
+          unpublishedTherapist.professionalTitle
+        );
 
         // Should be able to delete unpublished therapist
         cy.getByTestId('cancel-edit-button').click(); // Close edit dialog
@@ -104,17 +119,23 @@ describe('Therapist Authorization & Visibility', () => {
         body: { token: 'mock-user-jwt-token' },
       }).as('userLogin');
 
-      cy.intercept('POST', '**/com.inspirationparticle.organisation.v1.OrganisationService/GetMyOrganisations', {
-        statusCode: 200,
-        body: { 
-          organisations: [{
-            id: testContext.organization.id,
-            name: testContext.organization.name,
-            description: testContext.organization.description,
-            memberType: 'MEMBER'
-          }] 
-        },
-      }).as('getUserOrganisations');
+      cy.intercept(
+        'POST',
+        '**/com.inspirationparticle.organisation.v1.OrganisationService/GetMyOrganisations',
+        {
+          statusCode: 200,
+          body: {
+            organisations: [
+              {
+                id: testContext.organization.id,
+                name: testContext.organization.name,
+                description: testContext.organization.description,
+                memberType: 'MEMBER',
+              },
+            ],
+          },
+        }
+      ).as('getUserOrganisations');
 
       cy.visit('/');
       cy.loginUser('regular_user', 'testpass');
@@ -137,7 +158,7 @@ describe('Therapist Authorization & Visibility', () => {
 
         // Should only see published therapist
         cy.getByTestId(`therapist-card-${therapists.sampleTherapist.id}`).should('be.visible');
-        
+
         // Should NOT see unpublished therapist
         cy.getByTestId(`therapist-card-${therapists.unpublishedTherapist.id}`).should('not.exist');
       });
@@ -149,7 +170,7 @@ describe('Therapist Authorization & Visibility', () => {
 
       // Direct navigation should be blocked
       cy.visit('/therapist-management');
-      
+
       // Should be redirected or see access denied
       cy.url().should('not.include', '/therapist-management');
       // Or check for access denied message if that's how it's implemented
@@ -181,17 +202,23 @@ describe('Therapist Authorization & Visibility', () => {
         body: { token: 'mock-therapist-jwt-token' },
       }).as('therapistLogin');
 
-      cy.intercept('POST', '**/com.inspirationparticle.organisation.v1.OrganisationService/GetMyOrganisations', {
-        statusCode: 200,
-        body: { 
-          organisations: [{
-            id: testContext.organization.id,
-            name: testContext.organization.name,
-            description: testContext.organization.description,
-            memberType: 'MEMBER'
-          }] 
-        },
-      }).as('getTherapistOrganisations');
+      cy.intercept(
+        'POST',
+        '**/com.inspirationparticle.organisation.v1.OrganisationService/GetMyOrganisations',
+        {
+          statusCode: 200,
+          body: {
+            organisations: [
+              {
+                id: testContext.organization.id,
+                name: testContext.organization.name,
+                description: testContext.organization.description,
+                memberType: 'MEMBER',
+              },
+            ],
+          },
+        }
+      ).as('getTherapistOrganisations');
 
       cy.visit('/');
       cy.loginUser('therapist_user', 'testpass');
@@ -203,17 +230,17 @@ describe('Therapist Authorization & Visibility', () => {
       cy.fixture('therapists').then((therapists) => {
         const ownProfile = {
           ...therapists.unpublishedTherapist,
-          userId: testContext.therapistUser.id
+          userId: testContext.therapistUser.id,
         };
 
         // Mock response includes therapist's own unpublished profile
         cy.intercept('POST', '**/utro.v1.TherapistService/ListTherapists', {
           statusCode: 200,
-          body: { 
+          body: {
             therapists: [
               therapists.sampleTherapist, // published therapist from others
-              ownProfile // own unpublished profile
-            ]
+              ownProfile, // own unpublished profile
+            ],
           },
         }).as('getTherapistsWithOwn');
 
@@ -230,12 +257,12 @@ describe('Therapist Authorization & Visibility', () => {
       });
     });
 
-    it('should not see other therapists\' unpublished profiles', () => {
+    it("should not see other therapists' unpublished profiles", () => {
       cy.fixture('therapists').then((therapists) => {
         const ownProfile = {
           ...therapists.sampleTherapist,
           userId: testContext.therapistUser.id,
-          publishedAt: '2024-01-01T10:00:00Z'
+          publishedAt: '2024-01-01T10:00:00Z',
         };
 
         // Backend should only return own profile + other published profiles
@@ -249,7 +276,7 @@ describe('Therapist Authorization & Visibility', () => {
 
         // Should see own profile
         cy.getByTestId(`therapist-card-${ownProfile.id}`).should('be.visible');
-        
+
         // Should NOT see other therapists' unpublished profiles
         cy.getByTestId(`therapist-card-${therapists.unpublishedTherapist.id}`).should('not.exist');
       });
@@ -259,7 +286,7 @@ describe('Therapist Authorization & Visibility', () => {
       cy.fixture('therapists').then((therapists) => {
         const ownProfile = {
           ...therapists.sampleTherapist,
-          userId: testContext.therapistUser.id
+          userId: testContext.therapistUser.id,
         };
 
         cy.intercept('POST', '**/utro.v1.TherapistService/ListTherapists', {
@@ -292,7 +319,7 @@ describe('Therapist Authorization & Visibility', () => {
         const publicTherapist = {
           ...therapists.sampleTherapist,
           visibility: 'PUBLIC',
-          publishedAt: '2024-01-01T10:00:00Z'
+          publishedAt: '2024-01-01T10:00:00Z',
         };
 
         cy.intercept('POST', '**/utro.v1.TherapistService/ListTherapists', {
@@ -314,7 +341,7 @@ describe('Therapist Authorization & Visibility', () => {
         const orgOnlyTherapist = {
           ...therapists.sampleTherapist,
           visibility: 'ORGANISATION_ONLY',
-          publishedAt: '2024-01-01T10:00:00Z'
+          publishedAt: '2024-01-01T10:00:00Z',
         };
 
         // Mock for organization member
@@ -323,16 +350,22 @@ describe('Therapist Authorization & Visibility', () => {
           body: { token: 'mock-member-jwt-token' },
         }).as('memberLogin');
 
-        cy.intercept('POST', '**/com.inspirationparticle.organisation.v1.OrganisationService/GetMyOrganisations', {
-          statusCode: 200,
-          body: { 
-            organisations: [{
-              id: testContext.organization.id,
-              name: testContext.organization.name,
-              memberType: 'MEMBER'
-            }] 
-          },
-        }).as('getMemberOrganisations');
+        cy.intercept(
+          'POST',
+          '**/com.inspirationparticle.organisation.v1.OrganisationService/GetMyOrganisations',
+          {
+            statusCode: 200,
+            body: {
+              organisations: [
+                {
+                  id: testContext.organization.id,
+                  name: testContext.organization.name,
+                  memberType: 'MEMBER',
+                },
+              ],
+            },
+          }
+        ).as('getMemberOrganisations');
 
         cy.intercept('POST', '**/utro.v1.TherapistService/ListTherapists', {
           statusCode: 200,
@@ -356,7 +389,7 @@ describe('Therapist Authorization & Visibility', () => {
         const privateTherapist = {
           ...therapists.sampleTherapist,
           visibility: 'PRIVATE',
-          publishedAt: '2024-01-01T10:00:00Z'
+          publishedAt: '2024-01-01T10:00:00Z',
         };
 
         // Backend should filter out private therapists for non-admin users

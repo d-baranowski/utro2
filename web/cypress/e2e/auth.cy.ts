@@ -29,10 +29,10 @@ describe('Authentication Flow', () => {
 
     // Wait for successful login - check for success message
     cy.contains('Successfully signed in', { timeout: 10000 }).should('be.visible');
-    
+
     // Verify we're no longer on login page - URL should change or content should change
     cy.getByTestId('login-username').should('not.exist');
-    
+
     // Test accessing a protected page - user may or may not have permissions
     cy.visit('/organization-members');
     cy.url({ timeout: 10000 }).then((url) => {
@@ -59,7 +59,7 @@ describe('Authentication Flow', () => {
   it('should redirect to login when accessing protected pages without auth', () => {
     // Try to access protected page
     cy.visit('/organization-members');
-    
+
     // Should redirect to login page
     cy.url({ timeout: 5000 }).should('eq', Cypress.config().baseUrl + '/');
     cy.contains('Welcome Back').should('be.visible');
@@ -70,23 +70,29 @@ describe('Authentication Flow', () => {
     cy.getByTestId('login-username').type('testuser');
     cy.getByTestId('login-password').type('testpass');
     cy.getByTestId('login-submit').click();
-    
+
     // Wait for successful login
     cy.contains('Successfully signed in', { timeout: 10000 }).should('be.visible');
-    
+
     // Test that authentication persists by checking we don't get redirected to login
     cy.visit('/organization-members');
     cy.url({ timeout: 10000 }).then((initialUrl) => {
       // Reload the page
       cy.reload();
-      
+
       // Should still have authentication - not redirected to login page
       cy.url({ timeout: 10000 }).then((reloadUrl) => {
         // Should not be redirected to login page root
-        if (initialUrl.includes('/organization-members') && reloadUrl.includes('/organization-members')) {
+        if (
+          initialUrl.includes('/organization-members') &&
+          reloadUrl.includes('/organization-members')
+        ) {
           // User maintained access to the page
           cy.url().should('include', '/organization-members');
-        } else if (initialUrl === Cypress.config().baseUrl + '/' && reloadUrl === Cypress.config().baseUrl + '/') {
+        } else if (
+          initialUrl === Cypress.config().baseUrl + '/' &&
+          reloadUrl === Cypress.config().baseUrl + '/'
+        ) {
           // User was redirected due to permissions but auth is maintained (not seeing login form)
           cy.getByTestId('login-username').should('not.exist');
         }
@@ -99,10 +105,10 @@ describe('Authentication Flow', () => {
     cy.getByTestId('login-username').type('testuser');
     cy.getByTestId('login-password').type('testpass');
     cy.getByTestId('login-submit').click();
-    
+
     // Wait for successful login
     cy.contains('Successfully signed in', { timeout: 10000 }).should('be.visible');
-    
+
     // Test that authenticated user can attempt to access protected pages without being redirected to login
     cy.visit('/organization-members');
     cy.url({ timeout: 10000 }).then((orgUrl) => {
@@ -115,7 +121,7 @@ describe('Authentication Flow', () => {
         cy.url().should('include', '/organization-members');
       }
     });
-    
+
     cy.visit('/therapist-management');
     cy.url({ timeout: 10000 }).then((therapistUrl) => {
       // Should either show the page or redirect due to permissions (but not to login)

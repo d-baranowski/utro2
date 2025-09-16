@@ -38,26 +38,24 @@ import { useTranslation } from 'next-i18next';
 import { useQuery, useMutation } from '@connectrpc/connect-query';
 import { create } from '@bufbuild/protobuf';
 import { TherapistForm, TherapistFormData } from './TherapistForm';
-import { 
-  TherapistVisibility, 
+import {
+  TherapistVisibility,
   Therapist,
   ListTherapistsRequestSchema,
   CreateTherapistRequestSchema,
   UpdateTherapistRequestSchema,
   DeleteTherapistRequestSchema,
   PublishTherapistRequestSchema,
-  UnpublishTherapistRequestSchema
+  UnpublishTherapistRequestSchema,
 } from '@/generated/utro/v1/therapist_pb';
-import { 
-  listTherapists, 
-  createTherapist, 
-  updateTherapist, 
-  deleteTherapist, 
-  publishTherapist, 
-  unpublishTherapist 
+import {
+  listTherapists,
+  createTherapist,
+  updateTherapist,
+  deleteTherapist,
+  publishTherapist,
+  unpublishTherapist,
 } from '@/generated/utro/v1/therapist-TherapistService_connectquery';
-
-
 
 interface TherapistManagementProps {
   organizationId: string;
@@ -112,11 +110,11 @@ export const TherapistManagement: React.FC<TherapistManagementProps> = ({
   // Handle URL parameters for opening edit modal
   useEffect(() => {
     const { editId, action } = router.query;
-    
+
     if (action === 'create') {
       handleCreateTherapistFromUrl();
     } else if (action === 'edit' && editId && data?.therapists) {
-      const therapist = data.therapists.find(t => t.id === editId);
+      const therapist = data.therapists.find((t) => t.id === editId);
       if (therapist) {
         handleEditTherapistFromUrl(therapist);
       }
@@ -186,7 +184,6 @@ export const TherapistManagement: React.FC<TherapistManagementProps> = ({
 
   const therapists = data?.therapists || [];
 
-
   const showSnackbar = (message: string, severity: 'success' | 'error') => {
     setSnackbar({ open: true, message, severity });
   };
@@ -196,17 +193,21 @@ export const TherapistManagement: React.FC<TherapistManagementProps> = ({
     setFormOpen(false);
     setSelectedTherapist(null);
     setFormMode('create');
-    
+
     // Use setTimeout to ensure state updates are applied before opening form
     setTimeout(() => {
       setFormOpen(true);
     }, 0);
-    
+
     // Update URL to reflect create action
-    router.push({
-      pathname: router.pathname,
-      query: { ...router.query, action: 'create' }
-    }, undefined, { shallow: true });
+    router.push(
+      {
+        pathname: router.pathname,
+        query: { ...router.query, action: 'create' },
+      },
+      undefined,
+      { shallow: true }
+    );
   };
 
   const handleEditTherapist = (therapist: Therapist) => {
@@ -215,12 +216,15 @@ export const TherapistManagement: React.FC<TherapistManagementProps> = ({
     setFormOpen(true);
     handleMenuClose();
     // Update URL to reflect edit action with therapist ID
-    router.push({
-      pathname: router.pathname,
-      query: { ...router.query, action: 'edit', editId: therapist.id }
-    }, undefined, { shallow: true });
+    router.push(
+      {
+        pathname: router.pathname,
+        query: { ...router.query, action: 'edit', editId: therapist.id },
+      },
+      undefined,
+      { shallow: true }
+    );
   };
-
 
   const handleFormClose = () => {
     setFormOpen(false);
@@ -229,10 +233,14 @@ export const TherapistManagement: React.FC<TherapistManagementProps> = ({
     const newQuery = { ...router.query };
     delete newQuery.action;
     delete newQuery.editId;
-    router.push({
-      pathname: router.pathname,
-      query: newQuery
-    }, undefined, { shallow: true });
+    router.push(
+      {
+        pathname: router.pathname,
+        query: newQuery,
+      },
+      undefined,
+      { shallow: true }
+    );
   };
 
   const handleDeleteTherapist = (therapist: Therapist) => {
@@ -243,7 +251,7 @@ export const TherapistManagement: React.FC<TherapistManagementProps> = ({
 
   const confirmDelete = () => {
     if (!therapistToDelete) return;
-    
+
     deleteMutation.mutate(
       create(DeleteTherapistRequestSchema, {
         id: therapistToDelete.id,
@@ -253,7 +261,7 @@ export const TherapistManagement: React.FC<TherapistManagementProps> = ({
 
   const handlePublishToggle = (therapist: Therapist) => {
     const isPublished = !!therapist.publishedAt;
-    
+
     if (isPublished) {
       unpublishMutation.mutate(
         create(UnpublishTherapistRequestSchema, {
@@ -375,16 +383,12 @@ export const TherapistManagement: React.FC<TherapistManagementProps> = ({
     slug: therapist.slug,
     metaDescription: therapist.metaDescription,
     searchTags: therapist.searchTags,
-    specializationIds: therapist.specializations.map(s => s.specializationId),
+    specializationIds: therapist.specializations.map((s) => s.specializationId),
     profileImageUrl: undefined,
   });
 
   if (!isAdmin) {
-    return (
-      <Alert severity="warning">
-        {t('therapist.adminAccessRequired')}
-      </Alert>
-    );
+    return <Alert severity="warning">{t('therapist.adminAccessRequired')}</Alert>;
   }
 
   return (
@@ -429,9 +433,7 @@ export const TherapistManagement: React.FC<TherapistManagementProps> = ({
               ) : error ? (
                 <TableRow>
                   <TableCell colSpan={9} align="center">
-                    <Alert severity="error">
-                      {t('therapist.loadError')}
-                    </Alert>
+                    <Alert severity="error">{t('therapist.loadError')}</Alert>
                   </TableCell>
                 </TableRow>
               ) : therapists.length === 0 ? (
@@ -444,10 +446,7 @@ export const TherapistManagement: React.FC<TherapistManagementProps> = ({
                 therapists.map((therapist) => (
                   <TableRow key={therapist.id} hover data-testid={`therapist-row-${therapist.id}`}>
                     <TableCell>
-                      <Avatar
-                        alt={therapist.userFullName}
-                        sx={{ width: 40, height: 40 }}
-                      >
+                      <Avatar alt={therapist.userFullName} sx={{ width: 40, height: 40 }}>
                         {therapist.userFullName.charAt(0)}
                       </Avatar>
                     </TableCell>
@@ -476,10 +475,10 @@ export const TherapistManagement: React.FC<TherapistManagementProps> = ({
                           <Chip key={lang} label={lang} size="small" variant="outlined" />
                         ))}
                         {therapist.languages.length > 2 && (
-                          <Chip 
-                            label={`+${therapist.languages.length - 2}`} 
-                            size="small" 
-                            variant="outlined" 
+                          <Chip
+                            label={`+${therapist.languages.length - 2}`}
+                            size="small"
+                            variant="outlined"
                           />
                         )}
                       </Box>
@@ -505,16 +504,19 @@ export const TherapistManagement: React.FC<TherapistManagementProps> = ({
                     <TableCell>
                       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
                         <Chip
-                          label={therapist.publishedAt ? t('therapist.published') : t('therapist.draft')}
+                          label={
+                            therapist.publishedAt ? t('therapist.published') : t('therapist.draft')
+                          }
                           size="small"
                           color={therapist.publishedAt ? 'success' : 'warning'}
                           variant="outlined"
                           data-testid={`therapist-status-${therapist.id}`}
                         />
                         <Chip
-                          label={therapist.isAcceptingNewClients 
-                            ? t('therapist.accepting') 
-                            : t('therapist.notAccepting')
+                          label={
+                            therapist.isAcceptingNewClients
+                              ? t('therapist.accepting')
+                              : t('therapist.notAccepting')
                           }
                           size="small"
                           color={therapist.isAcceptingNewClients ? 'info' : 'default'}
@@ -539,16 +541,18 @@ export const TherapistManagement: React.FC<TherapistManagementProps> = ({
         </TableContainer>
       </Paper>
 
-      <Menu
-        anchorEl={anchorEl}
-        open={Boolean(anchorEl)}
-        onClose={handleMenuClose}
-      >
-        <MenuItem onClick={() => handleEditTherapist(menuTherapist!)} data-testid={`edit-therapist-${menuTherapist?.id}`}>
+      <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleMenuClose}>
+        <MenuItem
+          onClick={() => handleEditTherapist(menuTherapist!)}
+          data-testid={`edit-therapist-${menuTherapist?.id}`}
+        >
           <EditIcon fontSize="small" sx={{ mr: 1 }} />
           {t('common.edit')}
         </MenuItem>
-        <MenuItem onClick={() => handlePublishToggle(menuTherapist!)} data-testid={`publish-therapist-${menuTherapist?.id}`}>
+        <MenuItem
+          onClick={() => handlePublishToggle(menuTherapist!)}
+          data-testid={`publish-therapist-${menuTherapist?.id}`}
+        >
           {menuTherapist?.publishedAt ? (
             <>
               <VisibilityOffIcon fontSize="small" sx={{ mr: 1 }} />
@@ -561,7 +565,10 @@ export const TherapistManagement: React.FC<TherapistManagementProps> = ({
             </>
           )}
         </MenuItem>
-        <MenuItem onClick={() => handleDeleteTherapist(menuTherapist!)} data-testid={`delete-therapist-${menuTherapist?.id}`}>
+        <MenuItem
+          onClick={() => handleDeleteTherapist(menuTherapist!)}
+          data-testid={`delete-therapist-${menuTherapist?.id}`}
+        >
           <DeleteIcon fontSize="small" sx={{ mr: 1 }} />
           {t('common.delete')}
         </MenuItem>
@@ -580,16 +587,19 @@ export const TherapistManagement: React.FC<TherapistManagementProps> = ({
         <DialogTitle>{t('therapist.confirmDelete')}</DialogTitle>
         <DialogContent>
           <Typography>
-            {t('therapist.deleteWarning', { 
-              name: therapistToDelete?.userFullName || therapistToDelete?.userName 
+            {t('therapist.deleteWarning', {
+              name: therapistToDelete?.userFullName || therapistToDelete?.userName,
             })}
           </Typography>
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setDeleteDialogOpen(false)}>
-            {t('common.cancel')}
-          </Button>
-          <Button onClick={confirmDelete} color="error" variant="contained" data-testid="confirm-delete-therapist">
+          <Button onClick={() => setDeleteDialogOpen(false)}>{t('common.cancel')}</Button>
+          <Button
+            onClick={confirmDelete}
+            color="error"
+            variant="contained"
+            data-testid="confirm-delete-therapist"
+          >
             {t('common.delete')}
           </Button>
         </DialogActions>
@@ -598,10 +608,10 @@ export const TherapistManagement: React.FC<TherapistManagementProps> = ({
       <Snackbar
         open={snackbar.open}
         autoHideDuration={6000}
-        onClose={() => setSnackbar(prev => ({ ...prev, open: false }))}
+        onClose={() => setSnackbar((prev) => ({ ...prev, open: false }))}
       >
         <Alert
-          onClose={() => setSnackbar(prev => ({ ...prev, open: false }))}
+          onClose={() => setSnackbar((prev) => ({ ...prev, open: false }))}
           severity={snackbar.severity}
           sx={{ width: '100%' }}
         >

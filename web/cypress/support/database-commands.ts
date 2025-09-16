@@ -5,7 +5,7 @@ Cypress.Commands.add('setupTherapistTestData', () => {
   // Return mock test data without making actual API call
   return cy.wrap({
     success: true,
-    message: 'Mock test data setup'
+    message: 'Mock test data setup',
   });
 });
 
@@ -13,7 +13,7 @@ Cypress.Commands.add('cleanupTherapistTestData', () => {
   // Mock cleanup - no actual API call needed for mocked tests
   return cy.wrap({
     success: true,
-    message: 'Mock test data cleanup'
+    message: 'Mock test data cleanup',
   });
 });
 
@@ -22,7 +22,7 @@ Cypress.Commands.add('createTestTherapist', (therapistData: any) => {
   // Return mock therapist data
   return cy.wrap({
     ...therapistData,
-    id: 'mock-therapist-' + Date.now()
+    id: 'mock-therapist-' + Date.now(),
   });
 });
 
@@ -31,7 +31,7 @@ Cypress.Commands.add('deleteTestTherapist', (therapistId: string) => {
   // Mock deletion
   return cy.wrap({
     success: true,
-    message: `Mock deleted therapist ${therapistId}`
+    message: `Mock deleted therapist ${therapistId}`,
   });
 });
 
@@ -43,27 +43,27 @@ Cypress.Commands.add('setupTherapistAdminContext', () => {
       username: 'therapist_admin',
       email: 'therapist_admin@test.com',
       fullName: 'Therapist Admin',
-      password: 'testpass' // Plain text for mocking
+      password: 'testpass', // Plain text for mocking
     },
     regularUser: {
       id: 'eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee',
       username: 'regular_user',
       email: 'regular_user@test.com',
       fullName: 'Regular User',
-      password: 'testpass'
+      password: 'testpass',
     },
     therapistUser: {
       id: 'ffffffff-ffff-ffff-ffff-ffffffffffff',
       username: 'therapist_user',
       email: 'therapist_user@test.com',
       fullName: 'Therapist User',
-      password: 'testpass'
+      password: 'testpass',
     },
     organization: {
       id: '44444444-4444-4444-4444-444444444444',
       name: 'Therapist Test Org',
-      description: 'Organization for therapist testing'
-    }
+      description: 'Organization for therapist testing',
+    },
   };
 
   // Return test data without making actual API call

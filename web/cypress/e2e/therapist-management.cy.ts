@@ -24,17 +24,23 @@ describe('Therapist Management (Admin)', () => {
       }).as('adminLogin');
 
       // Mock organization membership check
-      cy.intercept('POST', '**/com.inspirationparticle.organisation.v1.OrganisationService/GetMyOrganisations', {
-        statusCode: 200,
-        body: { 
-          organisations: [{
-            id: testContext.organization.id,
-            name: testContext.organization.name,
-            description: testContext.organization.description,
-            memberType: 'ADMINISTRATOR'
-          }] 
-        },
-      }).as('getAdminOrganisations');
+      cy.intercept(
+        'POST',
+        '**/com.inspirationparticle.organisation.v1.OrganisationService/GetMyOrganisations',
+        {
+          statusCode: 200,
+          body: {
+            organisations: [
+              {
+                id: testContext.organization.id,
+                name: testContext.organization.name,
+                description: testContext.organization.description,
+                memberType: 'ADMINISTRATOR',
+              },
+            ],
+          },
+        }
+      ).as('getAdminOrganisations');
 
       cy.visit('/');
       cy.loginUser('therapist_admin', 'testpass');
@@ -64,13 +70,15 @@ describe('Therapist Management (Admin)', () => {
         // Mock available users for therapist creation
         cy.intercept('POST', '**/utro.v1.UserService/ListOrganisationUsers', {
           statusCode: 200,
-          body: { 
-            users: [{
-              id: testContext.regularUser.id,
-              username: testContext.regularUser.username,
-              fullName: testContext.regularUser.fullName,
-              email: testContext.regularUser.email
-            }]
+          body: {
+            users: [
+              {
+                id: testContext.regularUser.id,
+                username: testContext.regularUser.username,
+                fullName: testContext.regularUser.fullName,
+                email: testContext.regularUser.email,
+              },
+            ],
           },
         }).as('getOrgUsers');
 
@@ -89,14 +97,14 @@ describe('Therapist Management (Admin)', () => {
         // Mock updated therapists list after creation
         cy.intercept('POST', '**/utro.v1.TherapistService/ListTherapists', {
           statusCode: 200,
-          body: { 
-            therapists: [{ ...therapists.createTherapistRequest, id: 'new-therapist-id' }] 
+          body: {
+            therapists: [{ ...therapists.createTherapistRequest, id: 'new-therapist-id' }],
           },
         }).as('getTherapistsAfterCreate');
 
         cy.visit('/therapist-management');
         cy.wait('@getOrgUsers');
-        
+
         // Open create therapist dialog
         cy.getByTestId('create-therapist-button').click();
         cy.getByTestId('therapist-form-dialog').should('be.visible');
@@ -104,11 +112,15 @@ describe('Therapist Management (Admin)', () => {
         // Fill required fields
         cy.getByTestId('therapist-user-select').click();
         cy.contains(testContext.regularUser.fullName).click();
-        
-        cy.getByTestId('therapist-title-input').type(therapists.createTherapistRequest.professionalTitle);
+
+        cy.getByTestId('therapist-title-input').type(
+          therapists.createTherapistRequest.professionalTitle
+        );
         cy.getByTestId('therapist-slug-input').type(therapists.createTherapistRequest.slug);
-        cy.getByTestId('therapist-email-input').type(therapists.createTherapistRequest.contactEmail);
-        
+        cy.getByTestId('therapist-email-input').type(
+          therapists.createTherapistRequest.contactEmail
+        );
+
         // Add at least one language
         cy.getByTestId('therapist-language-select').click();
         cy.contains('English').click();
@@ -148,11 +160,11 @@ describe('Therapist Management (Admin)', () => {
         // Mock update therapist
         cy.intercept('POST', '**/utro.v1.TherapistService/UpdateTherapist', {
           statusCode: 200,
-          body: { 
-            therapist: { 
-              ...existingTherapist, 
-              ...therapists.updateTherapistRequest 
-            } 
+          body: {
+            therapist: {
+              ...existingTherapist,
+              ...therapists.updateTherapistRequest,
+            },
           },
         }).as('updateTherapist');
 
@@ -164,11 +176,16 @@ describe('Therapist Management (Admin)', () => {
         cy.wait('@getTherapist');
 
         // Verify form is pre-populated
-        cy.getByTestId('therapist-title-input').should('have.value', existingTherapist.professionalTitle);
+        cy.getByTestId('therapist-title-input').should(
+          'have.value',
+          existingTherapist.professionalTitle
+        );
 
         // Update professional title
         cy.getByTestId('therapist-title-input').clear();
-        cy.getByTestId('therapist-title-input').type(therapists.updateTherapistRequest.professionalTitle);
+        cy.getByTestId('therapist-title-input').type(
+          therapists.updateTherapistRequest.professionalTitle
+        );
 
         // Submit update
         cy.getByTestId('therapist-form-submit').click();
@@ -233,11 +250,11 @@ describe('Therapist Management (Admin)', () => {
         // Mock publish therapist
         cy.intercept('POST', '**/utro.v1.TherapistService/PublishTherapist', {
           statusCode: 200,
-          body: { 
-            therapist: { 
-              ...unpublishedTherapist, 
-              publishedAt: '2024-01-01T10:00:00Z' 
-            } 
+          body: {
+            therapist: {
+              ...unpublishedTherapist,
+              publishedAt: '2024-01-01T10:00:00Z',
+            },
           },
         }).as('publishTherapist');
 
@@ -245,7 +262,10 @@ describe('Therapist Management (Admin)', () => {
         cy.wait('@getTherapists');
 
         // Should show unpublished status
-        cy.getByTestId(`therapist-status-${unpublishedTherapist.id}`).should('contain', 'Unpublished');
+        cy.getByTestId(`therapist-status-${unpublishedTherapist.id}`).should(
+          'contain',
+          'Unpublished'
+        );
 
         // Click publish button
         cy.getByTestId(`publish-therapist-${unpublishedTherapist.id}`).click();
@@ -253,13 +273,16 @@ describe('Therapist Management (Admin)', () => {
         cy.wait('@publishTherapist');
 
         // Verify status changed to published
-        cy.getByTestId(`therapist-status-${unpublishedTherapist.id}`).should('contain', 'Published');
+        cy.getByTestId(`therapist-status-${unpublishedTherapist.id}`).should(
+          'contain',
+          'Published'
+        );
       });
     });
 
     it('should handle therapist creation validation errors', () => {
       cy.visit('/therapist-management');
-      
+
       // Open create dialog
       cy.getByTestId('create-therapist-button').click();
 
@@ -298,17 +321,23 @@ describe('Therapist Management (Admin)', () => {
       }).as('userLogin');
 
       // Mock organization membership check (as regular member)
-      cy.intercept('POST', '**/com.inspirationparticle.organisation.v1.OrganisationService/GetMyOrganisations', {
-        statusCode: 200,
-        body: { 
-          organisations: [{
-            id: testContext.organization.id,
-            name: testContext.organization.name,
-            description: testContext.organization.description,
-            memberType: 'MEMBER'
-          }] 
-        },
-      }).as('getUserOrganisations');
+      cy.intercept(
+        'POST',
+        '**/com.inspirationparticle.organisation.v1.OrganisationService/GetMyOrganisations',
+        {
+          statusCode: 200,
+          body: {
+            organisations: [
+              {
+                id: testContext.organization.id,
+                name: testContext.organization.name,
+                description: testContext.organization.description,
+                memberType: 'MEMBER',
+              },
+            ],
+          },
+        }
+      ).as('getUserOrganisations');
 
       cy.visit('/');
       cy.loginUser('regular_user', 'testpass');
@@ -324,7 +353,7 @@ describe('Therapist Management (Admin)', () => {
     it('should redirect unauthorized users away from management page', () => {
       // Try to access management page directly
       cy.visit('/therapist-management');
-      
+
       // Should be redirected or show access denied
       cy.url().should('not.include', '/therapist-management');
       // or

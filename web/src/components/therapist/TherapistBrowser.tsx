@@ -38,13 +38,13 @@ import {
   Filter as FilterIcon,
 } from '@mui/icons-material';
 import { useTranslation } from 'next-i18next';
-import { 
-  TherapistVisibility, 
-  Therapist as TherapistProto, 
-  TherapistService, 
+import {
+  TherapistVisibility,
+  Therapist as TherapistProto,
+  TherapistService,
   SpecializationService,
   ListTherapistsRequestSchema,
-  ListSpecializationsRequestSchema 
+  ListSpecializationsRequestSchema,
 } from '@/generated/utro/v1/therapist_pb';
 import { useQuery } from '@connectrpc/connect-query';
 import { create } from '@bufbuild/protobuf';
@@ -85,7 +85,7 @@ export const TherapistBrowser: React.FC<TherapistBrowserProps> = ({
 }) => {
   const { t, i18n } = useTranslation('common');
   const currentLang = i18n.language;
-  
+
   const [therapists, setTherapists] = useState<Therapist[]>([]);
   const [specializations, setSpecializations] = useState<Specialization[]>([]);
   const [loading, setLoading] = useState(true);
@@ -119,9 +119,9 @@ export const TherapistBrowser: React.FC<TherapistBrowserProps> = ({
   const loadTherapists = async () => {
     try {
       setLoading(true);
-      
+
       let data;
-      
+
       if (searchQuery.trim()) {
         // Use search API when there's a search query
         const therapistsResult = await therapistApi.searchTherapists(searchQuery, organisationId);
@@ -145,11 +145,11 @@ export const TherapistBrowser: React.FC<TherapistBrowserProps> = ({
         };
         data = await therapistApi.listTherapists(params);
       }
-      
+
       console.log('API Response data:', data);
       console.log('Therapists received:', data.therapists?.length || 0);
       console.log('Organisation ID used:', organisationId);
-      
+
       setTherapists(data.therapists || []);
       setTotalPages(Math.ceil((data.totalCount || 0) / itemsPerPage));
     } catch (error) {
@@ -159,13 +159,13 @@ export const TherapistBrowser: React.FC<TherapistBrowserProps> = ({
     } finally {
       setLoading(false);
     }
-    
+
     // Debug logging
     console.log('TherapistBrowser - organisationId:', organisationId);
     console.log('TherapistBrowser - searchQuery:', searchQuery);
     console.log('TherapistBrowser - therapists loaded:', therapists.length);
   };
-  
+
   const loadSpecializations = async () => {
     try {
       const data = await therapistApi.listSpecializations();
@@ -195,7 +195,7 @@ export const TherapistBrowser: React.FC<TherapistBrowserProps> = ({
   };
 
   const toggleCardExpansion = (therapistId: string) => {
-    setExpandedCards(prev => {
+    setExpandedCards((prev) => {
       const newSet = new Set(prev);
       if (newSet.has(therapistId)) {
         newSet.delete(therapistId);
@@ -207,14 +207,14 @@ export const TherapistBrowser: React.FC<TherapistBrowserProps> = ({
   };
 
   const getTherapistDescription = (therapist: Therapist) => {
-    return currentLang === 'pl' && therapist.descriptionPl 
-      ? therapist.descriptionPl 
+    return currentLang === 'pl' && therapist.descriptionPl
+      ? therapist.descriptionPl
       : therapist.descriptionEng;
   };
 
   const getTherapistWorkExperience = (therapist: Therapist) => {
-    return currentLang === 'pl' && therapist.workExperiencePl 
-      ? therapist.workExperiencePl 
+    return currentLang === 'pl' && therapist.workExperiencePl
+      ? therapist.workExperiencePl
       : therapist.workExperienceEng;
   };
 
@@ -223,10 +223,10 @@ export const TherapistBrowser: React.FC<TherapistBrowserProps> = ({
   };
 
   const filteredSpecializations = useMemo(() => {
-    const categories = Array.from(new Set(specializations.map(s => s.category)));
-    return categories.map(category => ({
+    const categories = Array.from(new Set(specializations.map((s) => s.category)));
+    return categories.map((category) => ({
       category,
-      specializations: specializations.filter(s => s.category === category),
+      specializations: specializations.filter((s) => s.category === category),
     }));
   }, [specializations]);
 
@@ -305,11 +305,11 @@ export const TherapistBrowser: React.FC<TherapistBrowserProps> = ({
                         <MenuItem key={category} disabled>
                           <em>{category}</em>
                         </MenuItem>,
-                        ...specializations.map(spec => (
+                        ...specializations.map((spec) => (
                           <MenuItem key={spec.id} value={spec.id} sx={{ pl: 4 }}>
                             {getSpecializationName(spec)}
                           </MenuItem>
-                        ))
+                        )),
                       ])}
                     </Select>
                   </FormControl>
@@ -328,7 +328,7 @@ export const TherapistBrowser: React.FC<TherapistBrowserProps> = ({
                       data-testid="language-filter"
                     >
                       <MenuItem value="">{t('therapist.allLanguages')}</MenuItem>
-                      {LANGUAGES.map(lang => (
+                      {LANGUAGES.map((lang) => (
                         <MenuItem key={lang} value={lang}>
                           {lang}
                         </MenuItem>
@@ -386,7 +386,11 @@ export const TherapistBrowser: React.FC<TherapistBrowserProps> = ({
                 </Grid>
 
                 <Grid item xs={12}>
-                  <Button variant="outlined" onClick={clearFilters} data-testid="clear-filters-button">
+                  <Button
+                    variant="outlined"
+                    onClick={clearFilters}
+                    data-testid="clear-filters-button"
+                  >
                     {t('therapist.clearFilters')}
                   </Button>
                 </Grid>
@@ -416,11 +420,11 @@ export const TherapistBrowser: React.FC<TherapistBrowserProps> = ({
 
               return (
                 <Grid item xs={12} md={6} lg={4} key={therapist.id}>
-                  <Card 
+                  <Card
                     data-testid={`therapist-card-${therapist.id}`}
-                    sx={{ 
-                      height: '100%', 
-                      display: 'flex', 
+                    sx={{
+                      height: '100%',
+                      display: 'flex',
                       flexDirection: 'column',
                       transition: 'transform 0.2s, box-shadow 0.2s',
                       '&:hover': {
@@ -452,7 +456,7 @@ export const TherapistBrowser: React.FC<TherapistBrowserProps> = ({
                           </Avatar>
                         </Box>
                       )}
-                      
+
                       <Box sx={{ position: 'absolute', top: 8, right: 8, display: 'flex', gap: 1 }}>
                         {therapist.inPersonTherapyFormat && (
                           <Chip
@@ -487,7 +491,7 @@ export const TherapistBrowser: React.FC<TherapistBrowserProps> = ({
                       <Typography variant="h6" component="h2" gutterBottom>
                         {therapist.userFullName || therapist.userName}
                       </Typography>
-                      
+
                       <Typography variant="subtitle2" color="primary" gutterBottom>
                         {therapist.professionalTitle}
                       </Typography>
@@ -503,8 +507,8 @@ export const TherapistBrowser: React.FC<TherapistBrowserProps> = ({
                                 key={spec.specializationId}
                                 label={getSpecializationName(spec)}
                                 size="small"
-                                variant={spec.isPrimary ? "filled" : "outlined"}
-                                color={spec.isPrimary ? "primary" : "default"}
+                                variant={spec.isPrimary ? 'filled' : 'outlined'}
+                                color={spec.isPrimary ? 'primary' : 'default'}
                               />
                             ))}
                             {therapist.specializations.length > 3 && (
@@ -526,16 +530,17 @@ export const TherapistBrowser: React.FC<TherapistBrowserProps> = ({
                           <LanguageIcon fontSize="small" sx={{ mr: 1 }} />
                           <Typography variant="body2">
                             {therapist.languages.slice(0, 2).join(', ')}
-                            {therapist.languages.length > 2 && ` +${therapist.languages.length - 2}`}
+                            {therapist.languages.length > 2 &&
+                              ` +${therapist.languages.length - 2}`}
                           </Typography>
                         </Box>
                       </Box>
 
                       {description && (
-                        <Typography 
-                          variant="body2" 
-                          color="text.secondary" 
-                          sx={{ 
+                        <Typography
+                          variant="body2"
+                          color="text.secondary"
+                          sx={{
                             display: '-webkit-box',
                             WebkitLineClamp: isExpanded ? 'none' : 3,
                             WebkitBoxOrient: 'vertical',
@@ -577,9 +582,9 @@ export const TherapistBrowser: React.FC<TherapistBrowserProps> = ({
                           {therapist.websiteUrl && (
                             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                               <WebIcon fontSize="small" color="action" />
-                              <Typography 
-                                variant="body2" 
-                                component="a" 
+                              <Typography
+                                variant="body2"
+                                component="a"
                                 href={therapist.websiteUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -592,7 +597,14 @@ export const TherapistBrowser: React.FC<TherapistBrowserProps> = ({
                         </Box>
                       </Collapse>
 
-                      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 2 }}>
+                      <Box
+                        sx={{
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          alignItems: 'center',
+                          mt: 2,
+                        }}
+                      >
                         <Button
                           size="small"
                           onClick={() => toggleCardExpansion(therapist.id)}
@@ -600,7 +612,7 @@ export const TherapistBrowser: React.FC<TherapistBrowserProps> = ({
                         >
                           {isExpanded ? t('therapist.showLess') : t('therapist.showMore')}
                         </Button>
-                        
+
                         <Button
                           variant="contained"
                           size="small"

@@ -22,7 +22,7 @@ describe('TherapistBrowser', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
-    
+
     // Default mock implementation
     mockListTherapists.mockReturnValue({
       data: {

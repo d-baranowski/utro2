@@ -19,28 +19,29 @@ const testTransport = createConnectTransport({
 });
 
 // Create a test QueryClient with shorter retry times for testing
-const createTestQueryClient = () => new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: false, // Disable retries in tests
-      staleTime: 0,
-      gcTime: 0, // Renamed from cacheTime in v5
+const createTestQueryClient = () =>
+  new QueryClient({
+    defaultOptions: {
+      queries: {
+        retry: false, // Disable retries in tests
+        staleTime: 0,
+        gcTime: 0, // Renamed from cacheTime in v5
+      },
+      mutations: {
+        retry: false,
+      },
     },
-    mutations: {
-      retry: false,
-    },
-  },
-});
+  });
 
 /**
  * Test wrapper component that provides all necessary providers for testing
  * components that use Connect Query hooks, Material UI, and application contexts.
- * 
+ *
  * Usage in tests:
  * ```
  * import { render } from '@testing-library/react';
  * import { TestProviders } from '../test-utils/providers';
- * 
+ *
  * render(
  *   <TestProviders>
  *     <YourComponent />
@@ -50,15 +51,13 @@ const createTestQueryClient = () => new QueryClient({
  */
 export const TestProviders: React.FC<TestProvidersProps> = ({ children }) => {
   const queryClient = React.useMemo(() => createTestQueryClient(), []);
-  
+
   return (
     <ThemeProvider theme={theme}>
       <QueryClientProvider client={queryClient}>
         <TransportProvider transport={testTransport}>
           <AuthProvider>
-            <OrganisationProvider>
-              {children}
-            </OrganisationProvider>
+            <OrganisationProvider>{children}</OrganisationProvider>
           </AuthProvider>
         </TransportProvider>
       </QueryClientProvider>
@@ -70,9 +69,5 @@ export const TestProviders: React.FC<TestProvidersProps> = ({ children }) => {
  * Custom render function that automatically wraps components with TestProviders
  */
 export const renderWithProviders = (ui: React.ReactElement) => {
-  return render(
-    <TestProviders>
-      {ui}
-    </TestProviders>
-  );
+  return render(<TestProviders>{ui}</TestProviders>);
 };

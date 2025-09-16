@@ -1,16 +1,13 @@
 import React from 'react';
-import {
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  FormHelperText,
-  Skeleton,
-} from '@mui/material';
+import { FormControl, InputLabel, Select, MenuItem, FormHelperText, Skeleton } from '@mui/material';
 import { useQuery } from '@connectrpc/connect-query';
 import { getOrganisationUsers } from '../../../generated/organisation/v1/organisation-OrganisationService_connectquery';
 import { create } from '@bufbuild/protobuf';
-import { GetOrganisationUsersRequestSchema, User, GetOrganisationUsersResponse } from '../../../generated/organisation/v1/organisation_pb';
+import {
+  GetOrganisationUsersRequestSchema,
+  User,
+  GetOrganisationUsersResponse,
+} from '../../../generated/organisation/v1/organisation_pb';
 import { useTranslation } from 'next-i18next';
 
 interface UserDropdownProps {
@@ -38,7 +35,11 @@ export const UserDropdown: React.FC<UserDropdownProps> = ({
 }) => {
   const { t } = useTranslation('common');
 
-  const { data, error: queryError, isLoading } = useQuery(
+  const {
+    data,
+    error: queryError,
+    isLoading,
+  } = useQuery(
     getOrganisationUsers,
     create(GetOrganisationUsersRequestSchema, {
       organisationId,
@@ -47,12 +48,7 @@ export const UserDropdown: React.FC<UserDropdownProps> = ({
 
   if (isLoading) {
     return (
-      <Skeleton 
-        variant="rectangular" 
-        width="100%" 
-        height={56}
-        data-testid={`${testId}-loading`}
-      />
+      <Skeleton variant="rectangular" width="100%" height={56} data-testid={`${testId}-loading`} />
     );
   }
 

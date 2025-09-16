@@ -31,7 +31,13 @@ const TherapistsPage = () => {
             <Skeleton variant="rectangular" width="200px" height={40} />
             <Skeleton variant="rectangular" width="150px" height={40} />
           </Box>
-          <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 2 }}>
+          <Box
+            sx={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+              gap: 2,
+            }}
+          >
             {[...Array(6)].map((_, i) => (
               <Skeleton key={i} variant="rectangular" width="100%" height={200} />
             ))}
@@ -64,10 +70,7 @@ const TherapistsPage = () => {
 
   return (
     <Layout>
-      <TherapistBrowser 
-        organisationId={currentOrganisation.id} 
-        showFilters={true}
-      />
+      <TherapistBrowser organisationId={currentOrganisation.id} showFilters={true} />
     </Layout>
   );
 };
