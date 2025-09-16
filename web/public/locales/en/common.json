@@ -173,5 +173,53 @@
       "languagesRequired": "At least one language is required",
       "formatRequired": "At least one therapy format is required"
     }
+  },
+  "offers": {
+    "title": "Offers Management",
+    "subtitle": "Manage your organization's services and offers",
+    "add": "Add Offer",
+    "edit": "Edit Offer",
+    "delete": "Delete Offer",
+    "createOffer": "Create Offer",
+    "editOffer": "Edit Offer",
+    "deleteConfirm": "Are you sure you want to delete this offer?",
+    "deleteWarning": "This action cannot be undone. This will permanently delete the offer.",
+    "noOffers": "No offers found",
+    "noOffersMessage": "Create your first offer to get started",
+    "searchPlaceholder": "Search offers by name or description...",
+    "nameEng": "Name (English)",
+    "namePl": "Name (Polish)",
+    "descriptionEng": "Description (English)",
+    "descriptionPl": "Description (Polish)",
+    "profileImage": "Profile Image",
+    "uploadImage": "Upload Image",
+    "removeImage": "Remove Image",
+    "imagePreview": "Image Preview",
+    "created": "Created",
+    "updated": "Updated",
+    "actions": "Actions",
+    "view": "View",
+    "browse": "Browse Offers",
+    "browseSubtitle": "Discover available services and offers",
+    "offersCount": "{{count}} offers available",
+    "noOffersAvailable": "No offers available at the moment",
+    "errors": {
+      "nameRequired": "Offer name is required in at least one language",
+      "nameEngRequired": "English name is required",
+      "namePlRequired": "Polish name is required",
+      "descriptionRequired": "Description is required in at least one language",
+      "createFailed": "Failed to create offer",
+      "updateFailed": "Failed to update offer",
+      "deleteFailed": "Failed to delete offer",
+      "loadFailed": "Failed to load offers",
+      "imageTooLarge": "Image file is too large (max 5MB)",
+      "invalidImageType": "Invalid image type. Please use JPG, PNG, or WebP",
+      "adminRequired": "Administrator access required to manage offers"
+    },
+    "success": {
+      "created": "Offer created successfully",
+      "updated": "Offer updated successfully",
+      "deleted": "Offer deleted successfully"
+    }
   }
 }
